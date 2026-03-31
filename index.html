@@ -10,53 +10,82 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
         .header-font { font-family: 'Space Grotesk', sans-serif; }
         
+        .day-filter {
+            transition: all 0.3s ease;
+        }
+        .day-filter.active {
+            background-color: #003087 !important;
+            color: white !important;
+        }
+        
         .table-row:hover {
             background-color: #f0f7ff;
             transform: scale(1.02) translateY(-2px);
+        }
+        
+        .scrollable-filters {
+            scrollbar-width: none;
+        }
+        .scrollable-filters::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
 <body class="bg-gray-50">
 
     <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6 shadow-lg">
-        <div class="max-w-7xl mx-auto px-6 flex items-center gap-4" id="logoContainer">
-            <!-- Logo loaded from lecture.json -->
-        </div>
+        <div class="max-w-7xl mx-auto px-6 flex items-center gap-4" id="logoContainer"></div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 py-10">
         <h1 class="header-font text-5xl font-bold text-[#003087] text-center">UNZA Academic Timetable 2026</h1>
         <p class="text-center text-gray-600 mt-2">The University of Zambia</p>
 
-        <!-- Search -->
-        <div class="mt-10 flex flex-col md:flex-row gap-4">
-            <input id="searchInput" type="text" placeholder="Search course, lecturer, class rep or day..." 
-                   class="flex-1 px-6 py-5 rounded-3xl border border-gray-300 focus:border-[#003087] text-lg"
-                   onkeyup="if(event.key === 'Enter') performSearch()">
-            <button onclick="performSearch()" class="bg-[#003087] text-white px-10 py-5 rounded-3xl font-semibold">SEARCH</button>
-            <button onclick="resetFilters()" class="px-6 py-5 text-gray-500 hover:text-gray-700">Reset</button>
+        <!-- Live Search -->
+        <div class="mt-10">
+            <input id="searchInput" type="text" placeholder="Search course, lecturer, or class rep..." 
+                   class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-[#003087] text-lg outline-none"
+                   onkeyup="liveSearch()">
         </div>
 
-        <!-- Fixed Day Filters (Monday to Sunday) -->
-        <div class="my-8 flex flex-wrap gap-3" id="dayFilters"></div>
+        <!-- Horizontal Scrollable Day Filters -->
+        <div class="my-8 overflow-x-auto scrollable-filters pb-2">
+            <div class="flex gap-3 whitespace-nowrap" id="dayFilters"></div>
+        </div>
 
         <!-- Timetable -->
         <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
             <table class="w-full">
-                <thead class="bg-[#003087] text-white">
+                <thead class="bg-[#003087] text-white sticky top-0">
                     <tr>
                         <th class="px-6 py-6 text-left">Day</th>
                         <th class="px-6 py-6 text-left">Time</th>
                         <th class="px-6 py-6 text-left">Course</th>
                         <th class="px-6 py-6 text-left">Lecturer</th>
                         <th class="px-6 py-6 text-left">Class Rep</th>
-                        <th class="px-6 py-6 text-center">Action</th>
+                        <th class="px-6 py-6 text-center">Call</th>
                     </tr>
                 </thead>
                 <tbody id="timetableBody" class="divide-y"></tbody>
             </table>
         </div>
     </main>
+
+    <!-- Call Options Modal -->
+    <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+        <div class="bg-white rounded-3xl w-full max-w-sm mx-4 overflow-hidden">
+            <div class="p-6 text-center border-b">
+                <h3 class="text-xl font-semibold" id="modalTitle">Make a Call</h3>
+            </div>
+            <div class="p-6 space-y-4" id="callOptions"></div>
+            <div class="p-4">
+                <button onclick="closeCallModal()" 
+                        class="w-full py-4 text-gray-600 font-medium rounded-3xl hover:bg-gray-100">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
         let timetableData = [];
@@ -69,10 +98,9 @@
                 timetableData = data.timetable || [];
                 const logoPath = data.logo || 'images/logo.png';
 
-                // Load Logo
                 document.getElementById('logoContainer').innerHTML = `
                     <div class="flex items-center gap-4">
-                        <img src="${logoPath}" alt="UNZA Logo" class="w-16 h-16 object-contain bg-white rounded-2xl p-2 shadow-inner">
+                        <img src="${logoPath}" alt="UNZA" class="w-16 h-16 object-contain bg-white rounded-2xl p-2 shadow-inner">
                         <div>
                             <h1 class="header-font text-4xl tracking-tighter">University of Zambia</h1>
                             <p class="text-blue-200">Student Timetable Portal • 2026</p>
@@ -87,21 +115,20 @@
             }
         }
 
-        // Fixed Days: Monday to Sunday
         const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
         function renderDayFilters() {
             const container = document.getElementById('dayFilters');
             container.innerHTML = `
                 <div onclick="filterByDay('all')" id="filter-all" 
-                     class="px-6 py-3 bg-[#003087] text-white rounded-3xl cursor-pointer font-medium">ALL COURSES</div>
+                     class="day-filter active px-7 py-3 bg-[#003087] text-white rounded-3xl cursor-pointer font-medium">ALL COURSES</div>
             `;
 
             allDays.forEach(day => {
                 const div = document.createElement('div');
                 div.textContent = day;
                 div.id = `filter-${day}`;
-                div.className = "px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl cursor-pointer font-medium";
+                div.className = "day-filter px-7 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl cursor-pointer font-medium";
                 div.onclick = () => filterByDay(day);
                 container.appendChild(div);
             });
@@ -110,16 +137,16 @@
         function renderTable(data) {
             const tbody = document.getElementById('timetableBody');
             tbody.innerHTML = data.map(item => `
-                <tr class="table-row border-b hover:bg-blue-50">
+                <tr class="table-row border-b">
                     <td class="px-6 py-6 font-medium">${item.day}</td>
                     <td class="px-6 py-6">${item.time}</td>
                     <td class="px-6 py-6 font-medium">${item.course}</td>
                     <td class="px-6 py-6 whitespace-pre-line">${item.lecturer}</td>
                     <td class="px-6 py-6 whitespace-pre-line">${item.classRep}</td>
                     <td class="px-6 py-6 text-center">
-                        <button onclick="alert('💬 WhatsApp would open with ${item.classRep.split('\n')[0]}')" 
-                                class="bg-emerald-600 text-white px-6 py-3 rounded-3xl text-sm hover:bg-emerald-700">
-                            Message Rep
+                        <button onclick="showCallOptions('${item.lecturer}', '${item.classRep}')" 
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-3xl text-sm font-medium">
+                            📞 Call
                         </button>
                     </td>
                 </tr>
@@ -127,26 +154,28 @@
         }
 
         function filterByDay(day) {
-            document.querySelectorAll('#dayFilters > div').forEach(el => {
-                el.classList.remove('bg-[#003087]', 'text-white');
-            });
-
+            document.querySelectorAll('.day-filter').forEach(el => el.classList.remove('active'));
+            
             if (day === 'all') {
-                document.getElementById('filter-all').classList.add('bg-[#003087]', 'text-white');
+                document.getElementById('filter-all').classList.add('active');
                 renderTable(timetableData);
             } else {
-                document.getElementById(`filter-${day}`).classList.add('bg-[#003087]', 'text-white');
+                document.getElementById(`filter-${day}`).classList.add('active');
                 const filtered = timetableData.filter(item => item.day === day);
                 renderTable(filtered);
             }
         }
 
-        function performSearch() {
+        // Live Search (as you type)
+        function liveSearch() {
             const term = document.getElementById('searchInput').value.toLowerCase().trim();
-            if (!term) return;
+            if (!term) {
+                renderTable(timetableData);
+                return;
+            }
             
-            const filtered = timetableData.filter(item => 
-                item.course.toLowerCase().includes(term) || 
+            const filtered = timetableData.filter(item =>
+                item.course.toLowerCase().includes(term) ||
                 item.lecturer.toLowerCase().includes(term) ||
                 item.classRep.toLowerCase().includes(term) ||
                 item.day.toLowerCase().includes(term)
@@ -154,9 +183,48 @@
             renderTable(filtered);
         }
 
-        function resetFilters() {
-            document.getElementById('searchInput').value = '';
-            filterByDay('all');
+        function showCallOptions(lecturerStr, classRepStr) {
+            const lecturerName = lecturerStr.split('\n')[0];
+            const lecturerPhone = lecturerStr.split('\n')[1] || 'N/A';
+            
+            const repName = classRepStr.split('\n')[0];
+            const repPhone = classRepStr.split('\n')[1] || 'N/A';
+
+            let html = `
+                <button onclick="makeCall('${lecturerPhone}', '${lecturerName}')" 
+                        class="w-full text-left p-5 border rounded-2xl hover:bg-gray-50 flex justify-between items-center">
+                    <div>
+                        <span class="font-medium">Call Lecturer</span><br>
+                        <span class="text-sm text-gray-600">${lecturerName}</span>
+                    </div>
+                    <span class="text-blue-600">${lecturerPhone}</span>
+                </button>
+                
+                <button onclick="makeCall('${repPhone}', '${repName}')" 
+                        class="w-full text-left p-5 border rounded-2xl hover:bg-gray-50 flex justify-between items-center">
+                    <div>
+                        <span class="font-medium">Call Class Rep</span><br>
+                        <span class="text-sm text-gray-600">${repName}</span>
+                    </div>
+                    <span class="text-blue-600">${repPhone}</span>
+                </button>
+            `;
+
+            document.getElementById('callOptions').innerHTML = html;
+            document.getElementById('callModal').classList.remove('hidden');
+        }
+
+        function makeCall(phone, name) {
+            if (phone === 'N/A') {
+                alert("No phone number available");
+                return;
+            }
+            window.location.href = `tel:${phone}`;
+            closeCallModal();
+        }
+
+        function closeCallModal() {
+            document.getElementById('callModal').classList.add('hidden');
         }
 
         window.onload = loadData;
