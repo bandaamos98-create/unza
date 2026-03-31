@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Space+Grotesk:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Grotesk:wght@700&display=swap');
 
 /* FORCE DESKTOP */
 html, body {
@@ -31,9 +31,10 @@ html, body {
     }
 }
 
-/* BIGGER UI SCALE */
+/* ACCESSIBILITY SCALE (VERY BIG) */
 body {
-    font-size: 18px;
+    font-size: 22px;
+    line-height: 1.6;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -41,20 +42,28 @@ body {
     font-family: 'Space Grotesk', sans-serif;
 }
 
-/* BIGGER ELEMENTS */
+/* BIG TABLE */
 th {
-    font-size: 20px;
+    font-size: 24px;
+    padding: 20px;
 }
 
 td {
-    font-size: 18px;
+    font-size: 22px;
+    padding: 20px;
 }
 
+/* BIG INPUT */
 input {
-    font-size: 18px;
+    font-size: 22px;
 }
 
-/* HOVER */
+/* BUTTONS BIG */
+button {
+    font-size: 20px;
+}
+
+/* ROW HOVER */
 .table-row:hover {
     background-color: #f0f7ff;
 }
@@ -63,56 +72,56 @@ input {
 
 <body>
 
-<header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-8 shadow-lg">
-    <div class="px-8 flex justify-between items-center">
+<header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-10 shadow-lg">
+    <div class="px-10 flex justify-between items-center">
 
-        <div class="flex items-center gap-5">
-            <img id="logoImg" src="images/logo.png" class="w-20 h-20 bg-white p-2 rounded-2xl">
+        <div class="flex items-center gap-6">
+            <img id="logoImg" src="images/logo.png" class="w-24 h-24 bg-white p-2 rounded-2xl">
 
             <div>
-                <h1 class="header-font text-5xl">University of Zambia</h1>
-                <p class="text-blue-200 text-lg">Student Timetable Portal • 2026</p>
+                <h1 class="header-font text-6xl">University of Zambia</h1>
+                <p class="text-blue-200 text-xl">Student Timetable Portal • 2026</p>
             </div>
         </div>
 
         <button onclick="showFeedbackForm()" 
-            class="bg-white text-[#003087] px-7 py-4 rounded-3xl text-lg">
+            class="bg-white text-[#003087] px-8 py-5 rounded-3xl">
             Help Us Improve
         </button>
 
     </div>
 </header>
 
-<main class="px-8 py-12">
+<main class="px-10 py-14">
 
-<h1 class="header-font text-6xl text-center text-[#003087]">
+<h1 class="header-font text-7xl text-center text-[#003087]">
     UNZA Academic Timetable 2026
 </h1>
 
-<p class="text-center text-gray-600 text-lg mt-3">
+<p class="text-center text-gray-600 text-xl mt-4">
     The University of Zambia
 </p>
 
 <!-- SEARCH -->
-<div class="mt-12">
+<div class="mt-14">
     <input id="searchInput" type="text"
            placeholder="Search course, lecturer, or day..."
-           class="w-full px-6 py-6 rounded-3xl border text-xl"
+           class="w-full px-8 py-7 rounded-3xl border"
            onkeyup="liveSearch()">
 </div>
 
 <!-- FILTERS -->
-<div class="my-10 flex gap-4" id="dayFilters"></div>
+<div class="my-12 flex gap-5 flex-wrap" id="dayFilters"></div>
 
 <!-- TABLE -->
 <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
 <table class="w-full">
 <thead class="bg-[#003087] text-white">
 <tr>
-<th class="px-6 py-6 text-left">Day</th>
-<th class="px-6 py-6 text-left">Time</th>
-<th class="px-6 py-6 text-left">Course</th>
-<th class="px-6 py-6 text-left">Lecturer</th>
+<th>Day</th>
+<th>Time</th>
+<th>Course</th>
+<th>Lecturer</th>
 </tr>
 </thead>
 
@@ -124,18 +133,18 @@ input {
 
 <!-- CALL MODAL -->
 <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
-<div class="bg-white rounded-3xl p-8 w-[400px] text-center">
+<div class="bg-white rounded-3xl p-10 w-[450px] text-center">
 
-<h3 id="modalTitle" class="text-2xl font-semibold mb-4"></h3>
+<h3 id="modalTitle" class="text-3xl font-semibold mb-6"></h3>
 
-<p id="modalPhone" class="text-xl text-blue-600 mb-6"></p>
+<p id="modalPhone" class="text-2xl text-blue-600 mb-8"></p>
 
-<div class="flex gap-4">
-<button onclick="closeCallModal()" class="flex-1 py-4 bg-gray-200 rounded-2xl">
+<div class="flex gap-5">
+<button onclick="closeCallModal()" class="flex-1 py-5 bg-gray-200 rounded-2xl">
 Cancel
 </button>
 
-<button onclick="makeActualCall()" class="flex-1 py-4 bg-blue-600 text-white rounded-2xl">
+<button onclick="makeActualCall()" class="flex-1 py-5 bg-blue-600 text-white rounded-2xl">
 Call Now
 </button>
 </div>
@@ -146,24 +155,34 @@ Call Now
 <!-- FEEDBACK MODAL -->
 <div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
 
-<div class="bg-white rounded-3xl w-full max-w-3xl relative">
+<div class="bg-white rounded-3xl w-full max-w-4xl relative">
 
-<!-- CLOSE BUTTON -->
 <button onclick="closeFeedbackModal()" 
-class="absolute top-4 right-5 text-3xl font-bold text-gray-500 hover:text-black">
+class="absolute top-5 right-6 text-4xl font-bold text-gray-500 hover:text-black">
 ×
 </button>
 
 <iframe 
 src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true"
-width="100%" height="650">
+width="100%" height="700">
 </iframe>
 
 </div>
 </div>
 
-<footer class="text-center py-10 text-gray-500 text-sm">
-<p>Created by Amos Banda</p>
+<!-- FOOTER WITH YOUR DETAILS -->
+<footer class="text-center py-12 text-gray-600 text-lg">
+<p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
+
+<p class="mt-2">
+<a href="tel:+260979077079" class="hover:text-blue-600">
++260 979 077079
+</a>
+•
+<a href="mailto:bandaamos98@gmail.com" class="hover:text-blue-600">
+bandaamos98@gmail.com
+</a>
+</p>
 </footer>
 
 <script>
@@ -180,25 +199,21 @@ async function loadData() {
     renderTable();
 }
 
-/* DAYS */
 const allDays = ["Monday","Tuesday","Wednesday","Thursday","Friday"];
 
-/* FILTERS */
 function renderDayFilters() {
     const container = document.getElementById('dayFilters');
 
-    container.innerHTML = `<button onclick="filterByDay('all')" class="px-6 py-3 bg-blue-800 text-white rounded-2xl text-lg">ALL</button>`;
+    container.innerHTML = `<button onclick="filterByDay('all')" class="px-7 py-4 bg-blue-800 text-white rounded-2xl">ALL</button>`;
 
     allDays.forEach(day => {
         container.innerHTML += `
         <button onclick="filterByDay('${day}')" 
-        class="px-6 py-3 border rounded-2xl text-lg">${day}</button>`;
+        class="px-7 py-4 border rounded-2xl">${day}</button>`;
     });
 }
 
-/* TABLE */
 function renderTable(data = timetableData) {
-
     const tbody = document.getElementById('timetableBody');
 
     tbody.innerHTML = data.map(item => {
@@ -210,16 +225,16 @@ function renderTable(data = timetableData) {
         return `
         <tr class="table-row border-b">
 
-        <td class="px-6 py-5">${item.day}</td>
-        <td class="px-6 py-5">${item.time}</td>
-        <td class="px-6 py-5 font-semibold">${item.course}</td>
+        <td>${item.day}</td>
+        <td>${item.time}</td>
+        <td class="font-semibold">${item.course}</td>
 
-        <td class="px-6 py-5">
-            <div class="mb-2">${name}</div>
+        <td>
+            <div class="mb-3">${name}</div>
 
             ${phone ? `
             <button onclick="prepareCall('${name}','${phone}')" 
-            class="text-blue-600 text-sm flex items-center gap-2">
+            class="text-blue-600 flex items-center gap-2">
             <i class="fas fa-phone"></i> Call Lecturer
             </button>` : ''}
         </td>
@@ -229,7 +244,6 @@ function renderTable(data = timetableData) {
     }).join('');
 }
 
-/* CALL */
 function prepareCall(name, phone) {
     currentPhone = phone;
 
@@ -247,7 +261,6 @@ function closeCallModal() {
     document.getElementById('callModal').classList.add('hidden');
 }
 
-/* SEARCH */
 function liveSearch() {
     const term = document.getElementById('searchInput').value.toLowerCase();
 
@@ -260,14 +273,12 @@ function liveSearch() {
     );
 }
 
-/* FILTER */
 function filterByDay(day) {
     if(day === 'all') return renderTable();
 
     renderTable(timetableData.filter(x => x.day === day));
 }
 
-/* FEEDBACK */
 function showFeedbackForm() {
     document.getElementById('feedbackModal').classList.remove('hidden');
 }
