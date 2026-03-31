@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- FORCED DESKTOP MODE + FITS PERFECTLY ON PHONE SCREEN -->
-    <!-- No zoom-in, everything visible without scrolling or zooming -->
+    <!-- Forces desktop mode + fits screen perfectly -->
     <meta name="viewport" content="width=1280, initial-scale=0.75, maximum-scale=1.0, user-scalable=no">
     
     <title>UNZA Timetable • 2026</title>
@@ -37,18 +36,28 @@
         table {
             min-width: 900px;
         }
-
-        /* Extra force to make full desktop layout fit screen */
-        .max-w-7xl {
-            max-width: 1280px !important;
-            margin-left: auto;
-            margin-right: auto;
-        }
     </style>
 </head>
 <body class="bg-gray-50">
     <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6 shadow-lg">
-        <div class="max-w-7xl mx-auto px-6 flex items-center gap-4" id="logoContainer"></div>
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between" id="logoContainer">
+            <!-- Logo and Title -->
+            <div class="flex items-center gap-4">
+                <img id="logoImg" src="images/logo.png" alt="UNZA" class="w-16 h-16 object-contain bg-white rounded-2xl p-2 shadow-inner">
+                <div>
+                    <h1 class="header-font text-4xl tracking-tighter">University of Zambia</h1>
+                    <p class="text-blue-200">Student Timetable Portal • 2026</p>
+                </div>
+            </div>
+            
+            <!-- Help Button -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform" 
+               target="_blank"
+               class="bg-white text-[#003087] px-6 py-3 rounded-3xl font-medium hover:bg-blue-50 transition flex items-center gap-2">
+                <i class="fas fa-comment-dots"></i>
+                Help Us Improve
+            </a>
+        </div>
     </header>
     
     <main class="max-w-7xl mx-auto px-6 py-10">
@@ -62,7 +71,7 @@
                    onkeyup="liveSearch()">
         </div>
 
-        <!-- Horizontal Scrollable Day Filters -->
+        <!-- Day Filters -->
         <div class="my-8 overflow-x-auto scrollable-filters pb-2">
             <div class="flex gap-3 whitespace-nowrap" id="dayFilters"></div>
         </div>
@@ -84,17 +93,22 @@
         </div>
     </main>
 
-    <!-- Call Modal -->
+    <!-- Confirmation Modal -->
     <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
         <div class="bg-white rounded-3xl w-full max-w-sm mx-4 overflow-hidden">
             <div class="p-6 text-center border-b">
-                <h3 class="text-xl font-semibold">Call Lecturer</h3>
+                <h3 class="text-xl font-semibold" id="modalTitle">Confirm Call</h3>
             </div>
             <div class="p-6 space-y-4" id="callOptions"></div>
-            <div class="p-4">
-                <button onclick="closeCallModal()"
-                        class="w-full py-4 text-gray-600 font-medium rounded-3xl hover:bg-gray-100">
+            <div class="p-4 flex gap-3">
+                <button onclick="closeCallModal()" 
+                        class="flex-1 py-4 text-gray-600 font-medium rounded-3xl hover:bg-gray-100">
                     Cancel
+                </button>
+                <button onclick="confirmAndCall()" 
+                        id="callNowBtn"
+                        class="flex-1 py-4 bg-blue-600 text-white font-medium rounded-3xl hover:bg-blue-700">
+                    Call Now
                 </button>
             </div>
         </div>
@@ -111,6 +125,8 @@
 
     <script>
         let timetableData = [];
+        let currentPhone = '';
+        let currentName = '';
 
         async function loadData() {
             try {
@@ -120,15 +136,7 @@
                 timetableData = data.timetable || [];
                 const logoPath = data.logo || 'images/logo.png';
 
-                document.getElementById('logoContainer').innerHTML = `
-                    <div class="flex items-center gap-4">
-                        <img src="${logoPath}" alt="UNZA" class="w-16 h-16 object-contain bg-white rounded-2xl p-2 shadow-inner">
-                        <div>
-                            <h1 class="header-font text-4xl tracking-tighter">University of Zambia</h1>
-                            <p class="text-blue-200">Student Timetable Portal • 2026</p>
-                        </div>
-                    </div>
-                `;
+                document.getElementById('logoImg').src = logoPath;
 
                 renderDayFilters();
                 renderTable();
@@ -186,9 +194,43 @@
                     const row = this.closest('tr');
                     const index = parseInt(row.getAttribute('data-index'));
                     const item = dataToRender[index];
-                    if (item) showCallOptions(item.lecturer);
+                    if (item) prepareCall(item.lecturer);
                 });
             });
+        }
+
+        function prepareCall(lecturerStr) {
+            const lecturerName = lecturerStr.split('\n')[0] || 'Lecturer';
+            currentPhone = lecturerStr.split('\n')[1] || 'N/A';
+            currentName = lecturerName;
+
+            if (currentPhone === 'N/A' || !currentPhone) {
+                alert("No phone number available for this lecturer.");
+                return;
+            }
+
+            // Show confirmation modal
+            document.getElementById('modalTitle').textContent = `Call ${lecturerName}?`;
+            document.getElementById('callOptions').innerHTML = `
+                <p class="text-center text-gray-600 py-4">
+                    Do you want to call <strong>${lecturerName}</strong>?<br>
+                    <span class="text-blue-600 font-medium">${currentPhone}</span>
+                </p>
+            `;
+            document.getElementById('callModal').classList.remove('hidden');
+        }
+
+        function confirmAndCall() {
+            if (currentPhone && currentPhone !== 'N/A') {
+                window.location.href = `tel:${currentPhone}`;
+                closeCallModal();
+            }
+        }
+
+        function closeCallModal() {
+            document.getElementById('callModal').classList.add('hidden');
+            currentPhone = '';
+            currentName = '';
         }
 
         function filterByDay(day) {
@@ -217,44 +259,6 @@
                 item.day.toLowerCase().includes(term)
             );
             renderTable(filtered);
-        }
-
-        function showCallOptions(lecturerStr) {
-            const lecturerName = lecturerStr.split('\n')[0] || 'Lecturer';
-            const lecturerPhone = lecturerStr.split('\n')[1] || 'N/A';
-
-            let html = '';
-
-            if (lecturerPhone !== 'N/A' && lecturerPhone !== '') {
-                html = `
-                    <button onclick="makeCall('${lecturerPhone}', '${lecturerName}')"
-                            class="w-full text-left p-5 border border-gray-200 rounded-2xl hover:bg-blue-50 flex justify-between items-center transition">
-                        <div>
-                            <span class="font-medium text-lg">📞 Call Lecturer</span><br>
-                            <span class="text-gray-600">${lecturerName}</span>
-                        </div>
-                        <span class="text-blue-600 font-medium">${lecturerPhone}</span>
-                    </button>
-                `;
-            } else {
-                html = `<p class="text-center text-gray-500 py-8">No phone number available</p>`;
-            }
-
-            document.getElementById('callOptions').innerHTML = html;
-            document.getElementById('callModal').classList.remove('hidden');
-        }
-
-        function makeCall(phone, name) {
-            if (!phone || phone === 'N/A') {
-                alert("No phone number available for this lecturer.");
-                return;
-            }
-            window.location.href = `tel:${phone}`;
-            closeCallModal();
-        }
-
-        function closeCallModal() {
-            document.getElementById('callModal').classList.add('hidden');
         }
 
         window.onload = loadData;
