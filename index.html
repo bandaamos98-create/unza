@@ -95,7 +95,7 @@
                onkeyup="liveSearch()">
     </div>
 
-    <!-- FILTERS (NO "ALL" BUTTON) -->
+    <!-- FILTERS (7 days only – no ALL button) -->
     <div class="my-12 flex gap-5 flex-wrap" id="dayFilters"></div>
 
     <!-- TABLE -->
@@ -151,7 +151,7 @@
 <script>
     let timetableData = [];
     let currentPhone = '';
-    let activeDay = null;                    // ← tracks which day button is selected (blue)
+    let activeDay = null;
 
     const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -161,16 +161,16 @@
 
         timetableData = data.timetable || [];
 
-        renderDayFilters();
-        renderTable();
+        // === AUTO-SELECT TODAY'S DAY ON PAGE LOAD ===
+        const todayIndex = new Date().getDay();           // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        activeDay = dayNames[todayIndex];
 
-        // AUTO LAND ON SUNDAY IF TODAY IS SUNDAY
-        if (new Date().getDay() === 0) {
-            activeDay = "Sunday";
-            renderDayFilters();
-            const sundayData = timetableData.filter(x => x.day === "Sunday");
-            renderTable(sundayData);
-        }
+        renderDayFilters();
+        
+        // Show only today's courses
+        const todayData = timetableData.filter(x => x.day === activeDay);
+        renderTable(todayData);
     }
 
     function renderDayFilters() {
@@ -180,7 +180,7 @@
         allDays.forEach(day => {
             const isActive = activeDay === day;
             const btnClass = isActive
-                ? "px-7 py-4 bg-[#003087] text-white rounded-2xl shadow-md"   // selected = blue background + white text
+                ? "px-7 py-4 bg-[#003087] text-white rounded-2xl shadow-md"   // selected = blue + white text
                 : "px-7 py-4 border border-gray-300 hover:border-[#003087] text-gray-700 rounded-2xl";
 
             container.innerHTML += `
@@ -241,7 +241,7 @@
     }
 
     function filterByDay(day) {
-        // Clicking the already-selected day → deselect and show ALL again
+        // Clicking the already-selected day shows ALL again
         if (activeDay === day) {
             activeDay = null;
             renderDayFilters();
