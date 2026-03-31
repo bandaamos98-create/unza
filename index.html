@@ -7,173 +7,128 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
         
         :root { --unza-blue: #003087; }
         
-        * {
-            transition-property: all;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 250ms;
-        }
-        
+        * { transition: all 0.25s ease; }
         .header-font { font-family: 'Space Grotesk', sans-serif; }
         
-        .table-row {
-            transition: all 0.3s ease;
-        }
         .table-row:hover {
             background-color: #f0f7ff;
-            transform: scale(1.02) translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgb(0 48 135 / 0.1);
+            transform: scale(1.02) translateY(-3px);
         }
-
+        
         .modal {
-            animation: modalPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
         @keyframes modalPop {
-            0% { opacity: 0; transform: scale(0.7) translateY(60px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        .hero-bg {
-            background: linear-gradient(135deg, #003087 0%, #0048a8 100%);
+            from { opacity: 0; transform: scale(0.8) translateY(50px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
     </style>
 </head>
-<body class="tailwind-ready bg-gray-50">
-    <!-- HEADER -->
-    <header class="hero-bg text-white shadow-xl sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-            <div class="flex items-center gap-x-5" id="logoContainer">
-                <!-- Loaded from JSON -->
-            </div>
-
-            <div class="flex items-center gap-x-4">
-                <div class="bg-white/15 backdrop-blur-lg text-white text-sm px-5 py-2.5 rounded-3xl flex items-center gap-x-3 border border-white/30">
-                    <div class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></div>
-                    Semester 1 • 2026
-                </div>
-                <div class="flex items-center gap-x-3 bg-white/15 backdrop-blur-lg px-5 py-2.5 rounded-3xl">
-                    <i class="fa-solid fa-user-graduate text-2xl"></i>
-                    <div>
-                        <p class="font-medium">Welcome, Amos</p>
-                        <p class="text-xs text-blue-200">The University of Zambia</p>
-                    </div>
-                </div>
-            </div>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between" id="logoContainer">
+            <!-- Logo & Title loaded from JSON -->
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 py-10">
-        <div class="mb-12 text-center md:text-left">
-            <h1 class="header-font text-5xl md:text-6xl font-bold tracking-tighter text-[#003087]">
-                Academic Timetable
-            </h1>
-            <p class="text-xl text-gray-600 mt-3">Stay organized • Never miss a lecture</p>
-        </div>
+        <h1 class="header-font text-5xl font-bold text-[#003087] text-center md:text-left">Academic Timetable 2026</h1>
+        <p class="text-center md:text-left text-gray-600 mt-2">The University of Zambia</p>
 
-        <!-- Search Bar -->
-        <div class="mb-10 flex flex-col md:flex-row gap-4">
+        <!-- Search -->
+        <div class="mt-10 flex flex-col md:flex-row gap-4">
             <div class="relative flex-1">
                 <i class="fa-solid fa-magnifying-glass absolute left-6 top-5 text-gray-400"></i>
-                <input id="searchInput" type="text" 
-                       placeholder="Search by course, lecturer, class rep or day..."
-                       onkeyup="if(event.key === 'Enter') performSearch()"
-                       class="w-full pl-14 pr-6 py-5 bg-white border border-gray-200 focus:border-[#003087] rounded-3xl text-lg outline-none shadow-sm">
+                <input id="searchInput" type="text" placeholder="Search course, lecturer, class rep..." 
+                       class="w-full pl-14 py-5 rounded-3xl border border-gray-300 focus:border-[#003087] text-lg"
+                       onkeyup="if(event.key === 'Enter') performSearch()">
             </div>
-            <button onclick="performSearch()" 
-                    class="bg-[#003087] text-white px-12 py-5 rounded-3xl font-semibold flex items-center gap-x-3 hover:shadow-xl">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                SEARCH
-            </button>
-            <button onclick="resetFilters()" class="px-8 py-5 text-gray-500 hover:text-gray-700">
-                <i class="fa-solid fa-rotate-right text-xl"></i>
-            </button>
+            <button onclick="performSearch()" class="bg-[#003087] text-white px-10 py-5 rounded-3xl font-semibold">SEARCH</button>
+            <button onclick="resetFilters()" class="px-6 py-5 text-gray-500">Reset</button>
         </div>
 
         <!-- Day Filters -->
-        <div class="flex flex-wrap gap-3 mb-10" id="dayFilters"></div>
+        <div class="flex flex-wrap gap-3 my-8" id="dayFilters"></div>
 
-        <!-- Timetable Table -->
-        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+        <!-- Table -->
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
             <table class="w-full">
-                <thead>
-                    <tr class="bg-gradient-to-r from-[#003087] to-[#0050b0] text-white">
-                        <th class="px-6 py-6 text-left text-sm uppercase tracking-widest">Day</th>
-                        <th class="px-6 py-6 text-left text-sm uppercase tracking-widest">Time</th>
-                        <th class="px-6 py-6 text-left text-sm uppercase tracking-widest">Course</th>
-                        <th class="px-6 py-6 text-left text-sm uppercase tracking-widest">Lecturer</th>
-                        <th class="px-6 py-6 text-left text-sm uppercase tracking-widest">Class Representative</th>
-                        <th class="px-6 py-6 text-center text-sm uppercase tracking-widest w-32">Contact</th>
+                <thead class="bg-[#003087] text-white">
+                    <tr>
+                        <th class="px-6 py-6 text-left">Day</th>
+                        <th class="px-6 py-6 text-left">Time</th>
+                        <th class="px-6 py-6 text-left">Course</th>
+                        <th class="px-6 py-6 text-left">Lecturer</th>
+                        <th class="px-6 py-6 text-left">Class Representative</th>
+                        <th class="px-6 py-6 text-center">Action</th>
                     </tr>
                 </thead>
-                <tbody id="timetableBody" class="divide-y divide-gray-100"></tbody>
+                <tbody id="timetableBody" class="divide-y"></tbody>
             </table>
         </div>
     </main>
 
     <!-- Search Modal -->
-    <div id="searchModal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center px-4">
-        <div class="modal bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] shadow-2xl overflow-hidden">
-            <div class="px-8 py-6 bg-[#003087] text-white flex justify-between items-center rounded-t-3xl">
+    <div id="searchModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4">
+        <div class="modal bg-white rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
+            <div class="bg-[#003087] text-white px-8 py-6 flex justify-between">
                 <h3 class="text-2xl font-semibold">Search Results</h3>
-                <button onclick="closeModal()" class="text-5xl leading-none hover:rotate-90">×</button>
+                <button onclick="closeModal()" class="text-4xl">×</button>
             </div>
             <div id="modalContent" class="p-8 overflow-auto max-h-[65vh]"></div>
-            <div class="p-6 border-t flex justify-end">
-                <button onclick="closeModal()" class="px-10 py-4 bg-gray-100 hover:bg-gray-200 rounded-3xl font-medium">Close</button>
-            </div>
         </div>
     </div>
-
-    <footer class="bg-[#003087] text-white py-12 mt-20 text-center">
-        <p class="text-sm">Created by: <strong>Amos Banda</strong> — Personal UNZA Timetable Portal</p>
-    </footer>
 
     <script>
         let timetableData = [];
 
         async function loadData() {
             try {
-                const res = await fetch('lectures.json');
-                const data = await res.json();
+                const response = await fetch('lectures.json');
+                if (!response.ok) throw new Error("File not found");
                 
+                const data = await response.json();
                 timetableData = data.timetable || [];
-                
-                // Set Logo
+
+                // Load Logo
                 const logoPath = data.logo || 'images/logo.png';
                 document.getElementById('logoContainer').innerHTML = `
-                    <div class="w-16 h-16 bg-white rounded-3xl p-2 shadow-inner">
-                        <img src="${logoPath}" alt="UNZA" class="w-full h-full object-contain">
-                    </div>
-                    <div>
-                        <h1 class="header-font text-4xl tracking-tighter">University of Zambia</h1>
-                        <p class="text-blue-200 text-sm -mt-1">Official Student Timetable 2026</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-white rounded-3xl p-2 shadow-inner">
+                            <img src="${logoPath}" alt="UNZA Logo" class="w-full h-full object-contain">
+                        </div>
+                        <div>
+                            <h1 class="header-font text-4xl tracking-tighter">University of Zambia</h1>
+                            <p class="text-blue-200">Student Timetable Portal</p>
+                        </div>
                     </div>
                 `;
 
                 renderDayFilters();
                 renderTimetable(timetableData);
-            } catch (e) {
-                alert("Error loading lectures.json — Make sure the file exists in the same folder.");
+            } catch (err) {
+                console.error(err);
+                document.getElementById('logoContainer').innerHTML = `
+                    <p class="text-red-300">⚠️ Could not load lectures.json. Please make sure the file exists.</p>
+                `;
             }
         }
 
         function renderDayFilters() {
             const container = document.getElementById('dayFilters');
-            container.innerHTML = `
-                <div onclick="filterByDay('all')" id="filter-all" 
-                     class="filter-btn active px-7 py-3.5 bg-[#003087] text-white rounded-3xl text-sm font-semibold cursor-pointer shadow-md">ALL COURSES</div>
-            `;
+            container.innerHTML = `<div onclick="filterByDay('all')" id="filter-all" class="px-7 py-3 bg-[#003087] text-white rounded-3xl cursor-pointer font-medium">ALL COURSES</div>`;
 
-            const days = [...new Set(timetableData.map(t => t.day))];
+            const days = [...new Set(timetableData.map(item => item.day))];
             days.forEach(day => {
                 const div = document.createElement('div');
-                div.onclick = () => filterByDay(day);
-                div.id = `filter-${day}`;
-                div.className = `filter-btn px-7 py-3.5 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer`;
                 div.textContent = day;
+                div.id = `filter-${day}`;
+                div.className = "px-7 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl cursor-pointer font-medium";
+                div.onclick = () => filterByDay(day);
                 container.appendChild(div);
             });
         }
@@ -183,80 +138,63 @@
             tbody.innerHTML = '';
 
             data.forEach(item => {
-                const tr = document.createElement('tr');
-                tr.className = 'table-row border-b last:border-none';
-                tr.innerHTML = `
-                    <td class="px-6 py-7 font-semibold text-gray-800">${item.day}</td>
-                    <td class="px-6 py-7">
-                        <span class="px-5 py-2 bg-blue-100 text-blue-700 rounded-3xl text-sm font-medium">${item.time}</span>
-                    </td>
+                const row = document.createElement('tr');
+                row.className = "table-row";
+                row.innerHTML = `
+                    <td class="px-6 py-7 font-medium">${item.day}</td>
+                    <td class="px-6 py-7"><span class="bg-blue-100 text-blue-700 px-5 py-2 rounded-3xl text-sm">${item.time}</span></td>
                     <td class="px-6 py-7 font-medium">${item.course}</td>
-                    <td class="px-6 py-7 whitespace-pre-line leading-relaxed text-gray-700">${item.lecturer}</td>
-                    <td class="px-6 py-7 whitespace-pre-line leading-relaxed text-gray-700">${item.classRep}</td>
+                    <td class="px-6 py-7 whitespace-pre-line">${item.lecturer}</td>
+                    <td class="px-6 py-7 whitespace-pre-line">${item.classRep}</td>
                     <td class="px-6 py-7 text-center">
-                        <button onclick="messageRep('${item.classRep.split('\n')[0]}')" 
-                                class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-3xl text-sm font-medium flex items-center gap-2 mx-auto">
-                            <i class="fa-brands fa-whatsapp"></i> Message Rep
+                        <button onclick="messageRep('${item.classRep.split('\n')[0]}')" class="bg-emerald-600 text-white px-6 py-3 rounded-3xl text-sm hover:bg-emerald-700">
+                            Message Rep
                         </button>
                     </td>
                 `;
-                tbody.appendChild(tr);
+                tbody.appendChild(row);
             });
         }
 
         function filterByDay(day) {
-            document.querySelectorAll('.filter-btn').forEach(el => {
-                el.classList.remove('active', 'bg-[#003087]', 'text-white');
-            });
-
+            document.querySelectorAll('#dayFilters > div').forEach(el => el.classList.remove('bg-[#003087]', 'text-white'));
             if (day === 'all') {
-                document.getElementById('filter-all').classList.add('active', 'bg-[#003087]', 'text-white');
+                document.getElementById('filter-all').classList.add('bg-[#003087]', 'text-white');
                 renderTimetable(timetableData);
             } else {
-                document.getElementById(`filter-${day}`).classList.add('active', 'bg-[#003087]', 'text-white');
-                const filtered = timetableData.filter(item => item.day === day);
-                renderTimetable(filtered);
+                document.getElementById(`filter-${day}`).classList.add('bg-[#003087]', 'text-white');
+                renderTimetable(timetableData.filter(item => item.day === day));
             }
         }
 
         function performSearch() {
             const term = document.getElementById('searchInput').value.toLowerCase().trim();
-            if (!term) return alert("Please type something to search");
-
-            const results = timetableData.filter(item =>
-                item.course.toLowerCase().includes(term) ||
+            if (!term) return;
+            const results = timetableData.filter(item => 
+                item.course.toLowerCase().includes(term) || 
                 item.lecturer.toLowerCase().includes(term) ||
-                item.classRep.toLowerCase().includes(term) ||
-                item.day.toLowerCase().includes(term)
+                item.classRep.toLowerCase().includes(term)
             );
-
-            showSearchModal(results, term);
+            showSearchModal(results);
         }
 
-        function showSearchModal(results, query) {
+        function showSearchModal(results) {
             const modal = document.getElementById('searchModal');
             const content = document.getElementById('modalContent');
-
-            let html = results.length === 0 
-                ? `<div class="text-center py-20 text-gray-400"><i class="fa-solid fa-magnifying-glass text-8xl mb-6"></i><p class="text-2xl">No results found for "${query}"</p></div>`
-                : `<div class="grid md:grid-cols-2 gap-8">` + 
-                  results.map(item => `
-                    <div class="border border-gray-200 rounded-3xl p-7 hover:shadow-xl">
-                        <div class="flex justify-between mb-5">
-                            <span class="px-5 py-2 bg-blue-100 text-[#003087] rounded-3xl text-sm font-semibold">${item.day}</span>
-                            <span class="px-5 py-2 bg-amber-100 text-amber-700 rounded-3xl text-sm font-semibold">${item.time}</span>
+            content.innerHTML = results.length ? 
+                `<div class="grid md:grid-cols-2 gap-6">` + results.map(item => `
+                    <div class="border rounded-3xl p-6">
+                        <div class="flex justify-between mb-4">
+                            <span class="bg-blue-100 px-4 py-1 rounded-3xl text-sm">${item.day}</span>
+                            <span class="bg-amber-100 px-4 py-1 rounded-3xl text-sm">${item.time}</span>
                         </div>
-                        <h4 class="font-semibold text-xl mb-6">${item.course}</h4>
-                        <div class="space-y-6">
-                            <div><span class="block text-xs text-gray-500 mb-1">LECTURER</span><span class="whitespace-pre-line">${item.lecturer}</span></div>
-                            <div><span class="block text-xs text-gray-500 mb-1">CLASS REPRESENTATIVE</span><span class="whitespace-pre-line">${item.classRep}</span></div>
-                        </div>
+                        <h4 class="font-semibold">${item.course}</h4>
+                        <p class="mt-4"><strong>Lecturer:</strong><br>${item.lecturer}</p>
+                        <p class="mt-3"><strong>Class Rep:</strong><br>${item.classRep}</p>
                     </div>
-                  `).join('') + `</div>`;
-
-            content.innerHTML = html;
+                `).join('') + `</div>` : 
+                `<p class="text-center text-gray-500 py-20">No results found</p>`;
             modal.classList.remove('hidden');
-            modal.classList.add('flex');
         }
 
         function closeModal() {
@@ -264,16 +202,12 @@
         }
 
         function messageRep(name) {
-            alert(`💬 WhatsApp chat would open with ${name}`);
+            alert(`WhatsApp would open with ${name}`);
         }
 
         function resetFilters() {
             document.getElementById('searchInput').value = '';
             filterByDay('all');
-        }
-
-        function downloadTimetable() {
-            alert("✅ Your UNZA Timetable has been downloaded as PDF!");
         }
 
         window.onload = loadData;
