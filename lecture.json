@@ -5,50 +5,43 @@
       "day": "Monday",
       "time": "08:00 - 09:30",
       "course": "EDU 101 - Foundations of Education",
-      "lecturer": "Dr. Elizabeth M. Banda\n+260 977 123 456",
-      "classRep": "Michael Chanda\n+260 966 987 654"
+      "lecturer": "Dr. Elizabeth M. Banda\n+260977123456"
     },
     {
       "day": "Tuesday",
       "time": "08:00 - 09:30",
       "course": "MAT 101 - Calculus I",
-      "lecturer": "Dr. Stephen Tembo\n+260 977 556 677",
-      "classRep": "Anna Mulenga\n+260 966 778 899"
+      "lecturer": "Dr. Stephen Tembo\n+260977556677"
     },
     {
       "day": "Wednesday",
       "time": "09:00 - 10:30",
       "course": "PHY 101 - Introductory Physics",
-      "lecturer": "Dr. Francis M. Munalula\n+260 977 445 566",
-      "classRep": "Peter Lungu\n+260 966 667 788"
+      "lecturer": "Dr. Francis M. Munalula\n+260977445566"
     },
     {
       "day": "Thursday",
       "time": "08:00 - 09:30",
       "course": "CS 201 - Data Structures",
-      "lecturer": "Dr. John Mwape\n+260 966 223 344",
-      "classRep": "Brian Chanda\n+260 955 556 677"
+      "lecturer": "Dr. John Mwape\n+260966223344"
     },
     {
       "day": "Friday",
       "time": "10:00 - 11:30",
       "course": "ECO 101 - Principles of Economics",
-      "lecturer": "Ms. Dorothy M. Kabwe\n+260 966 334 455",
-      "classRep": "Linda Zulu\n+260 955 667 889"
+      "lecturer": "Ms. Dorothy M. Kabwe\n+260966334455"
     },
     {
       "day": "Saturday",
       "time": "09:00 - 11:00",
       "course": "CS 301 - Web Development",
-      "lecturer": "Mr. Emmanuel Phiri\n+260 977 556 123",
-      "classRep": "Tina Mwape\n+260 966 334 221"
+      "lecturer": "Mr. Emmanuel Phiri\n+260977556123"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 16:00",
       "course": "Group Study & Revision",
-      "lecturer": "Self Study\nN/A",
-      "classRep": "Class Group\nN/A"
+      "lecturer": "Self Study\nN/A"
     }
   ]
 }
