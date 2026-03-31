@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Force desktop mode on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>UNZA Timetable • 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
-        .header-font { font-family: 'Space Grotesk', sans-serif; }
         
+        .header-font { font-family: 'Space Grotesk', sans-serif; }
+       
         .day-filter {
             transition: all 0.3s ease;
         }
@@ -17,12 +19,12 @@
             background-color: #003087 !important;
             color: white !important;
         }
-        
+       
         .table-row:hover {
             background-color: #f0f7ff;
             transform: scale(1.02) translateY(-2px);
         }
-        
+       
         .scrollable-filters {
             scrollbar-width: none;
         }
@@ -32,18 +34,17 @@
     </style>
 </head>
 <body class="bg-gray-50">
-
     <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 flex items-center gap-4" id="logoContainer"></div>
     </header>
-
+    
     <main class="max-w-7xl mx-auto px-6 py-10">
         <h1 class="header-font text-5xl font-bold text-[#003087] text-center">UNZA Academic Timetable 2026</h1>
         <p class="text-center text-gray-600 mt-2">The University of Zambia</p>
 
         <!-- Live Search -->
         <div class="mt-10">
-            <input id="searchInput" type="text" placeholder="Search course, lecturer, or class rep..." 
+            <input id="searchInput" type="text" placeholder="Search course, lecturer, or class rep..."
                    class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-[#003087] text-lg outline-none"
                    onkeyup="liveSearch()">
         </div>
@@ -79,13 +80,18 @@
             </div>
             <div class="p-6 space-y-4" id="callOptions"></div>
             <div class="p-4">
-                <button onclick="closeCallModal()" 
+                <button onclick="closeCallModal()"
                         class="w-full py-4 text-gray-600 font-medium rounded-3xl hover:bg-gray-100">
                     Cancel
                 </button>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 text-gray-500 text-sm">
+        Created by <span class="font-medium text-[#003087]">Amos Banda</span>
+    </footer>
 
     <script>
         let timetableData = [];
@@ -94,7 +100,7 @@
             try {
                 const res = await fetch('lecture.json');
                 const data = await res.json();
-                
+               
                 timetableData = data.timetable || [];
                 const logoPath = data.logo || 'images/logo.png';
 
@@ -111,6 +117,7 @@
                 renderDayFilters();
                 renderTable(timetableData);
             } catch (e) {
+                console.error(e);
                 alert("Could not load lecture.json");
             }
         }
@@ -120,7 +127,7 @@
         function renderDayFilters() {
             const container = document.getElementById('dayFilters');
             container.innerHTML = `
-                <div onclick="filterByDay('all')" id="filter-all" 
+                <div onclick="filterByDay('all')" id="filter-all"
                      class="day-filter active px-7 py-3 bg-[#003087] text-white rounded-3xl cursor-pointer font-medium">ALL COURSES</div>
             `;
 
@@ -137,16 +144,17 @@
         function renderTable(data) {
             const tbody = document.getElementById('timetableBody');
             tbody.innerHTML = data.map(item => `
-                <tr class="table-row border-b">
+                <tr class="table-row border-b hover:bg-blue-50 transition-all">
                     <td class="px-6 py-6 font-medium">${item.day}</td>
                     <td class="px-6 py-6">${item.time}</td>
                     <td class="px-6 py-6 font-medium">${item.course}</td>
                     <td class="px-6 py-6 whitespace-pre-line">${item.lecturer}</td>
                     <td class="px-6 py-6 whitespace-pre-line">${item.classRep}</td>
                     <td class="px-6 py-6 text-center">
-                        <button onclick="showCallOptions('${item.lecturer}', '${item.classRep}')" 
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-3xl text-sm font-medium">
-                            📞 Call
+                        <button onclick="showCallOptions('${item.lecturer.replace(/'/g, "\\'")}', '${item.classRep.replace(/'/g, "\\'")}')"
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-3xl text-sm font-medium flex items-center gap-2 mx-auto">
+                            <i class="fas fa-phone"></i>
+                            Call
                         </button>
                     </td>
                 </tr>
@@ -155,7 +163,7 @@
 
         function filterByDay(day) {
             document.querySelectorAll('.day-filter').forEach(el => el.classList.remove('active'));
-            
+           
             if (day === 'all') {
                 document.getElementById('filter-all').classList.add('active');
                 renderTable(timetableData);
@@ -166,14 +174,13 @@
             }
         }
 
-        // Live Search (as you type)
         function liveSearch() {
             const term = document.getElementById('searchInput').value.toLowerCase().trim();
             if (!term) {
                 renderTable(timetableData);
                 return;
             }
-            
+           
             const filtered = timetableData.filter(item =>
                 item.course.toLowerCase().includes(term) ||
                 item.lecturer.toLowerCase().includes(term) ||
@@ -184,39 +191,51 @@
         }
 
         function showCallOptions(lecturerStr, classRepStr) {
-            const lecturerName = lecturerStr.split('\n')[0];
+            const lecturerName = lecturerStr.split('\n')[0] || 'Lecturer';
             const lecturerPhone = lecturerStr.split('\n')[1] || 'N/A';
-            
-            const repName = classRepStr.split('\n')[0];
+           
+            const repName = classRepStr.split('\n')[0] || 'Class Rep';
             const repPhone = classRepStr.split('\n')[1] || 'N/A';
 
-            let html = `
-                <button onclick="makeCall('${lecturerPhone}', '${lecturerName}')" 
-                        class="w-full text-left p-5 border rounded-2xl hover:bg-gray-50 flex justify-between items-center">
-                    <div>
-                        <span class="font-medium">Call Lecturer</span><br>
-                        <span class="text-sm text-gray-600">${lecturerName}</span>
-                    </div>
-                    <span class="text-blue-600">${lecturerPhone}</span>
-                </button>
-                
-                <button onclick="makeCall('${repPhone}', '${repName}')" 
-                        class="w-full text-left p-5 border rounded-2xl hover:bg-gray-50 flex justify-between items-center">
-                    <div>
-                        <span class="font-medium">Call Class Rep</span><br>
-                        <span class="text-sm text-gray-600">${repName}</span>
-                    </div>
-                    <span class="text-blue-600">${repPhone}</span>
-                </button>
-            `;
+            let html = '';
+
+            if (lecturerPhone !== 'N/A') {
+                html += `
+                    <button onclick="makeCall('${lecturerPhone}', '${lecturerName}')"
+                            class="w-full text-left p-5 border border-gray-200 rounded-2xl hover:bg-blue-50 flex justify-between items-center transition">
+                        <div>
+                            <span class="font-medium text-lg">Call Lecturer</span><br>
+                            <span class="text-gray-600">${lecturerName}</span>
+                        </div>
+                        <span class="text-blue-600 font-medium">${lecturerPhone}</span>
+                    </button>
+                `;
+            }
+
+            if (repPhone !== 'N/A') {
+                html += `
+                    <button onclick="makeCall('${repPhone}', '${repName}')"
+                            class="w-full text-left p-5 border border-gray-200 rounded-2xl hover:bg-blue-50 flex justify-between items-center transition">
+                        <div>
+                            <span class="font-medium text-lg">Call Class Rep</span><br>
+                            <span class="text-gray-600">${repName}</span>
+                        </div>
+                        <span class="text-blue-600 font-medium">${repPhone}</span>
+                    </button>
+                `;
+            }
+
+            if (html === '') {
+                html = `<p class="text-center text-gray-500 py-8">No contact numbers available</p>`;
+            }
 
             document.getElementById('callOptions').innerHTML = html;
             document.getElementById('callModal').classList.remove('hidden');
         }
 
         function makeCall(phone, name) {
-            if (phone === 'N/A') {
-                alert("No phone number available");
+            if (phone === 'N/A' || !phone) {
+                alert("No phone number available for this contact.");
                 return;
             }
             window.location.href = `tel:${phone}`;
@@ -227,6 +246,7 @@
             document.getElementById('callModal').classList.add('hidden');
         }
 
+        // Load data when page opens
         window.onload = loadData;
     </script>
 </body>
