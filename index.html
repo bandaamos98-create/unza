@@ -85,6 +85,22 @@
         </div>
     </main>
 
+    <!-- Desktop Mode Notification Popup -->
+    <div id="desktopNotice" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100]">
+        <div class="bg-white rounded-3xl max-w-md mx-4 p-8 text-center shadow-2xl">
+            <div class="text-5xl mb-6">📱</div>
+            <h3 class="text-2xl font-semibold text-[#003087] mb-4">Desktop Mode Recommended</h3>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+                Please enable desktop mode for the best experience.<br>
+                This timetable is optimized for desktop view.
+            </p>
+            <button onclick="dismissNotice()" 
+                    class="w-full bg-[#003087] text-white py-4 rounded-3xl font-medium hover:bg-blue-800 transition">
+                Okay, Got it
+            </button>
+        </div>
+    </div>
+
     <!-- Call Confirmation Modal -->
     <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
         <div class="bg-white rounded-3xl w-full max-w-sm mx-4 overflow-hidden">
@@ -232,6 +248,17 @@
             document.getElementById('feedbackModal').classList.add('hidden');
         }
 
+        // Desktop Mode Notification
+        function showDesktopNotice() {
+            document.getElementById('desktopNotice').classList.remove('hidden');
+        }
+
+        function dismissNotice() {
+            document.getElementById('desktopNotice').classList.add('hidden');
+            // Optional: Save that user has seen it (so it doesn't show again)
+            localStorage.setItem('desktopNoticeSeen', 'true');
+        }
+
         function filterByDay(day) {
             document.querySelectorAll('.day-filter').forEach(el => el.classList.remove('active'));
            
@@ -260,7 +287,15 @@
             renderTable(filtered);
         }
 
-        window.onload = loadData;
+        // Show notice on first visit (or every time if you prefer)
+        window.onload = function() {
+            loadData();
+            
+            // Show desktop notice if user hasn't dismissed it before
+            if (!localStorage.getItem('desktopNoticeSeen')) {
+                setTimeout(showDesktopNotice, 800); // Small delay so page loads first
+            }
+        };
     </script>
 </body>
 </html>
