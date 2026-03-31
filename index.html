@@ -9,28 +9,38 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
         .header-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .table-row:hover {
+            background-color: #f0f7ff;
+            transform: scale(1.02) translateY(-2px);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6">
+    <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 flex items-center gap-4" id="logoContainer">
-            <!-- Logo loaded from JSON -->
+            <!-- Logo loaded from lecture.json -->
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 py-10">
-        <h1 class="header-font text-5xl font-bold text-[#003087] text-center">UNZA Timetable 2026</h1>
+        <h1 class="header-font text-5xl font-bold text-[#003087] text-center">UNZA Academic Timetable 2026</h1>
+        <p class="text-center text-gray-600 mt-2">The University of Zambia</p>
 
+        <!-- Search -->
         <div class="mt-10 flex flex-col md:flex-row gap-4">
-            <input id="searchInput" type="text" placeholder="Search course, lecturer or class rep..." 
+            <input id="searchInput" type="text" placeholder="Search course, lecturer, class rep or day..." 
                    class="flex-1 px-6 py-5 rounded-3xl border border-gray-300 focus:border-[#003087] text-lg"
                    onkeyup="if(event.key === 'Enter') performSearch()">
-            <button onclick="performSearch()" class="bg-[#003087] text-white px-10 py-5 rounded-3xl">SEARCH</button>
+            <button onclick="performSearch()" class="bg-[#003087] text-white px-10 py-5 rounded-3xl font-semibold">SEARCH</button>
+            <button onclick="resetFilters()" class="px-6 py-5 text-gray-500 hover:text-gray-700">Reset</button>
         </div>
 
-        <div class="my-8" id="dayFilters"></div>
+        <!-- Fixed Day Filters (Monday to Sunday) -->
+        <div class="my-8 flex flex-wrap gap-3" id="dayFilters"></div>
 
+        <!-- Timetable -->
         <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
             <table class="w-full">
                 <thead class="bg-[#003087] text-white">
@@ -43,7 +53,7 @@
                         <th class="px-6 py-6 text-center">Action</th>
                     </tr>
                 </thead>
-                <tbody id="timetableBody"></tbody>
+                <tbody id="timetableBody" class="divide-y"></tbody>
             </table>
         </div>
     </main>
@@ -53,56 +63,62 @@
 
         async function loadData() {
             try {
-                const res = await fetch('lectures.json');
+                const res = await fetch('lecture.json');
                 const data = await res.json();
                 
                 timetableData = data.timetable || [];
                 const logoPath = data.logo || 'images/logo.png';
 
-                // Set Logo
+                // Load Logo
                 document.getElementById('logoContainer').innerHTML = `
                     <div class="flex items-center gap-4">
-                        <img src="${logoPath}" alt="UNZA" class="w-16 h-16 object-contain bg-white rounded-2xl p-2">
+                        <img src="${logoPath}" alt="UNZA Logo" class="w-16 h-16 object-contain bg-white rounded-2xl p-2 shadow-inner">
                         <div>
-                            <h1 class="header-font text-4xl">University of Zambia</h1>
-                            <p class="text-blue-200">Student Timetable Portal</p>
+                            <h1 class="header-font text-4xl tracking-tighter">University of Zambia</h1>
+                            <p class="text-blue-200">Student Timetable Portal • 2026</p>
                         </div>
                     </div>
                 `;
 
-                renderFilters();
+                renderDayFilters();
                 renderTable(timetableData);
             } catch (e) {
-                alert("❌ Still cannot find lectures.json\n\nPlease make sure the file is uploaded to your repository.");
+                alert("Could not load lecture.json");
             }
         }
 
-        function renderFilters() {
+        // Fixed Days: Monday to Sunday
+        const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+        function renderDayFilters() {
             const container = document.getElementById('dayFilters');
-            container.innerHTML = `<div onclick="filterByDay('all')" class="inline-block px-6 py-3 bg-[#003087] text-white rounded-3xl cursor-pointer mr-3">ALL COURSES</div>`;
-            
-            const days = [...new Set(timetableData.map(i => i.day))];
-            days.forEach(day => {
-                const d = document.createElement('div');
-                d.textContent = day;
-                d.onclick = () => filterByDay(day);
-                d.className = "inline-block px-6 py-3 bg-white border border-gray-300 rounded-3xl cursor-pointer mr-3 hover:border-[#003087]";
-                container.appendChild(d);
+            container.innerHTML = `
+                <div onclick="filterByDay('all')" id="filter-all" 
+                     class="px-6 py-3 bg-[#003087] text-white rounded-3xl cursor-pointer font-medium">ALL COURSES</div>
+            `;
+
+            allDays.forEach(day => {
+                const div = document.createElement('div');
+                div.textContent = day;
+                div.id = `filter-${day}`;
+                div.className = "px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl cursor-pointer font-medium";
+                div.onclick = () => filterByDay(day);
+                container.appendChild(div);
             });
         }
 
         function renderTable(data) {
             const tbody = document.getElementById('timetableBody');
             tbody.innerHTML = data.map(item => `
-                <tr class="border-b hover:bg-blue-50">
-                    <td class="px-6 py-6">${item.day}</td>
+                <tr class="table-row border-b hover:bg-blue-50">
+                    <td class="px-6 py-6 font-medium">${item.day}</td>
                     <td class="px-6 py-6">${item.time}</td>
                     <td class="px-6 py-6 font-medium">${item.course}</td>
                     <td class="px-6 py-6 whitespace-pre-line">${item.lecturer}</td>
                     <td class="px-6 py-6 whitespace-pre-line">${item.classRep}</td>
                     <td class="px-6 py-6 text-center">
-                        <button onclick="alert('Message sent to ${item.classRep.split('\n')[0]}')" 
-                                class="bg-emerald-600 text-white px-6 py-3 rounded-3xl text-sm">
+                        <button onclick="alert('💬 WhatsApp would open with ${item.classRep.split('\n')[0]}')" 
+                                class="bg-emerald-600 text-white px-6 py-3 rounded-3xl text-sm hover:bg-emerald-700">
                             Message Rep
                         </button>
                     </td>
@@ -111,19 +127,36 @@
         }
 
         function filterByDay(day) {
-            if (day === 'all') return renderTable(timetableData);
-            const filtered = timetableData.filter(item => item.day === day);
-            renderTable(filtered);
+            document.querySelectorAll('#dayFilters > div').forEach(el => {
+                el.classList.remove('bg-[#003087]', 'text-white');
+            });
+
+            if (day === 'all') {
+                document.getElementById('filter-all').classList.add('bg-[#003087]', 'text-white');
+                renderTable(timetableData);
+            } else {
+                document.getElementById(`filter-${day}`).classList.add('bg-[#003087]', 'text-white');
+                const filtered = timetableData.filter(item => item.day === day);
+                renderTable(filtered);
+            }
         }
 
         function performSearch() {
-            const term = document.getElementById('searchInput').value.toLowerCase();
+            const term = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!term) return;
+            
             const filtered = timetableData.filter(item => 
                 item.course.toLowerCase().includes(term) || 
                 item.lecturer.toLowerCase().includes(term) ||
-                item.classRep.toLowerCase().includes(term)
+                item.classRep.toLowerCase().includes(term) ||
+                item.day.toLowerCase().includes(term)
             );
             renderTable(filtered);
+        }
+
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            filterByDay('all');
         }
 
         window.onload = loadData;
