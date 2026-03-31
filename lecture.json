@@ -3,45 +3,321 @@
   "timetable": [
     {
       "day": "Monday",
-      "time": "08:00 - 09:30",
-      "course": "EDU 101 - Foundations of Education",
-      "lecturer": "Dr. Elizabeth M. Banda\n+260977123456"
+      "time": "17:30 - 18:30",
+      "course": "DCS 1031",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "18:30 - 19:30",
+      "course": "DCS 1011",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30 - 10:30",
+      "course": "DPH 3370",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "10:30 - 12:30",
+      "course": "DPS 3041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "12:30 - 14:30",
+      "course": "DPS 3065",
+      "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
-      "time": "08:00 - 09:30",
-      "course": "MAT 101 - Calculus I",
-      "lecturer": "Dr. Stephen Tembo\n+260977556677"
+      "time": "17:30 - 18:30",
+      "course": "DAE",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "18:30 - 19:30",
+      "course": "DAE",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30 - 10:30",
+      "course": "DPS 2011",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:30 - 12:30",
+      "course": "DPH 3240",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "14:30 - 16:30",
+      "course": "DCS 3000",
+      "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
-      "time": "09:00 - 10:30",
-      "course": "PHY 101 - Introductory Physics",
-      "lecturer": "Dr. Francis M. Munalula\n+260977445566"
+      "time": "17:30 - 18:30",
+      "course": "DAE",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "18:30 - 19:30",
+      "course": "DAE",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "09:30 - 11:30",
+      "course": "DPH 3370",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30 - 13:30",
+      "course": "DPS 3041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "13:30 - 15:30",
+      "course": "DPS 3065",
+      "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
-      "time": "08:00 - 09:30",
-      "course": "CS 201 - Data Structures",
-      "lecturer": "Dr. John Mwape\n+260966223344"
+      "time": "17:30 - 18:30",
+      "course": "DPH 3314",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "18:30 - 19:30",
+      "course": "DSW 3314",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30 - 10:30",
+      "course": "DPM 2021",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:30 - 12:30",
+      "course": "DPA 2021",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "14:30 - 16:30",
+      "course": "DPS 2030",
+      "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
-      "time": "10:00 - 11:30",
-      "course": "ECO 101 - Principles of Economics",
-      "lecturer": "Ms. Dorothy M. Kabwe\n+260966334455"
+      "time": "17:30 - 18:30",
+      "course": "DPS 2020",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DPS 2010",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "09:30 - 11:30",
+      "course": "DPS 2005",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "11:30 - 13:30",
+      "course": "DPS 2000",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "13:30 - 15:30",
+      "course": "DCS 3020",
+      "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
-      "time": "09:00 - 11:00",
-      "course": "CS 301 - Web Development",
-      "lecturer": "Mr. Emmanuel Phiri\n+260977556123"
+      "time": "14:00 - 16:00",
+      "course": "DAF 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "16:00 - 18:00",
+      "course": "DBS 2072",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "09:30 - 11:30",
+      "course": "DRM 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30 - 13:30",
+      "course": "DPH 3360",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "13:30 - 15:30",
+      "course": "DIR 1015",
+      "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 16:00",
-      "course": "Group Study & Revision",
-      "lecturer": "Self Study\nN/A"
+      "course": "DAF 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "15:00 - 16:00",
+      "course": "PSM 2030",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "16:00 - 17:00",
+      "course": "DBS 3035",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DBS 2072",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "18:00 - 19:00",
+      "course": "DPA 9025",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "14:00 - 15:00",
+      "course": "DLS 3043",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "15:00 - 16:00",
+      "course": "DPM 2021",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "16:00 - 17:00",
+      "course": "DPH 3370",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DPR 1130",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "18:00 - 19:00",
+      "course": "DPS 3011",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "16:00 - 17:00",
+      "course": "DAF 2060",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DBS 1062",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "16:00 - 17:00",
+      "course": "DPA 3031",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DAF 3062",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "16:00 - 17:00",
+      "course": "DCS 3020",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DPA 2031",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DGH 2335",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "17:00 - 18:00",
+      "course": "DCS 1025",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DPH 2120",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "18:00 - 19:00",
+      "course": "DPA 2022",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DCS 3004",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "18:00 - 19:00",
+      "course": "DPS 3321",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DBA 3021",
+      "lecturer": "not assigned yet"
     }
   ]
 }
