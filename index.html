@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- FORCES DESKTOP MODE ON PHONES/TABLETS WITH NORMAL ZOOM -->
-    <!-- Layout always renders at full desktop width (1280px) -->
-    <!-- Normal text size, horizontal scroll on phone if needed, no mobile squeezing -->
+    <!-- Forces true desktop mode with NORMAL zoom (100%) on all devices -->
     <meta name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>UNZA Timetable • 2026</title>
@@ -76,7 +74,7 @@
         </div>
     </main>
 
-    <!-- Call Options Modal (Pop-up) -->
+    <!-- Call Options Modal -->
     <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
         <div class="bg-white rounded-3xl w-full max-w-sm mx-4 overflow-hidden">
             <div class="p-6 text-center border-b">
@@ -92,9 +90,13 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center py-8 text-gray-500 text-sm">
-        Created by <span class="font-medium text-[#003087]">Amos Banda</span>
+    <!-- Footer with your contact -->
+    <footer class="text-center py-10 text-gray-500 text-sm">
+        <p>Created by <span class="font-medium text-[#003087]">Amos Banda</span></p>
+        <p class="mt-1">
+            <a href="tel:+260979077079" class="hover:text-blue-600">+260 979 077079</a> • 
+            <a href="mailto:bandaamos98@gmail.com" class="hover:text-blue-600">bandaamos98@gmail.com</a>
+        </p>
     </footer>
 
     <script>
@@ -145,9 +147,11 @@
             });
         }
 
-        function renderTable() {
+        function renderTable(filteredData = null) {
+            const dataToRender = filteredData || timetableData;
             const tbody = document.getElementById('timetableBody');
-            tbody.innerHTML = timetableData.map((item, index) => `
+            
+            tbody.innerHTML = dataToRender.map((item, index) => `
                 <tr class="table-row border-b" data-index="${index}">
                     <td class="px-6 py-6 font-medium">${item.day}</td>
                     <td class="px-6 py-6">${item.time}</td>
@@ -163,13 +167,13 @@
                 </tr>
             `).join('');
 
-            // Attach click listeners safely (no inline onclick string issues)
+            // Safe click handlers for Call buttons
             document.querySelectorAll('.call-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const row = this.closest('tr');
                     const index = parseInt(row.getAttribute('data-index'));
-                    const item = timetableData[index];
-                    showCallOptions(item.lecturer, item.classRep);
+                    const item = dataToRender[index];
+                    if (item) showCallOptions(item.lecturer, item.classRep);
                 });
             });
         }
@@ -183,11 +187,7 @@
             } else {
                 document.getElementById(`filter-${day}`).classList.add('active');
                 const filtered = timetableData.filter(item => item.day === day);
-                // Temporarily override data for filtered view
-                const originalData = timetableData;
-                timetableData = filtered;
-                renderTable();
-                timetableData = originalData; // restore
+                renderTable(filtered);
             }
         }
 
@@ -204,20 +204,15 @@
                 item.classRep.toLowerCase().includes(term) ||
                 item.day.toLowerCase().includes(term)
             );
-            const originalData = timetableData;
-            timetableData = filtered;
-            renderTable();
-            timetableData = originalData;
+            renderTable(filtered);
         }
 
         function showCallOptions(lecturerStr, classRepStr) {
-            const lecturerParts = lecturerStr.split('\n');
-            const lecturerName = lecturerParts[0] || 'Lecturer';
-            const lecturerPhone = lecturerParts[1] || 'N/A';
+            const lecturerName = lecturerStr.split('\n')[0] || 'Lecturer';
+            const lecturerPhone = lecturerStr.split('\n')[1] || 'N/A';
            
-            const repParts = classRepStr.split('\n');
-            const repName = repParts[0] || 'Class Rep';
-            const repPhone = repParts[1] || 'N/A';
+            const repName = classRepStr.split('\n')[0] || 'Class Rep';
+            const repPhone = classRepStr.split('\n')[1] || 'N/A';
 
             let html = '';
 
@@ -260,7 +255,6 @@
                 alert("No phone number available for this contact.");
                 return;
             }
-            // Direct phone call
             window.location.href = `tel:${phone}`;
             closeCallModal();
         }
