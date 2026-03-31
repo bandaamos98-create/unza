@@ -126,7 +126,7 @@
                 renderTable();
             } catch (e) {
                 console.error(e);
-                alert("Could not load lecture.json");
+                alert("Could not load lecture.json — make sure the file is in the same folder as this HTML");
             }
         }
 
@@ -173,7 +173,6 @@
                 `;
             }).join('');
 
-            // Attach click events
             document.querySelectorAll('.call-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const row = this.closest('tr');
