@@ -45,7 +45,6 @@
             background: linear-gradient(90deg, #003087 0%, #0050b0 100%);
         }
 
-        /* Smooth Modal */
         .modal {
             animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
@@ -55,11 +54,10 @@
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* Mobile Optimizations */
         @media (max-width: 768px) {
             .table-row td {
-                padding: 14px 12px !important;
-                font-size: 0.9rem;
+                padding: 16px 12px !important;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -68,10 +66,10 @@
     <!-- HEADER -->
     <header class="hero-bg text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <!-- Logo -->
+            <!-- Logo from your GitHub repo -->
             <div class="flex items-center gap-x-4">
                 <div class="w-14 h-14 bg-white rounded-3xl flex items-center justify-center shadow-inner overflow-hidden p-1.5">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/University_of_Zambia_crest.svg/512px-University_of_Zambia_crest.svg.png" 
+                    <img src="images/logo.png" 
                          alt="University of Zambia Logo" 
                          class="w-full h-full object-contain">
                 </div>
@@ -110,7 +108,7 @@
             <h2 class="header-font text-4xl md:text-5xl font-semibold tracking-tighter text-[#003087] mb-2">
                 Class Timetable
             </h2>
-            <p class="text-lg text-gray-600">All courses • Lecturers • Class Representatives</p>
+            <p class="text-lg text-gray-600">All courses • Lecturers &amp; Class Representatives</p>
         </div>
 
         <!-- SEARCH BAR -->
@@ -162,6 +160,14 @@
                  class="filter-btn px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer">
                 Friday
             </div>
+            <div onclick="filterByDay('Saturday')" id="filter-Saturday"
+                 class="filter-btn px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer">
+                Saturday
+            </div>
+            <div onclick="filterByDay('Sunday')" id="filter-Sunday"
+                 class="filter-btn px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer">
+                Sunday
+            </div>
         </div>
 
         <!-- TIMETABLE TABLE -->
@@ -173,9 +179,7 @@
                         <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Time</th>
                         <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Course</th>
                         <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Lecturer</th>
-                        <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Lecturer Phone</th>
                         <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Class Rep</th>
-                        <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Rep Phone</th>
                         <th class="px-6 md:px-8 py-5 text-center text-xs md:text-sm uppercase tracking-widest">Action</th>
                     </tr>
                 </thead>
@@ -215,35 +219,37 @@
     <footer class="bg-[#003087] text-white py-12 mt-16">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <div class="flex justify-center items-center gap-x-3 mb-6">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/University_of_Zambia_crest.svg/512px-University_of_Zambia_crest.svg.png" 
+                <img src="images/logo.png" 
                      alt="UNZA" class="h-10 opacity-90">
                 <span class="header-font text-2xl">University of Zambia</span>
             </div>
             
-            <p class="text-blue-200 text-sm">This is a personal student timetable website</p>
+            <p class="text-blue-200 text-sm">Personal Student Timetable Website</p>
             
             <p class="text-xs text-blue-300 mt-8">
                 Created by: <strong>Amos Banda</strong>
             </p>
             
-            <p class="text-xs text-blue-300 mt-6">© 2026 • Made with ❤️ for UNZA students</p>
+            <p class="text-xs text-blue-300 mt-6">© 2026 • Made for UNZA Students</p>
         </div>
     </footer>
 
     <script>
         let timetableData = [
-            { day: "Monday", time: "08:00 - 09:30", course: "EDU 101 - Foundations of Education", lecturer: "Dr. Elizabeth M. Banda", lecPhone: "+260 977 123 456", classRep: "Michael Chanda", repPhone: "+260 966 987 654" },
-            { day: "Monday", time: "10:00 - 11:30", course: "CS 101 - Introduction to Computer Science", lecturer: "Prof. Robert K. Zulu", lecPhone: "+260 955 234 567", classRep: "Grace Lungu", repPhone: "+260 977 112 233" },
-            { day: "Monday", time: "13:00 - 14:30", course: "BIO 101 - Introductory Biology", lecturer: "Dr. Patricia Mwanza", lecPhone: "+260 966 345 678", classRep: "Joseph Phiri", repPhone: "+260 955 445 566" },
-            { day: "Tuesday", time: "08:00 - 09:30", course: "MAT 101 - Calculus I", lecturer: "Dr. Stephen Tembo", lecPhone: "+260 977 556 677", classRep: "Anna Mulenga", repPhone: "+260 966 778 899" },
-            { day: "Tuesday", time: "10:00 - 11:30", course: "ENG 101 - Communication Skills", lecturer: "Ms. Mary N. Kabwe", lecPhone: "+260 955 889 900", classRep: "David Banda", repPhone: "+260 977 001 122" },
-            { day: "Tuesday", time: "14:00 - 15:30", course: "ACC 101 - Financial Accounting", lecturer: "Prof. Charles M. Ngoma", lecPhone: "+260 966 112 233", classRep: "Rachel Zulu", repPhone: "+260 955 334 455" },
-            { day: "Wednesday", time: "09:00 - 10:30", course: "PHY 101 - Introductory Physics", lecturer: "Dr. Francis M. Munalula", lecPhone: "+260 977 445 566", classRep: "Peter Lungu", repPhone: "+260 966 667 788" },
-            { day: "Wednesday", time: "11:00 - 12:30", course: "EDU 201 - Educational Psychology", lecturer: "Dr. Agnes K. Simwinga", lecPhone: "+260 955 778 899", classRep: "Esther Phiri", repPhone: "+260 977 990 011" },
-            { day: "Thursday", time: "08:00 - 09:30", course: "CS 201 - Data Structures", lecturer: "Dr. John Mwape", lecPhone: "+260 966 223 344", classRep: "Brian Chanda", repPhone: "+260 955 556 677" },
-            { day: "Thursday", time: "13:00 - 14:30", course: "LAW 101 - Introduction to Law", lecturer: "Prof. Lillian M. Chikwanda", lecPhone: "+260 977 667 788", classRep: "Sarah Tembo", repPhone: "+260 966 889 900" },
-            { day: "Friday", time: "08:00 - 09:30", course: "CHEM 101 - General Chemistry", lecturer: "Dr. Victor N. Musonda", lecPhone: "+260 955 990 011", classRep: "Kelvin Mwanza", repPhone: "+260 977 112 344" },
-            { day: "Friday", time: "10:00 - 11:30", course: "ECO 101 - Principles of Economics", lecturer: "Ms. Dorothy M. Kabwe", lecPhone: "+260 966 334 455", classRep: "Linda Zulu", repPhone: "+260 955 667 889" }
+            { day: "Monday", time: "08:00 - 09:30", course: "EDU 101 - Foundations of Education", lecturer: "Dr. Elizabeth M. Banda\n+260 977 123 456", classRep: "Michael Chanda\n+260 966 987 654" },
+            { day: "Monday", time: "10:00 - 11:30", course: "CS 101 - Introduction to Computer Science", lecturer: "Prof. Robert K. Zulu\n+260 955 234 567", classRep: "Grace Lungu\n+260 977 112 233" },
+            { day: "Monday", time: "13:00 - 14:30", course: "BIO 101 - Introductory Biology", lecturer: "Dr. Patricia Mwanza\n+260 966 345 678", classRep: "Joseph Phiri\n+260 955 445 566" },
+            { day: "Tuesday", time: "08:00 - 09:30", course: "MAT 101 - Calculus I", lecturer: "Dr. Stephen Tembo\n+260 977 556 677", classRep: "Anna Mulenga\n+260 966 778 899" },
+            { day: "Tuesday", time: "10:00 - 11:30", course: "ENG 101 - Communication Skills", lecturer: "Ms. Mary N. Kabwe\n+260 955 889 900", classRep: "David Banda\n+260 977 001 122" },
+            { day: "Tuesday", time: "14:00 - 15:30", course: "ACC 101 - Financial Accounting", lecturer: "Prof. Charles M. Ngoma\n+260 966 112 233", classRep: "Rachel Zulu\n+260 955 334 455" },
+            { day: "Wednesday", time: "09:00 - 10:30", course: "PHY 101 - Introductory Physics", lecturer: "Dr. Francis M. Munalula\n+260 977 445 566", classRep: "Peter Lungu\n+260 966 667 788" },
+            { day: "Wednesday", time: "11:00 - 12:30", course: "EDU 201 - Educational Psychology", lecturer: "Dr. Agnes K. Simwinga\n+260 955 778 899", classRep: "Esther Phiri\n+260 977 990 011" },
+            { day: "Thursday", time: "08:00 - 09:30", course: "CS 201 - Data Structures", lecturer: "Dr. John Mwape\n+260 966 223 344", classRep: "Brian Chanda\n+260 955 556 677" },
+            { day: "Thursday", time: "13:00 - 14:30", course: "LAW 101 - Introduction to Law", lecturer: "Prof. Lillian M. Chikwanda\n+260 977 667 788", classRep: "Sarah Tembo\n+260 966 889 900" },
+            { day: "Friday", time: "08:00 - 09:30", course: "CHEM 101 - General Chemistry", lecturer: "Dr. Victor N. Musonda\n+260 955 990 011", classRep: "Kelvin Mwanza\n+260 977 112 344" },
+            { day: "Friday", time: "10:00 - 11:30", course: "ECO 101 - Principles of Economics", lecturer: "Ms. Dorothy M. Kabwe\n+260 966 334 455", classRep: "Linda Zulu\n+260 955 667 889" },
+            { day: "Saturday", time: "09:00 - 10:30", course: "CS 301 - Web Development", lecturer: "Mr. Emmanuel Phiri\n+260 977 556 123", classRep: "Tina Mwape\n+260 966 334 221" },
+            { day: "Sunday", time: "14:00 - 15:30", course: "Self Study / Revision", lecturer: "N/A", classRep: "Group Chat" }
         ]
 
         let currentDayFilter = 'all'
@@ -256,25 +262,19 @@
                 const row = document.createElement('tr')
                 row.className = 'table-row'
                 row.innerHTML = `
-                    <td class="px-6 md:px-8 py-5 font-medium">${item.day}</td>
-                    <td class="px-6 md:px-8 py-5">
+                    <td class="px-6 md:px-8 py-6 font-medium">${item.day}</td>
+                    <td class="px-6 md:px-8 py-6">
                         <span class="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-700 rounded-3xl text-xs font-semibold">${item.time}</span>
                     </td>
-                    <td class="px-6 md:px-8 py-5 font-medium">${item.course}</td>
-                    <td class="px-6 md:px-8 py-5">${item.lecturer}</td>
-                    <td class="px-6 md:px-8 py-5">
-                        <a href="tel:${item.lecPhone}" class="text-blue-600 hover:text-blue-800 flex items-center gap-1">
-                            <i class="fa-solid fa-phone"></i> ${item.lecPhone}
-                        </a>
+                    <td class="px-6 md:px-8 py-6 font-medium">${item.course}</td>
+                    <td class="px-6 md:px-8 py-6 whitespace-pre-line leading-tight">
+                        ${item.lecturer}
                     </td>
-                    <td class="px-6 md:px-8 py-5">${item.classRep}</td>
-                    <td class="px-6 md:px-8 py-5">
-                        <a href="tel:${item.repPhone}" class="text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
-                            <i class="fa-solid fa-phone"></i> ${item.repPhone}
-                        </a>
+                    <td class="px-6 md:px-8 py-6 whitespace-pre-line leading-tight">
+                        ${item.classRep}
                     </td>
-                    <td class="px-6 md:px-8 py-5 text-center">
-                        <button onclick="messageRep('${item.classRep}', '${item.repPhone}')" 
+                    <td class="px-6 md:px-8 py-6 text-center">
+                        <button onclick="messageRep('${item.classRep.split('\n')[0]}')" 
                                 class="text-xs bg-emerald-100 hover:bg-emerald-200 text-emerald-700 px-5 py-2.5 rounded-3xl flex items-center mx-auto">
                             <i class="fa-brands fa-whatsapp mr-1"></i> Message
                         </button>
@@ -342,11 +342,15 @@
                             <span class="text-xs font-bold px-4 py-1 bg-amber-100 text-amber-700 rounded-3xl">${item.time}</span>
                         </div>
                         <h5 class="font-semibold text-lg mb-4">${item.course}</h5>
-                        <div class="space-y-3 text-sm">
-                            <div><span class="text-gray-500">Lecturer:</span> ${item.lecturer}</div>
-                            <div><a href="tel:${item.lecPhone}" class="text-blue-600 flex items-center gap-1"><i class="fa-solid fa-phone"></i> ${item.lecPhone}</a></div>
-                            <div><span class="text-gray-500">Class Rep:</span> ${item.classRep}</div>
-                            <div><a href="tel:${item.repPhone}" class="text-emerald-600 flex items-center gap-1"><i class="fa-solid fa-phone"></i> ${item.repPhone}</a></div>
+                        <div class="space-y-4 text-sm">
+                            <div class="bg-gray-50 p-4 rounded-2xl">
+                                <p class="text-gray-500 text-xs mb-1">LECTURER</p>
+                                <p class="whitespace-pre-line">${item.lecturer}</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-2xl">
+                                <p class="text-gray-500 text-xs mb-1">CLASS REPRESENTATIVE</p>
+                                <p class="whitespace-pre-line">${item.classRep}</p>
+                            </div>
                         </div>
                     </div>`
                 })
@@ -363,8 +367,8 @@
             modal.classList.remove('flex')
         }
 
-        function messageRep(name, phone) {
-            alert(`WhatsApp would open with ${name} (${phone})`)
+        function messageRep(name) {
+            alert(`WhatsApp would open with ${name}`)
         }
 
         function resetFilters() {
@@ -382,7 +386,7 @@
         // Initialize
         window.onload = () => {
             renderTimetable(timetableData)
-            console.log('%c✅ UNZA Timetable ready! Fully responsive and mobile friendly.', 'color:#003087; font-size:16px')
+            console.log('%c✅ UNZA Timetable updated! Saturday & Sunday added, phone numbers combined, logo from images/logo.png', 'color:#003087; font-size:16px')
         }
     </script>
 </body>
