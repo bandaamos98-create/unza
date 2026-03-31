@@ -34,121 +34,31 @@
     {
       "day": "Monday",
       "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
+      "course": "DPS 2005",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "09:30 - 11:30",
-      "course": "DPS 2000",
+      "course": "DPS 2010",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "11:30 - 13:30",
-      "course": "DPS 2000",
+      "course": "DPS 2020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
+      "course": "DCS 3020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Monday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
+      "course": "DPS 2030",
       "lecturer": "not assigned yet"
     },
     {
@@ -184,121 +94,31 @@
     {
       "day": "Tuesday",
       "time": "16:30 - 17:30",
-      "course": "DPS 2000",
+      "course": "DPS 2005",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "09:30 - 11:30",
-      "course": "DPS 2000",
+      "course": "DPS 2010",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "11:30 - 13:30",
-      "course": "DPS 2000",
+      "course": "DPS 2020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
+      "course": "DCS 3020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
+      "course": "DPS 2030",
       "lecturer": "not assigned yet"
     },
     {
@@ -334,157 +154,31 @@
     {
       "day": "Wednesday",
       "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
+      "course": "DPS 2005",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "08:30 - 10:30",
-      "course": "DPS 2000",
+      "course": "DPS 2010",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "10:30 - 12:30",
-      "course": "DPS 2000",
+      "course": "DPS 2020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
+      "course": "DCS 3020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Wednesday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
+      "course": "DPS 2030",
       "lecturer": "not assigned yet"
     },
     {
@@ -520,121 +214,31 @@
     {
       "day": "Thursday",
       "time": "16:30 - 17:30",
-      "course": "DPS 2000",
+      "course": "DPS 2005",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "09:30 - 11:30",
-      "course": "DPS 2000",
+      "course": "DPS 2010",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "11:30 - 13:30",
-      "course": "DPS 2000",
+      "course": "DPS 2020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
+      "course": "DCS 3020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Thursday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
+      "course": "DPS 2030",
       "lecturer": "not assigned yet"
     },
     {
@@ -670,115 +274,31 @@
     {
       "day": "Friday",
       "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
+      "course": "DPS 2030",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "08:30 - 10:30",
-      "course": "DPS 2000",
+      "course": "DPS 2010",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "10:30 - 12:30",
-      "course": "DPS 2000",
+      "course": "DPS 2020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
+      "course": "DCS 3020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Friday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
+      "course": "DPS 2030",
       "lecturer": "not assigned yet"
     },
     {
@@ -820,577 +340,67 @@
     {
       "day": "Saturday",
       "time": "08:30 - 10:30",
-      "course": "DPS 2000",
+      "course": "DPA 3021",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "10:30 - 12:30",
-      "course": "DPS 2000",
+      "course": "DBS 1062",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "12:30 - 14:30",
-      "course": "DPS 2000",
+      "course": "DAF 3062",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:30 - 16:30",
-      "course": "DPS 2000",
+      "course": "DCS 3020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:30 - 17:30",
-      "course": "DPS 2000",
+      "course": "DPA 2031",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "09:30 - 11:30",
-      "course": "DPS 2000",
+      "course": "DGH 2335",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "11:30 - 13:30",
-      "course": "DPS 2000",
+      "course": "DPH 2120",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
+      "course": "DPA 2022",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:30 - 17:30",
-      "course": "DPS 2000",
+      "course": "DCS 3004",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:30 - 18:30",
-      "course": "DPS 2000",
+      "course": "DPS 3321",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30 - 10:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:30 - 12:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "12:30 - 14:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "14:30 - 16:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "16:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "09:30 - 11:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30 - 13:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "13:30 - 15:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "07:30 - 09:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "15:30 - 17:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2000",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Saturday",
-      "time": "18:30 - 19:30",
-      "course": "DPS 2000",
+      "course": "DBA 3021",
       "lecturer": "not assigned yet"
     },
     {
@@ -1528,79 +538,625 @@
     {
       "day": "Sunday",
       "time": "14:00 - 15:00",
-      "course": "DPS 2000",
+      "course": "DPS 2005",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
-      "course": "DPS 2000",
+      "course": "DPS 2010",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
-      "course": "DPS 2000",
+      "course": "DPS 2020",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "17:00 - 18:00",
-      "course": "DPS 2000",
+      "course": "DCS 1031",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "18:00 - 19:00",
-      "course": "DPS 2000",
+      "course": "DCS 1011",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "17:30 - 18:30",
+      "course": "DAF 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "18:30 - 19:30",
+      "course": "DBA 3021",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30 - 10:30",
+      "course": "DBS 2072",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "10:30 - 12:30",
+      "course": "DRM 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "12:30 - 14:30",
+      "course": "DPH 3360",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "14:30 - 16:30",
+      "course": "DIR 1015",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "09:30 - 11:30",
+      "course": "DCS 1025",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30 - 13:30",
+      "course": "DPH 2120",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "13:30 - 15:30",
+      "course": "DPA 2022",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "15:30 - 17:30",
+      "course": "DCS 3004",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Monday",
+      "time": "17:30 - 18:30",
+      "course": "DPS 3321",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "17:30 - 18:30",
+      "course": "DAF 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "18:30 - 19:30",
+      "course": "DBA 3021",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30 - 10:30",
+      "course": "DBS 2072",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:30 - 12:30",
+      "course": "DRM 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "14:30 - 16:30",
+      "course": "DPH 3360",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "16:30 - 17:30",
+      "course": "DIR 1015",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "09:30 - 11:30",
+      "course": "DCS 1025",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30 - 13:30",
+      "course": "DPH 2120",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "13:30 - 15:30",
+      "course": "DPA 2022",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "15:30 - 17:30",
+      "course": "DCS 3004",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Tuesday",
+      "time": "17:30 - 18:30",
+      "course": "DPS 3321",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "17:30 - 18:30",
+      "course": "DAF 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "18:30 - 19:30",
+      "course": "DBA 3021",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "09:30 - 11:30",
+      "course": "DBS 2072",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30 - 13:30",
+      "course": "DRM 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "13:30 - 15:30",
+      "course": "DPH 3360",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "14:30 - 16:30",
+      "course": "DIR 1015",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30 - 10:30",
+      "course": "DCS 1025",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:30 - 12:30",
+      "course": "DPH 2120",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "12:30 - 14:30",
+      "course": "DPA 2022",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "15:30 - 17:30",
+      "course": "DCS 3004",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Wednesday",
+      "time": "17:30 - 18:30",
+      "course": "DPS 3321",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "17:30 - 18:30",
+      "course": "DAF 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "18:30 - 19:30",
+      "course": "DBA 3021",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30 - 10:30",
+      "course": "DBS 2072",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:30 - 12:30",
+      "course": "DRM 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "14:30 - 16:30",
+      "course": "DPH 3360",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "16:30 - 17:30",
+      "course": "DIR 1015",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "09:30 - 11:30",
+      "course": "DCS 1025",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "11:30 - 13:30",
+      "course": "DPH 2120",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "13:30 - 15:30",
+      "course": "DPA 2022",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "15:30 - 17:30",
+      "course": "DCS 3004",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Thursday",
+      "time": "17:30 - 18:30",
+      "course": "DPS 3321",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "17:30 - 18:30",
+      "course": "DAF 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DBA 3021",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "09:30 - 11:30",
+      "course": "DBS 2072",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "11:30 - 13:30",
+      "course": "DRM 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "13:30 - 15:30",
+      "course": "DPH 3360",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "14:30 - 16:30",
+      "course": "DIR 1015",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "08:30 - 10:30",
+      "course": "DCS 1025",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "10:30 - 12:30",
+      "course": "DPH 2120",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "12:30 - 14:30",
+      "course": "DPA 2022",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "15:30 - 17:30",
+      "course": "DCS 3004",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Friday",
+      "time": "17:30 - 18:30",
+      "course": "DPS 3321",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "14:00 - 16:00",
+      "course": "DAF 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "16:00 - 18:00",
+      "course": "DBS 2072",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "09:30 - 11:30",
+      "course": "DRM 2041",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30 - 13:30",
+      "course": "DPH 3360",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "13:30 - 15:30",
+      "course": "DIR 1015",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "17:00 - 18:00",
+      "course": "DCS 1025",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30 - 10:30",
+      "course": "DPA 3021",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:30 - 12:30",
+      "course": "DBS 1062",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "12:30 - 14:30",
+      "course": "DAF 3062",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "14:30 - 16:30",
+      "course": "DCS 3020",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "16:30 - 17:30",
+      "course": "DPA 2031",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "09:30 - 11:30",
+      "course": "DGH 2335",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30 - 13:30",
+      "course": "DPH 2120",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "13:30 - 15:30",
+      "course": "DPA 2022",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "15:30 - 17:30",
+      "course": "DCS 3004",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "17:30 - 18:30",
+      "course": "DPS 3321",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Saturday",
+      "time": "18:30 - 19:30",
+      "course": "DBA 3021",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
-      "time": "14:00 - 15:00",
-      "course": "DPS 2000",
+      "time": "14:00 - 16:00",
+      "course": "DAF 2041",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
-      "course": "DPS 2000",
+      "course": "PSM 2030",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
-      "course": "DPS 2000",
+      "course": "DBS 3035",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "17:00 - 18:00",
-      "course": "DPS 2000",
+      "course": "DBS 2072",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "18:00 - 19:00",
-      "course": "DPS 2000",
+      "course": "DPA 9025",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 15:00",
-      "course": "DPS 2000",
+      "course": "DLS 3043",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
-      "course": "DPS 2000",
+      "course": "DPM 2021",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
-      "course": "DPS 2000",
+      "course": "DPH 3370",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DPR 1130",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "18:00 - 19:00",
+      "course": "DPS 3011",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "16:00 - 17:00",
+      "course": "DAF 2060",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DBS 1062",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "16:00 - 17:00",
+      "course": "DPA 3031",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DAF 3062",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "16:00 - 17:00",
+      "course": "DCS 3020",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DPA 2031",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DGH 2335",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DPH 2120",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "18:00 - 19:00",
+      "course": "DPA 2022",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DCS 3004",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "18:00 - 19:00",
+      "course": "DPS 3321",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DBA 3021",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "14:00 - 15:00",
+      "course": "DPS 2005",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "15:00 - 16:00",
+      "course": "DPS 2010",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "16:00 - 17:00",
+      "course": "DPS 2020",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "17:00 - 18:00",
+      "course": "DCS 1031",
+      "lecturer": "not assigned yet"
+    },
+    {
+      "day": "Sunday",
+      "time": "18:00 - 19:00",
+      "course": "DCS 1011",
       "lecturer": "not assigned yet"
     }
   ]
