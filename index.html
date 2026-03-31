@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280, initial-scale=0.75, maximum-scale=1.0, user-scalable=no">
+    <!-- STRONGEST FORCE DESKTOP MODE - Renders as desktop on ALL devices -->
+    <meta name="viewport" content="width=1280, initial-scale=0.78, maximum-scale=1.0, user-scalable=no">
     
     <title>UNZA Timetable • 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -33,7 +34,12 @@
         }
         
         table {
-            min-width: 850px;
+            min-width: 880px;
+        }
+
+        /* Extra force for mobile browsers */
+        body {
+            -webkit-text-size-adjust: 100%;
         }
     </style>
 </head>
@@ -85,7 +91,7 @@
         </div>
     </main>
 
-    <!-- Desktop Mode Notification Popup (Shows EVERY time) -->
+    <!-- Desktop Mode Notification (Shows every time) -->
     <div id="desktopNotice" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100]">
         <div class="bg-white rounded-3xl max-w-md mx-4 p-8 text-center shadow-2xl">
             <div class="text-5xl mb-6">📱</div>
@@ -248,7 +254,6 @@
             document.getElementById('feedbackModal').classList.add('hidden');
         }
 
-        // Desktop Mode Notification - Shows EVERY time the site is visited
         function showDesktopNotice() {
             document.getElementById('desktopNotice').classList.remove('hidden');
         }
@@ -257,12 +262,10 @@
             document.getElementById('desktopNotice').classList.add('hidden');
         }
 
-        // Load everything
+        // Load data and show notice every time
         window.onload = function() {
             loadData();
-            
-            // Show notification every time the page loads
-            setTimeout(showDesktopNotice, 600);   // Small delay so the page loads first
+            setTimeout(showDesktopNotice, 700);   // Show notice after page loads
         };
     </script>
 </body>
