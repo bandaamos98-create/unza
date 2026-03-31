@@ -1,157 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <!-- HARD FORCED DESKTOP MODE -->
-    <meta name="viewport" content="width=1280">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+<!-- HARD DESKTOP MODE -->
+<meta name="viewport" content="width=1280">
 
-    <title>UNZA Timetable • 2026</title>
+<title>UNZA Timetable • 2026</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Space+Grotesk:wght@600;700&display=swap');
 
-        /* FORCE DESKTOP WIDTH */
-        html, body {
-            width: 1280px;
-            min-width: 1280px;
-            margin: 0 auto;
-            overflow-x: auto;
-            background: #f9fafb;
-        }
+/* FORCE DESKTOP */
+html, body {
+    width: 1280px;
+    min-width: 1280px;
+    margin: 0 auto;
+    overflow-x: auto;
+    background: #f9fafb;
+}
 
-        /* CENTER ON LARGE SCREENS */
-        @media (min-width: 1280px) {
-            html {
-                display: flex;
-                justify-content: center;
-            }
-        }
+/* CENTER BIG SCREENS */
+@media (min-width: 1280px) {
+    html {
+        display: flex;
+        justify-content: center;
+    }
+}
 
-        body {
-            -webkit-text-size-adjust: 100%;
-        }
+/* BIGGER UI SCALE */
+body {
+    font-size: 18px;
+    -webkit-text-size-adjust: 100%;
+}
 
-        .desktop-wrapper {
-            width: 1280px;
-        }
+.header-font {
+    font-family: 'Space Grotesk', sans-serif;
+}
 
-        .header-font { font-family: 'Space Grotesk', sans-serif; }
+/* BIGGER ELEMENTS */
+th {
+    font-size: 20px;
+}
 
-        .day-filter {
-            transition: all 0.3s ease;
-        }
+td {
+    font-size: 18px;
+}
 
-        .day-filter.active {
-            background-color: #003087 !important;
-            color: white !important;
-        }
+input {
+    font-size: 18px;
+}
 
-        .table-row:hover {
-            background-color: #f0f7ff;
-        }
-
-        .scrollable-filters {
-            scrollbar-width: none;
-        }
-
-        .scrollable-filters::-webkit-scrollbar {
-            display: none;
-        }
-
-        table {
-            min-width: 880px;
-        }
-    </style>
+/* HOVER */
+.table-row:hover {
+    background-color: #f0f7ff;
+}
+</style>
 </head>
 
 <body>
 
-<div class="desktop-wrapper">
+<header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-8 shadow-lg">
+    <div class="px-8 flex justify-between items-center">
 
-<header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6 shadow-lg">
-    <div class="px-6 flex items-center justify-between">
-        <div class="flex items-center gap-4">
-            <img id="logoImg" src="images/logo.png" class="w-16 h-16 bg-white rounded-2xl p-2">
+        <div class="flex items-center gap-5">
+            <img id="logoImg" src="images/logo.png" class="w-20 h-20 bg-white p-2 rounded-2xl">
+
             <div>
-                <h1 class="header-font text-4xl">University of Zambia</h1>
-                <p class="text-blue-200">Student Timetable Portal • 2026</p>
+                <h1 class="header-font text-5xl">University of Zambia</h1>
+                <p class="text-blue-200 text-lg">Student Timetable Portal • 2026</p>
             </div>
         </div>
 
-        <button onclick="showFeedbackForm()" class="bg-white text-[#003087] px-6 py-3 rounded-3xl">
+        <button onclick="showFeedbackForm()" 
+            class="bg-white text-[#003087] px-7 py-4 rounded-3xl text-lg">
             Help Us Improve
         </button>
+
     </div>
 </header>
 
-<main class="px-6 py-10">
+<main class="px-8 py-12">
 
-    <h1 class="header-font text-5xl text-center text-[#003087]">
-        UNZA Academic Timetable 2026
-    </h1>
+<h1 class="header-font text-6xl text-center text-[#003087]">
+    UNZA Academic Timetable 2026
+</h1>
 
-    <p class="text-center text-gray-600 mt-2">The University of Zambia</p>
+<p class="text-center text-gray-600 text-lg mt-3">
+    The University of Zambia
+</p>
 
-    <div class="mt-10">
-        <input id="searchInput" type="text"
-               placeholder="Search course, lecturer, or day..."
-               class="w-full px-6 py-5 rounded-3xl border text-lg"
-               onkeyup="liveSearch()">
-    </div>
+<!-- SEARCH -->
+<div class="mt-12">
+    <input id="searchInput" type="text"
+           placeholder="Search course, lecturer, or day..."
+           class="w-full px-6 py-6 rounded-3xl border text-xl"
+           onkeyup="liveSearch()">
+</div>
 
-    <div class="my-8 overflow-x-auto scrollable-filters">
-        <div class="flex gap-3" id="dayFilters"></div>
-    </div>
+<!-- FILTERS -->
+<div class="my-10 flex gap-4" id="dayFilters"></div>
 
-    <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
-        <table class="w-full">
-            <thead class="bg-[#003087] text-white">
-            <tr>
-                <th class="px-6 py-6 text-left">Day</th>
-                <th class="px-6 py-6 text-left">Time</th>
-                <th class="px-6 py-6 text-left">Course</th>
-                <th class="px-6 py-6 text-left">Lecturer</th>
-            </tr>
-            </thead>
-            <tbody id="timetableBody"></tbody>
-        </table>
-    </div>
+<!-- TABLE -->
+<div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+<table class="w-full">
+<thead class="bg-[#003087] text-white">
+<tr>
+<th class="px-6 py-6 text-left">Day</th>
+<th class="px-6 py-6 text-left">Time</th>
+<th class="px-6 py-6 text-left">Course</th>
+<th class="px-6 py-6 text-left">Lecturer</th>
+</tr>
+</thead>
+
+<tbody id="timetableBody"></tbody>
+</table>
+</div>
 
 </main>
 
-<!-- DESKTOP NOTICE -->
-<div id="desktopNotice" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
-    <div class="bg-white rounded-3xl p-8 text-center">
-        <h3 class="text-xl mb-4">Desktop Mode Active</h3>
-        <p>This site is locked in desktop view.</p>
-        <button onclick="dismissNotice()" class="mt-4 bg-blue-600 text-white px-6 py-3 rounded-3xl">
-            OK
-        </button>
-    </div>
+<!-- CALL MODAL -->
+<div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
+<div class="bg-white rounded-3xl p-8 w-[400px] text-center">
+
+<h3 id="modalTitle" class="text-2xl font-semibold mb-4"></h3>
+
+<p id="modalPhone" class="text-xl text-blue-600 mb-6"></p>
+
+<div class="flex gap-4">
+<button onclick="closeCallModal()" class="flex-1 py-4 bg-gray-200 rounded-2xl">
+Cancel
+</button>
+
+<button onclick="makeActualCall()" class="flex-1 py-4 bg-blue-600 text-white rounded-2xl">
+Call Now
+</button>
 </div>
 
-<!-- FEEDBACK -->
-<div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
-    <div class="bg-white rounded-3xl w-full max-w-3xl">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true"
-                width="100%" height="600"></iframe>
-    </div>
+</div>
+</div>
+
+<!-- FEEDBACK MODAL -->
+<div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
+
+<div class="bg-white rounded-3xl w-full max-w-3xl relative">
+
+<!-- CLOSE BUTTON -->
+<button onclick="closeFeedbackModal()" 
+class="absolute top-4 right-5 text-3xl font-bold text-gray-500 hover:text-black">
+×
+</button>
+
+<iframe 
+src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true"
+width="100%" height="650">
+</iframe>
+
+</div>
 </div>
 
 <footer class="text-center py-10 text-gray-500 text-sm">
-    <p>Created by Amos Banda</p>
+<p>Created by Amos Banda</p>
 </footer>
 
-</div>
-
 <script>
+
 let timetableData = [];
+let currentPhone = '';
 
 async function loadData() {
     const res = await fetch('lecture.json');
@@ -162,62 +180,104 @@ async function loadData() {
     renderTable();
 }
 
+/* DAYS */
 const allDays = ["Monday","Tuesday","Wednesday","Thursday","Friday"];
 
+/* FILTERS */
 function renderDayFilters() {
     const container = document.getElementById('dayFilters');
 
-    container.innerHTML = `<div onclick="filterByDay('all')" class="day-filter active px-5 py-2 bg-blue-800 text-white rounded">ALL</div>`;
+    container.innerHTML = `<button onclick="filterByDay('all')" class="px-6 py-3 bg-blue-800 text-white rounded-2xl text-lg">ALL</button>`;
 
     allDays.forEach(day => {
-        container.innerHTML += `<div onclick="filterByDay('${day}')" class="day-filter px-5 py-2 border rounded">${day}</div>`;
+        container.innerHTML += `
+        <button onclick="filterByDay('${day}')" 
+        class="px-6 py-3 border rounded-2xl text-lg">${day}</button>`;
     });
 }
 
+/* TABLE */
 function renderTable(data = timetableData) {
+
     const tbody = document.getElementById('timetableBody');
 
-    tbody.innerHTML = data.map(item => `
+    tbody.innerHTML = data.map(item => {
+
+        const parts = item.lecturer.split('\n');
+        const name = parts[0];
+        const phone = parts[1] || '';
+
+        return `
         <tr class="table-row border-b">
-            <td class="px-6 py-4">${item.day}</td>
-            <td class="px-6 py-4">${item.time}</td>
-            <td class="px-6 py-4">${item.course}</td>
-            <td class="px-6 py-4">${item.lecturer}</td>
+
+        <td class="px-6 py-5">${item.day}</td>
+        <td class="px-6 py-5">${item.time}</td>
+        <td class="px-6 py-5 font-semibold">${item.course}</td>
+
+        <td class="px-6 py-5">
+            <div class="mb-2">${name}</div>
+
+            ${phone ? `
+            <button onclick="prepareCall('${name}','${phone}')" 
+            class="text-blue-600 text-sm flex items-center gap-2">
+            <i class="fas fa-phone"></i> Call Lecturer
+            </button>` : ''}
+        </td>
+
         </tr>
-    `).join('');
+        `;
+    }).join('');
 }
 
+/* CALL */
+function prepareCall(name, phone) {
+    currentPhone = phone;
+
+    document.getElementById('modalTitle').innerText = `Call ${name}?`;
+    document.getElementById('modalPhone').innerText = phone;
+
+    document.getElementById('callModal').classList.remove('hidden');
+}
+
+function makeActualCall() {
+    window.location.href = `tel:${currentPhone}`;
+}
+
+function closeCallModal() {
+    document.getElementById('callModal').classList.add('hidden');
+}
+
+/* SEARCH */
+function liveSearch() {
+    const term = document.getElementById('searchInput').value.toLowerCase();
+
+    renderTable(
+        timetableData.filter(x =>
+            x.course.toLowerCase().includes(term) ||
+            x.lecturer.toLowerCase().includes(term) ||
+            x.day.toLowerCase().includes(term)
+        )
+    );
+}
+
+/* FILTER */
 function filterByDay(day) {
     if(day === 'all') return renderTable();
 
     renderTable(timetableData.filter(x => x.day === day));
 }
 
-function liveSearch() {
-    const term = document.getElementById('searchInput').value.toLowerCase();
-
-    renderTable(timetableData.filter(x =>
-        x.course.toLowerCase().includes(term) ||
-        x.lecturer.toLowerCase().includes(term)
-    ));
-}
-
+/* FEEDBACK */
 function showFeedbackForm() {
     document.getElementById('feedbackModal').classList.remove('hidden');
 }
 
-function dismissNotice() {
-    document.getElementById('desktopNotice').classList.add('hidden');
-}
-
-/* SHOW NOTICE ONLY ON SMALL SCREENS */
-if (window.innerWidth < 1024) {
-    setTimeout(() => {
-        document.getElementById('desktopNotice').classList.remove('hidden');
-    }, 500);
+function closeFeedbackModal() {
+    document.getElementById('feedbackModal').classList.add('hidden');
 }
 
 loadData();
+
 </script>
 
 </body>
