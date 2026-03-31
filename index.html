@@ -34,7 +34,7 @@
         }
         
         table {
-            min-width: 900px;
+            min-width: 850px;
         }
     </style>
 </head>
@@ -50,13 +50,12 @@
                 </div>
             </div>
             
-            <!-- Help Button -->
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform" 
-               target="_blank"
-               class="bg-white text-[#003087] px-6 py-3 rounded-3xl font-medium hover:bg-blue-50 transition flex items-center gap-2">
+            <!-- Help Us Improve Button -->
+            <button onclick="showFeedbackForm()"
+                    class="bg-white text-[#003087] px-6 py-3 rounded-3xl font-medium hover:bg-blue-50 transition flex items-center gap-2">
                 <i class="fas fa-comment-dots"></i>
                 Help Us Improve
-            </a>
+            </button>
         </div>
     </header>
     
@@ -85,7 +84,6 @@
                         <th class="px-6 py-6 text-left">Time</th>
                         <th class="px-6 py-6 text-left">Course</th>
                         <th class="px-6 py-6 text-left">Lecturer</th>
-                        <th class="px-6 py-6 text-center w-32">Action</th>
                     </tr>
                 </thead>
                 <tbody id="timetableBody" class="divide-y"></tbody>
@@ -93,7 +91,7 @@
         </div>
     </main>
 
-    <!-- Confirmation Modal -->
+    <!-- Call Confirmation Modal -->
     <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
         <div class="bg-white rounded-3xl w-full max-w-sm mx-4 overflow-hidden">
             <div class="p-6 text-center border-b">
@@ -110,6 +108,23 @@
                         class="flex-1 py-4 bg-blue-600 text-white font-medium rounded-3xl hover:bg-blue-700">
                     Call Now
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Form Modal (Google Form) -->
+    <div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
+            <div class="p-4 border-b flex justify-between items-center">
+                <h3 class="text-xl font-semibold">Help Us Improve</h3>
+                <button onclick="closeFeedbackModal()" 
+                        class="text-gray-500 hover:text-gray-700 text-2xl leading-none">×</button>
+            </div>
+            <div class="flex-1 overflow-auto p-2">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true" 
+                        width="100%" height="650" frameborder="0" marginheight="0" marginwidth="0">
+                    Loading…
+                </iframe>
             </div>
         </div>
     </div>
@@ -171,6 +186,8 @@
             
             tbody.innerHTML = dataToRender.map((item, index) => {
                 const lecturerName = item.lecturer.split('\n')[0] || item.lecturer;
+                const phone = item.lecturer.split('\n')[1] || 'N/A';
+                
                 return `
                     <tr class="table-row border-b" data-index="${index}">
                         <td class="px-6 py-6 font-medium">${item.day}</td>
@@ -178,25 +195,15 @@
                         <td class="px-6 py-6 font-medium">${item.course}</td>
                         <td class="px-6 py-6">
                             <div class="font-medium">${lecturerName}</div>
-                        </td>
-                        <td class="px-6 py-6 text-center">
-                            <button class="call-btn bg-blue-600 hover:bg-blue-700 text-white px-7 py-3 rounded-3xl text-sm font-medium flex items-center gap-2 mx-auto">
-                                <i class="fas fa-phone"></i>
-                                Call
-                            </button>
+                            ${phone !== 'N/A' ? `
+                            <button onclick="prepareCall('${item.lecturer.replace(/'/g, "\\'")}')" 
+                                    class="mt-2 text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center gap-1">
+                                <i class="fas fa-phone"></i> Call Lecturer
+                            </button>` : ''}
                         </td>
                     </tr>
                 `;
             }).join('');
-
-            document.querySelectorAll('.call-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const row = this.closest('tr');
-                    const index = parseInt(row.getAttribute('data-index'));
-                    const item = dataToRender[index];
-                    if (item) prepareCall(item.lecturer);
-                });
-            });
         }
 
         function prepareCall(lecturerStr) {
@@ -209,7 +216,6 @@
                 return;
             }
 
-            // Show confirmation modal
             document.getElementById('modalTitle').textContent = `Call ${lecturerName}?`;
             document.getElementById('callOptions').innerHTML = `
                 <p class="text-center text-gray-600 py-4">
@@ -229,8 +235,14 @@
 
         function closeCallModal() {
             document.getElementById('callModal').classList.add('hidden');
-            currentPhone = '';
-            currentName = '';
+        }
+
+        function showFeedbackForm() {
+            document.getElementById('feedbackModal').classList.remove('hidden');
+        }
+
+        function closeFeedbackModal() {
+            document.getElementById('feedbackModal').classList.add('hidden');
         }
 
         function filterByDay(day) {
