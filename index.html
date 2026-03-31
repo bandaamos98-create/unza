@@ -85,7 +85,7 @@
         </div>
     </main>
 
-    <!-- Desktop Mode Notification Popup -->
+    <!-- Desktop Mode Notification Popup (Shows EVERY time) -->
     <div id="desktopNotice" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100]">
         <div class="bg-white rounded-3xl max-w-md mx-4 p-8 text-center shadow-2xl">
             <div class="text-5xl mb-6">📱</div>
@@ -248,53 +248,21 @@
             document.getElementById('feedbackModal').classList.add('hidden');
         }
 
-        // Desktop Mode Notification
+        // Desktop Mode Notification - Shows EVERY time the site is visited
         function showDesktopNotice() {
             document.getElementById('desktopNotice').classList.remove('hidden');
         }
 
         function dismissNotice() {
             document.getElementById('desktopNotice').classList.add('hidden');
-            // Optional: Save that user has seen it (so it doesn't show again)
-            localStorage.setItem('desktopNoticeSeen', 'true');
         }
 
-        function filterByDay(day) {
-            document.querySelectorAll('.day-filter').forEach(el => el.classList.remove('active'));
-           
-            if (day === 'all') {
-                document.getElementById('filter-all').classList.add('active');
-                renderTable();
-            } else {
-                document.getElementById(`filter-${day}`).classList.add('active');
-                const filtered = timetableData.filter(item => item.day === day);
-                renderTable(filtered);
-            }
-        }
-
-        function liveSearch() {
-            const term = document.getElementById('searchInput').value.toLowerCase().trim();
-            if (!term) {
-                renderTable();
-                return;
-            }
-           
-            const filtered = timetableData.filter(item =>
-                item.course.toLowerCase().includes(term) ||
-                item.lecturer.toLowerCase().includes(term) ||
-                item.day.toLowerCase().includes(term)
-            );
-            renderTable(filtered);
-        }
-
-        // Show notice on first visit (or every time if you prefer)
+        // Load everything
         window.onload = function() {
             loadData();
             
-            // Show desktop notice if user hasn't dismissed it before
-            if (!localStorage.getItem('desktopNoticeSeen')) {
-                setTimeout(showDesktopNotice, 800); // Small delay so page loads first
-            }
+            // Show notification every time the page loads
+            setTimeout(showDesktopNotice, 600);   // Small delay so the page loads first
         };
     </script>
 </body>
