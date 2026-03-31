@@ -1,26 +1,135 @@
-{
-  "logo": "images/logo.png",
-  "timetable": [
-    {
-      "day": "Monday",
-      "time": "08:00 - 09:30",
-      "course": "EDU 101 - Foundations of Education",
-      "lecturer": "Dr. Elizabeth M. Banda\n+260 977 123 456",
-      "classRep": "Michael Chanda\n+260 966 987 654"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00 - 11:30",
-      "course": "CS 101 - Introduction to Computer Science",
-      "lecturer": "Prof. Robert K. Zulu\n+260 955 234 567",
-      "classRep": "Grace Lungu\n+260 977 112 233"
-    },
-    {
-      "day": "Saturday",
-      "time": "09:00 - 11:00",
-      "course": "CS 301 - Web Development",
-      "lecturer": "Mr. Emmanuel Phiri\n+260 977 556 123",
-      "classRep": "Tina Mwape\n+260 966 334 221"
-    }
-  ]
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNZA Timetable • 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+        .header-font { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6">
+        <div class="max-w-7xl mx-auto px-6 flex items-center gap-4" id="logoContainer">
+            <!-- Logo loaded from JSON -->
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-10">
+        <h1 class="header-font text-5xl font-bold text-[#003087] text-center">UNZA Timetable 2026</h1>
+        <p class="text-center text-gray-600 mt-2">The University of Zambia</p>
+
+        <div class="mt-10 flex flex-col md:flex-row gap-4">
+            <input id="searchInput" type="text" placeholder="Search course, lecturer or class rep..." 
+                   class="flex-1 px-6 py-5 rounded-3xl border border-gray-300 focus:border-[#003087] text-lg"
+                   onkeyup="if(event.key === 'Enter') performSearch()">
+            <button onclick="performSearch()" class="bg-[#003087] text-white px-10 py-5 rounded-3xl">SEARCH</button>
+        </div>
+
+        <div class="my-8" id="dayFilters"></div>
+
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+            <table class="w-full">
+                <thead class="bg-[#003087] text-white">
+                    <tr>
+                        <th class="px-6 py-6 text-left">Day</th>
+                        <th class="px-6 py-6 text-left">Time</th>
+                        <th class="px-6 py-6 text-left">Course</th>
+                        <th class="px-6 py-6 text-left">Lecturer</th>
+                        <th class="px-6 py-6 text-left">Class Rep</th>
+                        <th class="px-6 py-6 text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="timetableBody"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        let timetableData = [];
+
+        async function loadData() {
+            try {
+                // Changed to lecture.json (your current file name)
+                const res = await fetch('lecture.json');
+                const data = await res.json();
+                
+                timetableData = data.timetable || [];
+                const logoPath = data.logo || 'images/logo.png';
+
+                // Load Logo
+                document.getElementById('logoContainer').innerHTML = `
+                    <div class="flex items-center gap-4">
+                        <img src="${logoPath}" alt="UNZA" class="w-16 h-16 object-contain bg-white rounded-2xl p-2 shadow-inner">
+                        <div>
+                            <h1 class="header-font text-4xl">University of Zambia</h1>
+                            <p class="text-blue-200">Student Timetable Portal • 2026</p>
+                        </div>
+                    </div>
+                `;
+
+                renderFilters();
+                renderTable(timetableData);
+            } catch (e) {
+                alert("❌ Could not load lecture.json\nMake sure the file is named exactly 'lecture.json'");
+            }
+        }
+
+        function renderFilters() {
+            const container = document.getElementById('dayFilters');
+            container.innerHTML = `<div onclick="filterByDay('all')" class="inline-block px-6 py-3 bg-[#003087] text-white rounded-3xl cursor-pointer mr-3 font-medium">ALL COURSES</div>`;
+            
+            const days = [...new Set(timetableData.map(i => i.day))];
+            days.forEach(day => {
+                const d = document.createElement('div');
+                d.textContent = day;
+                d.onclick = () => filterByDay(day);
+                d.className = "inline-block px-6 py-3 bg-white border border-gray-300 rounded-3xl cursor-pointer mr-3 hover:border-[#003087] font-medium";
+                container.appendChild(d);
+            });
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('timetableBody');
+            tbody.innerHTML = data.map(item => `
+                <tr class="border-b hover:bg-blue-50 transition">
+                    <td class="px-6 py-6 font-medium">${item.day}</td>
+                    <td class="px-6 py-6">${item.time}</td>
+                    <td class="px-6 py-6 font-medium">${item.course}</td>
+                    <td class="px-6 py-6 whitespace-pre-line">${item.lecturer}</td>
+                    <td class="px-6 py-6 whitespace-pre-line">${item.classRep}</td>
+                    <td class="px-6 py-6 text-center">
+                        <button onclick="alert('💬 WhatsApp would open with ${item.classRep.split('\n')[0]}')" 
+                                class="bg-emerald-600 text-white px-6 py-3 rounded-3xl text-sm hover:bg-emerald-700">
+                            Message Rep
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function filterByDay(day) {
+            if (day === 'all') return renderTable(timetableData);
+            const filtered = timetableData.filter(item => item.day === day);
+            renderTable(filtered);
+        }
+
+        function performSearch() {
+            const term = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!term) return;
+            const filtered = timetableData.filter(item => 
+                item.course.toLowerCase().includes(term) || 
+                item.lecturer.toLowerCase().includes(term) ||
+                item.classRep.toLowerCase().includes(term)
+            );
+            renderTable(filtered);
+        }
+
+        window.onload = loadData;
+    </script>
+</body>
+</html>
