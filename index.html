@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Forces desktop mode on mobile with better fit -->
+    <!-- Forces desktop mode on mobile with better screen fit -->
     <meta name="viewport" content="width=1280, initial-scale=0.85, maximum-scale=1.0, user-scalable=yes">
     
     <title>UNZA Timetable • 2026</title>
@@ -126,7 +126,7 @@
                 renderTable();
             } catch (e) {
                 console.error(e);
-                alert("Could not load lecture.json — make sure the file is in the same folder as this HTML");
+                alert("Could not load lecture.json — make sure the file is in the same folder");
             }
         }
 
@@ -173,6 +173,7 @@
                 `;
             }).join('');
 
+            // Attach click events safely
             document.querySelectorAll('.call-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const row = this.closest('tr');
@@ -217,7 +218,7 @@
 
             let html = '';
 
-            if (lecturerPhone !== 'N/A') {
+            if (lecturerPhone !== 'N/A' && lecturerPhone !== '') {
                 html = `
                     <button onclick="makeCall('${lecturerPhone}', '${lecturerName}')"
                             class="w-full text-left p-5 border border-gray-200 rounded-2xl hover:bg-blue-50 flex justify-between items-center transition">
@@ -237,7 +238,7 @@
         }
 
         function makeCall(phone, name) {
-            if (phone === 'N/A' || !phone) {
+            if (!phone || phone === 'N/A') {
                 alert("No phone number available for this lecturer.");
                 return;
             }
