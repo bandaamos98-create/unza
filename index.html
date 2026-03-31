@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Forces desktop mode on mobile + fits screen at normal zoom -->
-    <!-- This combination renders as desktop layout but scales to fit without zoom-in -->
-    <meta name="viewport" content="width=1280, initial-scale=0.8, maximum-scale=1.0, user-scalable=yes">
+    <!-- FORCED DESKTOP MODE + FITS PERFECTLY ON PHONE SCREEN -->
+    <!-- No zoom-in, everything visible without scrolling or zooming -->
+    <meta name="viewport" content="width=1280, initial-scale=0.75, maximum-scale=1.0, user-scalable=no">
     
     <title>UNZA Timetable • 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -34,9 +34,15 @@
             display: none;
         }
         
-        /* Ensure table doesn't get too squeezed */
         table {
             min-width: 900px;
+        }
+
+        /* Extra force to make full desktop layout fit screen */
+        .max-w-7xl {
+            max-width: 1280px !important;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
