@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Forces desktop mode on mobile with better screen fit -->
-    <meta name="viewport" content="width=1280, initial-scale=0.85, maximum-scale=1.0, user-scalable=yes">
+    <!-- Forces desktop mode on mobile + fits screen at normal zoom -->
+    <!-- This combination renders as desktop layout but scales to fit without zoom-in -->
+    <meta name="viewport" content="width=1280, initial-scale=0.8, maximum-scale=1.0, user-scalable=yes">
     
     <title>UNZA Timetable • 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -33,6 +34,7 @@
             display: none;
         }
         
+        /* Ensure table doesn't get too squeezed */
         table {
             min-width: 900px;
         }
@@ -126,7 +128,7 @@
                 renderTable();
             } catch (e) {
                 console.error(e);
-                alert("Could not load lecture.json — make sure the file is in the same folder");
+                alert("Could not load lecture.json");
             }
         }
 
@@ -173,7 +175,6 @@
                 `;
             }).join('');
 
-            // Attach click events safely
             document.querySelectorAll('.call-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const row = this.closest('tr');
