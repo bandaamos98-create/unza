@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Forces desktop-style rendering on mobile with normal zoom and better screen fit -->
-    <!-- This combination prevents unwanted zoom-in while keeping desktop layout -->
+    <!-- Forces desktop mode on mobile with better fit -->
     <meta name="viewport" content="width=1280, initial-scale=0.85, maximum-scale=1.0, user-scalable=yes">
     
     <title>UNZA Timetable • 2026</title>
@@ -25,7 +24,6 @@
        
         .table-row:hover {
             background-color: #f0f7ff;
-            transform: scale(1.02) translateY(-2px);
         }
        
         .scrollable-filters {
@@ -35,9 +33,8 @@
             display: none;
         }
         
-        /* Optional: Help the table stay readable on smaller screens */
         table {
-            min-width: 1100px;
+            min-width: 900px;
         }
     </style>
 </head>
@@ -52,7 +49,7 @@
 
         <!-- Live Search -->
         <div class="mt-10">
-            <input id="searchInput" type="text" placeholder="Search course, lecturer, or class rep..."
+            <input id="searchInput" type="text" placeholder="Search course, lecturer, or day..."
                    class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-[#003087] text-lg outline-none"
                    onkeyup="liveSearch()">
         </div>
@@ -71,8 +68,7 @@
                         <th class="px-6 py-6 text-left">Time</th>
                         <th class="px-6 py-6 text-left">Course</th>
                         <th class="px-6 py-6 text-left">Lecturer</th>
-                        <th class="px-6 py-6 text-left">Class Rep</th>
-                        <th class="px-6 py-6 text-center">Call</th>
+                        <th class="px-6 py-6 text-center w-32">Action</th>
                     </tr>
                 </thead>
                 <tbody id="timetableBody" class="divide-y"></tbody>
@@ -80,11 +76,11 @@
         </div>
     </main>
 
-    <!-- Call Options Modal -->
+    <!-- Call Modal -->
     <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
         <div class="bg-white rounded-3xl w-full max-w-sm mx-4 overflow-hidden">
             <div class="p-6 text-center border-b">
-                <h3 class="text-xl font-semibold" id="modalTitle">Make a Call</h3>
+                <h3 class="text-xl font-semibold">Call Lecturer</h3>
             </div>
             <div class="p-6 space-y-4" id="callOptions"></div>
             <div class="p-4">
@@ -96,7 +92,7 @@
         </div>
     </div>
 
-    <!-- Footer with your contact -->
+    <!-- Footer -->
     <footer class="text-center py-10 text-gray-500 text-sm">
         <p>Created by <span class="font-medium text-[#003087]">Amos Banda</span></p>
         <p class="mt-1">
@@ -157,28 +153,33 @@
             const dataToRender = filteredData || timetableData;
             const tbody = document.getElementById('timetableBody');
             
-            tbody.innerHTML = dataToRender.map((item, index) => `
-                <tr class="table-row border-b" data-index="${index}">
-                    <td class="px-6 py-6 font-medium">${item.day}</td>
-                    <td class="px-6 py-6">${item.time}</td>
-                    <td class="px-6 py-6 font-medium">${item.course}</td>
-                    <td class="px-6 py-6 whitespace-pre-line">${item.lecturer}</td>
-                    <td class="px-6 py-6 whitespace-pre-line">${item.classRep}</td>
-                    <td class="px-6 py-6 text-center">
-                        <button class="call-btn bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-3xl text-sm font-medium flex items-center gap-2 mx-auto">
-                            <i class="fas fa-phone"></i>
-                            Call
-                        </button>
-                    </td>
-                </tr>
-            `).join('');
+            tbody.innerHTML = dataToRender.map((item, index) => {
+                const lecturerName = item.lecturer.split('\n')[0] || item.lecturer;
+                return `
+                    <tr class="table-row border-b" data-index="${index}">
+                        <td class="px-6 py-6 font-medium">${item.day}</td>
+                        <td class="px-6 py-6">${item.time}</td>
+                        <td class="px-6 py-6 font-medium">${item.course}</td>
+                        <td class="px-6 py-6">
+                            <div class="font-medium">${lecturerName}</div>
+                        </td>
+                        <td class="px-6 py-6 text-center">
+                            <button class="call-btn bg-blue-600 hover:bg-blue-700 text-white px-7 py-3 rounded-3xl text-sm font-medium flex items-center gap-2 mx-auto">
+                                <i class="fas fa-phone"></i>
+                                Call
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
 
+            // Attach click events
             document.querySelectorAll('.call-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const row = this.closest('tr');
                     const index = parseInt(row.getAttribute('data-index'));
                     const item = dataToRender[index];
-                    if (item) showCallOptions(item.lecturer, item.classRep);
+                    if (item) showCallOptions(item.lecturer);
                 });
             });
         }
@@ -206,23 +207,19 @@
             const filtered = timetableData.filter(item =>
                 item.course.toLowerCase().includes(term) ||
                 item.lecturer.toLowerCase().includes(term) ||
-                item.classRep.toLowerCase().includes(term) ||
                 item.day.toLowerCase().includes(term)
             );
             renderTable(filtered);
         }
 
-        function showCallOptions(lecturerStr, classRepStr) {
+        function showCallOptions(lecturerStr) {
             const lecturerName = lecturerStr.split('\n')[0] || 'Lecturer';
             const lecturerPhone = lecturerStr.split('\n')[1] || 'N/A';
-           
-            const repName = classRepStr.split('\n')[0] || 'Class Rep';
-            const repPhone = classRepStr.split('\n')[1] || 'N/A';
 
             let html = '';
 
             if (lecturerPhone !== 'N/A') {
-                html += `
+                html = `
                     <button onclick="makeCall('${lecturerPhone}', '${lecturerName}')"
                             class="w-full text-left p-5 border border-gray-200 rounded-2xl hover:bg-blue-50 flex justify-between items-center transition">
                         <div>
@@ -232,23 +229,8 @@
                         <span class="text-blue-600 font-medium">${lecturerPhone}</span>
                     </button>
                 `;
-            }
-
-            if (repPhone !== 'N/A') {
-                html += `
-                    <button onclick="makeCall('${repPhone}', '${repName}')"
-                            class="w-full text-left p-5 border border-gray-200 rounded-2xl hover:bg-blue-50 flex justify-between items-center transition">
-                        <div>
-                            <span class="font-medium text-lg">📞 Call Class Rep</span><br>
-                            <span class="text-gray-600">${repName}</span>
-                        </div>
-                        <span class="text-blue-600 font-medium">${repPhone}</span>
-                    </button>
-                `;
-            }
-
-            if (html === '') {
-                html = `<p class="text-center text-gray-500 py-8">No contact numbers available</p>`;
+            } else {
+                html = `<p class="text-center text-gray-500 py-8">No phone number available</p>`;
             }
 
             document.getElementById('callOptions').innerHTML = html;
@@ -257,7 +239,7 @@
 
         function makeCall(phone, name) {
             if (phone === 'N/A' || !phone) {
-                alert("No phone number available for this contact.");
+                alert("No phone number available for this lecturer.");
                 return;
             }
             window.location.href = `tel:${phone}`;
