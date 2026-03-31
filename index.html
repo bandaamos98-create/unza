@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Forces true desktop mode with NORMAL zoom (100%) on all devices -->
-    <meta name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Forces desktop-style rendering on mobile with normal zoom and better screen fit -->
+    <!-- This combination prevents unwanted zoom-in while keeping desktop layout -->
+    <meta name="viewport" content="width=1280, initial-scale=0.85, maximum-scale=1.0, user-scalable=yes">
     
     <title>UNZA Timetable • 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,6 +33,11 @@
         }
         .scrollable-filters::-webkit-scrollbar {
             display: none;
+        }
+        
+        /* Optional: Help the table stay readable on smaller screens */
+        table {
+            min-width: 1100px;
         }
     </style>
 </head>
@@ -124,7 +130,7 @@
                 renderTable();
             } catch (e) {
                 console.error(e);
-                alert("Could not load lecture.json — make sure the file is in the same folder");
+                alert("Could not load lecture.json");
             }
         }
 
@@ -167,7 +173,6 @@
                 </tr>
             `).join('');
 
-            // Safe click handlers for Call buttons
             document.querySelectorAll('.call-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const row = this.closest('tr');
