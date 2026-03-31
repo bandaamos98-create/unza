@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- STRONGEST FORCE DESKTOP MODE - Renders as desktop on ALL devices -->
-    <meta name="viewport" content="width=1280, initial-scale=0.78, maximum-scale=1.0, user-scalable=no">
+    <!-- FORCED DESKTOP MODE - Adapted from Brito style for consistent desktop rendering -->
+    <meta name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>UNZA Timetable • 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,7 +37,7 @@
             min-width: 880px;
         }
 
-        /* Extra force for mobile browsers */
+        /* Extra force for consistent desktop behavior across devices */
         body {
             -webkit-text-size-adjust: 100%;
         }
@@ -45,7 +45,7 @@
 </head>
 <body class="bg-gray-50">
     <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6 shadow-lg">
-        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div class="max-w-[1280px] mx-auto px-6 flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <img id="logoImg" src="images/logo.png" alt="UNZA" class="w-16 h-16 object-contain bg-white rounded-2xl p-2 shadow-inner">
                 <div>
@@ -62,7 +62,7 @@
         </div>
     </header>
     
-    <main class="max-w-7xl mx-auto px-6 py-10">
+    <main class="max-w-[1280px] mx-auto px-6 py-10">
         <h1 class="header-font text-5xl font-bold text-[#003087] text-center">UNZA Academic Timetable 2026</h1>
         <p class="text-center text-gray-600 mt-2">The University of Zambia</p>
 
@@ -262,10 +262,39 @@
             document.getElementById('desktopNotice').classList.add('hidden');
         }
 
-        // Load data and show notice every time
+        function filterByDay(day) {
+            document.querySelectorAll('.day-filter').forEach(el => el.classList.remove('active'));
+           
+            if (day === 'all') {
+                document.getElementById('filter-all').classList.add('active');
+                renderTable();
+            } else {
+                document.getElementById(`filter-${day}`).classList.add('active');
+                const filtered = timetableData.filter(item => item.day === day);
+                renderTable(filtered);
+            }
+        }
+
+        function liveSearch() {
+            const term = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!term) {
+                renderTable();
+                return;
+            }
+           
+            const filtered = timetableData.filter(item =>
+                item.course.toLowerCase().includes(term) ||
+                item.lecturer.toLowerCase().includes(term) ||
+                item.day.toLowerCase().includes(term)
+            );
+            renderTable(filtered);
+        }
+
+        // Load everything
         window.onload = function() {
             loadData();
-            setTimeout(showDesktopNotice, 700);   // Show notice after page loads
+            // Show notice every time
+            setTimeout(showDesktopNotice, 700);
         };
     </script>
 </body>
