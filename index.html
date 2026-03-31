@@ -7,387 +7,276 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap');
         
-        :root {
-            --unza-blue: #003087;
-        }
+        :root { --unza-blue: #003087; }
         
         * {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, transform;
+            transition-property: all;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 200ms;
+            transition-duration: 250ms;
         }
         
-        .tailwind-ready * {
-            font-family: 'Inter', system_ui, sans-serif;
-        }
+        .header-font { font-family: 'Space Grotesk', sans-serif; }
         
-        .header-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
         .table-row {
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
         }
-        
         .table-row:hover {
-            background-color: #f8fafc;
-            transform: translateX(8px);
-        }
-
-        .data-table th {
-            background: linear-gradient(to right, #003087, #0050b0);
-            color: white;
-        }
-        
-        .hero-bg {
-            background: linear-gradient(90deg, #003087 0%, #0050b0 100%);
+            background-color: #f0f7ff;
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 48 135 / 0.1);
         }
 
         .modal {
-            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation: modalPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
-        
         @keyframes modalPop {
-            0% { opacity: 0; transform: scale(0.8) translateY(40px); }
+            0% { opacity: 0; transform: scale(0.7) translateY(60px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        @media (max-width: 768px) {
-            .table-row td {
-                padding: 16px 12px !important;
-                font-size: 0.95rem;
-            }
+        .hero-bg {
+            background: linear-gradient(135deg, #003087 0%, #0048a8 100%);
         }
     </style>
 </head>
 <body class="tailwind-ready bg-gray-50">
     <!-- HEADER -->
-    <header class="hero-bg text-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <!-- Logo from your GitHub repo -->
-            <div class="flex items-center gap-x-4">
-                <div class="w-14 h-14 bg-white rounded-3xl flex items-center justify-center shadow-inner overflow-hidden p-1.5">
-                    <img src="images/logo.png" 
-                         alt="University of Zambia Logo" 
-                         class="w-full h-full object-contain">
-                </div>
-                <div>
-                    <h1 class="header-font text-3xl tracking-tighter">University of Zambia</h1>
-                    <p class="text-sm text-blue-200 -mt-1">Student Timetable • 2026</p>
-                </div>
+    <header class="hero-bg text-white shadow-xl sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+            <div class="flex items-center gap-x-5" id="logoContainer">
+                <!-- Loaded from JSON -->
             </div>
 
-            <div class="flex items-center gap-x-3">
-                <div class="bg-white/10 backdrop-blur-md text-white text-sm px-4 py-2 rounded-3xl flex items-center gap-x-2 border border-white/30">
-                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <div class="flex items-center gap-x-4">
+                <div class="bg-white/15 backdrop-blur-lg text-white text-sm px-5 py-2.5 rounded-3xl flex items-center gap-x-3 border border-white/30">
+                    <div class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></div>
                     Semester 1 • 2026
                 </div>
-                
-                <div class="flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-3xl">
-                    <i class="fa-solid fa-user-circle text-2xl"></i>
-                    <div class="text-sm">
+                <div class="flex items-center gap-x-3 bg-white/15 backdrop-blur-lg px-5 py-2.5 rounded-3xl">
+                    <i class="fa-solid fa-user-graduate text-2xl"></i>
+                    <div>
                         <p class="font-medium">Welcome, Amos</p>
-                        <p class="text-blue-200 text-xs">Lusaka</p>
+                        <p class="text-xs text-blue-200">The University of Zambia</p>
                     </div>
                 </div>
-                
-                <button onclick="downloadTimetable()" 
-                        class="bg-white text-[#003087] px-6 py-3 rounded-3xl font-semibold flex items-center gap-x-2 hover:shadow-xl active:scale-95">
-                    <i class="fa-solid fa-download"></i>
-                    <span class="hidden sm:inline">Download PDF</span>
-                </button>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-8 md:py-10">
-        
-        <div class="mb-10">
-            <h2 class="header-font text-4xl md:text-5xl font-semibold tracking-tighter text-[#003087] mb-2">
-                Class Timetable
-            </h2>
-            <p class="text-lg text-gray-600">All courses • Lecturers &amp; Class Representatives</p>
+    <main class="max-w-7xl mx-auto px-6 py-10">
+        <div class="mb-12 text-center md:text-left">
+            <h1 class="header-font text-5xl md:text-6xl font-bold tracking-tighter text-[#003087]">
+                Academic Timetable
+            </h1>
+            <p class="text-xl text-gray-600 mt-3">Stay organized • Never miss a lecture</p>
         </div>
 
-        <!-- SEARCH BAR -->
-        <div class="mb-8 flex flex-col sm:flex-row items-center gap-4">
-            <div class="relative flex-1 w-full">
-                <i class="fa-solid fa-magnifying-glass absolute left-5 top-4 text-gray-400"></i>
-                <input 
-                    id="searchInput"
-                    type="text" 
-                    placeholder="Search course, lecturer, class rep or day..."
-                    onkeyup="if(event.key === 'Enter') performSearch()"
-                    class="w-full pl-12 pr-6 py-4 bg-white border border-gray-300 focus:border-[#003087] rounded-3xl text-lg outline-none shadow-sm">
+        <!-- Search Bar -->
+        <div class="mb-10 flex flex-col md:flex-row gap-4">
+            <div class="relative flex-1">
+                <i class="fa-solid fa-magnifying-glass absolute left-6 top-5 text-gray-400"></i>
+                <input id="searchInput" type="text" 
+                       placeholder="Search by course, lecturer, class rep or day..."
+                       onkeyup="if(event.key === 'Enter') performSearch()"
+                       class="w-full pl-14 pr-6 py-5 bg-white border border-gray-200 focus:border-[#003087] rounded-3xl text-lg outline-none shadow-sm">
             </div>
             <button onclick="performSearch()" 
-                    class="w-full sm:w-auto bg-[#003087] text-white px-10 py-4 rounded-3xl font-semibold flex items-center justify-center gap-x-2 active:scale-95">
+                    class="bg-[#003087] text-white px-12 py-5 rounded-3xl font-semibold flex items-center gap-x-3 hover:shadow-xl">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 SEARCH
             </button>
-            <button onclick="resetFilters()" 
-                    class="w-full sm:w-auto text-gray-500 hover:text-gray-700 px-6 py-4 flex items-center justify-center gap-x-2">
-                <i class="fa-solid fa-rotate-right"></i>
-                <span class="hidden sm:inline">Reset</span>
+            <button onclick="resetFilters()" class="px-8 py-5 text-gray-500 hover:text-gray-700">
+                <i class="fa-solid fa-rotate-right text-xl"></i>
             </button>
         </div>
 
-        <!-- DAY FILTERS -->
-        <div class="flex flex-wrap gap-3 mb-8">
-            <div onclick="filterByDay('all')" id="filter-all"
-                 class="filter-btn active px-6 py-3 bg-[#003087] text-white rounded-3xl text-sm font-semibold cursor-pointer flex items-center">
-                ALL COURSES
-            </div>
-            <div onclick="filterByDay('Monday')" id="filter-Monday"
-                 class="filter-btn px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer">
-                Monday
-            </div>
-            <div onclick="filterByDay('Tuesday')" id="filter-Tuesday"
-                 class="filter-btn px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer">
-                Tuesday
-            </div>
-            <div onclick="filterByDay('Wednesday')" id="filter-Wednesday"
-                 class="filter-btn px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer">
-                Wednesday
-            </div>
-            <div onclick="filterByDay('Thursday')" id="filter-Thursday"
-                 class="filter-btn px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer">
-                Thursday
-            </div>
-            <div onclick="filterByDay('Friday')" id="filter-Friday"
-                 class="filter-btn px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer">
-                Friday
-            </div>
-            <div onclick="filterByDay('Saturday')" id="filter-Saturday"
-                 class="filter-btn px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer">
-                Saturday
-            </div>
-            <div onclick="filterByDay('Sunday')" id="filter-Sunday"
-                 class="filter-btn px-6 py-3 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer">
-                Sunday
-            </div>
-        </div>
+        <!-- Day Filters -->
+        <div class="flex flex-wrap gap-3 mb-10" id="dayFilters"></div>
 
-        <!-- TIMETABLE TABLE -->
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-            <table class="data-table w-full">
+        <!-- Timetable Table -->
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+            <table class="w-full">
                 <thead>
-                    <tr>
-                        <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Day</th>
-                        <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Time</th>
-                        <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Course</th>
-                        <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Lecturer</th>
-                        <th class="px-6 md:px-8 py-5 text-left text-xs md:text-sm uppercase tracking-widest">Class Rep</th>
-                        <th class="px-6 md:px-8 py-5 text-center text-xs md:text-sm uppercase tracking-widest">Action</th>
+                    <tr class="bg-gradient-to-r from-[#003087] to-[#0050b0] text-white">
+                        <th class="px-6 py-6 text-left text-sm uppercase tracking-widest">Day</th>
+                        <th class="px-6 py-6 text-left text-sm uppercase tracking-widest">Time</th>
+                        <th class="px-6 py-6 text-left text-sm uppercase tracking-widest">Course</th>
+                        <th class="px-6 py-6 text-left text-sm uppercase tracking-widest">Lecturer</th>
+                        <th class="px-6 py-6 text-left text-sm uppercase tracking-widest">Class Representative</th>
+                        <th class="px-6 py-6 text-center text-sm uppercase tracking-widest w-32">Contact</th>
                     </tr>
                 </thead>
-                <tbody id="timetableBody" class="divide-y divide-gray-100 text-sm">
-                    <!-- Populated by JS -->
-                </tbody>
+                <tbody id="timetableBody" class="divide-y divide-gray-100"></tbody>
             </table>
         </div>
-
-        <!-- SEARCH RESULTS MODAL -->
-        <div id="searchModal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center px-4">
-            <div class="modal bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] shadow-2xl overflow-hidden">
-                <div class="px-6 md:px-8 py-5 border-b flex items-center justify-between bg-[#003087] text-white rounded-t-3xl">
-                    <div class="flex items-center gap-x-3">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <h3 class="text-xl font-semibold">Search Results</h3>
-                    </div>
-                    <button onclick="closeModal()" class="text-4xl leading-none hover:text-blue-200">×</button>
-                </div>
-                
-                <div id="modalContent" class="p-6 md:p-8 overflow-auto max-h-[65vh]">
-                    <!-- Populated by JS -->
-                </div>
-                
-                <div class="px-8 py-5 border-t flex justify-end">
-                    <button onclick="closeModal()" 
-                            class="px-8 py-3 bg-gray-100 hover:bg-gray-200 rounded-3xl font-medium">
-                        Close
-                    </button>
-                </div>
-            </div>
-        </div>
-
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-[#003087] text-white py-12 mt-16">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="flex justify-center items-center gap-x-3 mb-6">
-                <img src="images/logo.png" 
-                     alt="UNZA" class="h-10 opacity-90">
-                <span class="header-font text-2xl">University of Zambia</span>
+    <!-- Search Modal -->
+    <div id="searchModal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center px-4">
+        <div class="modal bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] shadow-2xl overflow-hidden">
+            <div class="px-8 py-6 bg-[#003087] text-white flex justify-between items-center rounded-t-3xl">
+                <h3 class="text-2xl font-semibold">Search Results</h3>
+                <button onclick="closeModal()" class="text-5xl leading-none hover:rotate-90">×</button>
             </div>
-            
-            <p class="text-blue-200 text-sm">Personal Student Timetable Website</p>
-            
-            <p class="text-xs text-blue-300 mt-8">
-                Created by: <strong>Amos Banda</strong>
-            </p>
-            
-            <p class="text-xs text-blue-300 mt-6">© 2026 • Made for UNZA Students</p>
+            <div id="modalContent" class="p-8 overflow-auto max-h-[65vh]"></div>
+            <div class="p-6 border-t flex justify-end">
+                <button onclick="closeModal()" class="px-10 py-4 bg-gray-100 hover:bg-gray-200 rounded-3xl font-medium">Close</button>
+            </div>
         </div>
+    </div>
+
+    <footer class="bg-[#003087] text-white py-12 mt-20 text-center">
+        <p class="text-sm">Created by: <strong>Amos Banda</strong> — Personal UNZA Timetable Portal</p>
     </footer>
 
     <script>
-        let timetableData = [
-            { day: "Monday", time: "08:00 - 09:30", course: "EDU 101 - Foundations of Education", lecturer: "Dr. Elizabeth M. Banda\n+260 977 123 456", classRep: "Michael Chanda\n+260 966 987 654" },
-            { day: "Monday", time: "10:00 - 11:30", course: "CS 101 - Introduction to Computer Science", lecturer: "Prof. Robert K. Zulu\n+260 955 234 567", classRep: "Grace Lungu\n+260 977 112 233" },
-            { day: "Monday", time: "13:00 - 14:30", course: "BIO 101 - Introductory Biology", lecturer: "Dr. Patricia Mwanza\n+260 966 345 678", classRep: "Joseph Phiri\n+260 955 445 566" },
-            { day: "Tuesday", time: "08:00 - 09:30", course: "MAT 101 - Calculus I", lecturer: "Dr. Stephen Tembo\n+260 977 556 677", classRep: "Anna Mulenga\n+260 966 778 899" },
-            { day: "Tuesday", time: "10:00 - 11:30", course: "ENG 101 - Communication Skills", lecturer: "Ms. Mary N. Kabwe\n+260 955 889 900", classRep: "David Banda\n+260 977 001 122" },
-            { day: "Tuesday", time: "14:00 - 15:30", course: "ACC 101 - Financial Accounting", lecturer: "Prof. Charles M. Ngoma\n+260 966 112 233", classRep: "Rachel Zulu\n+260 955 334 455" },
-            { day: "Wednesday", time: "09:00 - 10:30", course: "PHY 101 - Introductory Physics", lecturer: "Dr. Francis M. Munalula\n+260 977 445 566", classRep: "Peter Lungu\n+260 966 667 788" },
-            { day: "Wednesday", time: "11:00 - 12:30", course: "EDU 201 - Educational Psychology", lecturer: "Dr. Agnes K. Simwinga\n+260 955 778 899", classRep: "Esther Phiri\n+260 977 990 011" },
-            { day: "Thursday", time: "08:00 - 09:30", course: "CS 201 - Data Structures", lecturer: "Dr. John Mwape\n+260 966 223 344", classRep: "Brian Chanda\n+260 955 556 677" },
-            { day: "Thursday", time: "13:00 - 14:30", course: "LAW 101 - Introduction to Law", lecturer: "Prof. Lillian M. Chikwanda\n+260 977 667 788", classRep: "Sarah Tembo\n+260 966 889 900" },
-            { day: "Friday", time: "08:00 - 09:30", course: "CHEM 101 - General Chemistry", lecturer: "Dr. Victor N. Musonda\n+260 955 990 011", classRep: "Kelvin Mwanza\n+260 977 112 344" },
-            { day: "Friday", time: "10:00 - 11:30", course: "ECO 101 - Principles of Economics", lecturer: "Ms. Dorothy M. Kabwe\n+260 966 334 455", classRep: "Linda Zulu\n+260 955 667 889" },
-            { day: "Saturday", time: "09:00 - 10:30", course: "CS 301 - Web Development", lecturer: "Mr. Emmanuel Phiri\n+260 977 556 123", classRep: "Tina Mwape\n+260 966 334 221" },
-            { day: "Sunday", time: "14:00 - 15:30", course: "Self Study / Revision", lecturer: "N/A", classRep: "Group Chat" }
-        ]
+        let timetableData = [];
 
-        let currentDayFilter = 'all'
+        async function loadData() {
+            try {
+                const res = await fetch('lectures.json');
+                const data = await res.json();
+                
+                timetableData = data.timetable || [];
+                
+                // Set Logo
+                const logoPath = data.logo || 'images/logo.png';
+                document.getElementById('logoContainer').innerHTML = `
+                    <div class="w-16 h-16 bg-white rounded-3xl p-2 shadow-inner">
+                        <img src="${logoPath}" alt="UNZA" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h1 class="header-font text-4xl tracking-tighter">University of Zambia</h1>
+                        <p class="text-blue-200 text-sm -mt-1">Official Student Timetable 2026</p>
+                    </div>
+                `;
+
+                renderDayFilters();
+                renderTimetable(timetableData);
+            } catch (e) {
+                alert("Error loading lectures.json — Make sure the file exists in the same folder.");
+            }
+        }
+
+        function renderDayFilters() {
+            const container = document.getElementById('dayFilters');
+            container.innerHTML = `
+                <div onclick="filterByDay('all')" id="filter-all" 
+                     class="filter-btn active px-7 py-3.5 bg-[#003087] text-white rounded-3xl text-sm font-semibold cursor-pointer shadow-md">ALL COURSES</div>
+            `;
+
+            const days = [...new Set(timetableData.map(t => t.day))];
+            days.forEach(day => {
+                const div = document.createElement('div');
+                div.onclick = () => filterByDay(day);
+                div.id = `filter-${day}`;
+                div.className = `filter-btn px-7 py-3.5 bg-white border border-gray-300 hover:border-[#003087] rounded-3xl text-sm font-semibold cursor-pointer`;
+                div.textContent = day;
+                container.appendChild(div);
+            });
+        }
 
         function renderTimetable(data) {
-            const tbody = document.getElementById('timetableBody')
-            tbody.innerHTML = ''
-            
+            const tbody = document.getElementById('timetableBody');
+            tbody.innerHTML = '';
+
             data.forEach(item => {
-                const row = document.createElement('tr')
-                row.className = 'table-row'
-                row.innerHTML = `
-                    <td class="px-6 md:px-8 py-6 font-medium">${item.day}</td>
-                    <td class="px-6 md:px-8 py-6">
-                        <span class="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-700 rounded-3xl text-xs font-semibold">${item.time}</span>
+                const tr = document.createElement('tr');
+                tr.className = 'table-row border-b last:border-none';
+                tr.innerHTML = `
+                    <td class="px-6 py-7 font-semibold text-gray-800">${item.day}</td>
+                    <td class="px-6 py-7">
+                        <span class="px-5 py-2 bg-blue-100 text-blue-700 rounded-3xl text-sm font-medium">${item.time}</span>
                     </td>
-                    <td class="px-6 md:px-8 py-6 font-medium">${item.course}</td>
-                    <td class="px-6 md:px-8 py-6 whitespace-pre-line leading-tight">
-                        ${item.lecturer}
-                    </td>
-                    <td class="px-6 md:px-8 py-6 whitespace-pre-line leading-tight">
-                        ${item.classRep}
-                    </td>
-                    <td class="px-6 md:px-8 py-6 text-center">
+                    <td class="px-6 py-7 font-medium">${item.course}</td>
+                    <td class="px-6 py-7 whitespace-pre-line leading-relaxed text-gray-700">${item.lecturer}</td>
+                    <td class="px-6 py-7 whitespace-pre-line leading-relaxed text-gray-700">${item.classRep}</td>
+                    <td class="px-6 py-7 text-center">
                         <button onclick="messageRep('${item.classRep.split('\n')[0]}')" 
-                                class="text-xs bg-emerald-100 hover:bg-emerald-200 text-emerald-700 px-5 py-2.5 rounded-3xl flex items-center mx-auto">
-                            <i class="fa-brands fa-whatsapp mr-1"></i> Message
+                                class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-3xl text-sm font-medium flex items-center gap-2 mx-auto">
+                            <i class="fa-brands fa-whatsapp"></i> Message Rep
                         </button>
                     </td>
-                `
-                tbody.appendChild(row)
-            })
+                `;
+                tbody.appendChild(tr);
+            });
         }
 
         function filterByDay(day) {
-            currentDayFilter = day
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-[#003087]', 'text-white')
-                btn.classList.add('bg-white', 'border-gray-300')
-            })
-            
+            document.querySelectorAll('.filter-btn').forEach(el => {
+                el.classList.remove('active', 'bg-[#003087]', 'text-white');
+            });
+
             if (day === 'all') {
-                document.getElementById('filter-all').classList.add('active', 'bg-[#003087]', 'text-white')
+                document.getElementById('filter-all').classList.add('active', 'bg-[#003087]', 'text-white');
+                renderTimetable(timetableData);
             } else {
-                const el = document.getElementById('filter-' + day)
-                if (el) el.classList.add('active', 'bg-[#003087]', 'text-white')
+                document.getElementById(`filter-${day}`).classList.add('active', 'bg-[#003087]', 'text-white');
+                const filtered = timetableData.filter(item => item.day === day);
+                renderTimetable(filtered);
             }
-            
-            let filtered = timetableData
-            if (day !== 'all') {
-                filtered = timetableData.filter(item => item.day === day)
-            }
-            renderTimetable(filtered)
         }
 
         function performSearch() {
-            const term = document.getElementById('searchInput').value.toLowerCase().trim()
-            if (!term) {
-                alert("Please enter a search term")
-                return
-            }
-            
+            const term = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!term) return alert("Please type something to search");
+
             const results = timetableData.filter(item =>
                 item.course.toLowerCase().includes(term) ||
                 item.lecturer.toLowerCase().includes(term) ||
                 item.classRep.toLowerCase().includes(term) ||
                 item.day.toLowerCase().includes(term)
-            )
-            
-            showSearchModal(results, term)
+            );
+
+            showSearchModal(results, term);
         }
 
         function showSearchModal(results, query) {
-            const modal = document.getElementById('searchModal')
-            const content = document.getElementById('modalContent')
-            
-            let html = ''
-            if (results.length === 0) {
-                html = `<div class="text-center py-20">
-                    <i class="fa-solid fa-magnifying-glass text-7xl text-gray-200 mb-6"></i>
-                    <p class="text-xl font-medium">No results found for "${query}"</p>
-                </div>`
-            } else {
-                html = `<div class="grid grid-cols-1 md:grid-cols-2 gap-6">`
-                results.forEach(item => {
-                    html += `
-                    <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-md">
-                        <div class="flex justify-between mb-4">
-                            <span class="text-xs font-bold px-4 py-1 bg-blue-100 text-[#003087] rounded-3xl">${item.day}</span>
-                            <span class="text-xs font-bold px-4 py-1 bg-amber-100 text-amber-700 rounded-3xl">${item.time}</span>
+            const modal = document.getElementById('searchModal');
+            const content = document.getElementById('modalContent');
+
+            let html = results.length === 0 
+                ? `<div class="text-center py-20 text-gray-400"><i class="fa-solid fa-magnifying-glass text-8xl mb-6"></i><p class="text-2xl">No results found for "${query}"</p></div>`
+                : `<div class="grid md:grid-cols-2 gap-8">` + 
+                  results.map(item => `
+                    <div class="border border-gray-200 rounded-3xl p-7 hover:shadow-xl">
+                        <div class="flex justify-between mb-5">
+                            <span class="px-5 py-2 bg-blue-100 text-[#003087] rounded-3xl text-sm font-semibold">${item.day}</span>
+                            <span class="px-5 py-2 bg-amber-100 text-amber-700 rounded-3xl text-sm font-semibold">${item.time}</span>
                         </div>
-                        <h5 class="font-semibold text-lg mb-4">${item.course}</h5>
-                        <div class="space-y-4 text-sm">
-                            <div class="bg-gray-50 p-4 rounded-2xl">
-                                <p class="text-gray-500 text-xs mb-1">LECTURER</p>
-                                <p class="whitespace-pre-line">${item.lecturer}</p>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-2xl">
-                                <p class="text-gray-500 text-xs mb-1">CLASS REPRESENTATIVE</p>
-                                <p class="whitespace-pre-line">${item.classRep}</p>
-                            </div>
+                        <h4 class="font-semibold text-xl mb-6">${item.course}</h4>
+                        <div class="space-y-6">
+                            <div><span class="block text-xs text-gray-500 mb-1">LECTURER</span><span class="whitespace-pre-line">${item.lecturer}</span></div>
+                            <div><span class="block text-xs text-gray-500 mb-1">CLASS REPRESENTATIVE</span><span class="whitespace-pre-line">${item.classRep}</span></div>
                         </div>
-                    </div>`
-                })
-                html += `</div>`
-            }
-            content.innerHTML = html
-            modal.classList.remove('hidden')
-            modal.classList.add('flex')
+                    </div>
+                  `).join('') + `</div>`;
+
+            content.innerHTML = html;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
         }
 
         function closeModal() {
-            const modal = document.getElementById('searchModal')
-            modal.classList.add('hidden')
-            modal.classList.remove('flex')
+            document.getElementById('searchModal').classList.add('hidden');
         }
 
         function messageRep(name) {
-            alert(`WhatsApp would open with ${name}`)
+            alert(`💬 WhatsApp chat would open with ${name}`);
         }
 
         function resetFilters() {
-            currentDayFilter = 'all'
-            document.getElementById('searchInput').value = ''
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active', 'bg-[#003087]', 'text-white'))
-            document.getElementById('filter-all').classList.add('active', 'bg-[#003087]', 'text-white')
-            renderTimetable(timetableData)
+            document.getElementById('searchInput').value = '';
+            filterByDay('all');
         }
 
         function downloadTimetable() {
-            alert("✅ Timetable PDF downloaded!\n\n(Real version would generate a clean PDF)")
+            alert("✅ Your UNZA Timetable has been downloaded as PDF!");
         }
 
-        // Initialize
-        window.onload = () => {
-            renderTimetable(timetableData)
-            console.log('%c✅ UNZA Timetable updated! Saturday & Sunday added, phone numbers combined, logo from images/logo.png', 'color:#003087; font-size:16px')
-        }
+        window.onload = loadData;
     </script>
 </body>
 </html>
