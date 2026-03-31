@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Forces desktop mode on ALL devices (phones, tablets, etc.) with normal zoom -->
-    <!-- No pinch-zoom, no scaling down, always full desktop layout -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- FORCES DESKTOP MODE ON PHONES/TABLETS WITH NORMAL ZOOM -->
+    <!-- Layout always renders at full desktop width (1280px) -->
+    <!-- Normal text size, horizontal scroll on phone if needed, no mobile squeezing -->
+    <meta name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>UNZA Timetable • 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -118,10 +119,10 @@
                 `;
 
                 renderDayFilters();
-                renderTable(timetableData);
+                renderTable();
             } catch (e) {
                 console.error(e);
-                alert("Could not load lecture.json");
+                alert("Could not load lecture.json — make sure the file is in the same folder");
             }
         }
 
@@ -144,24 +145,33 @@
             });
         }
 
-        function renderTable(data) {
+        function renderTable() {
             const tbody = document.getElementById('timetableBody');
-            tbody.innerHTML = data.map(item => `
-                <tr class="table-row border-b">
+            tbody.innerHTML = timetableData.map((item, index) => `
+                <tr class="table-row border-b" data-index="${index}">
                     <td class="px-6 py-6 font-medium">${item.day}</td>
                     <td class="px-6 py-6">${item.time}</td>
                     <td class="px-6 py-6 font-medium">${item.course}</td>
                     <td class="px-6 py-6 whitespace-pre-line">${item.lecturer}</td>
                     <td class="px-6 py-6 whitespace-pre-line">${item.classRep}</td>
                     <td class="px-6 py-6 text-center">
-                        <button onclick="showCallOptions('${item.lecturer.replace(/'/g, "\\'")}', '${item.classRep.replace(/'/g, "\\'")}')"
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-3xl text-sm font-medium flex items-center gap-2 mx-auto">
+                        <button class="call-btn bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-3xl text-sm font-medium flex items-center gap-2 mx-auto">
                             <i class="fas fa-phone"></i>
                             Call
                         </button>
                     </td>
                 </tr>
             `).join('');
+
+            // Attach click listeners safely (no inline onclick string issues)
+            document.querySelectorAll('.call-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const index = parseInt(row.getAttribute('data-index'));
+                    const item = timetableData[index];
+                    showCallOptions(item.lecturer, item.classRep);
+                });
+            });
         }
 
         function filterByDay(day) {
@@ -169,18 +179,22 @@
            
             if (day === 'all') {
                 document.getElementById('filter-all').classList.add('active');
-                renderTable(timetableData);
+                renderTable();
             } else {
                 document.getElementById(`filter-${day}`).classList.add('active');
                 const filtered = timetableData.filter(item => item.day === day);
-                renderTable(filtered);
+                // Temporarily override data for filtered view
+                const originalData = timetableData;
+                timetableData = filtered;
+                renderTable();
+                timetableData = originalData; // restore
             }
         }
 
         function liveSearch() {
             const term = document.getElementById('searchInput').value.toLowerCase().trim();
             if (!term) {
-                renderTable(timetableData);
+                renderTable();
                 return;
             }
            
@@ -190,15 +204,20 @@
                 item.classRep.toLowerCase().includes(term) ||
                 item.day.toLowerCase().includes(term)
             );
-            renderTable(filtered);
+            const originalData = timetableData;
+            timetableData = filtered;
+            renderTable();
+            timetableData = originalData;
         }
 
         function showCallOptions(lecturerStr, classRepStr) {
-            const lecturerName = lecturerStr.split('\n')[0] || 'Lecturer';
-            const lecturerPhone = lecturerStr.split('\n')[1] || 'N/A';
+            const lecturerParts = lecturerStr.split('\n');
+            const lecturerName = lecturerParts[0] || 'Lecturer';
+            const lecturerPhone = lecturerParts[1] || 'N/A';
            
-            const repName = classRepStr.split('\n')[0] || 'Class Rep';
-            const repPhone = classRepStr.split('\n')[1] || 'N/A';
+            const repParts = classRepStr.split('\n');
+            const repName = repParts[0] || 'Class Rep';
+            const repPhone = repParts[1] || 'N/A';
 
             let html = '';
 
@@ -241,7 +260,7 @@
                 alert("No phone number available for this contact.");
                 return;
             }
-            // Direct phone call from the app/browser
+            // Direct phone call
             window.location.href = `tel:${phone}`;
             closeCallModal();
         }
@@ -250,7 +269,6 @@
             document.getElementById('callModal').classList.add('hidden');
         }
 
-        // Load everything when page opens
         window.onload = loadData;
     </script>
 </body>
