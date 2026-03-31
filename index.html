@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Force desktop mode on all devices -->
+    <!-- Forces desktop mode on ALL devices (phones, tablets, etc.) with normal zoom -->
+    <!-- No pinch-zoom, no scaling down, always full desktop layout -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <title>UNZA Timetable • 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
         
@@ -72,7 +75,7 @@
         </div>
     </main>
 
-    <!-- Call Options Modal -->
+    <!-- Call Options Modal (Pop-up) -->
     <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
         <div class="bg-white rounded-3xl w-full max-w-sm mx-4 overflow-hidden">
             <div class="p-6 text-center border-b">
@@ -144,7 +147,7 @@
         function renderTable(data) {
             const tbody = document.getElementById('timetableBody');
             tbody.innerHTML = data.map(item => `
-                <tr class="table-row border-b hover:bg-blue-50 transition-all">
+                <tr class="table-row border-b">
                     <td class="px-6 py-6 font-medium">${item.day}</td>
                     <td class="px-6 py-6">${item.time}</td>
                     <td class="px-6 py-6 font-medium">${item.course}</td>
@@ -204,7 +207,7 @@
                     <button onclick="makeCall('${lecturerPhone}', '${lecturerName}')"
                             class="w-full text-left p-5 border border-gray-200 rounded-2xl hover:bg-blue-50 flex justify-between items-center transition">
                         <div>
-                            <span class="font-medium text-lg">Call Lecturer</span><br>
+                            <span class="font-medium text-lg">📞 Call Lecturer</span><br>
                             <span class="text-gray-600">${lecturerName}</span>
                         </div>
                         <span class="text-blue-600 font-medium">${lecturerPhone}</span>
@@ -217,7 +220,7 @@
                     <button onclick="makeCall('${repPhone}', '${repName}')"
                             class="w-full text-left p-5 border border-gray-200 rounded-2xl hover:bg-blue-50 flex justify-between items-center transition">
                         <div>
-                            <span class="font-medium text-lg">Call Class Rep</span><br>
+                            <span class="font-medium text-lg">📞 Call Class Rep</span><br>
                             <span class="text-gray-600">${repName}</span>
                         </div>
                         <span class="text-blue-600 font-medium">${repPhone}</span>
@@ -238,6 +241,7 @@
                 alert("No phone number available for this contact.");
                 return;
             }
+            // Direct phone call from the app/browser
             window.location.href = `tel:${phone}`;
             closeCallModal();
         }
@@ -246,7 +250,7 @@
             document.getElementById('callModal').classList.add('hidden');
         }
 
-        // Load data when page opens
+        // Load everything when page opens
         window.onload = loadData;
     </script>
 </body>
