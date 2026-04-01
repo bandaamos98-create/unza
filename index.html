@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- ✅ FIXED VIEWPORT -->
+    <!-- ✅ PERFECT VIEWPORT -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>UNZA Timetable • 2026</title>
@@ -14,48 +14,30 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Grotesk:wght@700&display=swap');
 
-        html, body {
+        /* 🔥 GLOBAL SIZE BOOST */
+        html {
+            transform: scale(1.2);
+            transform-origin: top center;
+        }
+
+        body {
             margin: 0;
             padding: 0;
             background: #f9fafb;
             font-size: 18px;
+            overflow-x: hidden;
         }
 
-        /* MAIN CONTAINER (DESKTOP FEEL BUT RESPONSIVE) */
         .main-container {
             max-width: 1280px;
             margin: auto;
             padding: 10px;
         }
 
-        /* MOBILE OPTIMIZATION */
+        /* 📱 EXTRA BOOST FOR PHONES */
         @media (max-width: 768px) {
-            body {
-                font-size: 20px;
-            }
-
-            h1 {
-                font-size: 32px !important;
-            }
-
-            th {
-                font-size: 18px;
-                padding: 12px;
-            }
-
-            td {
-                font-size: 16px;
-                padding: 12px;
-            }
-
-            input, button {
-                font-size: 16px !important;
-                padding: 12px !important;
-            }
-
-            img {
-                width: 60px !important;
-                height: 60px !important;
+            html {
+                transform: scale(1.25);
             }
         }
 
@@ -75,7 +57,7 @@
 <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6 shadow-lg">
     <div class="px-4 flex justify-between items-center flex-wrap gap-4">
         <div class="flex items-center gap-4">
-            <img src="images/logo.png" class="w-20 h-20 bg-white p-2 rounded-2xl">
+            <img id="logoImg" src="images/logo.png" class="w-20 h-20 bg-white p-2 rounded-2xl">
             <div>
                 <h1 class="header-font text-3xl md:text-5xl">University of Zambia</h1>
                 <p class="text-blue-200">Student Timetable Portal • 2026</p>
@@ -125,6 +107,42 @@
 
 </main>
 
+<!-- CALL MODAL -->
+<div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
+    <div class="bg-white rounded-3xl p-8 w-[400px] text-center">
+        <h3 id="modalTitle" class="text-2xl mb-4"></h3>
+        <p id="modalPhone" class="text-xl text-blue-600 mb-6"></p>
+        <div class="flex gap-4">
+            <button onclick="closeCallModal()" class="flex-1 py-3 bg-gray-200 rounded-xl">Cancel</button>
+            <button onclick="makeActualCall()" class="flex-1 py-3 bg-blue-600 text-white rounded-xl">Call</button>
+        </div>
+    </div>
+</div>
+
+<!-- FEEDBACK -->
+<div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-4xl relative">
+        <button onclick="closeFeedbackModal()" class="absolute top-3 right-4 text-3xl">×</button>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true" width="100%" height="600"></iframe>
+    </div>
+</div>
+
+<!-- PROGRAMS -->
+<div id="programsModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-4xl p-6 max-h-[90vh] overflow-y-auto">
+        <button onclick="closeProgramsModal()" class="text-3xl float-right">×</button>
+        <div id="programsContent"></div>
+    </div>
+</div>
+
+<!-- SUBMIT -->
+<div id="submitFormModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-4xl">
+        <button onclick="closeSubmitFormModal()" class="text-3xl float-right p-2">×</button>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpyilXKH-4ZOhuAillwXChXtG3O_wnNAfItsW3WUEju7jvmQ/viewform?embedded=true" width="100%" height="600"></iframe>
+    </div>
+</div>
+
 <footer class="text-center py-10 text-gray-600">
     <p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
 </footer>
@@ -133,9 +151,17 @@
 
 <script>
 let timetableData = [];
+let currentPhone = '';
 let activeDay = null;
 
 const allDays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+
+const programsData = {
+    "CERTIFICATE (2 YEARS)": ["Library Science","Business Administration"],
+    "DIPLOMA (3 YEARS)": ["Computer Science","Public Health"],
+    "UNDERGRADUATE (4 YEARS)": ["Bachelor of Education"],
+    "SHORT COURSES": ["Entrepreneurship","Project Management"]
+};
 
 async function loadData() {
     const res = await fetch('lecture.json');
@@ -180,10 +206,25 @@ function renderTable(data) {
             <td class="font-semibold">${item.course}</td>
             <td>
                 ${name}<br>
-                ${phone ? `<a href="tel:${phone}" class="text-blue-600">Call</a>` : ''}
+                ${phone ? `<button onclick="prepareCall('${name}','${phone}')" class="text-blue-600">Call</button>` : ''}
             </td>
         </tr>`;
     }).join('');
+}
+
+function prepareCall(name, phone) {
+    currentPhone = phone;
+    document.getElementById('modalTitle').innerText = `Call ${name}?`;
+    document.getElementById('modalPhone').innerText = phone;
+    document.getElementById('callModal').classList.remove('hidden');
+}
+
+function makeActualCall() {
+    window.location.href = `tel:${currentPhone}`;
+}
+
+function closeCallModal() {
+    document.getElementById('callModal').classList.add('hidden');
 }
 
 function liveSearch() {
@@ -207,6 +248,36 @@ function filterByDay(day) {
         renderTable(timetableData.filter(x => x.day === day));
     }
     renderDayFilters();
+}
+
+/* PROGRAMS */
+function showPrograms() {
+    document.getElementById('programsModal').classList.remove('hidden');
+    document.getElementById('programsContent').innerHTML = Object.keys(programsData)
+        .map(cat => `<button onclick="showCategory('${cat}')" class="block w-full p-4 border mb-3">${cat}</button>`).join('');
+}
+
+function showCategory(cat) {
+    const courses = programsData[cat];
+    document.getElementById('programsContent').innerHTML =
+        `<button onclick="showPrograms()">← Back</button>` +
+        courses.map(c => `<div class="p-3 border mb-2">${c}</div>`).join('');
+}
+
+function closeProgramsModal() {
+    document.getElementById('programsModal').classList.add('hidden');
+}
+
+function showFeedbackForm() {
+    document.getElementById('feedbackModal').classList.remove('hidden');
+}
+
+function closeFeedbackModal() {
+    document.getElementById('feedbackModal').classList.add('hidden');
+}
+
+function closeSubmitFormModal() {
+    document.getElementById('submitFormModal').classList.add('hidden');
 }
 
 loadData();
