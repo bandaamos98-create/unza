@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Grotesk:wght@700&display=swap');
-        html, body {
-            width: 1280px; min-width: 1280px; margin: 0 auto; overflow-x: auto; background: #f9fafb;
-        }
+        html, body { width: 1280px; min-width: 1280px; margin: 0 auto; overflow-x: auto; background: #f9fafb; }
         @media (min-width: 1280px) { html { display: flex; justify-content: center; } }
         body { font-size: 22px; line-height: 1.6; }
         .header-font { font-family: 'Space Grotesk', sans-serif; }
@@ -39,15 +37,13 @@
     <h1 class="header-font text-7xl text-center text-[#003087]">UNZA Academic Timetable 2026</h1>
 
     <div class="flex justify-center mt-4">
-        <button onclick="showPrograms()" 
-                class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3">
+        <button onclick="showPrograms()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3">
             <i class="fas fa-graduation-cap"></i> PROGRAMS
         </button>
     </div>
 
     <div class="mt-14">
-        <input id="searchInput" type="text" placeholder="Search course, lecturer, or day..."
-               class="w-full px-8 py-7 rounded-3xl border" onkeyup="liveSearch()">
+        <input id="searchInput" type="text" placeholder="Search course, lecturer, or day..." class="w-full px-8 py-7 rounded-3xl border" onkeyup="liveSearch()">
     </div>
 
     <div class="my-12 flex gap-5 flex-wrap" id="dayFilters"></div>
@@ -82,7 +78,7 @@
     </div>
 </div>
 
-<!-- PROGRAMS MODAL (now with 3-level navigation) -->
+<!-- PROGRAMS MODAL -->
 <div id="programsModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl w-full max-w-4xl relative max-h-[90vh] overflow-y-auto">
         <button onclick="closeProgramsModal()" class="absolute top-5 right-6 text-4xl font-bold text-gray-500 hover:text-black">×</button>
@@ -114,6 +110,7 @@
     let activeDay = null;
     let currentCategory = null;
     let currentCourse = null;
+    let currentYear = null;
 
     const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -135,7 +132,7 @@
         renderTable(timetableData.filter(x => x.day === activeDay));
     }
 
-    function renderDayFilters() { /* unchanged */ 
+    function renderDayFilters() {
         const container = document.getElementById('dayFilters'); container.innerHTML = '';
         allDays.forEach(day => {
             const isActive = activeDay === day;
@@ -144,7 +141,7 @@
         });
     }
 
-    function renderTable(data) { /* unchanged */ 
+    function renderTable(data) {
         const tbody = document.getElementById('timetableBody');
         tbody.innerHTML = data.map(item => {
             const parts = item.lecturer.split('\n');
@@ -153,23 +150,26 @@
         }).join('');
     }
 
-    function prepareCall(name, phone) { /* unchanged */ 
-        currentPhone = phone; document.getElementById('modalTitle').innerText = `Call ${name}?`; document.getElementById('modalPhone').innerText = phone; document.getElementById('callModal').classList.remove('hidden');
+    function prepareCall(name, phone) {
+        currentPhone = phone;
+        document.getElementById('modalTitle').innerText = `Call ${name}?`;
+        document.getElementById('modalPhone').innerText = phone;
+        document.getElementById('callModal').classList.remove('hidden');
     }
     function makeActualCall() { window.location.href = `tel:${currentPhone}`; }
     function closeCallModal() { document.getElementById('callModal').classList.add('hidden'); }
-    function liveSearch() { /* unchanged */ 
+    function liveSearch() {
         const term = document.getElementById('searchInput').value.toLowerCase();
         renderTable(timetableData.filter(x => x.course.toLowerCase().includes(term) || x.lecturer.toLowerCase().includes(term) || x.day.toLowerCase().includes(term)));
     }
-    function filterByDay(day) { /* unchanged */ 
+    function filterByDay(day) {
         if (activeDay === day) { activeDay = null; renderDayFilters(); renderTable(timetableData); }
         else { activeDay = day; renderDayFilters(); renderTable(timetableData.filter(x => x.day === day)); }
     }
     function showFeedbackForm() { document.getElementById('feedbackModal').classList.remove('hidden'); }
     function closeFeedbackModal() { document.getElementById('feedbackModal').classList.add('hidden'); }
 
-    // ====================== PROGRAMS SECTION ======================
+    // ====================== PROGRAMS NAVIGATION ======================
     function showPrograms() {
         document.getElementById('programsModal').classList.remove('hidden');
         renderCategories();
@@ -177,7 +177,7 @@
 
     function closeProgramsModal() {
         document.getElementById('programsModal').classList.add('hidden');
-        currentCategory = null; currentCourse = null;
+        currentCategory = currentCourse = currentYear = null;
     }
 
     function renderCategories() {
@@ -197,31 +197,10 @@
         currentCourse = null;
         const content = document.getElementById('programsContent');
         const courses = programsData[cat] || [];
-        let html = `
-            <div class="flex items-center justify-between mb-8">
-                <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
-                <button onclick="renderCategories()" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Programs</button>
-            </div>
-            <div class="space-y-6">`;
-
-        if (cat === "SHORT COURSES") {
-            courses.forEach(course => {
-                html += `
-                    <div class="flex justify-between items-center bg-gray-50 p-6 rounded-3xl border">
-                        <div class="text-2xl font-medium">${course}</div>
-                        <button onclick="openSubmitForm()" class="bg-[#003087] text-white px-10 py-5 rounded-2xl text-xl font-semibold hover:bg-[#002266]">Click me to submit your courses</button>
-                    </div>`;
-            });
-        } else {
-            courses.forEach(course => {
-                html += `
-                    <button onclick="showCourseYears('${cat}', '${course}')" 
-                            class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border border-gray-200 hover:border-[#003087] text-left">
-                        <div class="text-2xl font-medium">${course}</div>
-                        <i class="fas fa-chevron-right text-2xl text-gray-400"></i>
-                    </button>`;
-            });
-        }
+        let html = `<div class="flex items-center justify-between mb-8"><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><button onclick="renderCategories()" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button></div><div class="space-y-6">`;
+        courses.forEach(course => {
+            html += `<button onclick="showCourseYears('${cat}', '${course}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${course}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
+        });
         html += `</div>`;
         content.innerHTML = html;
     }
@@ -234,25 +213,49 @@
         else if (cat.includes("3 YEARS")) years = ["1st Year", "2nd Year", "3rd Year"];
         else if (cat.includes("4 YEARS")) years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
 
+        let html = `<div class="flex items-center justify-between mb-8"><div><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><h3 class="text-2xl text-gray-600">${course}</h3></div><button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Courses</button></div><div class="space-y-6">`;
+        years.forEach(year => {
+            html += `<button onclick="showYearTimetable('${cat}', '${course}', '${year}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${year}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
+        });
+        html += `</div>`;
+        content.innerHTML = html;
+    }
+
+    function showYearTimetable(cat, course, year) {
+        currentYear = year;
+        const content = document.getElementById('programsContent');
+
         let html = `
             <div class="flex items-center justify-between mb-8">
                 <div>
                     <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
-                    <h3 class="text-2xl text-gray-600 mt-1">${course}</h3>
+                    <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
                 </div>
-                <button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Courses</button>
+                <button onclick="showCourseYears('${cat}', '${course}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Years</button>
             </div>
-            <div class="space-y-6">`;
 
-        years.forEach(year => {
-            html += `
-                <div class="flex justify-between items-center bg-gray-50 p-6 rounded-3xl border">
-                    <div class="text-2xl font-medium">${year}</div>
-                    <button onclick="openSubmitForm()" class="bg-[#003087] text-white px-10 py-5 rounded-2xl text-xl font-semibold hover:bg-[#002266]">Click me to submit your courses</button>
-                </div>`;
-        });
-        html += `</div>`;
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden mb-8">
+                <table class="w-full">
+                    <thead class="bg-[#003087] text-white"><tr><th>Day</th><th>Time</th><th>Course</th><th>Lecturer</th></tr></thead>
+                    <tbody id="modalTimetableBody"></tbody>
+                </table>
+            </div>
+
+            <div class="text-center">
+                <button onclick="openSubmitForm()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3 mx-auto">
+                    <i class="fas fa-plus"></i> Click me to add the timetable
+                </button>
+            </div>`;
+
         content.innerHTML = html;
+
+        // Show the full timetable (we only have one general timetable right now)
+        const tbody = document.getElementById('modalTimetableBody');
+        tbody.innerHTML = timetableData.map(item => {
+            const parts = item.lecturer.split('\n');
+            const name = parts[0]; const phone = parts[1] || '';
+            return `<tr class="table-row border-b"><td>${item.day}</td><td>${item.time}</td><td class="font-semibold">${item.course}</td><td><div class="mb-3">${name}</div>${phone ? `<button onclick="prepareCall('${name}','${phone}')" class="text-blue-600 flex items-center gap-2"><i class="fas fa-phone"></i> Call Lecturer</button>` : ''}</td></tr>`;
+        }).join('');
     }
 
     function openSubmitForm() {
