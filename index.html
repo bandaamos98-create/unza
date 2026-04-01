@@ -2,59 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- HARD DESKTOP MODE -->
     <meta name="viewport" content="width=1280">
     <title>UNZA Timetable • 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Grotesk:wght@700&display=swap');
-
-        /* FORCE DESKTOP */
         html, body {
-            width: 1280px;
-            min-width: 1280px;
-            margin: 0 auto;
-            overflow-x: auto;
-            background: #f9fafb;
+            width: 1280px; min-width: 1280px; margin: 0 auto; overflow-x: auto; background: #f9fafb;
         }
-
-        /* CENTER BIG SCREENS */
-        @media (min-width: 1280px) {
-            html { display: flex; justify-content: center; }
-        }
-
-        /* ACCESSIBILITY SCALE (VERY BIG) */
-        body {
-            font-size: 22px;
-            line-height: 1.6;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        .header-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        /* BIG TABLE */
-        th {
-            font-size: 24px;
-            padding: 20px;
-        }
-        td {
-            font-size: 22px;
-            padding: 20px;
-        }
-
-        /* BIG INPUT */
-        input { font-size: 22px; }
-
-        /* BUTTONS BIG */
-        button { font-size: 20px; }
-
-        /* ROW HOVER */
-        .table-row:hover {
-            background-color: #f0f7ff;
-        }
+        @media (min-width: 1280px) { html { display: flex; justify-content: center; } }
+        body { font-size: 22px; line-height: 1.6; }
+        .header-font { font-family: 'Space Grotesk', sans-serif; }
+        th { font-size: 24px; padding: 20px; }
+        td { font-size: 22px; padding: 20px; }
+        input, button { font-size: 20px; }
+        .table-row:hover { background-color: #f0f7ff; }
     </style>
 </head>
 <body>
@@ -68,57 +31,38 @@
                 <p class="text-blue-200 text-xl">Student Timetable Portal • 2026</p>
             </div>
         </div>
-        <button onclick="showFeedbackForm()"
-                class="bg-white text-[#003087] px-8 py-5 rounded-3xl">
-            Help Us Improve
-        </button>
+        <button onclick="showFeedbackForm()" class="bg-white text-[#003087] px-8 py-5 rounded-3xl">Help Us Improve</button>
     </div>
 </header>
 
 <main class="px-10 py-14">
+    <h1 class="header-font text-7xl text-center text-[#003087]">UNZA Academic Timetable 2026</h1>
 
-    <h1 class="header-font text-7xl text-center text-[#003087]">
-        UNZA Academic Timetable 2026
-    </h1>
-
-    <!-- REPLACED "The University of Zambia" WITH PROGRAMS BUTTON -->
     <div class="flex justify-center mt-4">
         <button onclick="showPrograms()" 
                 class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3">
-            <i class="fas fa-graduation-cap"></i>
-            PROGRAMS
+            <i class="fas fa-graduation-cap"></i> PROGRAMS
         </button>
     </div>
 
-    <!-- SEARCH -->
     <div class="mt-14">
-        <input id="searchInput" type="text"
-               placeholder="Search course, lecturer, or day..."
-               class="w-full px-8 py-7 rounded-3xl border"
-               onkeyup="liveSearch()">
+        <input id="searchInput" type="text" placeholder="Search course, lecturer, or day..."
+               class="w-full px-8 py-7 rounded-3xl border" onkeyup="liveSearch()">
     </div>
 
-    <!-- FILTERS (7 days only – no ALL button) -->
     <div class="my-12 flex gap-5 flex-wrap" id="dayFilters"></div>
 
-    <!-- TABLE -->
     <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
         <table class="w-full">
             <thead class="bg-[#003087] text-white">
-                <tr>
-                    <th>Day</th>
-                    <th>Time</th>
-                    <th>Course</th>
-                    <th>Lecturer</th>
-                </tr>
+                <tr><th>Day</th><th>Time</th><th>Course</th><th>Lecturer</th></tr>
             </thead>
             <tbody id="timetableBody"></tbody>
         </table>
     </div>
-
 </main>
 
-<!-- CALL MODAL (unchanged) -->
+<!-- CALL MODAL -->
 <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
     <div class="bg-white rounded-3xl p-10 w-[450px] text-center">
         <h3 id="modalTitle" class="text-3xl font-semibold mb-6"></h3>
@@ -130,44 +74,36 @@
     </div>
 </div>
 
-<!-- FEEDBACK MODAL (unchanged) -->
+<!-- FEEDBACK MODAL -->
 <div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl w-full max-w-4xl relative">
-        <button onclick="closeFeedbackModal()" 
-                class="absolute top-5 right-6 text-4xl font-bold text-gray-500 hover:text-black">×</button>
-        <iframe 
-            src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true"
-            width="100%" height="700"></iframe>
+        <button onclick="closeFeedbackModal()" class="absolute top-5 right-6 text-4xl font-bold text-gray-500 hover:text-black">×</button>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true" width="100%" height="700"></iframe>
     </div>
 </div>
 
-<!-- NEW PROGRAMS MODAL -->
+<!-- PROGRAMS MODAL (now with 3-level navigation) -->
 <div id="programsModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl w-full max-w-4xl relative max-h-[90vh] overflow-y-auto">
-        <button onclick="closeProgramsModal()" 
-                class="absolute top-5 right-6 text-4xl font-bold text-gray-500 hover:text-black">×</button>
+        <button onclick="closeProgramsModal()" class="absolute top-5 right-6 text-4xl font-bold text-gray-500 hover:text-black">×</button>
         <div id="programsContent" class="p-10"></div>
     </div>
 </div>
 
-<!-- NEW SUBMIT COURSES FORM MODAL -->
+<!-- SUBMIT FORM MODAL -->
 <div id="submitFormModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl w-full max-w-4xl relative">
-        <button onclick="closeSubmitFormModal()" 
-                class="absolute top-5 right-6 text-4xl font-bold text-gray-500 hover:text-black">×</button>
+        <button onclick="closeSubmitFormModal()" class="absolute top-5 right-6 text-4xl font-bold text-gray-500 hover:text-black">×</button>
         <div class="p-8">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpyilXKH-4ZOhuAillwXChXtG3O_wnNAfItsW3WUEju7jvmQ/viewform?embedded=true" 
-                    width="100%" height="684" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpyilXKH-4ZOhuAillwXChXtG3O_wnNAfItsW3WUEju7jvmQ/viewform?embedded=true" width="100%" height="684" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
     </div>
 </div>
 
-<!-- FOOTER (unchanged) -->
 <footer class="text-center py-12 text-gray-600 text-lg">
     <p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
     <p class="mt-2">
-        <a href="tel:+260979077079" class="hover:text-blue-600">+260 979 077079</a>
-        •
+        <a href="tel:+260979077079" class="hover:text-blue-600">+260 979 077079</a> • 
         <a href="mailto:bandaamos98@gmail.com" class="hover:text-blue-600">bandaamos98@gmail.com</a>
     </p>
 </footer>
@@ -176,178 +112,64 @@
     let timetableData = [];
     let currentPhone = '';
     let activeDay = null;
+    let currentCategory = null;
+    let currentCourse = null;
 
     const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-    // PROGRAMS DATA
     const programsData = {
-        "CERTIFICATE (2 YEARS)": [
-            "Library and Information Science",
-            "Public Administration",
-            "Records Management",
-            "Guidance and Counseling",
-            "Human Resource Management",
-            "Sales and Marketing Management",
-            "Social Work",
-            "Adult Education",
-            "Business Administration",
-            "Computer Science and Information Management",
-            "Early Childhood Education",
-            "Finance and Accounting",
-            "Public Health",
-            "International Relations"
-        ],
-        "DIPLOMA (3 YEARS)": [
-            "Business Administration",
-            "Computer Science and Information Management",
-            "Early Childhood Education",
-            "Finance and Accounting",
-            "Human Resource Management",
-            "Public Health",
-            "Guidance and Counselling",
-            "Public and Counselling",
-            "Library and Information Science",
-            "Project Planning and Management",
-            "Public Administration",
-            "International Relations",
-            "Public Relations",
-            "Purchasing and Supply Management",
-            "Records Management",
-            "Sales and Marketing Management",
-            "Social Work",
-            "Teaching Methodology",
-            "Adult Education – Pure"
-        ],
-        "UNDERGRADUATE (4 YEARS)": [
-            "Bachelor of Community Empowerment Education",
-            "Bachelor of Youth Development and Leadership",
-            "Bachelor of Adult Education"
-        ],
-        "SHORT COURSES": [
-            "Law",
-            "Records Management",
-            "Psychosocial Counselling",
-            "Sales and Marketing Management",
-            "Purchasing and Supply Management",
-            "Monitoring and Evaluation",
-            "Basic Computer Skills",
-            "Entrepreneurship",
-            "Peace and Conflict Resolution",
-            "Clearing, Forwarding and Shipment",
-            "Basic Studies",
-            "Public Administration",
-            "Business Marketing and Entrepreneurship",
-            "Team Building",
-            "Project Planning and Management",
-            "Cooperative Development and Management",
-            "Programme and Project Cycle Management",
-            "PASTEL Online Accounting Package",
-            "Criminology and Security Studies",
-            "Secretarial and Office Management",
-            "Proposal Writing"
-        ]
+        "CERTIFICATE (2 YEARS)": ["Library and Information Science","Public Administration","Records Management","Guidance and Counseling","Human Resource Management","Sales and Marketing Management","Social Work","Adult Education","Business Administration","Computer Science and Information Management","Early Childhood Education","Finance and Accounting","Public Health","International Relations"],
+        "DIPLOMA (3 YEARS)": ["Business Administration","Computer Science and Information Management","Early Childhood Education","Finance and Accounting","Human Resource Management","Public Health","Guidance and Counselling","Public and Counselling","Library and Information Science","Project Planning and Management","Public Administration","International Relations","Public Relations","Purchasing and Supply Management","Records Management","Sales and Marketing Management","Social Work","Teaching Methodology","Adult Education – Pure"],
+        "UNDERGRADUATE (4 YEARS)": ["Bachelor of Community Empowerment Education","Bachelor of Youth Development and Leadership","Bachelor of Adult Education"],
+        "SHORT COURSES": ["Law","Records Management","Psychosocial Counselling","Sales and Marketing Management","Purchasing and Supply Management","Monitoring and Evaluation","Basic Computer Skills","Entrepreneurship","Peace and Conflict Resolution","Clearing, Forwarding and Shipment","Basic Studies","Public Administration","Business Marketing and Entrepreneurship","Team Building","Project Planning and Management","Cooperative Development and Management","Programme and Project Cycle Management","PASTEL Online Accounting Package","Criminology and Security Studies","Secretarial and Office Management","Proposal Writing"]
     };
 
     async function loadData() {
         const res = await fetch('lecture.json');
         const data = await res.json();
         timetableData = data.timetable || [];
-
         const todayIndex = new Date().getDay();
-        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
         activeDay = dayNames[todayIndex];
-
         renderDayFilters();
-        const todayData = timetableData.filter(x => x.day === activeDay);
-        renderTable(todayData);
+        renderTable(timetableData.filter(x => x.day === activeDay));
     }
 
-    function renderDayFilters() {
-        const container = document.getElementById('dayFilters');
-        container.innerHTML = '';
+    function renderDayFilters() { /* unchanged */ 
+        const container = document.getElementById('dayFilters'); container.innerHTML = '';
         allDays.forEach(day => {
             const isActive = activeDay === day;
-            const btnClass = isActive
-                ? "px-7 py-4 bg-[#003087] text-white rounded-2xl shadow-md"
-                : "px-7 py-4 border border-gray-300 hover:border-[#003087] text-gray-700 rounded-2xl";
-            container.innerHTML += `
-                <button onclick="filterByDay('${day}')" 
-                        class="${btnClass}">${day}</button>`;
+            const btnClass = isActive ? "px-7 py-4 bg-[#003087] text-white rounded-2xl shadow-md" : "px-7 py-4 border border-gray-300 hover:border-[#003087] text-gray-700 rounded-2xl";
+            container.innerHTML += `<button onclick="filterByDay('${day}')" class="${btnClass}">${day}</button>`;
         });
     }
 
-    function renderTable(data = timetableData) {
+    function renderTable(data) { /* unchanged */ 
         const tbody = document.getElementById('timetableBody');
         tbody.innerHTML = data.map(item => {
             const parts = item.lecturer.split('\n');
-            const name = parts[0];
-            const phone = parts[1] || '';
-            return `
-                <tr class="table-row border-b">
-                    <td>${item.day}</td>
-                    <td>${item.time}</td>
-                    <td class="font-semibold">${item.course}</td>
-                    <td>
-                        <div class="mb-3">${name}</div>
-                        ${phone ? `
-                        <button onclick="prepareCall('${name}','${phone}')" 
-                                class="text-blue-600 flex items-center gap-2">
-                            <i class="fas fa-phone"></i> Call Lecturer
-                        </button>` : ''}
-                    </td>
-                </tr>`;
+            const name = parts[0]; const phone = parts[1] || '';
+            return `<tr class="table-row border-b"><td>${item.day}</td><td>${item.time}</td><td class="font-semibold">${item.course}</td><td><div class="mb-3">${name}</div>${phone ? `<button onclick="prepareCall('${name}','${phone}')" class="text-blue-600 flex items-center gap-2"><i class="fas fa-phone"></i> Call Lecturer</button>` : ''}</td></tr>`;
         }).join('');
     }
 
-    function prepareCall(name, phone) {
-        currentPhone = phone;
-        document.getElementById('modalTitle').innerText = `Call ${name}?`;
-        document.getElementById('modalPhone').innerText = phone;
-        document.getElementById('callModal').classList.remove('hidden');
+    function prepareCall(name, phone) { /* unchanged */ 
+        currentPhone = phone; document.getElementById('modalTitle').innerText = `Call ${name}?`; document.getElementById('modalPhone').innerText = phone; document.getElementById('callModal').classList.remove('hidden');
     }
-
-    function makeActualCall() {
-        window.location.href = `tel:${currentPhone}`;
-    }
-
-    function closeCallModal() {
-        document.getElementById('callModal').classList.add('hidden');
-    }
-
-    function liveSearch() {
+    function makeActualCall() { window.location.href = `tel:${currentPhone}`; }
+    function closeCallModal() { document.getElementById('callModal').classList.add('hidden'); }
+    function liveSearch() { /* unchanged */ 
         const term = document.getElementById('searchInput').value.toLowerCase();
-        renderTable(
-            timetableData.filter(x =>
-                x.course.toLowerCase().includes(term) ||
-                x.lecturer.toLowerCase().includes(term) ||
-                x.day.toLowerCase().includes(term)
-            )
-        );
+        renderTable(timetableData.filter(x => x.course.toLowerCase().includes(term) || x.lecturer.toLowerCase().includes(term) || x.day.toLowerCase().includes(term)));
     }
-
-    function filterByDay(day) {
-        if (activeDay === day) {
-            activeDay = null;
-            renderDayFilters();
-            renderTable();
-        } else {
-            activeDay = day;
-            renderDayFilters();
-            const filtered = timetableData.filter(x => x.day === day);
-            renderTable(filtered);
-        }
+    function filterByDay(day) { /* unchanged */ 
+        if (activeDay === day) { activeDay = null; renderDayFilters(); renderTable(timetableData); }
+        else { activeDay = day; renderDayFilters(); renderTable(timetableData.filter(x => x.day === day)); }
     }
+    function showFeedbackForm() { document.getElementById('feedbackModal').classList.remove('hidden'); }
+    function closeFeedbackModal() { document.getElementById('feedbackModal').classList.add('hidden'); }
 
-    function showFeedbackForm() {
-        document.getElementById('feedbackModal').classList.remove('hidden');
-    }
-
-    function closeFeedbackModal() {
-        document.getElementById('feedbackModal').classList.add('hidden');
-    }
-
-    // ==================== NEW PROGRAMS FUNCTIONS ====================
-
+    // ====================== PROGRAMS SECTION ======================
     function showPrograms() {
         document.getElementById('programsModal').classList.remove('hidden');
         renderCategories();
@@ -355,6 +177,7 @@
 
     function closeProgramsModal() {
         document.getElementById('programsModal').classList.add('hidden');
+        currentCategory = null; currentCourse = null;
     }
 
     function renderCategories() {
@@ -362,56 +185,72 @@
         content.innerHTML = `
             <h2 class="text-4xl font-bold text-center mb-10 text-[#003087]">Our Academic Programs</h2>
             <div class="grid grid-cols-2 gap-8">
-                <button onclick="showCategory('CERTIFICATE (2 YEARS)')" 
-                        class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
-                    <div class="text-3xl font-semibold">CERTIFICATE</div>
-                    <div class="text-xl opacity-90 mt-2">2 YEARS</div>
-                </button>
-                <button onclick="showCategory('DIPLOMA (3 YEARS)')" 
-                        class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
-                    <div class="text-3xl font-semibold">DIPLOMA</div>
-                    <div class="text-xl opacity-90 mt-2">3 YEARS</div>
-                </button>
-                <button onclick="showCategory('UNDERGRADUATE (4 YEARS)')" 
-                        class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
-                    <div class="text-3xl font-semibold">UNDERGRADUATE</div>
-                    <div class="text-xl opacity-90 mt-2">4 YEARS</div>
-                </button>
-                <button onclick="showCategory('SHORT COURSES')" 
-                        class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
-                    <div class="text-3xl font-semibold">SHORT COURSES</div>
-                    <div class="text-xl opacity-90 mt-2">Flexible duration</div>
-                </button>
-            </div>
-        `;
+                <button onclick="showCategory('CERTIFICATE (2 YEARS)')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition"><div class="text-3xl font-semibold">CERTIFICATE</div><div class="text-xl opacity-90 mt-2">2 YEARS</div></button>
+                <button onclick="showCategory('DIPLOMA (3 YEARS)')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition"><div class="text-3xl font-semibold">DIPLOMA</div><div class="text-xl opacity-90 mt-2">3 YEARS</div></button>
+                <button onclick="showCategory('UNDERGRADUATE (4 YEARS)')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition"><div class="text-3xl font-semibold">UNDERGRADUATE</div><div class="text-xl opacity-90 mt-2">4 YEARS</div></button>
+                <button onclick="showCategory('SHORT COURSES')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition"><div class="text-3xl font-semibold">SHORT COURSES</div><div class="text-xl opacity-90 mt-2">Flexible duration</div></button>
+            </div>`;
     }
 
-    function showCategory(category) {
+    function showCategory(cat) {
+        currentCategory = cat;
+        currentCourse = null;
         const content = document.getElementById('programsContent');
-        const courses = programsData[category] || [];
+        const courses = programsData[cat] || [];
         let html = `
             <div class="flex items-center justify-between mb-8">
-                <h2 class="text-4xl font-bold text-[#003087]">${category}</h2>
-                <button onclick="renderCategories()" 
-                        class="text-[#003087] hover:underline flex items-center gap-2 text-xl">
-                    ← Back to Programs
-                </button>
+                <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+                <button onclick="renderCategories()" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Programs</button>
             </div>
-            <div class="space-y-6">
-        `;
+            <div class="space-y-6">`;
 
-        courses.forEach(course => {
-            html += `
-                <div class="flex justify-between items-center bg-gray-50 p-6 rounded-3xl border border-gray-200">
-                    <div class="text-2xl font-medium">${course}</div>
-                    <button onclick="openSubmitForm()" 
-                            class="bg-[#003087] text-white px-10 py-5 rounded-2xl text-xl font-semibold hover:bg-[#002266]">
-                        Click me to submit your courses
-                    </button>
+        if (cat === "SHORT COURSES") {
+            courses.forEach(course => {
+                html += `
+                    <div class="flex justify-between items-center bg-gray-50 p-6 rounded-3xl border">
+                        <div class="text-2xl font-medium">${course}</div>
+                        <button onclick="openSubmitForm()" class="bg-[#003087] text-white px-10 py-5 rounded-2xl text-xl font-semibold hover:bg-[#002266]">Click me to submit your courses</button>
+                    </div>`;
+            });
+        } else {
+            courses.forEach(course => {
+                html += `
+                    <button onclick="showCourseYears('${cat}', '${course}')" 
+                            class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border border-gray-200 hover:border-[#003087] text-left">
+                        <div class="text-2xl font-medium">${course}</div>
+                        <i class="fas fa-chevron-right text-2xl text-gray-400"></i>
+                    </button>`;
+            });
+        }
+        html += `</div>`;
+        content.innerHTML = html;
+    }
+
+    function showCourseYears(cat, course) {
+        currentCourse = course;
+        const content = document.getElementById('programsContent');
+        let years = [];
+        if (cat.includes("2 YEARS")) years = ["1st Year", "2nd Year"];
+        else if (cat.includes("3 YEARS")) years = ["1st Year", "2nd Year", "3rd Year"];
+        else if (cat.includes("4 YEARS")) years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
+
+        let html = `
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+                    <h3 class="text-2xl text-gray-600 mt-1">${course}</h3>
                 </div>
-            `;
-        });
+                <button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Courses</button>
+            </div>
+            <div class="space-y-6">`;
 
+        years.forEach(year => {
+            html += `
+                <div class="flex justify-between items-center bg-gray-50 p-6 rounded-3xl border">
+                    <div class="text-2xl font-medium">${year}</div>
+                    <button onclick="openSubmitForm()" class="bg-[#003087] text-white px-10 py-5 rounded-2xl text-xl font-semibold hover:bg-[#002266]">Click me to submit your courses</button>
+                </div>`;
+        });
         html += `</div>`;
         content.innerHTML = html;
     }
@@ -425,9 +264,7 @@
         document.getElementById('submitFormModal').classList.add('hidden');
     }
 
-    // START THE APP
     loadData();
 </script>
-
 </body>
 </html>
