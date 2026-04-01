@@ -1,138 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <!-- ✅ FIXED VIEWPORT -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 🔥 FORCE DESKTOP BUT FIT SCREEN PROPERLY -->
+<meta name="viewport" content="width=1280, initial-scale=1, maximum-scale=1">
 
-    <title>UNZA Timetable • 2026</title>
+<title>UNZA Timetable • 2026</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Grotesk:wght@700&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Grotesk:wght@700&display=swap');
 
-        html, body {
-            margin: 0;
-            padding: 0;
-            background: #f9fafb;
-            font-size: 18px;
-        }
+/* 🔥 FORCE DESKTOP WIDTH */
+html {
+    width: 1280px;
+    min-width: 1280px;
+    margin: 0 auto;
+    transform: scale(1.15); /* 🔥 MAKE EVERYTHING BIGGER */
+    transform-origin: top center;
+}
 
-        /* MAIN CONTAINER (DESKTOP FEEL BUT RESPONSIVE) */
-        .main-container {
-            max-width: 1280px;
-            margin: auto;
-            padding: 10px;
-        }
+/* 🔥 PREVENT SIDE SCROLL AFTER SCALE */
+body {
+    margin: 0;
+    background: #f9fafb;
+    overflow-x: hidden;
+    font-size: 22px;
+    line-height: 1.6;
+}
 
-        /* MOBILE OPTIMIZATION */
-        @media (max-width: 768px) {
-            body {
-                font-size: 20px;
-            }
+/* CENTER ON LARGE SCREENS */
+@media (min-width: 1280px) {
+    html {
+        display: flex;
+        justify-content: center;
+    }
+}
 
-            h1 {
-                font-size: 32px !important;
-            }
+/* KEEP YOUR ORIGINAL STYLING BUT BIGGER */
+.header-font { font-family: 'Space Grotesk', sans-serif; }
 
-            th {
-                font-size: 18px;
-                padding: 12px;
-            }
+th { font-size: 24px; padding: 20px; }
+td { font-size: 22px; padding: 20px; }
 
-            td {
-                font-size: 16px;
-                padding: 12px;
-            }
+input, button { font-size: 20px; }
 
-            input, button {
-                font-size: 16px !important;
-                padding: 12px !important;
-            }
+.table-row:hover { background-color: #f0f7ff; }
 
-            img {
-                width: 60px !important;
-                height: 60px !important;
-            }
-        }
-
-        .header-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .table-row:hover {
-            background-color: #f0f7ff;
-        }
-    </style>
+img {
+    width: 110px !important;
+    height: 110px !important;
+}
+</style>
 </head>
 
 <body>
-<div class="main-container">
 
-<header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6 shadow-lg">
-    <div class="px-4 flex justify-between items-center flex-wrap gap-4">
-        <div class="flex items-center gap-4">
-            <img src="images/logo.png" class="w-20 h-20 bg-white p-2 rounded-2xl">
+<header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-10 shadow-lg">
+    <div class="px-10 flex justify-between items-center">
+        <div class="flex items-center gap-6">
+            <img id="logoImg" src="images/logo.png" class="w-24 h-24 bg-white p-2 rounded-2xl">
             <div>
-                <h1 class="header-font text-3xl md:text-5xl">University of Zambia</h1>
-                <p class="text-blue-200">Student Timetable Portal • 2026</p>
+                <h1 class="header-font text-6xl">University of Zambia</h1>
+                <p class="text-blue-200 text-xl">Student Timetable Portal • 2026</p>
             </div>
         </div>
-
-        <button onclick="showFeedbackForm()" class="bg-white text-[#003087] px-5 py-3 rounded-xl">
-            Help Us Improve
-        </button>
+        <button onclick="showFeedbackForm()" class="bg-white text-[#003087] px-8 py-5 rounded-3xl">Help Us Improve</button>
     </div>
 </header>
 
-<main class="px-4 py-10">
+<main class="px-10 py-14">
+    <h1 class="header-font text-7xl text-center text-[#003087]">UNZA Academic Timetable 2026</h1>
 
-    <h1 class="header-font text-3xl md:text-6xl text-center text-[#003087]">
-        UNZA Academic Timetable 2026
-    </h1>
-
-    <div class="flex justify-center mt-6">
-        <button onclick="showPrograms()" class="bg-[#003087] text-white px-6 py-4 rounded-2xl text-xl shadow-lg flex items-center gap-2">
+    <div class="flex justify-center mt-4">
+        <button onclick="showPrograms()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3">
             <i class="fas fa-graduation-cap"></i> PROGRAMS
         </button>
     </div>
 
-    <div class="mt-10">
-        <input id="searchInput" type="text"
-            placeholder="Search course, lecturer, or day..."
-            class="w-full px-5 py-4 rounded-2xl border"
-            onkeyup="liveSearch()">
+    <div class="mt-14">
+        <input id="searchInput" type="text" placeholder="Search course, lecturer, or day..." class="w-full px-8 py-7 rounded-3xl border" onkeyup="liveSearch()">
     </div>
 
-    <div class="my-8 flex gap-3 flex-wrap" id="dayFilters"></div>
+    <div class="my-12 flex gap-5 flex-wrap" id="dayFilters"></div>
 
-    <div class="bg-white rounded-2xl shadow overflow-x-auto">
+    <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
         <table class="w-full">
             <thead class="bg-[#003087] text-white">
-                <tr>
-                    <th>Day</th>
-                    <th>Time</th>
-                    <th>Course</th>
-                    <th>Lecturer</th>
-                </tr>
+                <tr><th>Day</th><th>Time</th><th>Course</th><th>Lecturer</th></tr>
             </thead>
             <tbody id="timetableBody"></tbody>
         </table>
     </div>
-
 </main>
 
-<footer class="text-center py-10 text-gray-600">
+<!-- MODALS (UNCHANGED) -->
+<div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
+    <div class="bg-white rounded-3xl p-10 w-[450px] text-center">
+        <h3 id="modalTitle" class="text-3xl font-semibold mb-6"></h3>
+        <p id="modalPhone" class="text-2xl text-blue-600 mb-8"></p>
+        <div class="flex gap-5">
+            <button onclick="closeCallModal()" class="flex-1 py-5 bg-gray-200 rounded-2xl">Cancel</button>
+            <button onclick="makeActualCall()" class="flex-1 py-5 bg-blue-600 text-white rounded-2xl">Call Now</button>
+        </div>
+    </div>
+</div>
+
+<div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-4xl relative">
+        <button onclick="closeFeedbackModal()" class="absolute top-5 right-6 text-4xl font-bold text-gray-500 hover:text-black">×</button>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true" width="100%" height="700"></iframe>
+    </div>
+</div>
+
+<footer class="text-center py-12 text-gray-600 text-lg">
     <p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
 </footer>
 
-</div>
-
 <script>
 let timetableData = [];
+let currentPhone = '';
 let activeDay = null;
 
 const allDays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
@@ -153,60 +143,40 @@ async function loadData() {
 function renderDayFilters() {
     const container = document.getElementById('dayFilters');
     container.innerHTML = '';
-
     allDays.forEach(day => {
-        const active = activeDay === day;
-
-        container.innerHTML += `
-        <button onclick="filterByDay('${day}')"
-        class="px-4 py-2 rounded-xl ${active ? 'bg-[#003087] text-white' : 'border'}">
-        ${day}
-        </button>`;
+        const isActive = activeDay === day;
+        const btnClass = isActive 
+            ? "px-7 py-4 bg-[#003087] text-white rounded-2xl"
+            : "px-7 py-4 border rounded-2xl";
+        container.innerHTML += `<button onclick="filterByDay('${day}')" class="${btnClass}">${day}</button>`;
     });
 }
 
 function renderTable(data) {
     const tbody = document.getElementById('timetableBody');
-
-    tbody.innerHTML = data.map(item => {
-        const parts = item.lecturer.split('\\n');
-        const name = parts[0];
-        const phone = parts[1] || '';
-
-        return `
+    tbody.innerHTML = data.map(item => `
         <tr class="table-row border-b">
             <td>${item.day}</td>
             <td>${item.time}</td>
             <td class="font-semibold">${item.course}</td>
-            <td>
-                ${name}<br>
-                ${phone ? `<a href="tel:${phone}" class="text-blue-600">Call</a>` : ''}
-            </td>
-        </tr>`;
-    }).join('');
+            <td>${item.lecturer}</td>
+        </tr>
+    `).join('');
 }
 
 function liveSearch() {
     const term = document.getElementById('searchInput').value.toLowerCase();
-
-    renderTable(
-        timetableData.filter(x =>
-            x.course.toLowerCase().includes(term) ||
-            x.lecturer.toLowerCase().includes(term) ||
-            x.day.toLowerCase().includes(term)
-        )
-    );
+    renderTable(timetableData.filter(x =>
+        x.course.toLowerCase().includes(term) ||
+        x.lecturer.toLowerCase().includes(term) ||
+        x.day.toLowerCase().includes(term)
+    ));
 }
 
 function filterByDay(day) {
-    if (activeDay === day) {
-        activeDay = null;
-        renderTable(timetableData);
-    } else {
-        activeDay = day;
-        renderTable(timetableData.filter(x => x.day === day));
-    }
+    activeDay = day;
     renderDayFilters();
+    renderTable(timetableData.filter(x => x.day === day));
 }
 
 loadData();
