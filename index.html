@@ -108,9 +108,6 @@
     let timetableData = [];
     let currentPhone = '';
     let activeDay = null;
-    let currentCategory = null;
-    let currentCourse = null;
-    let currentYear = null;
 
     const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -177,7 +174,6 @@
 
     function closeProgramsModal() {
         document.getElementById('programsModal').classList.add('hidden');
-        currentCategory = currentCourse = currentYear = null;
     }
 
     function renderCategories() {
@@ -193,8 +189,6 @@
     }
 
     function showCategory(cat) {
-        currentCategory = cat;
-        currentCourse = null;
         const content = document.getElementById('programsContent');
         const courses = programsData[cat] || [];
         let html = `<div class="flex items-center justify-between mb-8"><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><button onclick="renderCategories()" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button></div><div class="space-y-6">`;
@@ -206,7 +200,6 @@
     }
 
     function showCourseYears(cat, course) {
-        currentCourse = course;
         const content = document.getElementById('programsContent');
         let years = [];
         if (cat.includes("2 YEARS")) years = ["1st Year", "2nd Year"];
@@ -222,10 +215,8 @@
     }
 
     function showYearTimetable(cat, course, year) {
-        currentYear = year;
         const content = document.getElementById('programsContent');
-
-        let html = `
+        content.innerHTML = `
             <div class="flex items-center justify-between mb-8">
                 <div>
                     <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
@@ -234,28 +225,13 @@
                 <button onclick="showCourseYears('${cat}', '${course}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Years</button>
             </div>
 
-            <div class="bg-white rounded-3xl shadow-xl overflow-hidden mb-8">
-                <table class="w-full">
-                    <thead class="bg-[#003087] text-white"><tr><th>Day</th><th>Time</th><th>Course</th><th>Lecturer</th></tr></thead>
-                    <tbody id="modalTimetableBody"></tbody>
-                </table>
-            </div>
-
-            <div class="text-center">
-                <button onclick="openSubmitForm()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3 mx-auto">
+            <div class="bg-white rounded-3xl shadow-xl p-10 text-center">
+                <p class="text-3xl text-gray-500 mb-8">No timetable has been added yet for this program and year.</p>
+                <button onclick="openSubmitForm()" 
+                        class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3 mx-auto">
                     <i class="fas fa-plus"></i> Click me to add the timetable
                 </button>
             </div>`;
-
-        content.innerHTML = html;
-
-        // Show the full timetable (we only have one general timetable right now)
-        const tbody = document.getElementById('modalTimetableBody');
-        tbody.innerHTML = timetableData.map(item => {
-            const parts = item.lecturer.split('\n');
-            const name = parts[0]; const phone = parts[1] || '';
-            return `<tr class="table-row border-b"><td>${item.day}</td><td>${item.time}</td><td class="font-semibold">${item.course}</td><td><div class="mb-3">${name}</div>${phone ? `<button onclick="prepareCall('${name}','${phone}')" class="text-blue-600 flex items-center gap-2"><i class="fas fa-phone"></i> Call Lecturer</button>` : ''}</td></tr>`;
-        }).join('');
     }
 
     function openSubmitForm() {
