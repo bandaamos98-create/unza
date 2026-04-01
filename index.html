@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- 🔥 FORCE DESKTOP WIDTH + CONTROL SCALE -->
-    <meta name="viewport" content="width=1280, initial-scale=0.9, maximum-scale=1, user-scalable=no">
+    <!-- ✅ FIXED VIEWPORT -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>UNZA Timetable • 2026</title>
 
@@ -14,46 +14,49 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Grotesk:wght@700&display=swap');
 
-        /* 🔥 TRUE DESKTOP LOCK */
         html, body {
-            width: 1280px;
-            min-width: 1280px;
-            margin: 0 auto;
+            margin: 0;
+            padding: 0;
             background: #f9fafb;
-            overflow-x: hidden;
+            font-size: 18px;
         }
 
-        /* 🔥 CENTER ON BIG SCREENS */
-        @media (min-width: 1280px) {
-            html {
-                display: flex;
-                justify-content: center;
+        /* MAIN CONTAINER (DESKTOP FEEL BUT RESPONSIVE) */
+        .main-container {
+            max-width: 1280px;
+            margin: auto;
+            padding: 10px;
+        }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 768px) {
+            body {
+                font-size: 20px;
             }
-        }
 
-        /* 🔥 MAKE EVERYTHING BIGGER */
-        body {
-            font-size: 24px;
-            line-height: 1.7;
-        }
+            h1 {
+                font-size: 32px !important;
+            }
 
-        th {
-            font-size: 26px;
-            padding: 22px;
-        }
+            th {
+                font-size: 18px;
+                padding: 12px;
+            }
 
-        td {
-            font-size: 24px;
-            padding: 22px;
-        }
+            td {
+                font-size: 16px;
+                padding: 12px;
+            }
 
-        input, button {
-            font-size: 22px;
-            padding: 18px;
-        }
+            input, button {
+                font-size: 16px !important;
+                padding: 12px !important;
+            }
 
-        h1 {
-            font-size: 60px !important;
+            img {
+                width: 60px !important;
+                height: 60px !important;
+            }
         }
 
         .header-font {
@@ -67,45 +70,46 @@
 </head>
 
 <body>
+<div class="main-container">
 
-<header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-10 shadow-lg">
-    <div class="px-10 flex justify-between items-center">
-        <div class="flex items-center gap-6">
-            <img src="images/logo.png" class="w-28 h-28 bg-white p-2 rounded-2xl">
+<header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-6 shadow-lg">
+    <div class="px-4 flex justify-between items-center flex-wrap gap-4">
+        <div class="flex items-center gap-4">
+            <img src="images/logo.png" class="w-20 h-20 bg-white p-2 rounded-2xl">
             <div>
-                <h1 class="header-font">University of Zambia</h1>
-                <p class="text-blue-200 text-2xl">Student Timetable Portal • 2026</p>
+                <h1 class="header-font text-3xl md:text-5xl">University of Zambia</h1>
+                <p class="text-blue-200">Student Timetable Portal • 2026</p>
             </div>
         </div>
 
-        <button onclick="showFeedbackForm()" class="bg-white text-[#003087] px-10 py-5 rounded-3xl">
+        <button onclick="showFeedbackForm()" class="bg-white text-[#003087] px-5 py-3 rounded-xl">
             Help Us Improve
         </button>
     </div>
 </header>
 
-<main class="px-10 py-14">
+<main class="px-4 py-10">
 
-    <h1 class="header-font text-center text-[#003087]">
+    <h1 class="header-font text-3xl md:text-6xl text-center text-[#003087]">
         UNZA Academic Timetable 2026
     </h1>
 
     <div class="flex justify-center mt-6">
-        <button onclick="showPrograms()" class="bg-[#003087] text-white px-14 py-6 rounded-3xl text-3xl shadow-lg flex items-center gap-3">
+        <button onclick="showPrograms()" class="bg-[#003087] text-white px-6 py-4 rounded-2xl text-xl shadow-lg flex items-center gap-2">
             <i class="fas fa-graduation-cap"></i> PROGRAMS
         </button>
     </div>
 
-    <div class="mt-12">
+    <div class="mt-10">
         <input id="searchInput" type="text"
             placeholder="Search course, lecturer, or day..."
-            class="w-full px-8 py-6 rounded-3xl border"
+            class="w-full px-5 py-4 rounded-2xl border"
             onkeyup="liveSearch()">
     </div>
 
-    <div class="my-12 flex gap-5 flex-wrap" id="dayFilters"></div>
+    <div class="my-8 flex gap-3 flex-wrap" id="dayFilters"></div>
 
-    <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+    <div class="bg-white rounded-2xl shadow overflow-x-auto">
         <table class="w-full">
             <thead class="bg-[#003087] text-white">
                 <tr>
@@ -121,13 +125,14 @@
 
 </main>
 
-<footer class="text-center py-12 text-gray-600 text-lg">
+<footer class="text-center py-10 text-gray-600">
     <p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
 </footer>
 
+</div>
+
 <script>
 let timetableData = [];
-let currentPhone = '';
 let activeDay = null;
 
 const allDays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
@@ -154,7 +159,7 @@ function renderDayFilters() {
 
         container.innerHTML += `
         <button onclick="filterByDay('${day}')"
-        class="px-7 py-4 rounded-2xl ${active ? 'bg-[#003087] text-white' : 'border'}">
+        class="px-4 py-2 rounded-xl ${active ? 'bg-[#003087] text-white' : 'border'}">
         ${day}
         </button>`;
     });
