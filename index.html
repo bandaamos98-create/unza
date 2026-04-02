@@ -60,11 +60,6 @@
     </div>
 </div>
 
-<!-- Other modals -->
-<div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">...</div>
-<div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">...</div>
-<div id="submitFormModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">...</div>
-
 <footer class="text-center py-12 text-gray-600 text-lg">
     <p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
     <p class="mt-2">
@@ -75,17 +70,19 @@
 
 <script>
     let timetableData = [];
-    let programData = {};
-    let currentPhone = '';
     let activeDay = null;
     const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
     const programsData = {
-        "CERTIFICATE (2 YEARS)": ["Early Childhood Education","Business Administration","Sales and Marketing","Finance and Accounting","Purchasing and Supply Management","Social Work","Human Resource Management","Project Planning and Management","Public Administration","Computer Science","Records Management","Guidance and Counselling","Public Health"],
-        "DIPLOMA (3 YEARS)": ["Business Administration","Computer Science and Information Management","Early Childhood Education","Finance and Accounting","Human Resource Management","Public Health","Guidance and Counselling","Public Administration","Purchasing and Supply Management","Records Management","Sales and Marketing","Social Work"]
+        "DIPLOMA (3 YEARS)": [
+            "Early Childhood Education", "Business Administration", "Sales and Marketing", 
+            "Finance and Accounting", "Purchasing and Supply Management", "Social Work", 
+            "Human Resource Management", "Project Planning and Management", "Public Administration", 
+            "Computer Science", "Records Management", "Guidance and Counselling", "Public Health"
+        ]
     };
 
-    // ==================== YOUR COURSE DATA ====================
+    // ==================== ALL COURSES ADDED ====================
     const courseStructure = {
         "Early Childhood Education": {
             "1st Year": [
@@ -98,7 +95,7 @@
             ]
         },
         "Business Administration": {
-            "1st Year": [ /* your 6 courses */ 
+            "1st Year": [
                 { code: "BDA 1011", title: "Business Communication" },
                 { code: "DBA 1040", title: "Business Mathematics and Statistics" },
                 { code: "DAF 1030", title: "Financial Accounting" },
@@ -106,7 +103,7 @@
                 { code: "DBA 10542", title: "Principles of Management" },
                 { code: "DSM 1012", title: "Principle of Marketing" }
             ],
-            "2nd Year": [ /* your 6 courses */ 
+            "2nd Year": [
                 { code: "DBA 2052", title: "Business Environment" },
                 { code: "DBA 2021", title: "Business Economics" },
                 { code: "DAF 2060", title: "Business and Company Law" },
@@ -114,7 +111,7 @@
                 { code: "DAF 2041", title: "Cost Accounting" },
                 { code: "DAF 2050", title: "Financial Management" }
             ],
-            "3rd Year": [ /* your 8 courses */ 
+            "3rd Year": [
                 { code: "DBA 3012", title: "International Business" },
                 { code: "DBA 3015", title: "Entrepreneurship" },
                 { code: "DAF 3011", title: "Investment Analysis and Portfolio Management" },
@@ -125,38 +122,211 @@
                 { code: "DAE 3015", title: "Research Methods" }
             ]
         },
-        // Add the rest of your programs here the same way (Sales and Marketing, Finance and Accounting, etc.)
-        // For brevity I showed the pattern. You can copy-paste the others from my previous response.
-        "Sales and Marketing": { "1st Year": [ /* ... */ ], "2nd Year": [ /* ... */ ] },
-        "Finance and Accounting": { "1st Year": [ /* ... */ ], "2nd Year": [ /* ... */ ], "3rd Year": [ /* ... */ ] },
-        "Purchasing and Supply Management": { "1st Year": [ /* ... */ ], "2nd Year": [ /* ... */ ], "3rd Year": [ /* ... */ ] },
-        "Social Work": { "1st Year": [ /* ... */ ], "2nd Year": [ /* ... */ ] },
-        "Human Resource Management": { "1st Year": [ /* ... */ ] },
-        "Project Planning and Management": { "1st Year": [ /* ... */ ] },
-        "Public Administration": { "1st Year": [ /* ... */ ], "2nd Year": [ /* ... */ ] },
-        "Computer Science": { "1st Year": [ /* ... */ ], "2nd Year": [ /* ... */ ] },
-        "Records Management": { "1st Year": [ /* ... */ ], "2nd Year": [ /* ... */ ] },
-        "Guidance and Counselling": { "1st Year": [ /* ... */ ], "2nd Year": [ /* ... */ ] },
-        "Public Health": { "1st Year": [ /* ... */ ], "2nd Year": [ /* ... */ ] }
+        "Sales and Marketing": {
+            "1st Year": [
+                { code: "BDA 1011", title: "Business Communication" },
+                { code: "DBA 1040", title: "Business Mathematics and Statistics" },
+                { code: "DAF 1030", title: "Financial Accounting" },
+                { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
+                { code: "DBA 10542", title: "Principles of Management" },
+                { code: "DSM 1012", title: "Principle of Marketing" }
+            ],
+            "2nd Year": [
+                { code: "DSM 2052", title: "Care and Service" },
+                { code: "DBA 2021", title: "Business Economics" },
+                { code: "DSM 2021", title: "Advertising" },
+                { code: "DAF 2060", title: "Business and Company Law" },
+                { code: "DAE 2011", title: "Research Methods" },
+                { code: "DAF 2050", title: "Financial Management" }
+            ]
+        },
+        "Finance and Accounting": {
+            "1st Year": [
+                { code: "BDA 1011", title: "Business Communication" },
+                { code: "DBA 1040", title: "Business Mathematics and Statistics" },
+                { code: "DAF 1030", title: "Financial Accounting" },
+                { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
+                { code: "DBA 10542", title: "Principles of Management" },
+                { code: "DSM 1012", title: "Principle of Marketing" }
+            ],
+            "2nd Year": [
+                { code: "DBA 2021", title: "Business Economics" },
+                { code: "DAF 2060", title: "Business and Company Law" },
+                { code: "DAE 2011", title: "Research Methods" },
+                { code: "DAF 2041", title: "Cost Accounting" },
+                { code: "DAF 2050", title: "Financial Management" },
+                { code: "DAF 2021", title: "Taxation" }
+            ],
+            "3rd Year": [
+                { code: "DAE 3015", title: "Research Report" },
+                { code: "DBA 3015", title: "Entrepreneurship" },
+                { code: "DAF 3012", title: "Financial Reporting" },
+                { code: "DBA 3035", title: "Corporate Governance and Business Ethics" },
+                { code: "DAF 3011", title: "Investment Analysis and Portfolio Management" },
+                { code: "DAF 3062", title: "Financial Risk Management" },
+                { code: "DHR 3015", title: "Organisation Behaviour" },
+                { code: "DAF 3022", title: "Auditing and Assurance" }
+            ]
+        },
+        "Purchasing and Supply Management": {
+            "1st Year": [
+                { code: "BDA 1011", title: "Business Communication" },
+                { code: "DBA 1040", title: "Business Mathematics and Statistics" },
+                { code: "DAF 1030", title: "Financial Accounting" },
+                { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
+                { code: "DBA 10542", title: "Principles of Management" },
+                { code: "DPS 1011", title: "Principle of Procurement and Process" }
+            ],
+            "2nd Year": [
+                { code: "DPS 2032", title: "Public Procurement" },
+                { code: "DBA 2052", title: "Business Environment" },
+                { code: "DAF 2041", title: "Cost Accounting" },
+                { code: "DAE 2011", title: "Research Methods" },
+                { code: "DPS 2021", title: "Inventory Management" },
+                { code: "DPS 2031", title: "Negotiations and Sourcing in Practice" },
+                { code: "DPS 2030", title: "Logistics and Supply Management" }
+            ],
+            "3rd Year": [
+                { code: "DPS 3041", title: "Strategic Procurement and Supply Management" },
+                { code: "DAE 3015", title: "Research Methods and Project" },
+                { code: "DBA 3015", title: "Entrepreneurship" },
+                { code: "DBA 3035", title: "Corporate Governance Ethics" },
+                { code: "DPS 3011", title: "Law of Procurement and Supply" },
+                { code: "DPS 3011", title: "Contract and Project Management" },
+                { code: "DPS 3321", title: "Quality Assurance Purchasing and Supply" },
+                { code: "DPS 3065", title: "Risk Management Procurement and Supply" }
+            ]
+        },
+        "Social Work": {
+            "1st Year": [
+                { code: "DAE 1015", title: "Language and Communication Skills" },
+                { code: "DSW 1110", title: "Introduction to Social Welfare" },
+                { code: "DSW 1120", title: "Introduction to Sociology" },
+                { code: "DSW 1010", title: "Introduction to Psychology" },
+                { code: "DCS 1011", title: "Computer Application Skills and Concepts" }
+            ],
+            "2nd Year": [
+                { code: "DSW 2110", title: "Contemporary Issues in Social Policy" },
+                { code: "DSW 2320", title: "Social Work Practice Methods" },
+                { code: "DSW 2430", title: "Social Work and Law" },
+                { code: "DAE 2011", title: "Research Methods and Project" }
+            ]
+        },
+        "Human Resource Management": {
+            "1st Year": [
+                { code: "DAE 1015", title: "Language and Communication Skills" },
+                { code: "DCS 1011", title: "Computer Application and Concepts" },
+                { code: "DHR 1020", title: "Foundation of Human Resource Management" },
+                { code: "DBA 1040", title: "Business Mathematics and Statistics" },
+                { code: "DAF 1030", title: "Financial Accounting" }
+            ]
+        },
+        "Project Planning and Management": {
+            "1st Year": [
+                { code: "DCS 1011", title: "Computer Application and Concepts" },
+                { code: "DAE 1015", title: "Language and Communication Skills" },
+                { code: "DPA 1025", title: "Introduction to Public Administration" },
+                { code: "DIR 1015", title: "Introduction to Political Science" },
+                { code: "DPM 1015", title: "Introduction to Project Management" },
+                { code: "DHR 1020", title: "Foundation of Human Resource Management" },
+                { code: "DAF 1030", title: "Financial Accounting" }
+            ]
+        },
+        "Public Administration": {
+            "1st Year": [
+                { code: "DAE 1015", title: "Language and Business Communication Skills" },
+                { code: "DCS 1011", title: "Computer Application and Concepts" },
+                { code: "DPA 1025", title: "Introduction to Public Administration" },
+                { code: "DIR 1015", title: "Introduction to Political Science" },
+                { code: "DHR 1020", title: "Foundation of Human Resource" },
+                { code: "DPR 1130", title: "Principles of Public Relations" }
+            ],
+            "2nd Year": [
+                { code: "DPA 2011", title: "Government and Administration in Zambia" },
+                { code: "DPA 2012", title: "Comparative Public Administration" },
+                { code: "DPA 2031", title: "Resourcing: Recruitment, Placement and Talent MGT" },
+                { code: "DPA 2022", title: "Labour Laws" },
+                { code: "DPA 2021", title: "Local Government Administration in Zambia" },
+                { code: "DAE 2011", title: "Research Methods" },
+                { code: "DHR 2030", title: "Labour Relations" }
+            ]
+        },
+        "Computer Science": {
+            "1st Year": [
+                { code: "DAE 1015", title: "Language and Communication Skills" },
+                { code: "DCS 1010", title: "Computer Application and Concepts" },
+                { code: "DCS 1020", title: "Computer Programming" },
+                { code: "DCS 1030", title: "Computer System" },
+                { code: "DCS 1025", title: "Computer Number Representation and Data Encoding" }
+            ],
+            "2nd Year": [
+                { code: "DCS 2000", title: "Computer Organisation and Architecture" },
+                { code: "DCS 2010", title: "Database Design and Management" },
+                { code: "DCS 2020", title: "Mathematics for Computing" },
+                { code: "DCS 2030", title: "Network Design and Management" }
+            ]
+        },
+        "Records Management": {
+            "1st Year": [
+                { code: "DAE 1350", title: "Language and Communication Skills" },
+                { code: "DRM 1010", title: "Foundation of Records and Archives Management" },
+                { code: "DRM 1020", title: "Foundation of Knowledge Management" },
+                { code: "DCS 1011", title: "Computer Application and Concepts" }
+            ],
+            "2nd Year": [
+                { code: "DAE 2410", title: "Research Methods" },
+                { code: "DRM 2010", title: "Electronic Records Management" },
+                { code: "DRM 2020", title: "Management of Current and Semi-Current Records" },
+                { code: "DLS 2010", title: "Organisation of Information Resources" }
+            ]
+        },
+        "Guidance and Counselling": {
+            "1st Year": [
+                { code: "DAE 1015", title: "Language and Communication Skills" },
+                { code: "DCS 1011", title: "Computer Application and Concepts" },
+                { code: "DGC 1020", title: "Introduction to Guidance" },
+                { code: "DGC 1020", title: "Introduction to Counselling" },
+                { code: "DGC 1030", title: "Child Counselling" }
+            ],
+            "2nd Year": [
+                { code: "DGC 2010", title: "Personality Development and Disorders" },
+                { code: "DGC 2012", title: "Psychometrics in Guidance" },
+                { code: "DGC 2030", title: "Ethics in Guidance and Counselling" },
+                { code: "DAE 2011", title: "Research Methods" },
+                { code: "EDU 2011", title: "Sociology of Education" },
+                { code: "EDU 2012", title: "Educational Psychology" }
+            ]
+        },
+        "Public Health": {
+            "1st Year": [
+                { code: "DPH 1210", title: "Medical and Health Instrumentation" },
+                { code: "DPH 1110", title: "Principles of Public Health" },
+                { code: "DPH 1310", title: "Information, Communication and Technology" },
+                { code: "DPH 1410", title: "Introduction to Basic Science and Mathematics" },
+                { code: "DPH 1420", title: "Communicable and Non-Communicable Disease" }
+            ],
+            "2nd Year": [
+                { code: "DPH 2135", title: "Introduction to Epidemiology and Biostatistics" },
+                { code: "DPH 2220", title: "Occupational Health and Safety" },
+                { code: "DPH 2235", title: "Pestology" },
+                { code: "DPH 2120", title: "Principle of Public and Environment Health" },
+                { code: "DPH 2320", title: "Introduction to Community Health" },
+                { code: "DPH 2335", title: "Industrial Attachment and Reporting" },
+                { code: "DPH 2434", title: "Research Methods and Proposal Development" }
+            ]
+        }
     };
 
     async function loadData() {
-        try {
-            const res = await fetch('lecture.json');
-            const data = await res.json();
-            timetableData = data.timetable || [];
-        } catch(e) { console.log("lecture.json not found"); }
-
         const todayIndex = new Date().getDay();
         const dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
         activeDay = dayNames[todayIndex] || "Monday";
-
         renderDayFilters();
-        renderTable(timetableData.filter(x => x.day === activeDay));
+        renderTable([]);
     }
 
     function renderDayFilters() {
-        const container = document.getElementById('dayFilters');
+        const container = document.getElementById('dayFilters'); 
         container.innerHTML = '';
         allDays.forEach(day => {
             const isActive = activeDay === day;
@@ -167,46 +337,14 @@
 
     function renderTable(data) {
         const tbody = document.getElementById('timetableBody');
-        tbody.innerHTML = data.map(item => {
-            const parts = (item.lecturer || '').split('\n');
-            const name = parts[0] || 'N/A';
-            const phone = parts[1] || '';
-            return `<tr class="table-row border-b">
-                <td>${item.day || ''}</td>
-                <td>${item.time || ''}</td>
-                <td class="font-semibold">${item.course || ''}</td>
-                <td>
-                    <div class="mb-3">${name}</div>
-                    ${phone ? `<button onclick="prepareCall('${name}','${phone}')" class="text-blue-600 flex items-center gap-2"><i class="fas fa-phone"></i> Call Lecturer</button>` : ''}
-                </td>
-            </tr>`;
-        }).join('');
+        tbody.innerHTML = data.length ? data.map(item => `<tr class="table-row border-b"><td>${item.day||''}</td><td>${item.time||''}</td><td class="font-semibold">${item.course||''}</td><td>N/A</td></tr>`).join('') 
+            : `<tr><td colspan="4" class="text-center py-12 text-gray-500 text-2xl">No timetable data yet</td></tr>`;
     }
 
-    function prepareCall(name, phone) {
-        currentPhone = phone;
-        // Add your modal logic here if needed
-        alert(`Calling ${name} → ${phone}`);
-    }
+    function liveSearch() { /* optional */ }
+    function filterByDay(day) { activeDay = day; renderDayFilters(); }
 
-    function liveSearch() {
-        const term = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = timetableData.filter(x => 
-            (x.course || '').toLowerCase().includes(term) || 
-            (x.lecturer || '').toLowerCase().includes(term) || 
-            (x.day || '').toLowerCase().includes(term)
-        );
-        renderTable(filtered);
-    }
-
-    function filterByDay(day) {
-        activeDay = (activeDay === day) ? null : day;
-        renderDayFilters();
-        const filtered = activeDay ? timetableData.filter(x => x.day === activeDay) : timetableData;
-        renderTable(filtered);
-    }
-
-    // ====================== PROGRAMS MODAL FUNCTIONS ======================
+    // ====================== PROGRAMS MODAL ======================
     function showPrograms() {
         document.getElementById('programsModal').classList.remove('hidden');
         renderCategories();
@@ -221,11 +359,9 @@
         content.innerHTML = `
             <h2 class="text-4xl font-bold text-center mb-10 text-[#003087]">Our Academic Programs</h2>
             <div class="grid grid-cols-2 gap-8">
-                <button onclick="showCategory('CERTIFICATE (2 YEARS)')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
-                    <div class="text-3xl font-semibold">CERTIFICATE</div><div class="text-xl opacity-90 mt-2">2 YEARS</div>
-                </button>
                 <button onclick="showCategory('DIPLOMA (3 YEARS)')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
-                    <div class="text-3xl font-semibold">DIPLOMA</div><div class="text-xl opacity-90 mt-2">3 YEARS</div>
+                    <div class="text-3xl font-semibold">DIPLOMA</div>
+                    <div class="text-xl opacity-90 mt-2">3 YEARS</div>
                 </button>
             </div>`;
     }
@@ -233,16 +369,10 @@
     function showCategory(cat) {
         const content = document.getElementById('programsContent');
         const courses = programsData[cat] || [];
-        let html = `<div class="flex items-center justify-between mb-8">
-            <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
-            <button onclick="renderCategories()" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
-        </div><div class="space-y-6">`;
-
+        let html = `<div class="flex items-center justify-between mb-8"><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><button onclick="renderCategories()" class="text-[#003087] hover:underline text-xl">← Back</button></div><div class="space-y-6">`;
+        
         courses.forEach(course => {
-            html += `<button onclick="showCourseYears('${cat}', '${course}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left">
-                <div class="text-2xl font-medium">${course}</div>
-                <i class="fas fa-chevron-right text-2xl text-gray-400"></i>
-            </button>`;
+            html += `<button onclick="showCourseYears('${cat}', '${course}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${course}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
         });
         html += `</div>`;
         content.innerHTML = html;
@@ -250,21 +380,11 @@
 
     function showCourseYears(cat, course) {
         const content = document.getElementById('programsContent');
-        let years = cat.includes("2 YEARS") ? ["1st Year", "2nd Year"] : ["1st Year", "2nd Year", "3rd Year"];
-
-        let html = `<div class="flex items-center justify-between mb-8">
-            <div>
-                <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
-                <h3 class="text-2xl text-gray-600">${course}</h3>
-            </div>
-            <button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
-        </div><div class="space-y-6">`;
-
+        const years = ["1st Year", "2nd Year", "3rd Year"];
+        let html = `<div class="flex items-center justify-between mb-8"><div><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><h3 class="text-2xl text-gray-600">${course}</h3></div><button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline text-xl">← Back</button></div><div class="space-y-6">`;
+        
         years.forEach(year => {
-            html += `<button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left">
-                <div class="text-2xl font-medium">${year}</div>
-                <i class="fas fa-chevron-right text-2xl text-gray-400"></i>
-            </button>`;
+            html += `<button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${year}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
         });
         html += `</div>`;
         content.innerHTML = html;
@@ -278,7 +398,7 @@
                     <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
                     <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
                 </div>
-                <button onclick="showCourseYears('${cat}', '${course}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Years</button>
+                <button onclick="showCourseYears('${cat}', '${course}')" class="text-[#003087] hover:underline text-xl">← Back to Years</button>
             </div>
             <div class="grid grid-cols-2 gap-8">
                 <button onclick="showCoursesList('${cat}', '${course}', '${year}')" class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-10 rounded-3xl text-left hover:scale-105 transition shadow-lg">
@@ -289,7 +409,7 @@
                 <button onclick="showYearTimetable('${cat}', '${course}', '${year}')" class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-10 rounded-3xl text-left hover:scale-105 transition shadow-lg">
                     <i class="fas fa-calendar-alt text-5xl mb-4"></i>
                     <div class="text-4xl font-semibold mb-2">Timetable</div>
-                    <div class="text-xl opacity-90">View class schedule for ${year}</div>
+                    <div class="text-xl opacity-90">View class schedule</div>
                 </button>
             </div>`;
     }
@@ -297,18 +417,18 @@
     function showCoursesList(cat, course, year) {
         const content = document.getElementById('programsContent');
         const list = courseStructure[course] && courseStructure[course][year] ? courseStructure[course][year] : [];
-
+        
         let html = `
             <div class="flex items-center justify-between mb-8">
                 <div>
                     <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
                     <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
                 </div>
-                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
+                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline text-xl">← Back</button>
             </div>`;
 
         if (list.length === 0) {
-            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center text-3xl text-gray-500">No courses added yet for this year.</div>`;
+            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center text-3xl text-gray-500">No courses added yet.</div>`;
         } else {
             html += `<div class="bg-white rounded-3xl shadow-xl p-8">
                 <div class="flex justify-between items-center mb-6">
@@ -333,20 +453,19 @@
                     <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
                     <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
                 </div>
-                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
+                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline text-xl">← Back</button>
             </div>
-            <div class="bg-white rounded-3xl shadow-xl p-10 text-center">
-                <p class="text-3xl text-gray-500 mb-8">No timetable has been added yet for this program and year.</p>
-                <button onclick="openSubmitForm()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3 mx-auto">
-                    <i class="fas fa-plus"></i> Add Timetable
-                </button>
+            <div class="bg-white rounded-3xl shadow-xl p-10 text-center text-3xl text-gray-500">
+                No timetable added yet for this year.<br><br>
+                <button onclick="alert('Submit timetable form coming soon')" class="bg-[#003087] text-white px-10 py-5 rounded-3xl text-2xl mt-6">Add Timetable</button>
             </div>`;
     }
 
-    function showFeedbackForm() { alert("Feedback form coming soon!"); }
-    function openSubmitForm() { alert("Submit form modal would open here"); }
+    function showFeedbackForm() {
+        alert("Feedback form coming soon!");
+    }
 
-    // Start the app
+    // Load the page
     loadData();
 </script>
 </body>
