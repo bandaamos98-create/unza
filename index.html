@@ -61,7 +61,7 @@
     </div>
 </div>
 
-<!-- Other modals unchanged -->
+<!-- Other modals (unchanged) -->
 <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">...</div>
 <div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">...</div>
 <div id="submitFormModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">...</div>
@@ -89,7 +89,6 @@
     };
 
     async function loadData() {
-        // Load timetable (homepage)
         const res = await fetch('lecture.json');
         const data = await res.json();
         timetableData = data.timetable || [];
@@ -99,7 +98,7 @@
             const progRes = await fetch('program.json');
             const progJson = await progRes.json();
             programData = progJson.programs || {};
-        } catch(e) { console.error("program.json not found"); }
+        } catch(e) {}
 
         const todayIndex = new Date().getDay();
         const dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -107,8 +106,6 @@
         renderDayFilters();
         renderTable(timetableData.filter(x => x.day === activeDay));
     }
-
-    // ... (all your original functions: renderDayFilters, renderTable, prepareCall, etc. remain unchanged)
 
     function renderDayFilters() {
         const container = document.getElementById('dayFilters'); container.innerHTML = '';
@@ -149,7 +146,7 @@
     function openSubmitForm() { closeProgramsModal(); document.getElementById('submitFormModal').classList.remove('hidden'); }
     function closeSubmitFormModal() { document.getElementById('submitFormModal').classList.add('hidden'); }
 
-    // ====================== UPDATED PROGRAMS NAVIGATION ======================
+    // ====================== PROGRAMS NAVIGATION (UPDATED) ======================
     function showPrograms() {
         document.getElementById('programsModal').classList.remove('hidden');
         renderCategories();
@@ -168,6 +165,7 @@
                 <button onclick="showCategory('SHORT COURSES')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition"><div class="text-3xl font-semibold">SHORT COURSES</div><div class="text-xl opacity-90 mt-2">Flexible duration</div></button>
             </div>`;
     }
+
     function showCategory(cat) {
         const content = document.getElementById('programsContent');
         const courses = programsData[cat] || [];
@@ -178,12 +176,14 @@
         html += `</div>`;
         content.innerHTML = html;
     }
+
     function showCourseYears(cat, course) {
         const content = document.getElementById('programsContent');
         let years = [];
         if (cat.includes("2 YEARS")) years = ["1st Year", "2nd Year"];
         else if (cat.includes("3 YEARS")) years = ["1st Year", "2nd Year", "3rd Year"];
         else if (cat.includes("4 YEARS")) years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
+
         let html = `<div class="flex items-center justify-between mb-8"><div><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><h3 class="text-2xl text-gray-600">${course}</h3></div><button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Courses</button></div><div class="space-y-6">`;
         years.forEach(year => {
             html += `<button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${year}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
@@ -218,7 +218,7 @@
 
     function showCoursesList(cat, course, year) {
         const content = document.getElementById('programsContent');
-        const coursesList = programData[cat] && programData[cat][course] && programData[cat][course][year] ? programData[cat][course][year] : [];
+        const list = programData[cat] && programData[cat][course] && programData[cat][course][year] ? programData[cat][course][year] : [];
         let html = `
             <div class="flex items-center justify-between mb-8">
                 <div>
@@ -227,13 +227,11 @@
                 </div>
                 <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
             </div>`;
-        if (coursesList.length === 0) {
-            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center"><p class="text-3xl text-gray-500">No courses added yet.</p></div>`;
+        if (list.length === 0) {
+            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center text-3xl text-gray-500">No courses added yet for this year.</div>`;
         } else {
             html += `<div class="bg-white rounded-3xl shadow-xl p-8"><ol class="space-y-4 text-2xl">`;
-            coursesList.forEach((c, i) => {
-                html += `<li class="flex gap-4"><span class="font-bold text-[#003087]">${i+1}.</span> ${c.code} - ${c.title}</li>`;
-            });
+            list.forEach((c, i) => html += `<li class="flex gap-4"><span class="font-bold text-[#003087]">${i+1}.</span> ${c.code} - ${c.title}</li>`);
             html += `</ol></div>`;
         }
         content.innerHTML = html;
