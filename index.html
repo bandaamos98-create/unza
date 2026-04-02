@@ -5,7 +5,285 @@
     <meta name="viewport" content="width=1280">
     <title>UNZA Timetable • 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesom<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <title>UNZA Timetable • 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Grotesk:wght@700&display=swap');
+        html, body { width: 1280px; min-width: 1280px; margin: 0 auto; overflow-x: auto; background: #f9fafb; }
+        @media (min-width: 1280px) { html { display: flex; justify-content: center; } }
+        body { font-size: 22px; line-height: 1.6; }
+        .header-font { font-family: 'Space Grotesk', sans-serif; }
+        th { font-size: 24px; padding: 20px; }
+        td { font-size: 22px; padding: 20px; }
+        input, button { font-size: 20px; }
+        .table-row:hover { background-color: #f0f7ff; }
+    </style>
+</head>
+<body>
+<header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-10 shadow-lg">
+    <div class="px-10 flex justify-between items-center">
+        <div class="flex items-center gap-6">
+            <img id="logoImg" src="images/logo.png" class="w-24 h-24 bg-white p-2 rounded-2xl">
+            <div>
+                <h1 class="header-font text-6xl">University of Zambia</h1>
+                <p class="text-blue-200 text-xl">Student Timetable Portal • 2026</p>
+            </div>
+        </div>
+        <button onclick="showFeedbackForm()" class="bg-white text-[#003087] px-8 py-5 rounded-3xl">Help Us Improve</button>
+    </div>
+</header>
+
+<main class="px-10 py-14">
+    <h1 class="header-font text-7xl text-center text-[#003087]">UNZA Academic Timetable 2026</h1>
+    <div class="flex justify-center mt-4">
+        <button onclick="showPrograms()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3">
+            <i class="fas fa-graduation-cap"></i> PROGRAMS
+        </button>
+    </div>
+    <div class="mt-14">
+        <input id="searchInput" type="text" placeholder="Search course, lecturer, or day..." class="w-full px-8 py-7 rounded-3xl border" onkeyup="liveSearch()">
+    </div>
+    <div class="my-12 flex gap-5 flex-wrap" id="dayFilters"></div>
+    <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+        <table class="w-full">
+            <thead class="bg-[#003087] text-white">
+                <tr><th>Day</th><th>Time</th><th>Course</th><th>Lecturer</th></tr>
+            </thead>
+            <tbody id="timetableBody"></tbody>
+        </table>
+    </div>
+</main>
+
+<!-- PROGRAMS MODAL -->
+<div id="programsModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-4xl relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeProgramsModal()" class="absolute top-5 right-6 text-4xl font-bold text-gray-500 hover:text-black">×</button>
+        <div id="programsContent" class="p-10"></div>
+    </div>
+</div>
+
+<!-- Other modals -->
+<div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">...</div>
+<div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">...</div>
+<div id="submitFormModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">...</div>
+
+<footer class="text-center py-12 text-gray-600 text-lg">
+    <p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
+    <p class="mt-2">
+        <a href="tel:+260979077079" class="hover:text-blue-600">+260 979 077079</a> •
+        <a href="mailto:bandaamos98@gmail.com" class="hover:text-blue-600">bandaamos98@gmail.com</a>
+    </p>
+</footer>
+
+<script>
+    let timetableData = [];
+    let programData = {};           // ← New: Will store data from program.json
+    let currentPhone = '';
+    let activeDay = null;
+    const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    // Load both JSON files
+    async function loadData() {
+        try {
+            // Load timetable
+            const timetableRes = await fetch('lecture.json');
+            const timetableJson = await timetableRes.json();
+            timetableData = timetableJson.timetable || [];
+
+            // Load program courses
+            const programRes = await fetch('program.json');
+            const programJson = await programRes.json();
+            programData = programJson.programs || {};
+
+            // Initialize UI
+            const todayIndex = new Date().getDay();
+            const dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            activeDay = dayNames[todayIndex];
+            renderDayFilters();
+            renderTable(timetableData.filter(x => x.day === activeDay));
+        } catch (error) {
+            console.error("Error loading JSON files:", error);
+            alert("Could not load data. Make sure lecture.json and program.json are in the same folder.");
+        }
+    }
+
+    // Keep your existing functions
+    function renderDayFilters() { /* your original code */ }
+    function renderTable(data) { /* your original code */ }
+    function prepareCall(name, phone) { /* your original code */ }
+    function makeActualCall() { /* your original code */ }
+    function closeCallModal() { /* your original code */ }
+    function liveSearch() { /* your original code */ }
+    function filterByDay(day) { /* your original code */ }
+    function showFeedbackForm() { /* your original code */ }
+    function closeFeedbackModal() { /* your original code */ }
+    function openSubmitForm() { /* your original code */ }
+    function closeSubmitFormModal() { /* your original code */ }
+
+    // ====================== PROGRAMS NAVIGATION ======================
+    function showPrograms() {
+        document.getElementById('programsModal').classList.remove('hidden');
+        renderCategories();
+    }
+
+    function closeProgramsModal() {
+        document.getElementById('programsModal').classList.add('hidden');
+    }
+
+    function renderCategories() {
+        const content = document.getElementById('programsContent');
+        content.innerHTML = `
+            <h2 class="text-4xl font-bold text-center mb-10 text-[#003087]">Our Academic Programs</h2>
+            <div class="grid grid-cols-2 gap-8">
+                <button onclick="showCategory('CERTIFICATE (2 YEARS)')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
+                    <div class="text-3xl font-semibold">CERTIFICATE</div><div class="text-xl opacity-90 mt-2">2 YEARS</div>
+                </button>
+                <button onclick="showCategory('DIPLOMA (3 YEARS)')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
+                    <div class="text-3xl font-semibold">DIPLOMA</div><div class="text-xl opacity-90 mt-2">3 YEARS</div>
+                </button>
+                <button onclick="showCategory('UNDERGRADUATE (4 YEARS)')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
+                    <div class="text-3xl font-semibold">UNDERGRADUATE</div><div class="text-xl opacity-90 mt-2">4 YEARS</div>
+                </button>
+                <button onclick="showCategory('SHORT COURSES')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
+                    <div class="text-3xl font-semibold">SHORT COURSES</div><div class="text-xl opacity-90 mt-2">Flexible duration</div>
+                </button>
+            </div>`;
+    }
+
+    function showCategory(cat) {
+        const content = document.getElementById('programsContent');
+        const courses = Object.keys(programData[cat] || {});
+        let html = `<div class="flex items-center justify-between mb-8">
+                        <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+                        <button onclick="renderCategories()" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
+                    </div><div class="space-y-6">`;
+
+        courses.forEach(course => {
+            html += `<button onclick="showCourseYears('${cat}', '${course}')" 
+                        class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left">
+                        <div class="text-2xl font-medium">${course}</div>
+                        <i class="fas fa-chevron-right text-2xl text-gray-400"></i>
+                    </button>`;
+        });
+        html += `</div>`;
+        content.innerHTML = html;
+    }
+
+    function showCourseYears(cat, course) {
+        const content = document.getElementById('programsContent');
+        const yearsObj = programData[cat] && programData[cat][course] ? programData[cat][course] : {};
+        let years = Object.keys(yearsObj);
+
+        if (years.length === 0) {
+            content.innerHTML = `<p class="text-red-500">No data found for this program.</p>`;
+            return;
+        }
+
+        let html = `<div class="flex items-center justify-between mb-8">
+                        <div>
+                            <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+                            <h3 class="text-2xl text-gray-600">${course}</h3>
+                        </div>
+                        <button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Courses</button>
+                    </div><div class="space-y-6">`;
+
+        years.forEach(year => {
+            html += `<button onclick="showYearOptions('${cat}', '${course}', '${year}')" 
+                        class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left">
+                        <div class="text-2xl font-medium">${year}</div>
+                        <i class="fas fa-chevron-right text-2xl text-gray-400"></i>
+                    </button>`;
+        });
+        html += `</div>`;
+        content.innerHTML = html;
+    }
+
+    function showYearOptions(cat, course, year) {
+        const content = document.getElementById('programsContent');
+        content.innerHTML = `
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+                    <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
+                </div>
+                <button onclick="showCourseYears('${cat}', '${course}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Years</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <button onclick="showCoursesList('${cat}', '${course}', '${year}')" 
+                        class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-10 rounded-3xl text-left hover:scale-105 transition shadow-lg">
+                    <div class="flex items-center gap-4 mb-4"><i class="fas fa-book text-5xl"></i></div>
+                    <div class="text-4xl font-semibold mb-2">Courses</div>
+                    <div class="text-xl opacity-90">View all courses for this year</div>
+                </button>
+
+                <button onclick="showYearTimetable('${cat}', '${course}', '${year}')" 
+                        class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-10 rounded-3xl text-left hover:scale-105 transition shadow-lg">
+                    <div class="flex items-center gap-4 mb-4"><i class="fas fa-calendar-alt text-5xl"></i></div>
+                    <div class="text-4xl font-semibold mb-2">Timetable</div>
+                    <div class="text-xl opacity-90">View class schedule</div>
+                </button>
+            </div>`;
+    }
+
+    // NEW: Display actual courses from program.json
+    function showCoursesList(cat, course, year) {
+        const content = document.getElementById('programsContent');
+        const coursesList = programData[cat] && programData[cat][course] && programData[cat][course][year] 
+                            ? programData[cat][course][year] : [];
+
+        let html = `
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+                    <h3 class="text-2xl text-gray-600">${course} – ${year} – Courses</h3>
+                </div>
+                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
+            </div>`;
+
+        if (coursesList.length === 0) {
+            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center"><p class="text-3xl text-gray-500">No courses added yet.</p></div>`;
+        } else {
+            html += `<div class="bg-white rounded-3xl shadow-xl p-8"><ol class="space-y-4 text-2xl">`;
+            coursesList.forEach((c, index) => {
+                html += `<li class="flex items-start gap-4"><span class="font-bold text-[#003087]">${index + 1}.</span> ${c}</li>`;
+            });
+            html += `</ol></div>`;
+        }
+
+        content.innerHTML = html;
+    }
+
+    function showYearTimetable(cat, course, year) {
+        const content = document.getElementById('programsContent');
+        content.innerHTML = `
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+                    <h3 class="text-2xl text-gray-600">${course} – ${year} – Timetable</h3>
+                </div>
+                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
+            </div>
+            <div class="bg-white rounded-3xl shadow-xl p-10 text-center">
+                <p class="text-3xl text-gray-500 mb-8">No timetable has been added yet for this program and year.</p>
+                <button onclick="openSubmitForm()" 
+                        class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3 mx-auto">
+                    <i class="fas fa-plus"></i> Add Timetable Now
+                </button>
+            </div>`;
+    }
+
+    // Start the app
+    loadData();
+</script>
+</body>
+</html>/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Grotesk:wght@700&display=swap');
         html, body { width: 1280px; min-width: 1280px; margin: 0 auto; overflow-x: auto; background: #f9fafb; }
