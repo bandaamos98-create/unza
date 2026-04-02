@@ -61,7 +61,7 @@
     </div>
 </div>
 
-<!-- Other modals (unchanged) -->
+<!-- Other modals -->
 <div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">...</div>
 <div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">...</div>
 <div id="submitFormModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4">...</div>
@@ -76,29 +76,222 @@
 
 <script>
     let timetableData = [];
-    let programData = {};
     let currentPhone = '';
     let activeDay = null;
     const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-    const programsData = {
-        "CERTIFICATE (2 YEARS)": ["Library and Information Science","Public Administration","Records Management","Guidance and Counseling","Human Resource Management","Sales and Marketing Management","Social Work","Adult Education","Business Administration","Computer Science and Information Management","Early Childhood Education","Finance and Accounting","Public Health","International Relations"],
-        "DIPLOMA (3 YEARS)": ["Business Administration","Computer Science and Information Management","Early Childhood Education","Finance and Accounting","Human Resource Management","Public Health","Guidance and Counselling","Public and Counselling","Library and Information Science","Project Planning and Management","Public Administration","International Relations","Public Relations","Purchasing and Supply Management","Records Management","Sales and Marketing Management","Social Work","Teaching Methodology","Adult Education – Pure"],
-        "UNDERGRADUATE (4 YEARS)": ["Bachelor of Community Empowerment Education","Bachelor of Youth Development and Leadership","Bachelor of Adult Education"],
-        "SHORT COURSES": ["Law","Records Management","Psychosocial Counselling","Sales and Marketing Management","Purchasing and Supply Management","Monitoring and Evaluation","Basic Computer Skills","Entrepreneurship","Peace and Conflict Resolution","Clearing, Forwarding and Shipment","Basic Studies","Public Administration","Business Marketing and Entrepreneurship","Team Building","Project Planning and Management","Cooperative Development and Management","Programme and Project Cycle Management","PASTEL Online Accounting Package","Criminology and Security Studies","Secretarial and Office Management","Proposal Writing"]
+    // ====================== HARDCODED COURSES (from your list) ======================
+    const coursesData = {
+        "DIPLOMA (3 YEARS)": {
+            "Early Childhood Education": {
+                "1st Year": [
+                    { "code": "ECE 1110", "title": "Introduction to Early Childhood Development and Education" },
+                    { "code": "ECE 1011", "title": "Sociology of Education" },
+                    { "code": "ECE 1012", "title": "Education Psychology" },
+                    { "code": "AED 1350", "title": "Language and Communication Skills" },
+                    { "code": "ECE 1120", "title": "Special Needs Education in Early Childhood Education" },
+                    { "code": "DSC 10111", "title": "Computer Application and Concepts" }
+                ]
+            },
+            "Business Administration": {
+                "1st Year": [
+                    { "code": "BDA 1011", "title": "Business Communication" },
+                    { "code": "DBA 1040", "title": "Business Mathematics and Statistics" },
+                    { "code": "DAF 1030", "title": "Financial Accounting" },
+                    { "code": "DBA 1021", "title": "Introduction to Information Management and Technology" },
+                    { "code": "DBA 10542", "title": "Principles of Management" },
+                    { "code": "DSM 1012", "title": "Principle of Marketing" }
+                ],
+                "2nd Year": [
+                    { "code": "DBA 2052", "title": "Business Environment" },
+                    { "code": "DBA 2021", "title": "Business Economics" },
+                    { "code": "DAF 2060", "title": "Business and Company Law" },
+                    { "code": "DAE 2011", "title": "Research Methods" },
+                    { "code": "DAF 2041", "title": "Cost Accounting" },
+                    { "code": "DAF 2050", "title": "Financial Management" }
+                ]
+            },
+            "Sales and Marketing": {
+                "1st Year": [
+                    { "code": "BDA 1011", "title": "Business Communication" },
+                    { "code": "DBA 1040", "title": "Business Mathematics and Statistics" },
+                    { "code": "DAF 1030", "title": "Financial Accounting" },
+                    { "code": "DBA 1021", "title": "Introduction to Information Management and Technology" },
+                    { "code": "DBA 10542", "title": "Principles of Management" },
+                    { "code": "DSM 1012", "title": "Principle of Marketing" }
+                ],
+                "2nd Year": [
+                    { "code": "DSM 2052", "title": "Care and Service" },
+                    { "code": "DBA 2021", "title": "Business Economics" },
+                    { "code": "DSM 2021", "title": "Advertising" },
+                    { "code": "DAF 2060", "title": "Business and Company Law" },
+                    { "code": "DAE 2011", "title": "Research Methods" },
+                    { "code": "DAF 2050", "title": "Financial Management" }
+                ]
+            },
+            "Finance and Accounting": {
+                "1st Year": [
+                    { "code": "BDA 1011", "title": "Business Communication" },
+                    { "code": "DBA 1040", "title": "Business Mathematics and Statistics" },
+                    { "code": "DAF 1030", "title": "Financial Accounting" },
+                    { "code": "DBA 1021", "title": "Introduction to Information Management and Technology" },
+                    { "code": "DBA 10542", "title": "Principles of Management" },
+                    { "code": "DSM 1012", "title": "Principle of Marketing" }
+                ],
+                "2nd Year": [
+                    { "code": "DBA 2021", "title": "Business Economics" },
+                    { "code": "DAF 2060", "title": "Business and Company Law" },
+                    { "code": "DAE 2011", "title": "Research Methods" },
+                    { "code": "DAF 2041", "title": "Cost Accounting" },
+                    { "code": "DAF 2050", "title": "Financial Management" },
+                    { "code": "DAF 2021", "title": "Taxation" }
+                ]
+            },
+            "Purchasing and Supply Management": {
+                "1st Year": [
+                    { "code": "BDA 1011", "title": "Business Communication" },
+                    { "code": "DBA 1040", "title": "Business Mathematics and Statistics" },
+                    { "code": "DAF 1030", "title": "Financial Accounting" },
+                    { "code": "DBA 1021", "title": "Introduction to Information Management and Technology" },
+                    { "code": "DBA 10542", "title": "Principles of Management" },
+                    { "code": "DPS 1011", "title": "Principle of Procurement and Process" }
+                ],
+                "2nd Year": [
+                    { "code": "DPS 2032", "title": "Public Procurement" },
+                    { "code": "DBA 2052", "title": "Business Environment" },
+                    { "code": "DAF 2041", "title": "Cost Accounting" },
+                    { "code": "DAE 2011", "title": "Research Methods" },
+                    { "code": "DPS 2021", "title": "Inventory Management" },
+                    { "code": "DPS 2031", "title": "Negotiations and Sourcing in Practice" },
+                    { "code": "DPS 2030", "title": "Logistics and Supply Management" }
+                ]
+            },
+            "Social Work": {
+                "1st Year": [
+                    { "code": "DAE 1015", "title": "Language and Communication Skills" },
+                    { "code": "DSW 1110", "title": "Introduction to Social Welfare" },
+                    { "code": "DSW 1120", "title": "Introduction to Sociology" },
+                    { "code": "DSW 1010", "title": "Introduction to Psychology" },
+                    { "code": "DCS 1011", "title": "Computer Application Skills and Concepts" }
+                ],
+                "2nd Year": [
+                    { "code": "DSW 2110", "title": "Contemporary Issues in Social Policy" },
+                    { "code": "DSW 2320", "title": "Social Work Practice Methods" },
+                    { "code": "DSW 2430", "title": "Social Work and Law" },
+                    { "code": "DAE 2011", "title": "Research Methods and Project" }
+                ]
+            },
+            "Human Resource Management": {
+                "1st Year": [
+                    { "code": "DAE 1015", "title": "Language and Communication Skills" },
+                    { "code": "DCS 1011", "title": "Computer Application and Concepts" },
+                    { "code": "DHR 1020", "title": "Foundation of Human Resource Management" },
+                    { "code": "DBA 1040", "title": "Business Mathematics and Statistics" },
+                    { "code": "DAF 1030", "title": "Financial Accounting" }
+                ]
+            },
+            "Project Planning and Management": {
+                "1st Year": [
+                    { "code": "DCS 1011", "title": "Computer Application and Concepts" },
+                    { "code": "DAE 1015", "title": "Language and Communication Skills" },
+                    { "code": "DPA 1025", "title": "Introduction to Public Administration" },
+                    { "code": "DIR 1015", "title": "Introduction to Political Science" },
+                    { "code": "DPM 1015", "title": "Introduction to Project Management" },
+                    { "code": "DHR 1020", "title": "Foundation of Human Resource Management" },
+                    { "code": "DAF 1030", "title": "Financial Accounting" }
+                ]
+            },
+            "Public Administration": {
+                "1st Year": [
+                    { "code": "DAE 1015", "title": "Language and Business Communication Skills" },
+                    { "code": "DCS 1011", "title": "Computer Application and Concepts" },
+                    { "code": "DPA 1025", "title": "Introduction to Public Administration" },
+                    { "code": "DIR 1015", "title": "Introduction to Political Science" },
+                    { "code": "DHR 1020", "title": "Foundation of Human Resource" },
+                    { "code": "DPR 1130", "title": "Principles of Public Relations" }
+                ],
+                "2nd Year": [
+                    { "code": "DPA 2011", "title": "Government and Administration in Zambia" },
+                    { "code": "DPA 2012", "title": "Comparative Public Administration" },
+                    { "code": "DPA 2031", "title": "Resourcing: Recruitment, Placement and Talent MGT" },
+                    { "code": "DPA 2022", "title": "Labour Laws" },
+                    { "code": "DPA 2021", "title": "Local Government Administration in Zambia" },
+                    { "code": "DAE 2011", "title": "Research Methods" },
+                    { "code": "DHR 2030", "title": "Labour Relations" }
+                ]
+            },
+            "Computer Science": {
+                "1st Year": [
+                    { "code": "DAE 1015", "title": "Language and Communication Skills" },
+                    { "code": "DCS 1010", "title": "Computer Application and Concepts" },
+                    { "code": "DCS 1020", "title": "Computer Programming" },
+                    { "code": "DCS 1030", "title": "Computer System" },
+                    { "code": "DCS 1025", "title": "Computer Number Representation and Data Encoding" }
+                ],
+                "2nd Year": [
+                    { "code": "DCS 2000", "title": "Computer Organisation and Architecture" },
+                    { "code": "DCS 2010", "title": "Database Design and Management" },
+                    { "code": "DCS 2020", "title": "Mathematics for Computing" },
+                    { "code": "DCS 2030", "title": "Network Design and Management" }
+                ]
+            },
+            "Records Management": {
+                "1st Year": [
+                    { "code": "DAE 1350", "title": "Language and Communication Skills" },
+                    { "code": "DRM 1010", "title": "Foundation of Records and Archives Management" },
+                    { "code": "DRM 1020", "title": "Foundation of Knowledge Management" },
+                    { "code": "DCS 1011", "title": "Computer Application and Concepts" }
+                ],
+                "2nd Year": [
+                    { "code": "DAE 2410", "title": "Research Methods" },
+                    { "code": "DRM 2010", "title": "Electronic Records Management" },
+                    { "code": "DRM 2020", "title": "Management of Current and Semi-Current Records" },
+                    { "code": "DLS 2010", "title": "Organisation of Information Resources" }
+                ]
+            },
+            "Guidance and Counselling": {
+                "1st Year": [
+                    { "code": "DAE 1015", "title": "Language and Communication Skills" },
+                    { "code": "DCS 1011", "title": "Computer Application and Concepts" },
+                    { "code": "DGC 1020", "title": "Introduction to Guidance" },
+                    { "code": "DGC 1020", "title": "Introduction to Counselling" },
+                    { "code": "DGC 1030", "title": "Child Counselling" }
+                ],
+                "2nd Year": [
+                    { "code": "DGC 2010", "title": "Personality Development and Disorders" },
+                    { "code": "DGC 2012", "title": "Psychometrics in Guidance" },
+                    { "code": "DGC 2030", "title": "Ethics in Guidance and Counselling" },
+                    { "code": "DAE 2011", "title": "Research Methods" },
+                    { "code": "EDU 2011", "title": "Sociology of Education" },
+                    { "code": "EDU 2012", "title": "Educational Psychology" }
+                ]
+            },
+            "Public Health": {
+                "1st Year": [
+                    { "code": "DPH 1210", "title": "Medical and Health Instrumentation" },
+                    { "code": "DPH 1110", "title": "Principles of Public Health" },
+                    { "code": "DPH 1310", "title": "Information, Communication and Technology" },
+                    { "code": "DPH 1410", "title": "Introduction to Basic Science and Mathematics" },
+                    { "code": "DPH 1420", "title": "Communicable and Non-Communicable Disease" }
+                ],
+                "2nd Year": [
+                    { "code": "DPH 2135", "title": "Introduction to Epidemiology and Biostatistics" },
+                    { "code": "DPH 2220", "title": "Occupational Health and Safety" },
+                    { "code": "DPH 2235", "title": "Pestology" },
+                    { "code": "DPH 2120", "title": "Principle of Public and Environment Health" },
+                    { "code": "DPH 2320", "title": "Introduction to Community Health" },
+                    { "code": "DPH 2335", "title": "Industrial Attachment and Reporting" },
+                    { "code": "DPH 2434", "title": "Research Methods and Proposal Development" }
+                ]
+            }
+        }
     };
 
+    // ====================== LOAD DATA ======================
     async function loadData() {
         const res = await fetch('lecture.json');
         const data = await res.json();
         timetableData = data.timetable || [];
-
-        // Load all courses from program.json
-        try {
-            const progRes = await fetch('program.json');
-            const progJson = await progRes.json();
-            programData = progJson.programs || {};
-        } catch(e) {}
 
         const todayIndex = new Date().getDay();
         const dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -106,6 +299,8 @@
         renderDayFilters();
         renderTable(timetableData.filter(x => x.day === activeDay));
     }
+
+    // ... (all your original functions remain exactly the same: renderDayFilters, renderTable, prepareCall, liveSearch, etc.)
 
     function renderDayFilters() {
         const container = document.getElementById('dayFilters'); container.innerHTML = '';
@@ -146,7 +341,7 @@
     function openSubmitForm() { closeProgramsModal(); document.getElementById('submitFormModal').classList.remove('hidden'); }
     function closeSubmitFormModal() { document.getElementById('submitFormModal').classList.add('hidden'); }
 
-    // ====================== PROGRAMS NAVIGATION (UPDATED) ======================
+    // ====================== PROGRAMS NAVIGATION (with hardcoded courses) ======================
     function showPrograms() {
         document.getElementById('programsModal').classList.remove('hidden');
         renderCategories();
@@ -218,7 +413,8 @@
 
     function showCoursesList(cat, course, year) {
         const content = document.getElementById('programsContent');
-        const list = programData[cat] && programData[cat][course] && programData[cat][course][year] ? programData[cat][course][year] : [];
+        const list = coursesData[cat] && coursesData[cat][course] && coursesData[cat][course][year] ? coursesData[cat][course][year] : [];
+        
         let html = `
             <div class="flex items-center justify-between mb-8">
                 <div>
@@ -227,11 +423,14 @@
                 </div>
                 <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
             </div>`;
+
         if (list.length === 0) {
-            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center text-3xl text-gray-500">No courses added yet for this year.</div>`;
+            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center"><p class="text-3xl text-gray-500">No courses added yet.</p></div>`;
         } else {
             html += `<div class="bg-white rounded-3xl shadow-xl p-8"><ol class="space-y-4 text-2xl">`;
-            list.forEach((c, i) => html += `<li class="flex gap-4"><span class="font-bold text-[#003087]">${i+1}.</span> ${c.code} - ${c.title}</li>`);
+            list.forEach((c, i) => {
+                html += `<li class="flex gap-4"><span class="font-bold text-[#003087]">${i+1}.</span> ${c.code} - ${c.title}</li>`;
+            });
             html += `</ol></div>`;
         }
         content.innerHTML = html;
