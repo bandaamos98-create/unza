@@ -1,163 +1,176 @@
 {
   "programs": {
-    "CERTIFICATE (2 YEARS)": {
+    "DIPLOMA (3 YEARS)": {
+      "Early Childhood Education": {
+        "1st Year": [
+          "Introduction to Early Childhood Education and Sociology of Education",
+          "Introduction to Early Childhood Development and Sociology of Education",
+          "Education and Psychology",
+          "Language and Communication Skills",
+          "Computer Applications and Concepts"
+        ]
+      },
       "Business Administration": {
         "1st Year": [
-          "Introduction to Business",
-          "Principles of Management",
-          "Business Mathematics",
-          "Financial Accounting I",
           "Business Communication",
-          "Computer Applications in Business"
+          "Introduction to Information Management & Technology",
+          "Business Mathematics & Statistics",
+          "Financial Accounting",
+          "Principles of Management",
+          "Principles of Marketing"
         ],
         "2nd Year": [
-          "Marketing Management",
-          "Human Resource Management",
-          "Business Law",
+          "Business Economics",
           "Cost Accounting",
-          "Office Management",
-          "Entrepreneurship Basics"
+          "Financial Management",
+          "Research Methods"
+        ],
+        "3rd Year": [
+          "Strategic Management",
+          "Entrepreneurship",
+          "International Business",
+          "Corporate Governance & Ethics",
+          "Research Methods and Project"
+        ]
+      },
+      "Sales and Marketing": {
+        "1st Year": [
+          "Principles of Marketing"
+        ],
+        "2nd Year": [
+          "Sales and Marketing Management"
+        ],
+        "3rd Year": [
+          "Strategic Marketing",
+          "Advertising"
+        ]
+      },
+      "Finance and Accounting": {
+        "1st Year": [
+          "Financial Accounting",
+          "Business Mathematics & Statistics"
+        ],
+        "2nd Year": [
+          "Cost Accounting",
+          "Financial Management"
+        ],
+        "3rd Year": [
+          "Auditing & Assurance",
+          "Financial Analysis & Portfolio Management"
+        ]
+      },
+      "Human Resource Management": {
+        "1st Year": [
+          "Foundations of Human Resource Management",
+          "Principles of Management"
+        ],
+        "2nd Year": [
+          "Organisational Behaviour"
+        ],
+        "3rd Year": [
+          "Human Resource Management",
+          "Industrial Relations"
         ]
       },
       "Public Administration": {
         "1st Year": [
           "Introduction to Public Administration",
-          "Principles of Management",
-          "Public Sector Accounting",
-          "Constitutional Law",
-          "Communication Skills"
+          "Introduction to Political Science",
+          "Language & Communication Skills",
+          "Computer Applications & Concepts"
         ],
         "2nd Year": [
-          "Public Policy Analysis",
-          "Local Government Administration",
-          "Human Resource Management in Public Sector",
-          "Development Administration"
-        ]
-      }
-    },
-
-    "DIPLOMA (3 YEARS)": {
-      "Business Administration": {
-        "1st Year": [
-          "Principles of Management",
-          "Introduction to Business",
-          "Business Mathematics",
-          "Financial Accounting I",
-          "Business Communication",
-          "Computer Applications"
-        ],
-        "2nd Year": [
-          "Marketing Management",
-          "Human Resource Management",
-          "Business Law",
-          "Cost Accounting",
-          "Financial Management",
-          "Quantitative Methods"
+          "Public Financial Management"
         ],
         "3rd Year": [
-          "Strategic Management",
-          "Entrepreneurship",
-          "Project Management",
-          "Research Methods",
-          "International Business",
-          "Business Ethics"
+          "Organisational Theory, Design and Management",
+          "Public Administration Ethics & Law",
+          "Public Procurement"
         ]
       },
-
       "Computer Science and Information Management": {
         "1st Year": [
-          "Introduction to Computer Science",
-          "Programming Fundamentals",
-          "Computer Applications",
-          "Mathematics for Computing",
-          "Business Communication"
+          "Computer Applications & Concepts",
+          "Computer Programming",
+          "Computer Systems",
+          "Computer Number Representation and Data Encoding"
         ],
         "2nd Year": [
-          "Database Management Systems",
-          "Web Development",
-          "Object Oriented Programming",
-          "Data Structures",
-          "Networking Fundamentals"
+          "Operating Systems",
+          "Web Development and Management",
+          "Software Analysis and Design Concepts",
+          "Database Management"
         ],
         "3rd Year": [
-          "Software Engineering",
-          "Information Systems Management",
-          "Cyber Security Basics",
-          "Mobile Application Development",
-          "Final Year Project"
+          "Computing Project",
+          "Information Management Practicum"
         ]
       },
-
-      "Human Resource Management": {
+      "Records Management": {
         "1st Year": [
-          "Introduction to HRM",
-          "Principles of Management",
-          "Business Communication",
-          "Labour Law",
-          "Organizational Behaviour"
-        ],
-        "2nd Year": [
-          "Recruitment and Selection",
-          "Training and Development",
-          "Performance Management",
-          "Compensation Management"
+          "Foundations of Records and Archives Management",
+          "Foundations of Knowledge Management"
         ],
         "3rd Year": [
-          "Industrial Relations",
-          "Strategic HRM",
-          "Research Methods in HRM",
-          "Employee Relations"
-        ]
-      }
-    },
-
-    "UNDERGRADUATE (4 YEARS)": {
-      "Bachelor of Adult Education": {
-        "1st Year": [
-          "Foundations of Adult Education",
-          "Psychology of Adult Learning",
-          "Communication Skills",
-          "Introduction to Research"
-        ],
-        "2nd Year": [
-          "Curriculum Development in Adult Education",
-          "Teaching Methods for Adults",
-          "Community Development",
-          "Educational Technology"
-        ],
-        "3rd Year": [
-          "Programme Planning and Evaluation",
-          "Literacy and Numeracy Education",
-          "Distance Education",
-          "Research Methods"
-        ],
-        "4th Year": [
-          "Advanced Adult Education Theories",
-          "Policy Studies in Education",
-          "Project Work",
-          "Dissertation"
-        ]
-      }
-    },
-
-    "SHORT COURSES": {
-      "Business Marketing and Entrepreneurship": {
-        "": [
-          "Fundamentals of Entrepreneurship",
-          "Business Idea Generation",
-          "Digital Marketing",
-          "Sales Techniques",
-          "Financial Literacy for Entrepreneurs",
-          "Business Planning"
+          "Financial and Human Resource Records Management",
+          "Archives Administration",
+          "Research in Records Management"
         ]
       },
       "Project Planning and Management": {
-        "": [
-          "Introduction to Project Management",
-          "Project Planning Tools",
-          "Monitoring and Evaluation",
-          "Risk Management in Projects",
-          "Project Budgeting"
+        "1st Year": [
+          "Introduction to Project Management"
+        ],
+        "2nd Year": [
+          "Project Monitoring and Evaluation"
+        ],
+        "3rd Year": [
+          "Project Implementation & Control",
+          "Project Management"
+        ]
+      },
+      "Public Health": {
+        "1st Year": [
+          "Principles of Public Health",
+          "Medical and Health Instrumentation",
+          "Introduction to Basic Sciences and Mathematics"
+        ],
+        "2nd Year": [
+          "Communicable and Non-Communicable Diseases"
+        ],
+        "3rd Year": [
+          "Introduction to Food Chemistry and Nutrition",
+          "Food Safety and Hygiene",
+          "Waste Management",
+          "Integrated Disease Surveillance and Response"
+        ]
+      },
+      "Guidance and Counselling": {
+        "1st Year": [
+          "Introduction to Guidance",
+          "Introduction to Counselling",
+          "Child Counselling"
+        ],
+        "3rd Year": [
+          "Personality Development and Disorders",
+          "Psychometrics in Guidance",
+          "Ethics in Guidance and Counselling",
+          "Practicum"
+        ]
+      },
+      "Social Work": {
+        "1st Year": [
+          "Introduction to Social Welfare",
+          "Introduction to Sociology",
+          "Introduction to Psychology"
+        ],
+        "2nd Year": [
+          "Contemporary Issues in Social Work"
+        ],
+        "3rd Year": [
+          "Social Work Practice Methods",
+          "Social Work and Law",
+          "Research Project in Social Work"
         ]
       }
     }
