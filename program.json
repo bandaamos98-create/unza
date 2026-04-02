@@ -3,174 +3,182 @@
     "DIPLOMA (3 YEARS)": {
       "Early Childhood Education": {
         "1st Year": [
-          "Introduction to Early Childhood Education and Sociology of Education",
-          "Introduction to Early Childhood Development and Sociology of Education",
-          "Education and Psychology",
-          "Language and Communication Skills",
-          "Computer Applications and Concepts"
+          { "code": "ECE 1110", "title": "Introduction to Early Childhood Education and Sociology of Education" },
+          { "code": "ECE 1011", "title": "Introduction to Early Childhood Development and Sociology of Education" },
+          { "code": "ECE 1012", "title": "Education and Psychology" },
+          { "code": "ECE 1013", "title": "Language and Communication Skills" },
+          { "code": "ECE 1110", "title": "Computer Applications and Concepts" }
         ]
       },
       "Business Administration": {
         "1st Year": [
-          "Business Communication",
-          "Introduction to Information Management & Technology",
-          "Business Mathematics & Statistics",
-          "Financial Accounting",
-          "Principles of Management",
-          "Principles of Marketing"
+          { "code": "DBA 1011", "title": "Business Communication" },
+          { "code": "DBA 1021", "title": "Introduction to Information Management & Technology" },
+          { "code": "DBA 1040", "title": "Business Mathematics & Statistics" },
+          { "code": "DBA 1030", "title": "Financial Accounting" },
+          { "code": "DBA 1051", "title": "Principles of Management" }
         ],
         "2nd Year": [
-          "Business Economics",
-          "Cost Accounting",
-          "Financial Management",
-          "Research Methods"
+          { "code": "DBA 2011", "title": "Business Economics" },
+          { "code": "DBA 2021", "title": "Cost Accounting" },
+          { "code": "DBA 2030", "title": "Financial Management" },
+          { "code": "DBA 2040", "title": "Research Methods" }
         ],
         "3rd Year": [
-          "Strategic Management",
-          "Entrepreneurship",
-          "International Business",
-          "Corporate Governance & Ethics",
-          "Research Methods and Project"
+          { "code": "DBA 3011", "title": "Strategic Management" },
+          { "code": "DBA 3015", "title": "Entrepreneurship" },
+          { "code": "DBA 3021", "title": "International Business" },
+          { "code": "DBA 3031", "title": "Corporate Governance & Ethics" },
+          { "code": "DBA 3015", "title": "Research Methods and Project" }
         ]
       },
       "Sales and Marketing": {
         "1st Year": [
-          "Principles of Marketing"
+          { "code": "DSM 1012", "title": "Principles of Marketing" }
         ],
         "2nd Year": [
-          "Sales and Marketing Management"
+          { "code": "DSM 2012", "title": "Sales and Marketing Management" }
         ],
         "3rd Year": [
-          "Strategic Marketing",
-          "Advertising"
+          { "code": "DSM 3012", "title": "Strategic Marketing" },
+          { "code": "DSM 3021", "title": "Advertising" }
         ]
       },
       "Finance and Accounting": {
         "1st Year": [
-          "Financial Accounting",
-          "Business Mathematics & Statistics"
+          { "code": "DAF 1030", "title": "Financial Accounting" },
+          { "code": "DBA 1040", "title": "Business Mathematics & Statistics" }
         ],
         "2nd Year": [
-          "Cost Accounting",
-          "Financial Management"
+          { "code": "DAF 2011", "title": "Cost Accounting" },
+          { "code": "DAF 2021", "title": "Financial Management" }
         ],
         "3rd Year": [
-          "Auditing & Assurance",
-          "Financial Analysis & Portfolio Management"
+          { "code": "DAF 3011", "title": "Financial Analysis & Portfolio Management" },
+          { "code": "DAF 3012", "title": "Auditing & Assurance" }
         ]
       },
       "Human Resource Management": {
         "1st Year": [
-          "Foundations of Human Resource Management",
-          "Principles of Management"
+          { "code": "DBR 1020", "title": "Foundations of Human Resource Management" },
+          { "code": "DBA 1051", "title": "Principles of Management" }
         ],
         "2nd Year": [
-          "Organisational Behaviour"
+          { "code": "DHR 2020", "title": "Organisational Behaviour" }
         ],
         "3rd Year": [
-          "Human Resource Management",
-          "Industrial Relations"
+          { "code": "DHR 3011", "title": "Human Resource Management" },
+          { "code": "DHR 3020", "title": "Industrial Relations" }
         ]
       },
       "Public Administration": {
         "1st Year": [
-          "Introduction to Public Administration",
-          "Introduction to Political Science",
-          "Language & Communication Skills",
-          "Computer Applications & Concepts"
+          { "code": "DPA 1025", "title": "Introduction to Public Administration" },
+          { "code": "DBR 1015", "title": "Introduction to Political Science" },
+          { "code": "DAE 1015", "title": "Language & Communication Skills" },
+          { "code": "DCS 1011", "title": "Computer Applications & Concepts" }
         ],
         "2nd Year": [
-          "Public Financial Management"
+          { "code": "DPA 2011", "title": "Public Financial Management" }
         ],
         "3rd Year": [
-          "Organisational Theory, Design and Management",
-          "Public Administration Ethics & Law",
-          "Public Procurement"
+          { "code": "DPA 3011", "title": "Organisational Theory, Design and Management" },
+          { "code": "DPA 3025", "title": "Public Administration Ethics & Law" },
+          { "code": "DPS 3011", "title": "Public Procurement" }
         ]
       },
       "Computer Science and Information Management": {
         "1st Year": [
-          "Computer Applications & Concepts",
-          "Computer Programming",
-          "Computer Systems",
-          "Computer Number Representation and Data Encoding"
+          { "code": "DCS 1011", "title": "Computer Applications & Concepts" },
+          { "code": "DCS 1020", "title": "Computer Programming" },
+          { "code": "DCS 1030", "title": "Computer Systems" },
+          { "code": "DCS 1025", "title": "Computer Number Representation and Data Encoding" }
         ],
         "2nd Year": [
-          "Operating Systems",
-          "Web Development and Management",
-          "Software Analysis and Design Concepts",
-          "Database Management"
+          { "code": "DCS 2011", "title": "Operating Systems" },
+          { "code": "DCS 2020", "title": "Web Development and Management" },
+          { "code": "DCS 2030", "title": "Software Analysis and Design Concepts" },
+          { "code": "DCS 2040", "title": "Database Management" }
         ],
         "3rd Year": [
-          "Computing Project",
-          "Information Management Practicum"
+          { "code": "DCS 3004", "title": "Computing Project" },
+          { "code": "DCS 3010", "title": "Information Management Practicum" }
         ]
       },
       "Records Management": {
         "1st Year": [
-          "Foundations of Records and Archives Management",
-          "Foundations of Knowledge Management"
+          { "code": "DRM 1010", "title": "Foundations of Records and Archives Management" },
+          { "code": "DRM 1020", "title": "Foundations of Knowledge Management" }
         ],
         "3rd Year": [
-          "Financial and Human Resource Records Management",
-          "Archives Administration",
-          "Research in Records Management"
+          { "code": "DRM 3010", "title": "Financial and Human Resource Records Management" },
+          { "code": "DRM 3020", "title": "Archives Administration" },
+          { "code": "DRM 2411", "title": "Research in Records Management" }
         ]
       },
       "Project Planning and Management": {
         "1st Year": [
-          "Introduction to Project Management"
+          { "code": "DPR 1010", "title": "Introduction to Project Management" }
         ],
         "2nd Year": [
-          "Project Monitoring and Evaluation"
+          { "code": "DPR 2010", "title": "Project Monitoring and Evaluation" }
         ],
         "3rd Year": [
-          "Project Implementation & Control",
-          "Project Management"
+          { "code": "DPR 3010", "title": "Project Implementation & Control" },
+          { "code": "DPR 3020", "title": "Project Management" }
         ]
       },
       "Public Health": {
         "1st Year": [
-          "Principles of Public Health",
-          "Medical and Health Instrumentation",
-          "Introduction to Basic Sciences and Mathematics"
+          { "code": "DPH 1110", "title": "Principles of Public Health" },
+          { "code": "DPH 1020", "title": "Medical and Health Instrumentation" },
+          { "code": "DPH 1410", "title": "Introduction to Basic Sciences and Mathematics" }
         ],
         "2nd Year": [
-          "Communicable and Non-Communicable Diseases"
+          { "code": "DPH 1420", "title": "Communicable and Non-Communicable Diseases" }
         ],
         "3rd Year": [
-          "Introduction to Food Chemistry and Nutrition",
-          "Food Safety and Hygiene",
-          "Waste Management",
-          "Integrated Disease Surveillance and Response"
+          { "code": "DPH 3360", "title": "Introduction to Food Chemistry and Nutrition" },
+          { "code": "DPH 3370", "title": "Food Safety and Hygiene" },
+          { "code": "DPH 3240", "title": "Waste Management" },
+          { "code": "DPH 3440", "title": "Integrated Disease Surveillance and Response" }
         ]
       },
       "Guidance and Counselling": {
         "1st Year": [
-          "Introduction to Guidance",
-          "Introduction to Counselling",
-          "Child Counselling"
+          { "code": "DGC 1010", "title": "Introduction to Guidance" },
+          { "code": "DGC 1020", "title": "Introduction to Counselling" },
+          { "code": "DGC 1030", "title": "Child Counselling" }
         ],
         "3rd Year": [
-          "Personality Development and Disorders",
-          "Psychometrics in Guidance",
-          "Ethics in Guidance and Counselling",
-          "Practicum"
+          { "code": "DCG 2010", "title": "Personality Development and Disorders" },
+          { "code": "DCG 2012", "title": "Psychometrics in Guidance" },
+          { "code": "DCG 2030", "title": "Ethics in Guidance and Counselling" },
+          { "code": "DCG 3003", "title": "Practicum" }
         ]
       },
       "Social Work": {
         "1st Year": [
-          "Introduction to Social Welfare",
-          "Introduction to Sociology",
-          "Introduction to Psychology"
+          { "code": "DSW 1110", "title": "Introduction to Social Welfare" },
+          { "code": "DSW 1120", "title": "Introduction to Sociology" },
+          { "code": "DSW 1010", "title": "Introduction to Psychology" }
         ],
         "2nd Year": [
-          "Contemporary Issues in Social Work"
+          { "code": "DSW 2010", "title": "Contemporary Issues in Social Work" }
         ],
         "3rd Year": [
-          "Social Work Practice Methods",
-          "Social Work and Law",
-          "Research Project in Social Work"
+          { "code": "DSW 3010", "title": "Social Work Practice Methods" },
+          { "code": "DSW 3020", "title": "Social Work and Law" },
+          { "code": "DSW 3330", "title": "Research Project in Social Work" }
+        ]
+      },
+      "Purchasing and Supply Management": {
+        "1st Year": [
+          { "code": "DPS 1011", "title": "Principles of Procurement and Supply Management" }
+        ],
+        "3rd Year": [
+          { "code": "DPS 3011", "title": "Strategic Procurement and Supply Management" },
+          { "code": "DPS 3021", "title": "Contract and Project Management" }
         ]
       }
     }
