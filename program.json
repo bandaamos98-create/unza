@@ -1,0 +1,165 @@
+{
+  "programs": {
+    "CERTIFICATE (2 YEARS)": {
+      "Business Administration": {
+        "1st Year": [
+          "Introduction to Business",
+          "Principles of Management",
+          "Business Mathematics",
+          "Financial Accounting I",
+          "Business Communication",
+          "Computer Applications in Business"
+        ],
+        "2nd Year": [
+          "Marketing Management",
+          "Human Resource Management",
+          "Business Law",
+          "Cost Accounting",
+          "Office Management",
+          "Entrepreneurship Basics"
+        ]
+      },
+      "Public Administration": {
+        "1st Year": [
+          "Introduction to Public Administration",
+          "Principles of Management",
+          "Public Sector Accounting",
+          "Constitutional Law",
+          "Communication Skills"
+        ],
+        "2nd Year": [
+          "Public Policy Analysis",
+          "Local Government Administration",
+          "Human Resource Management in Public Sector",
+          "Development Administration"
+        ]
+      }
+    },
+
+    "DIPLOMA (3 YEARS)": {
+      "Business Administration": {
+        "1st Year": [
+          "Principles of Management",
+          "Introduction to Business",
+          "Business Mathematics",
+          "Financial Accounting I",
+          "Business Communication",
+          "Computer Applications"
+        ],
+        "2nd Year": [
+          "Marketing Management",
+          "Human Resource Management",
+          "Business Law",
+          "Cost Accounting",
+          "Financial Management",
+          "Quantitative Methods"
+        ],
+        "3rd Year": [
+          "Strategic Management",
+          "Entrepreneurship",
+          "Project Management",
+          "Research Methods",
+          "International Business",
+          "Business Ethics"
+        ]
+      },
+
+      "Computer Science and Information Management": {
+        "1st Year": [
+          "Introduction to Computer Science",
+          "Programming Fundamentals",
+          "Computer Applications",
+          "Mathematics for Computing",
+          "Business Communication"
+        ],
+        "2nd Year": [
+          "Database Management Systems",
+          "Web Development",
+          "Object Oriented Programming",
+          "Data Structures",
+          "Networking Fundamentals"
+        ],
+        "3rd Year": [
+          "Software Engineering",
+          "Information Systems Management",
+          "Cyber Security Basics",
+          "Mobile Application Development",
+          "Final Year Project"
+        ]
+      },
+
+      "Human Resource Management": {
+        "1st Year": [
+          "Introduction to HRM",
+          "Principles of Management",
+          "Business Communication",
+          "Labour Law",
+          "Organizational Behaviour"
+        ],
+        "2nd Year": [
+          "Recruitment and Selection",
+          "Training and Development",
+          "Performance Management",
+          "Compensation Management"
+        ],
+        "3rd Year": [
+          "Industrial Relations",
+          "Strategic HRM",
+          "Research Methods in HRM",
+          "Employee Relations"
+        ]
+      }
+    },
+
+    "UNDERGRADUATE (4 YEARS)": {
+      "Bachelor of Adult Education": {
+        "1st Year": [
+          "Foundations of Adult Education",
+          "Psychology of Adult Learning",
+          "Communication Skills",
+          "Introduction to Research"
+        ],
+        "2nd Year": [
+          "Curriculum Development in Adult Education",
+          "Teaching Methods for Adults",
+          "Community Development",
+          "Educational Technology"
+        ],
+        "3rd Year": [
+          "Programme Planning and Evaluation",
+          "Literacy and Numeracy Education",
+          "Distance Education",
+          "Research Methods"
+        ],
+        "4th Year": [
+          "Advanced Adult Education Theories",
+          "Policy Studies in Education",
+          "Project Work",
+          "Dissertation"
+        ]
+      }
+    },
+
+    "SHORT COURSES": {
+      "Business Marketing and Entrepreneurship": {
+        "": [
+          "Fundamentals of Entrepreneurship",
+          "Business Idea Generation",
+          "Digital Marketing",
+          "Sales Techniques",
+          "Financial Literacy for Entrepreneurs",
+          "Business Planning"
+        ]
+      },
+      "Project Planning and Management": {
+        "": [
+          "Introduction to Project Management",
+          "Project Planning Tools",
+          "Monitoring and Evaluation",
+          "Risk Management in Projects",
+          "Project Budgeting"
+        ]
+      }
+    }
+  }
+}
