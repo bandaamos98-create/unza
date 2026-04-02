@@ -19,7 +19,6 @@
     </style>
 </head>
 <body>
-
 <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-10 shadow-lg">
     <div class="px-10 flex justify-between items-center">
         <div class="flex items-center gap-6">
@@ -35,19 +34,15 @@
 
 <main class="px-10 py-14">
     <h1 class="header-font text-7xl text-center text-[#003087]">UNZA Academic Timetable 2026</h1>
-
     <div class="flex justify-center mt-4">
         <button onclick="showPrograms()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3">
             <i class="fas fa-graduation-cap"></i> PROGRAMS
         </button>
     </div>
-
     <div class="mt-14">
         <input id="searchInput" type="text" placeholder="Search course, lecturer, or day..." class="w-full px-8 py-7 rounded-3xl border" onkeyup="liveSearch()">
     </div>
-
     <div class="my-12 flex gap-5 flex-wrap" id="dayFilters"></div>
-
     <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
         <table class="w-full">
             <thead class="bg-[#003087] text-white">
@@ -99,16 +94,16 @@
 <footer class="text-center py-12 text-gray-600 text-lg">
     <p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
     <p class="mt-2">
-        <a href="tel:+260979077079" class="hover:text-blue-600">+260 979 077079</a> • 
+        <a href="tel:+260979077079" class="hover:text-blue-600">+260 979 077079</a> •
         <a href="mailto:bandaamos98@gmail.com" class="hover:text-blue-600">bandaamos98@gmail.com</a>
     </p>
 </footer>
 
 <script>
     let timetableData = [];
+    let programData = {};           // ← Added for real courses
     let currentPhone = '';
     let activeDay = null;
-
     const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
     const programsData = {
@@ -122,6 +117,14 @@
         const res = await fetch('lecture.json');
         const data = await res.json();
         timetableData = data.timetable || [];
+
+        // Load program.json for Courses section
+        try {
+            const progRes = await fetch('program.json');
+            const progData = await progRes.json();
+            programData = progData.programs || {};
+        } catch(e) {}
+
         const todayIndex = new Date().getDay();
         const dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
         activeDay = dayNames[todayIndex];
@@ -129,7 +132,8 @@
         renderTable(timetableData.filter(x => x.day === activeDay));
     }
 
-    function renderDayFilters() {
+    // ====================== ORIGINAL FUNCTIONS (unchanged) ======================
+    function renderDayFilters() { /* unchanged */ 
         const container = document.getElementById('dayFilters'); container.innerHTML = '';
         allDays.forEach(day => {
             const isActive = activeDay === day;
@@ -137,8 +141,7 @@
             container.innerHTML += `<button onclick="filterByDay('${day}')" class="${btnClass}">${day}</button>`;
         });
     }
-
-    function renderTable(data) {
+    function renderTable(data) { /* unchanged */ 
         const tbody = document.getElementById('timetableBody');
         tbody.innerHTML = data.map(item => {
             const parts = item.lecturer.split('\n');
@@ -146,8 +149,7 @@
             return `<tr class="table-row border-b"><td>${item.day}</td><td>${item.time}</td><td class="font-semibold">${item.course}</td><td><div class="mb-3">${name}</div>${phone ? `<button onclick="prepareCall('${name}','${phone}')" class="text-blue-600 flex items-center gap-2"><i class="fas fa-phone"></i> Call Lecturer</button>` : ''}</td></tr>`;
         }).join('');
     }
-
-    function prepareCall(name, phone) {
+    function prepareCall(name, phone) { /* unchanged */ 
         currentPhone = phone;
         document.getElementById('modalTitle').innerText = `Call ${name}?`;
         document.getElementById('modalPhone').innerText = phone;
@@ -155,27 +157,27 @@
     }
     function makeActualCall() { window.location.href = `tel:${currentPhone}`; }
     function closeCallModal() { document.getElementById('callModal').classList.add('hidden'); }
-    function liveSearch() {
+    function liveSearch() { /* unchanged */ 
         const term = document.getElementById('searchInput').value.toLowerCase();
         renderTable(timetableData.filter(x => x.course.toLowerCase().includes(term) || x.lecturer.toLowerCase().includes(term) || x.day.toLowerCase().includes(term)));
     }
-    function filterByDay(day) {
+    function filterByDay(day) { /* unchanged */ 
         if (activeDay === day) { activeDay = null; renderDayFilters(); renderTable(timetableData); }
         else { activeDay = day; renderDayFilters(); renderTable(timetableData.filter(x => x.day === day)); }
     }
     function showFeedbackForm() { document.getElementById('feedbackModal').classList.remove('hidden'); }
     function closeFeedbackModal() { document.getElementById('feedbackModal').classList.add('hidden'); }
+    function openSubmitForm() { closeProgramsModal(); document.getElementById('submitFormModal').classList.remove('hidden'); }
+    function closeSubmitFormModal() { document.getElementById('submitFormModal').classList.add('hidden'); }
 
-    // ====================== PROGRAMS NAVIGATION ======================
+    // ====================== UPDATED PROGRAMS NAVIGATION ======================
     function showPrograms() {
         document.getElementById('programsModal').classList.remove('hidden');
         renderCategories();
     }
-
     function closeProgramsModal() {
         document.getElementById('programsModal').classList.add('hidden');
     }
-
     function renderCategories() {
         const content = document.getElementById('programsContent');
         content.innerHTML = `
@@ -187,7 +189,6 @@
                 <button onclick="showCategory('SHORT COURSES')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition"><div class="text-3xl font-semibold">SHORT COURSES</div><div class="text-xl opacity-90 mt-2">Flexible duration</div></button>
             </div>`;
     }
-
     function showCategory(cat) {
         const content = document.getElementById('programsContent');
         const courses = programsData[cat] || [];
@@ -198,7 +199,6 @@
         html += `</div>`;
         content.innerHTML = html;
     }
-
     function showCourseYears(cat, course) {
         const content = document.getElementById('programsContent');
         let years = [];
@@ -208,13 +208,14 @@
 
         let html = `<div class="flex items-center justify-between mb-8"><div><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><h3 class="text-2xl text-gray-600">${course}</h3></div><button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Courses</button></div><div class="space-y-6">`;
         years.forEach(year => {
-            html += `<button onclick="showYearTimetable('${cat}', '${course}', '${year}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${year}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
+            html += `<button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${year}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
         });
         html += `</div>`;
         content.innerHTML = html;
     }
 
-    function showYearTimetable(cat, course, year) {
+    // NEW: Shows two options (Courses + Timetable)
+    function showYearOptions(cat, course, year) {
         const content = document.getElementById('programsContent');
         content.innerHTML = `
             <div class="flex items-center justify-between mb-8">
@@ -224,23 +225,66 @@
                 </div>
                 <button onclick="showCourseYears('${cat}', '${course}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Years</button>
             </div>
-
-            <div class="bg-white rounded-3xl shadow-xl p-10 text-center">
-                <p class="text-3xl text-gray-500 mb-8">No timetable has been added yet for this program and year.</p>
-                <button onclick="openSubmitForm()" 
-                        class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3 mx-auto">
-                    <i class="fas fa-plus"></i> Click me to add the timetable
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Courses Option -->
+                <button onclick="showCoursesList('${cat}', '${course}', '${year}')" class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-10 rounded-3xl text-left hover:scale-105 transition shadow-lg">
+                    <div class="flex items-center gap-4 mb-4"><i class="fas fa-book text-5xl"></i></div>
+                    <div class="text-4xl font-semibold mb-2">Courses</div>
+                    <div class="text-xl opacity-90">View all courses for ${year}</div>
+                </button>
+                <!-- Timetable Option -->
+                <button onclick="showYearTimetable('${cat}', '${course}', '${year}')" class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-10 rounded-3xl text-left hover:scale-105 transition shadow-lg">
+                    <div class="flex items-center gap-4 mb-4"><i class="fas fa-calendar-alt text-5xl"></i></div>
+                    <div class="text-4xl font-semibold mb-2">Timetable</div>
+                    <div class="text-xl opacity-90">View class schedule for ${year}</div>
                 </button>
             </div>`;
     }
 
-    function openSubmitForm() {
-        closeProgramsModal();
-        document.getElementById('submitFormModal').classList.remove('hidden');
+    // Shows real courses from program.json
+    function showCoursesList(cat, course, year) {
+        const content = document.getElementById('programsContent');
+        const coursesList = programData[cat] && programData[cat][course] && programData[cat][course][year] 
+                            ? programData[cat][course][year] : [];
+
+        let html = `
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+                    <h3 class="text-2xl text-gray-600">${course} – ${year} – Courses</h3>
+                </div>
+                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
+            </div>`;
+
+        if (coursesList.length === 0) {
+            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center"><p class="text-3xl text-gray-500">No courses added yet for this year.</p></div>`;
+        } else {
+            html += `<div class="bg-white rounded-3xl shadow-xl p-8"><ol class="space-y-4 text-2xl">`;
+            coursesList.forEach((c, i) => {
+                html += `<li class="flex gap-4"><span class="font-bold text-[#003087]">${i+1}.</span> ${c.code} - ${c.title}</li>`;
+            });
+            html += `</ol></div>`;
+        }
+        content.innerHTML = html;
     }
 
-    function closeSubmitFormModal() {
-        document.getElementById('submitFormModal').classList.add('hidden');
+    // Original timetable screen (kept exactly as you had it)
+    function showYearTimetable(cat, course, year) {
+        const content = document.getElementById('programsContent');
+        content.innerHTML = `
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+                    <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
+                </div>
+                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Options</button>
+            </div>
+            <div class="bg-white rounded-3xl shadow-xl p-10 text-center">
+                <p class="text-3xl text-gray-500 mb-8">No timetable has been added yet for this program and year.</p>
+                <button onclick="openSubmitForm()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3 mx-auto">
+                    <i class="fas fa-plus"></i> Click me to add the timetable
+                </button>
+            </div>`;
     }
 
     loadData();
