@@ -33,9 +33,11 @@
 
 <main class="px-10 py-14">
     <h1 class="header-font text-7xl text-center text-[#003087]">UNZA Academic Timetable 2026</h1>
-    <div class="flex justify-center mt-4">
-        <button onclick="showPrograms()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3">
-            <i class="fas fa-graduation-cap"></i> PROGRAMS
+    <div class="flex justify-center mt-8">
+        <button onclick="showPrograms()" 
+                class="bg-[#003087] hover:bg-[#002266] text-white px-16 py-8 rounded-3xl text-4xl font-semibold shadow-lg flex items-center gap-4">
+            <i class="fas fa-graduation-cap"></i> 
+            CLICK ME TO VIEW COURSES
         </button>
     </div>
     <div class="mt-14">
@@ -60,11 +62,6 @@
     </div>
 </div>
 
-<!-- Other modals (you can expand these later) -->
-<div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4"></div>
-<div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4"></div>
-<div id="submitFormModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4"></div>
-
 <footer class="text-center py-12 text-gray-600 text-lg">
     <p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
     <p class="mt-2">
@@ -87,7 +84,7 @@
         ]
     };
 
-    // ==================== COMPLETE COURSE STRUCTURE ====================
+    // ==================== COMPLETE COURSE STRUCTURE (All your data) ====================
     const courseStructure = {
         "Early Childhood Education": {
             "1st Year": [
@@ -385,8 +382,7 @@
             const data = await res.json();
             timetableData = data.timetable || [];
         } catch (e) {
-            console.log("lecture.json not found or error loading.");
-            timetableData = [];
+            console.log("lecture.json not found");
         }
 
         const todayIndex = new Date().getDay();
@@ -424,7 +420,7 @@
             </tr>`;
         }).join('');
         if (data.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="4" class="text-center py-12 text-gray-500">No classes today or data not loaded.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="4" class="text-center py-12 text-gray-500 text-2xl">No classes scheduled today</td></tr>`;
         }
     }
 
@@ -435,8 +431,8 @@
     function liveSearch() {
         const term = document.getElementById('searchInput').value.toLowerCase();
         const filtered = timetableData.filter(x => 
-            (x.course || '').toLowerCase().includes(term) ||
-            (x.lecturer || '').toLowerCase().includes(term) ||
+            (x.course || '').toLowerCase().includes(term) || 
+            (x.lecturer || '').toLowerCase().includes(term) || 
             (x.day || '').toLowerCase().includes(term)
         );
         renderTable(filtered);
@@ -449,7 +445,7 @@
         renderTable(filtered);
     }
 
-    // ====================== PROGRAMS MODAL FUNCTIONS ======================
+    // ====================== PROGRAMS MODAL ======================
     function showPrograms() {
         document.getElementById('programsModal').classList.remove('hidden');
         renderCategories();
@@ -462,10 +458,11 @@
     function renderCategories() {
         const content = document.getElementById('programsContent');
         content.innerHTML = `
-            <h2 class="text-4xl font-bold text-center mb-10 text-[#003087]">Our Academic Programs</h2>
-            <div class="grid grid-cols-2 gap-8">
-                <button onclick="showCategory('DIPLOMA (3 YEARS)')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
-                    <div class="text-3xl font-semibold">DIPLOMA</div><div class="text-xl opacity-90 mt-2">3 YEARS</div>
+            <h2 class="text-4xl font-bold text-center mb-10 text-[#003087]">Select a Program</h2>
+            <div class="flex justify-center">
+                <button onclick="showCategory('DIPLOMA (3 YEARS)')" 
+                        class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-16 py-8 rounded-3xl text-4xl font-semibold shadow-lg hover:scale-105 transition">
+                    CLICK ME TO VIEW COURSES
                 </button>
             </div>`;
     }
@@ -473,9 +470,16 @@
     function showCategory(cat) {
         const content = document.getElementById('programsContent');
         const courses = programsData[cat] || [];
-        let html = `<div class="flex items-center justify-between mb-8"><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><button onclick="renderCategories()" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button></div><div class="space-y-6">`;
+        let html = `<div class="flex items-center justify-between mb-8">
+            <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+            <button onclick="renderCategories()" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
+        </div><div class="space-y-6">`;
+        
         courses.forEach(course => {
-            html += `<button onclick="showCourseYears('${cat}', '${course}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${course}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
+            html += `<button onclick="showCourseYears('${cat}', '${course}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left">
+                <div class="text-2xl font-medium">${course}</div>
+                <i class="fas fa-chevron-right text-2xl text-gray-400"></i>
+            </button>`;
         });
         html += `</div>`;
         content.innerHTML = html;
@@ -484,9 +488,19 @@
     function showCourseYears(cat, course) {
         const content = document.getElementById('programsContent');
         const years = ["1st Year", "2nd Year", "3rd Year"];
-        let html = `<div class="flex items-center justify-between mb-8"><div><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><h3 class="text-2xl text-gray-600">${course}</h3></div><button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button></div><div class="space-y-6">`;
+        let html = `<div class="flex items-center justify-between mb-8">
+            <div>
+                <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
+                <h3 class="text-2xl text-gray-600">${course}</h3>
+            </div>
+            <button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
+        </div><div class="space-y-6">`;
+        
         years.forEach(year => {
-            html += `<button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${year}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
+            html += `<button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left">
+                <div class="text-2xl font-medium">${year}</div>
+                <i class="fas fa-chevron-right text-2xl text-gray-400"></i>
+            </button>`;
         });
         html += `</div>`;
         content.innerHTML = html;
@@ -568,7 +582,7 @@
     function showFeedbackForm() { alert("Feedback form coming soon!"); }
     function openSubmitForm() { alert("Submit timetable form would open here"); }
 
-    // Initialize
+    // Initialize the app
     loadData();
 </script>
 </body>
