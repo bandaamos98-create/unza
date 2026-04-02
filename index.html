@@ -60,6 +60,11 @@
     </div>
 </div>
 
+<!-- Other modals (you can expand these later) -->
+<div id="callModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4"></div>
+<div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4"></div>
+<div id="submitFormModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4"></div>
+
 <footer class="text-center py-12 text-gray-600 text-lg">
     <p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
     <p class="mt-2">
@@ -75,14 +80,14 @@
 
     const programsData = {
         "DIPLOMA (3 YEARS)": [
-            "Early Childhood Education", "Business Administration", "Sales and Marketing", 
-            "Finance and Accounting", "Purchasing and Supply Management", "Social Work", 
-            "Human Resource Management", "Project Planning and Management", "Public Administration", 
-            "Computer Science", "Records Management", "Guidance and Counselling", "Public Health"
+            "Early Childhood Education", "Business Administration", "Sales and Marketing", "Finance and Accounting",
+            "Purchasing and Supply Management", "Social Work", "Human Resource Management", "Project Planning and Management",
+            "Public Administration", "Computer Science", "Records Management", "Guidance and Counselling", 
+            "Public Health", "Bridging Public Health"
         ]
     };
 
-    // ==================== ALL COURSES ADDED ====================
+    // ==================== COMPLETE COURSE STRUCTURE ====================
     const courseStructure = {
         "Early Childhood Education": {
             "1st Year": [
@@ -210,6 +215,14 @@
                 { code: "DSW 2320", title: "Social Work Practice Methods" },
                 { code: "DSW 2430", title: "Social Work and Law" },
                 { code: "DAE 2011", title: "Research Methods and Project" }
+            ],
+            "3rd Year": [
+                { code: "DSW 3613", title: "Block Fieldwork" },
+                { code: "DSW 3110", title: "Social Welfare Theories and Social Policy Analysis" },
+                { code: "DSW 3330", title: "Research Project" },
+                { code: "DSW 3314", title: "Social Work, Disability and Mental Health" },
+                { code: "DBA 3315", title: "Entrepreneurship and Small Business Management" },
+                { code: "DSW 9315", title: "Analysis of Social Work Intervention" }
             ]
         },
         "Human Resource Management": {
@@ -249,6 +262,16 @@
                 { code: "DPA 2021", title: "Local Government Administration in Zambia" },
                 { code: "DAE 2011", title: "Research Methods" },
                 { code: "DHR 2030", title: "Labour Relations" }
+            ],
+            "3rd Year": [
+                { code: "DPA 3011", title: "Organisational Theory, Design and Management" },
+                { code: "DPA 3031", title: "Human Resource Management" },
+                { code: "DPA 9025", title: "Public Financial Management" },
+                { code: "DPA 9045", title: "Public Administrative Ethics and Law" },
+                { code: "DPA 9035", title: "Public Procurement" },
+                { code: "DBA 3015", title: "Entrepreneurship" },
+                { code: "DAE 3015", title: "Research Report" },
+                { code: "DHR 3015", title: "Organisation Behaviour" }
             ]
         },
         "Computer Science": {
@@ -264,6 +287,12 @@
                 { code: "DCS 2010", title: "Database Design and Management" },
                 { code: "DCS 2020", title: "Mathematics for Computing" },
                 { code: "DCS 2030", title: "Network Design and Management" }
+            ],
+            "3rd Year": [
+                { code: "DCS 3000", title: "Operating Systems" },
+                { code: "DCS 3010", title: "Software Analysis and Design Concepts" },
+                { code: "DCS 3020", title: "Web Development and Management" },
+                { code: "DCS 3004", title: "Computing Project" }
             ]
         },
         "Records Management": {
@@ -278,6 +307,13 @@
                 { code: "DRM 2010", title: "Electronic Records Management" },
                 { code: "DRM 2020", title: "Management of Current and Semi-Current Records" },
                 { code: "DLS 2010", title: "Organisation of Information Resources" }
+            ],
+            "3rd Year": [
+                { code: "DRM 3010", title: "Financial and Human Resource Records Management" },
+                { code: "DLS 3010", title: "Management of Information System" },
+                { code: "DRM 3020", title: "Archives Administration" },
+                { code: "DRM 3414", title: "Research in Records Management" },
+                { code: "DLS 3043", title: "Information Management Practicum" }
             ]
         },
         "Guidance and Counselling": {
@@ -295,6 +331,13 @@
                 { code: "DAE 2011", title: "Research Methods" },
                 { code: "EDU 2011", title: "Sociology of Education" },
                 { code: "EDU 2012", title: "Educational Psychology" }
+            ],
+            "3rd Year": [
+                { code: "DGC 3020", title: "Guidance and Counselling Skills" },
+                { code: "DGC 3010", title: "Emerging Issues in Counselling" },
+                { code: "DGC 3040", title: "Placement" },
+                { code: "DGC 3414", title: "Research Project in Guidance and Counseling" },
+                { code: "DGC 3003", title: "Practicum" }
             ]
         },
         "Public Health": {
@@ -313,20 +356,49 @@
                 { code: "DPH 2320", title: "Introduction to Community Health" },
                 { code: "DPH 2335", title: "Industrial Attachment and Reporting" },
                 { code: "DPH 2434", title: "Research Methods and Proposal Development" }
+            ],
+            "3rd Year": [
+                { code: "DPH 3360", title: "Introduction to Food Chemistry and Nutrition" },
+                { code: "DPH 3370", title: "Food Safety and Hygiene" },
+                { code: "DPH 3240", title: "Waste Management" },
+                { code: "DPH 3440", title: "Integrated Disease Surveillance and Response" },
+                { code: "DPH 3455", title: "Introduction to Health Services Management" },
+                { code: "DPH 3464", title: "Research Methods and Project Report" }
+            ]
+        },
+        "Bridging Public Health": {
+            "1st Year": [
+                { code: "DPH 2135", title: "Introduction to Epidemiology and Biostatistics" },
+                { code: "DPH 2220", title: "Occupational and Health Safety" },
+                { code: "DPH 2235", title: "Pestology" },
+                { code: "DPH 2120", title: "Principles of Public and Environmental Health" },
+                { code: "DPH 1420", title: "Communicable and Non-Communicable Diseases" },
+                { code: "DPH 3360", title: "Introduction to Food Chemistry and Nutrition" },
+                { code: "DPH 3370", title: "Food Safety and Hygiene" }
             ]
         }
     };
 
     async function loadData() {
+        try {
+            const res = await fetch('lecture.json');
+            const data = await res.json();
+            timetableData = data.timetable || [];
+        } catch (e) {
+            console.log("lecture.json not found or error loading.");
+            timetableData = [];
+        }
+
         const todayIndex = new Date().getDay();
         const dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
         activeDay = dayNames[todayIndex] || "Monday";
+
         renderDayFilters();
-        renderTable([]);
+        renderTable(timetableData.filter(x => x.day === activeDay));
     }
 
     function renderDayFilters() {
-        const container = document.getElementById('dayFilters'); 
+        const container = document.getElementById('dayFilters');
         container.innerHTML = '';
         allDays.forEach(day => {
             const isActive = activeDay === day;
@@ -337,14 +409,47 @@
 
     function renderTable(data) {
         const tbody = document.getElementById('timetableBody');
-        tbody.innerHTML = data.length ? data.map(item => `<tr class="table-row border-b"><td>${item.day||''}</td><td>${item.time||''}</td><td class="font-semibold">${item.course||''}</td><td>N/A</td></tr>`).join('') 
-            : `<tr><td colspan="4" class="text-center py-12 text-gray-500 text-2xl">No timetable data yet</td></tr>`;
+        tbody.innerHTML = data.map(item => {
+            const parts = (item.lecturer || '').split('\n');
+            const name = parts[0] || 'N/A';
+            const phone = parts[1] || '';
+            return `<tr class="table-row border-b">
+                <td>${item.day || ''}</td>
+                <td>${item.time || ''}</td>
+                <td class="font-semibold">${item.course || ''}</td>
+                <td>
+                    <div class="mb-3">${name}</div>
+                    ${phone ? `<button onclick="prepareCall('${name.replace(/'/g, "\\'")}','${phone}')" class="text-blue-600 flex items-center gap-2"><i class="fas fa-phone"></i> Call Lecturer</button>` : ''}
+                </td>
+            </tr>`;
+        }).join('');
+        if (data.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="4" class="text-center py-12 text-gray-500">No classes today or data not loaded.</td></tr>`;
+        }
     }
 
-    function liveSearch() { /* optional */ }
-    function filterByDay(day) { activeDay = day; renderDayFilters(); }
+    function prepareCall(name, phone) {
+        if (phone) window.location.href = `tel:${phone}`;
+    }
 
-    // ====================== PROGRAMS MODAL ======================
+    function liveSearch() {
+        const term = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = timetableData.filter(x => 
+            (x.course || '').toLowerCase().includes(term) ||
+            (x.lecturer || '').toLowerCase().includes(term) ||
+            (x.day || '').toLowerCase().includes(term)
+        );
+        renderTable(filtered);
+    }
+
+    function filterByDay(day) {
+        activeDay = (activeDay === day) ? null : day;
+        renderDayFilters();
+        const filtered = activeDay ? timetableData.filter(x => x.day === activeDay) : timetableData;
+        renderTable(filtered);
+    }
+
+    // ====================== PROGRAMS MODAL FUNCTIONS ======================
     function showPrograms() {
         document.getElementById('programsModal').classList.remove('hidden');
         renderCategories();
@@ -360,8 +465,7 @@
             <h2 class="text-4xl font-bold text-center mb-10 text-[#003087]">Our Academic Programs</h2>
             <div class="grid grid-cols-2 gap-8">
                 <button onclick="showCategory('DIPLOMA (3 YEARS)')" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-3xl text-left hover:scale-105 transition">
-                    <div class="text-3xl font-semibold">DIPLOMA</div>
-                    <div class="text-xl opacity-90 mt-2">3 YEARS</div>
+                    <div class="text-3xl font-semibold">DIPLOMA</div><div class="text-xl opacity-90 mt-2">3 YEARS</div>
                 </button>
             </div>`;
     }
@@ -369,8 +473,7 @@
     function showCategory(cat) {
         const content = document.getElementById('programsContent');
         const courses = programsData[cat] || [];
-        let html = `<div class="flex items-center justify-between mb-8"><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><button onclick="renderCategories()" class="text-[#003087] hover:underline text-xl">← Back</button></div><div class="space-y-6">`;
-        
+        let html = `<div class="flex items-center justify-between mb-8"><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><button onclick="renderCategories()" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button></div><div class="space-y-6">`;
         courses.forEach(course => {
             html += `<button onclick="showCourseYears('${cat}', '${course}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${course}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
         });
@@ -381,8 +484,7 @@
     function showCourseYears(cat, course) {
         const content = document.getElementById('programsContent');
         const years = ["1st Year", "2nd Year", "3rd Year"];
-        let html = `<div class="flex items-center justify-between mb-8"><div><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><h3 class="text-2xl text-gray-600">${course}</h3></div><button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline text-xl">← Back</button></div><div class="space-y-6">`;
-        
+        let html = `<div class="flex items-center justify-between mb-8"><div><h2 class="text-4xl font-bold text-[#003087]">${cat}</h2><h3 class="text-2xl text-gray-600">${course}</h3></div><button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button></div><div class="space-y-6">`;
         years.forEach(year => {
             html += `<button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left"><div class="text-2xl font-medium">${year}</div><i class="fas fa-chevron-right text-2xl text-gray-400"></i></button>`;
         });
@@ -398,7 +500,7 @@
                     <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
                     <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
                 </div>
-                <button onclick="showCourseYears('${cat}', '${course}')" class="text-[#003087] hover:underline text-xl">← Back to Years</button>
+                <button onclick="showCourseYears('${cat}', '${course}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Years</button>
             </div>
             <div class="grid grid-cols-2 gap-8">
                 <button onclick="showCoursesList('${cat}', '${course}', '${year}')" class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-10 rounded-3xl text-left hover:scale-105 transition shadow-lg">
@@ -409,7 +511,7 @@
                 <button onclick="showYearTimetable('${cat}', '${course}', '${year}')" class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-10 rounded-3xl text-left hover:scale-105 transition shadow-lg">
                     <i class="fas fa-calendar-alt text-5xl mb-4"></i>
                     <div class="text-4xl font-semibold mb-2">Timetable</div>
-                    <div class="text-xl opacity-90">View class schedule</div>
+                    <div class="text-xl opacity-90">View class schedule for ${year}</div>
                 </button>
             </div>`;
     }
@@ -424,11 +526,11 @@
                     <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
                     <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
                 </div>
-                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline text-xl">← Back</button>
+                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
             </div>`;
 
         if (list.length === 0) {
-            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center text-3xl text-gray-500">No courses added yet.</div>`;
+            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center text-3xl text-gray-500">No courses added yet for this year.</div>`;
         } else {
             html += `<div class="bg-white rounded-3xl shadow-xl p-8">
                 <div class="flex justify-between items-center mb-6">
@@ -453,19 +555,20 @@
                     <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
                     <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
                 </div>
-                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline text-xl">← Back</button>
+                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
             </div>
-            <div class="bg-white rounded-3xl shadow-xl p-10 text-center text-3xl text-gray-500">
-                No timetable added yet for this year.<br><br>
-                <button onclick="alert('Submit timetable form coming soon')" class="bg-[#003087] text-white px-10 py-5 rounded-3xl text-2xl mt-6">Add Timetable</button>
+            <div class="bg-white rounded-3xl shadow-xl p-10 text-center">
+                <p class="text-3xl text-gray-500 mb-8">No timetable has been added yet for this program and year.</p>
+                <button onclick="openSubmitForm()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3 mx-auto">
+                    <i class="fas fa-plus"></i> Click to add timetable
+                </button>
             </div>`;
     }
 
-    function showFeedbackForm() {
-        alert("Feedback form coming soon!");
-    }
+    function showFeedbackForm() { alert("Feedback form coming soon!"); }
+    function openSubmitForm() { alert("Submit timetable form would open here"); }
 
-    // Load the page
+    // Initialize
     loadData();
 </script>
 </body>
