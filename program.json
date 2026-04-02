@@ -16,7 +16,8 @@
           { "code": "DBA 1021", "title": "Introduction to Information Management & Technology" },
           { "code": "DBA 1040", "title": "Business Mathematics & Statistics" },
           { "code": "DBA 1030", "title": "Financial Accounting" },
-          { "code": "DBA 1051", "title": "Principles of Management" }
+          { "code": "DBA 1051", "title": "Principles of Management" },
+          { "code": "DBA 1052", "title": "Principles of Marketing" }
         ],
         "2nd Year": [
           { "code": "DBA 2011", "title": "Business Economics" },
@@ -29,7 +30,7 @@
           { "code": "DBA 3015", "title": "Entrepreneurship" },
           { "code": "DBA 3021", "title": "International Business" },
           { "code": "DBA 3031", "title": "Corporate Governance & Ethics" },
-          { "code": "DBA 3015", "title": "Research Methods and Project" }
+          { "code": "DBA 3040", "title": "Research Methods and Project" }
         ]
       },
       "Sales and Marketing": {
