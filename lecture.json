@@ -5,174 +5,203 @@
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DDCS 1011",
+      "fullName": "Introduction to Early Childhood Development and Education",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DCS 1010",
+      "fullName": "Computer Application and Concepts",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DCS 2010",
+      "fullName": "Database Design and Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DBA 3022",
+      "fullName": "Decision Making Techniques",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DSW 3613",
+      "fullName": "Block Fieldwork",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DLS 2010",
+      "fullName": "Organisation of Information Resources",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DRM 3010",
+      "fullName": "Financial and Human Resource Records Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DBA 2021",
+      "fullName": "Business and Company Law",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DGC 2021",
+      "fullName": "Psychometrics in Guidance",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DSW 2110",
+      "fullName": "Contemporary Issues in Social Policy",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DPH 1110",
+      "fullName": "Principles of Public Health",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "PPM 1110",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "PPM 2010",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DPA 2011",
+      "fullName": "Government and Administration in Zambia",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
       "course": "DPS 3065",
+      "fullName": "Risk Management Procurement and Supply",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DBA 1040",
+      "fullName": "Business Mathematics and Statistics",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DRM 2010",
+      "fullName": "Electronic Records Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DBA 3015",
+      "fullName": "Entrepreneurship",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DCS 2000",
+      "fullName": "Computer Organisation and Architecture",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "ECE 1110",
+      "fullName": "Introduction to Early Childhood Development and Education",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DSE 1120",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DPS 2031",
+      "fullName": "Negotiations and Sourcing in Practice",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DPH 1210",
+      "fullName": "Medical and Health Instrumentation",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DGC 1010",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DPM 3020",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DIR 1015",
+      "fullName": "Introduction to Political Science",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DPS 3065",
+      "fullName": "Risk Management Procurement and Supply",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DPM 2015",
+      "fullName": "Introduction to Project Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
       "course": "DPH 3240",
+      "fullName": "Waste Management",
       "lecturer": "not assigned yet"
     },
 
@@ -180,264 +209,301 @@
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DAE 2014",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DAE 2011",
+      "fullName": "Research Methods",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DAE 2510",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DPH 2434",
+      "fullName": "Research Methods and Proposal Development",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DGC 2011",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DSW 1110",
+      "fullName": "Introduction to Social Welfare",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DGC 1020",
+      "fullName": "Introduction to Guidance",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "ECE 1011",
+      "fullName": "Sociology of Education",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DGC 3003",
+      "fullName": "Practicum",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DPA 1025",
+      "fullName": "Introduction to Public Administration",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DSW 3110",
+      "fullName": "Social Work Practice Methods",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DRM 1010",
+      "fullName": "Foundation of Records and Archives Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DPA 3011",
+      "fullName": "Organisational Theory, Design and Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DBS 1025",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DBS 1022",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DPH 1310",
+      "fullName": "Information, Communication and Technology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DBA 1021",
+      "fullName": "Introduction to Information Management and Technology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DCS 1021",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DCS 3000",
+      "fullName": "Operating Systems",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DRM 3010",
+      "fullName": "Financial and Human Resource Records Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DCS 3010",
+      "fullName": "Software Analysis and Design Concepts",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DHR 3015",
+      "fullName": "Organisation Behaviour",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DPM 3015",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DPM 3010",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
       "course": "DPM 3240",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DPH 1410",
+      "fullName": "Introduction to Basic Science and Mathematics",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DRM 3414",
+      "fullName": "Research in Records Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DPH 3464",
+      "fullName": "Research Methods and Project Report",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DAE 3015",
+      "fullName": "Research Methods",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DGC 3015",
-      "lecturer": "not assigned yet"
-    },
-    {
-      "day": "Tuesday",
-      "time": "18:30 - 19:30",
-      "course": "DAE 3015",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DSW 3330",
+      "fullName": "Research Project",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DPM 2021",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DPH 2235",
+      "fullName": "Pestology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DCS 2020",
+      "fullName": "Mathematics for Computing",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DAE 1350",
+      "fullName": "Language and Communication Skills",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DAE 1015",
+      "fullName": "Language and Communication Skills",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DBA 1011",
+      "fullName": "Business Communication",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DBA 2052",
+      "fullName": "Business Environment",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DSW 2320",
+      "fullName": "Social Work Practice Methods",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DPA 2320",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DPA 2021",
+      "fullName": "Local Government Administration in Zambia",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "EDU 2011",
+      "fullName": "Sociology of Education",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
       "course": "DAF 2021",
+      "fullName": "Taxation",
       "lecturer": "not assigned yet"
     },
 
@@ -445,270 +511,315 @@
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DAE 2014",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DAE 2011",
+      "fullName": "Research Methods",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DAE 2510",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DPH 2434",
+      "fullName": "Research Methods and Proposal Development",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DGC 2011",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DGC 1030",
+      "fullName": "Child Counselling",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DGC 3020",
+      "fullName": "Guidance and Counselling Skills",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DSW 1120",
+      "fullName": "Introduction to Sociology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "ECE 1110",
+      "fullName": "Introduction to Early Childhood Development and Education",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DGC 3003",
+      "fullName": "Practicum",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DSW 3110",
+      "fullName": "Social Work Practice Methods",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DRM 3010",
+      "fullName": "Financial and Human Resource Records Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DCS 1020",
+      "fullName": "Computer Programming",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DBA 1040",
+      "fullName": "Business Mathematics and Statistics",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DCS 3000",
+      "fullName": "Operating Systems",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DCS 2030",
+      "fullName": "Network Design and Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DPM 3021",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DBS 1025",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DBS 1022",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DPH 1310",
+      "fullName": "Information, Communication and Technology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DBA 1021",
+      "fullName": "Introduction to Information Management and Technology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DCS 1021",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DPH 3440",
+      "fullName": "Integrated Disease Surveillance and Response",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DPA 1025",
+      "fullName": "Introduction to Public Administration",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DRM 1010",
+      "fullName": "Foundation of Records and Archives Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
       "course": "DHR 3015",
+      "fullName": "Organisation Behaviour",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DPS 2021",
+      "fullName": "Inventory Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DRM 2020",
+      "fullName": "Management of Current and Semi-Current Records",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "PSM 2030",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DPH 1110",
+      "fullName": "Principles of Public Health",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DSW 1010",
+      "fullName": "Introduction to Psychology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "ECE 1011",
+      "fullName": "Sociology of Education",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DCS 2000",
+      "fullName": "Computer Organisation and Architecture",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DAF 2021",
+      "fullName": "Taxation",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DPM 3021",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DGC 2030",
+      "fullName": "Ethics in Guidance and Counselling",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DSM 1012",
+      "fullName": "Principle of Marketing",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DPM 2021",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DPS 3041",
+      "fullName": "Strategic Procurement and Supply Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DPH 3370",
+      "fullName": "Food Safety and Hygiene",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DSW 3314",
+      "fullName": "Social Work, Disability and Mental Health",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DPA 2021",
+      "fullName": "Local Government Administration in Zambia",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DBA 2052",
+      "fullName": "Business Environment",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DPS 1011",
+      "fullName": "Principle of Procurement and Process",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DBS 1012 (1st Yrs)",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
 
@@ -716,198 +827,231 @@
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DPH 1410",
+      "fullName": "Introduction to Basic Science and Mathematics",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DSM 1012(2ND Yrs)",
+      "fullName": "Principle of Marketing",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DPM 3020",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DPH 2220",
+      "fullName": "Occupational Health and Safety",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DRM 2010",
+      "fullName": "Electronic Records Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DCS 2020",
+      "fullName": "Mathematics for Computing",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DSW 9315",
+      "fullName": "Analysis of Social Work Intervention",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DAE 1350",
+      "fullName": "Language and Communication Skills",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DAE 1015",
+      "fullName": "Language and Communication Skills",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DBA 1350",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DBA 1011",
+      "fullName": "Business Communication",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DPS 2021",
+      "fullName": "Inventory Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DGC 3010",
+      "fullName": "Emerging Issues in Counselling",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DHE 2015",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DAF 3011",
+      "fullName": "Investment Analysis and Portfolio Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DLS 3020",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DPS 3041",
+      "fullName": "Strategic Procurement and Supply Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
       "course": "DSW 2430",
+      "fullName": "Social Work and Law",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DCS 1011",
+      "fullName": "Computer Application and Concepts",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DCS 1010",
+      "fullName": "Computer Application and Concepts",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DAF 3011",
+      "fullName": "Investment Analysis and Portfolio Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DPH 1420",
+      "fullName": "Communicable and Non-Communicable Disease",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DBA 1220",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DGC 1020",
+      "fullName": "Introduction to Guidance",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DHR 2030",
+      "fullName": "Labour Relations",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DPH 2320",
+      "fullName": "Introduction to Community Health",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DRM 1020",
+      "fullName": "Foundation of Knowledge Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DPS 2032",
+      "fullName": "Public Procurement",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DPM 2021",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DBA 2021",
+      "fullName": "Business and Company Law",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DCS 2030",
+      "fullName": "Network Design and Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DRM 2010",
+      "fullName": "Electronic Records Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
       "course": "DGC 2012",
+      "fullName": "Psychometrics in Guidance",
       "lecturer": "not assigned yet"
     },
 
@@ -915,204 +1059,238 @@
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DPH 1210",
+      "fullName": "Medical and Health Instrumentation",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "ECE 1012",
+      "fullName": "Education Psychology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DAF 3011",
+      "fullName": "Investment Analysis and Portfolio Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DSW 3613",
+      "fullName": "Block Fieldwork",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DGC 1010",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DPA 3011",
+      "fullName": "Organisational Theory, Design and Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "EDU 2012",
+      "fullName": "Educational Psychology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DPH 3370",
+      "fullName": "Food Safety and Hygiene",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DLS 3010",
+      "fullName": "Management of Information System",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DPM 1015",
+      "fullName": "Introduction to Project Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DBA 1052",
+      "fullName": "Principles of Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DBA 1051",
+      "fullName": "Principles of Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DRM 2020",
+      "fullName": "Management of Current and Semi-Current Records",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DPA 2011",
+      "fullName": "Government and Administration in Zambia",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DPA 1010",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DCS 2010",
+      "fullName": "Database Design and Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DGC 2012",
+      "fullName": "Psychometrics in Guidance",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DAF 3012",
+      "fullName": "Financial Reporting",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "ECE 1012",
+      "fullName": "Education Psychology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DAF 3011",
+      "fullName": "Investment Analysis and Portfolio Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DSW 3613",
+      "fullName": "Block Fieldwork",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DGC 10101",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DPA 3011",
+      "fullName": "Organisational Theory, Design and Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "EDU 2012",
+      "fullName": "Educational Psychology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DPH 3370",
+      "fullName": "Food Safety and Hygiene",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DLS 3010",
+      "fullName": "Management of Information System",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DOM 1015",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DBA 1052",
+      "fullName": "Principles of Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DBA 1051",
+      "fullName": "Principles of Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DIR 1015",
+      "fullName": "Introduction to Political Science",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DPA 9035",
+      "fullName": "Public Procurement",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DPS 2032",
+      "fullName": "Public Procurement",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DSW 2110",
+      "fullName": "Contemporary Issues in Social Policy",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
       "course": "DLS 2010",
+      "fullName": "Organisation of Information Resources",
       "lecturer": "not assigned yet"
     },
 
@@ -1120,360 +1298,420 @@
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DGC 2010",
+      "fullName": "Personality Development and Disorders",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "ECE 1120",
+      "fullName": "Special Needs Education in Early Childhood Education",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DAF 2050",
+      "fullName": "Financial Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DCS 3010",
+      "fullName": "Software Analysis and Design Concepts",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DPS 2030",
+      "fullName": "Logistics and Supply Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DAF 1030",
+      "fullName": "Financial Accounting",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DBS 2072",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DCS 1030",
+      "fullName": "Computer System",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DPA 3031",
+      "fullName": "Human Resource Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DRM 1020",
+      "fullName": "Foundation of Knowledge Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DAF 3012",
+      "fullName": "Financial Reporting",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DPH 2135",
+      "fullName": "Introduction to Epidemiology and Biostatistics",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DPM 1010",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DLS 2043",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DGC 3020",
+      "fullName": "Guidance and Counselling Skills",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DPS 2012",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
       "course": "DSW 2320",
+      "fullName": "Social Work Practice Methods",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DSW 2430",
+      "fullName": "Social Work and Law",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DAF 2050",
+      "fullName": "Financial Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DSW 1110",
+      "fullName": "Introduction to Social Welfare",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DAF 1030",
+      "fullName": "Financial Accounting",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DAF 1150",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DCS 1030",
+      "fullName": "Computer System",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DBA 3015",
+      "fullName": "Entrepreneurship",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DLS 2010",
+      "fullName": "Organisation of Information Resources",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DRM 3020",
+      "fullName": "Archives Administration",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DPH 2135",
+      "fullName": "Introduction to Epidemiology and Biostatistics",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DPS 2031",
+      "fullName": "Negotiations and Sourcing in Practice",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DRH 1015",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DRH 1020",
+      "fullName": "Foundation of Human Resource Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DRH 1030",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DRH 1211",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DPS 3012",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DPA 2012",
+      "fullName": "Comparative Public Administration",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DGC 2030",
+      "fullName": "Ethics in Guidance and Counselling",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DPA 2022",
+      "fullName": "Labour Laws",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DAF 2060",
+      "fullName": "Business and Company Law",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DAF 3062",
+      "fullName": "Financial Risk Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DSW 1010",
+      "fullName": "Introduction to Psychology",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DPA 9045",
+      "fullName": "Public Administrative Ethics and Law",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DPM 1015",
+      "fullName": "Introduction to Project Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DPS 2030",
+      "fullName": "Logistics and Supply Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DCS 1025",
+      "fullName": "Computer Number Representation and Data Encoding",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DPH 2120",
+      "fullName": "Principle of Public and Environment Health",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DPH 1025",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DBA 3012",
+      "fullName": "International Business",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DCS 3004",
+      "fullName": "Computing Project",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DPS 3321",
+      "fullName": "Quality Assurance Purchasing and Supply",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "EDU 2011",
+      "fullName": "Sociology of Education",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DAF 2041",
+      "fullName": "Cost Accounting",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DBA 3021",
+      "fullName": "Strategic Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DBS 2072",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DRM 2041",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DPH 3360",
+      "fullName": "Introduction to Food Chemistry and Nutrition",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DIR 1015",
+      "fullName": "Introduction to Political Science",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DCS 1052",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DPH 2120",
+      "fullName": "Principle of Public and Environment Health",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DPA 2022",
+      "fullName": "Labour Laws",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DCS 3004",
+      "fullName": "Computing Project",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
       "course": "DPS 3321",
+      "fullName": "Quality Assurance Purchasing and Supply",
       "lecturer": "not assigned yet"
     },
 
@@ -1481,240 +1719,280 @@
       "day": "Sunday",
       "time": "14:00 - 15:00",
       "course": "PSM 2030",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 15:00",
       "course": "DBA 3012",
+      "fullName": "International Business",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 15:00",
       "course": "DPA 9025",
+      "fullName": "Public Financial Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 15:00",
       "course": "DRM 3020",
+      "fullName": "Archives Administration",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 15:00",
       "course": "DPM 2021",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 15:00",
       "course": "DPH 3370",
+      "fullName": "Food Safety and Hygiene",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 15:00",
       "course": "DPR 1130",
+      "fullName": "Principles of Public Relations",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 15:00",
       "course": "DPS 3011",
+      "fullName": "Law of Procurement and Supply",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DAF 2041",
+      "fullName": "Cost Accounting",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DBS 3035",
+      "fullName": "Corporate Governance and Business Ethics",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DBA 3035",
+      "fullName": "Corporate Governance and Business Ethics",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DBS 2072",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DPA 9025",
+      "fullName": "Public Financial Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DLS 3043",
+      "fullName": "Information Management Practicum",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DPM 2021",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DPH 3370",
+      "fullName": "Food Safety and Hygiene",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DPR 1130",
+      "fullName": "Principles of Public Relations",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DPS 3011",
+      "fullName": "Law of Procurement and Supply",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "HRM 1210",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DPH 2220",
+      "fullName": "Occupational Health and Safety",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "PPM 2032",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DPS 1011",
+      "fullName": "Principle of Procurement and Process",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DPH 3455",
+      "fullName": "Introduction to Health Services Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
       "course": "DAF 2060",
+      "fullName": "Business and Company Law",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
       "course": "DBS 1062",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
       "course": "DBS 30305",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
       "course": "DBA 3035",
+      "fullName": "Corporate Governance and Business Ethics",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
       "course": "DPA 3031",
+      "fullName": "Human Resource Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
       "course": "DAF 3062",
+      "fullName": "Financial Risk Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
       "course": "DCS 3020",
+      "fullName": "Web Development and Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
       "course": "DPA 2031",
+      "fullName": "Resourcing: Recruitment, Placement and Talent MGT",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
       "course": "DPH 2335",
+      "fullName": "Industrial Attachment and Reporting",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
       "course": "DPH 3455",
+      "fullName": "Introduction to Health Services Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "17:00 - 18:00",
       "course": "DHR 1015",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "17:00 - 18:00",
       "course": "DHR 1020",
+      "fullName": "Foundation of Human Resource Management",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "17:00 - 18:00",
       "course": "DHR 1211",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "17:00 - 18:00",
       "course": "DHR 1030",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "17:00 - 18:00",
       "course": "DAF 3020",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "17:00 - 18:00",
       "course": "DPA 2032",
+      "fullName": "",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "17:00 - 18:00",
       "course": "DPH 2335",
+      "fullName": "Industrial Attachment and Reporting",
       "lecturer": "not assigned yet"
     }
   ]
