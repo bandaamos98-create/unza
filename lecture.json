@@ -4,115 +4,115 @@
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
-      "course": "DDCS 1011, DCS 1010, DCS 2010, DBA 3022, DSW 3613, DLS 2010, DRM 3010, DBA 2021, DGC 2021, DSW 2110, DPH 1110, PPM 1110, PPM 2010, DPA 2011, DPS 3065",
+      "course": "DDCS 1011\nDCS 1010\nDCS 2010\nDBA 3022\nDSW 3613\nDLS 2010\nDRM 3010\nDBA 2021\nDGC 2021\nDSW 2110\nDPH 1110\nPPM 1110\nPPM 2010\nDPA 2011\nDPS 3065",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
-      "course": "DBA 1040, DRM 2010, DBA 3015, DCS 2000, ECE 1110, DSE 1120, DPS 2031, DPH 1210, DGC 1010, DPM 3020, DIR 1015, DPS 3065, DPM 2015, DPH 3240",
+      "course": "DBA 1040\nDRM 2010\nDBA 3015\nDCS 2000\nECE 1110\nDSE 1120\nDPS 2031\nDPH 1210\nDGC 1010\nDPM 3020\nDIR 1015\nDPS 3065\nDPM 2015\nDPH 3240",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
-      "course": "DAE 2014, DAE 2011, DAE 2510, DPH 2434, DGC 2011, DSW 1110, DGC 1020, ECE 1011, DGC 3003, DPA 1025, DSW 3110, DRM 1010, DPA 3011, DBS 1025, DBS 1022, DPH 1310, DBA 1021, DCS 1021, DCS 3000, DRM 3010, DCS 3010, DHR 3015, DPM 3015, DPM 3010, DPM 3240",
+      "course": "DAE 2014\nDAE 2011\nDAE 2510\nDPH 2434\nDGC 2011\nDSW 1110\nDGC 1020\nECE 1011\nDGC 3003\nDPA 1025\nDSW 3110\nDRM 1010\nDPA 3011\nDBS 1025\nDBS 1022\nDPH 1310\nDBA 1021\nDCS 1021\nDCS 3000\nDRM 3010\nDCS 3010\nDHR 3015\nDPM 3015\nDPM 3010\nDPM 3240",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
-      "course": "DPH 1410, DRM 3414, DPH 3464, DAE 3015, DGC 3015, DAE 3015, DSW 3330, DPM 2021, DPH 2235, DCS 2020, DAE 1350, DAE 1015, DBA 1011, DBA 2052, DSW 2320, DPA 2320, DPA 2021, EDU 2011, DAF 2021",
+      "course": "DPH 1410\nDRM 3414\nDPH 3464\nDAE 3015\nDGC 3015\nDAE 3015\nDSW 3330\nDPM 2021\nDPH 2235\nDCS 2020\nDAE 1350\nDAE 1015\nDBA 1011\nDBA 2052\nDSW 2320\nDPA 2320\nDPA 2021\nEDU 2011\nDAF 2021",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
-      "course": "DAE 2014, DAE 2011, DAE 2510, DPH 2434, DGC 2011, DGC 1030, DGC 3020, DSW 1120, ECE 1110, DGC 3003, DSW 3110, DRM 3010, DCS 1020, DBA 1040, DCS 3000, DCS 2030, DPM 3021, DBS 1025, DBS 1022, DPH 1310, DBA 1021, DCS 1021, DPH 3440, DPA 1025, DRM 1010, DHR 3015",
+      "course": "DAE 2014\nDAE 2011\nDAE 2510\nDPH 2434\nDGC 2011\nDGC 1030\nDGC 3020\nDSW 1120\nECE 1110\nDGC 3003\nDSW 3110\nDRM 3010\nDCS 1020\nDBA 1040\nDCS 3000\nDCS 2030\nDPM 3021\nDBS 1025\nDBS 1022\nDPH 1310\nDBA 1021\nDCS 1021\nDPH 3440\nDPA 1025\nDRM 1010\nDHR 3015",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
-      "course": "DPS 2021, DRM 2020, PSM 2030, DPH 1110, DSW 1010, ECE 1011, DCS 2000, DAF 2021, DPM 3021, DGC 2030, DSM 1012, DPM 2021, DPS 3041, DPH 3370, DSW 3314, DPA 2021, DBA 2052, DPS 1011, DBS 1012 (1st Yrs)",
+      "course": "DPS 2021\nDRM 2020\nPSM 2030\nDPH 1110\nDSW 1010\nECE 1011\nDCS 2000\nDAF 2021\nDPM 3021\nDGC 2030\nDSM 1012\nDPM 2021\nDPS 3041\nDPH 3370\nDSW 3314\nDPA 2021\nDBA 2052\nDPS 1011\nDBS 1012 (1st Yrs)",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
-      "course": "DPH 1410, DSM 1012(2ND Yrs), DPM 3020, DPH 2220, DRM 2010, DCS 2020, DSW 9315, DAE 1350, DAE 1015, DBA 1350, DBA 1011, DPS 2021, DGC 3010, DHE 2015, DAF 3011, DLS 3020, DPS 3041, DSW 2430",
+      "course": "DPH 1410\nDSM 1012(2ND Yrs)\nDPM 3020\nDPH 2220\nDRM 2010\nDCS 2020\nDSW 9315\nDAE 1350\nDAE 1015\nDBA 1350\nDBA 1011\nDPS 2021\nDGC 3010\nDHE 2015\nDAF 3011\nDLS 3020\nDPS 3041\nDSW 2430",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
-      "course": "DCS 1011, DCS 1010, DAF 3011, DPH 1420, DBA 1220, DGC 1020, DHR 2030, DPH 2320, DRM 1020, DPS 2032, DPM 2021, DBA 2021, DCS 2030, DRM 2010, DGC 2012",
+      "course": "DCS 1011\nDCS 1010\nDAF 3011\nDPH 1420\nDBA 1220\nDGC 1020\nDHR 2030\nDPH 2320\nDRM 1020\nDPS 2032\nDPM 2021\nDBA 2021\nDCS 2030\nDRM 2010\nDGC 2012",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
-      "course": "DPH 1210, ECE 1012, DAF 3011, DSW 3613, DGC 1010, DPA 3011, EDU 2012, DPH 3370, DLS 3010, DPM 1015, DBA 1052, DBA 1051, DRM 2020, DPA 2011, DPA 1010, DCS 2010, DGC 2012",
+      "course": "DPH 1210\nECE 1012\nDAF 3011\nDSW 3613\nDGC 1010\nDPA 3011\nEDU 2012\nDPH 3370\nDLS 3010\nDPM 1015\nDBA 1052\nDBA 1051\nDRM 2020\nDPA 2011\nDPA 1010\nDCS 2010\nDGC 2012",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
-      "course": "DAF 3012, ECE 1012, DAF 3011, DSW 3613, DGC 10101, DPA 3011, EDU 2012, DPH 3370, DLS 3010, DOM 1015, DBA 1052, DBA 1051, DIR 1015, DPA 9035, DPS 2032, DSW 2110, DLS 2010",
+      "course": "DAF 3012\nECE 1012\nDAF 3011\nDSW 3613\nDGC 10101\nDPA 3011\nEDU 2012\nDPH 3370\nDLS 3010\nDOM 1015\nDBA 1052\nDBA 1051\nDIR 1015\nDPA 9035\nDPS 2032\nDSW 2110\nDLS 2010",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "14:00 - 15:00",
-      "course": "DGC 2010, ECE 1120, DAF 2050, DCS 3010, DPS 2030, DAF 1030, DBS 2072, DCS 1030, DPA 3031, DRM 1020, DAF 3012, DPH 2135, DPM 1010, DLS 2043, DGC 3020, DPS 2012, DPS 2012, DSW 2320",
+      "course": "DGC 2010\nECE 1120\nDAF 2050\nDCS 3010\nDPS 2030\nDAF 1030\nDBS 2072\nDCS 1030\nDPA 3031\nDRM 1020\nDAF 3012\nDPH 2135\nDPM 1010\nDLS 2043\nDGC 3020\nDPS 2012\nDPS 2012\nDSW 2320",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
-      "course": "DSW 2430, DAF 2050, DSW 1110, DAF 1030, DAF 1150, DCS 1030, DBA 3015, DLS 2010, DRM 3020, DPH 2135, DPS 2031, DRH 1015, DRH 1020, DRH 1030, DRH 1211, DPS 3012, DPA 2012, DGC 2030",
+      "course": "DSW 2430\nDAF 2050\nDSW 1110\nDAF 1030\nDAF 1150\nDCS 1030\nDBA 3015\nDLS 2010\nDRM 3020\nDPH 2135\nDPS 2031\nDRH 1015\nDRH 1020\nDRH 1030\nDRH 1211\nDPS 3012\nDPA 2012\nDGC 2030",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "16:00 - 17:00",
-      "course": "DPA 2022, DAF 2060, DAF 3062, DSW 1010, DPA 9045, DPM 1015, DPS 2030, DCS 1025, DPH 2120, DPH 1025, DBA 3012, DCS 3004, DPS 3321, EDU 2011",
+      "course": "DPA 2022\nDAF 2060\nDAF 3062\nDSW 1010\nDPA 9045\nDPM 1015\nDPS 2030\nDCS 1025\nDPH 2120\nDPH 1025\nDBA 3012\nDCS 3004\nDPS 3321\nEDU 2011",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Saturday",
       "time": "17:00 - 18:00",
-      "course": "DAF 2041, DBA 3021, DBS 2072, DRM 2041, DPH 3360, DIR 1015, DCS 1052, DPH 2120, DPA 2022, DCS 3004, DPS 3321",
+      "course": "DAF 2041\nDBA 3021\nDBS 2072\nDRM 2041\nDPH 3360\nDIR 1015\nDCS 1052\nDPH 2120\nDPA 2022\nDCS 3004\nDPS 3321",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "14:00 - 15:00",
-      "course": "PSM 2030, DBA 3012, DPA 9025, DRM 3020, DPM 2021, DPM 2021, DPH 3370, DPR 1130, DPS 3011",
+      "course": "PSM 2030\nDBA 3012\nDPA 9025\nDRM 3020\nDPM 2021\nDPM 2021\nDPH 3370\nDPR 1130\nDPS 3011",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
-      "course": "DAF 2041, DBS 3035, DBA 3035, DBS 2072, DPA 9025, DLS 3043, DPM 2021, DPH 3370, DPR 1130, DPS 3011",
+      "course": "DAF 2041\nDBS 3035\nDBA 3035\nDBS 2072\nDPA 9025\nDLS 3043\nDPM 2021\nDPH 3370\nDPR 1130\nDPS 3011",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
-      "course": "DAF 2041, DBS 3035, DBA 3035, DBS 2072M DPA 9025, DLS 3043, DPM 2021, HRM 1210, DPH 2220, DPR 1130, PPM 2032, DPS 1011, DPS 3011, DPH 3455",
+      "course": "DAF 2041\nDBS 3035\nDBA 3035\nDBS 2072M DPA 9025\nDLS 3043\nDPM 2021\nHRM 1210\nDPH 2220\nDPR 1130\nPPM 2032\nDPS 1011\nDPS 3011\nDPH 3455",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "16:00 - 17:00",
-      "course": "DAF 2060, DBS 1062, DBS 30305, DBA 3035, DPA 3031, DAF 3062, DCS 3020, DPA 2031, DPH 2335, DPH 3455",
+      "course": "DAF 2060\nDBS 1062\nDBS 30305\nDBA 3035\nDPA 3031\nDAF 3062\nDCS 3020\nDPA 2031\nDPH 2335\nDPH 3455",
       "lecturer": "not assigned yet"
     },
     {
       "day": "Sunday",
       "time": "17:00 - 18:00",
-      "course": "DHR 1015, DHR 1020, DHR 1211, DHR 1030, DAF 3020, DPA 2032, DPH 2335",
+      "course": "DHR 1015\nDHR 1020\nDHR 1211\nDHR 1030\nDAF 3020\nDPA 2032\nDPH 2335",
       "lecturer": "not assigned yet"
     }
   ]
