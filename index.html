@@ -25,7 +25,7 @@
         }
         input, button { font-size: 20px; }
         .table-row:hover { background-color: #f0f7ff; }
-       
+      
         .course-code {
             font-weight: 700;
             font-size: 24px;
@@ -49,15 +49,18 @@
                 <p class="text-blue-200 text-xl">Student Timetable Portal • 2026</p>
             </div>
         </div>
-        <button onclick="showFeedbackForm()" class="bg-white text-[#003087] px-8 py-5 rounded-3xl">Help Us Improve</button>
+        <button onclick="showFeedbackForm()" class="bg-white text-[#003087] px-8 py-5 rounded-3xl font-semibold hover:shadow-xl transition">Help Us Improve</button>
     </div>
 </header>
 <main class="px-10 py-14">
     <h1 class="header-font text-7xl text-center text-[#003087]">UNZA Academic Timetable 2026</h1>
-   
-    <div class="flex justify-center mt-4">
+  
+    <div class="flex justify-center mt-4 gap-8">
         <button onclick="showPrograms()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3">
             <i class="fas fa-graduation-cap"></i> PROGRAMS
+        </button>
+        <button onclick="showSubmitTimetable()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3">
+            <i class="fas fa-plus"></i> SUBMIT TIMETABLE
         </button>
     </div>
     <div class="mt-14">
@@ -89,6 +92,36 @@
     </div>
 </div>
 
+<!-- HELP US IMPROVE FEEDBACK MODAL -->
+<div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-3xl w-full max-w-[680px] relative max-h-[90vh] overflow-y-auto shadow-2xl">
+        <button onclick="closeFeedbackModal()" class="absolute top-5 right-6 text-5xl font-bold text-gray-500 hover:text-black z-10">×</button>
+        <div class="p-10 flex justify-center">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true" 
+                    width="640" 
+                    height="661" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+</div>
+
+<!-- SUBMIT TIMETABLE MODAL -->
+<div id="submitModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-3xl w-full max-w-[680px] relative max-h-[90vh] overflow-y-auto shadow-2xl">
+        <button onclick="closeSubmitModal()" class="absolute top-5 right-6 text-5xl font-bold text-gray-500 hover:text-black z-10">×</button>
+        <div class="p-10 flex justify-center">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpyilXKH-4ZOhuAillwXChXtG3O_wnNAfItsW3WUEju7jvmQ/viewform?embedded=true" 
+                    width="640" 
+                    height="969" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+</div>
+
 <footer class="text-center py-12 text-gray-600 text-lg">
     <p>Created by <strong class="text-[#003087]">Amos Banda</strong></p>
     <p class="mt-2">
@@ -101,7 +134,6 @@
     let timetableData = [];
     let activeDay = null;
     const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-
     const programsData = {
         "DIPLOMA PROGRAMS": [
             "Early Childhood Education", "Business Administration", "Sales and Marketing", "Finance and Accounting",
@@ -110,7 +142,6 @@
             "Public Health", "Bridging Public Health"
         ]
     };
-
     // Full courseStructure from your original code (complete and unchanged)
     const courseStructure = {
         "Early Childhood Education": {
@@ -516,7 +547,7 @@
             <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
             <button onclick="renderCategories()" class="text-[#003087] hover:underline text-xl">← Back</button>
         </div><div class="space-y-6">`;
-       
+      
         courses.forEach(course => {
             html += `<button onclick="showCourseYears('${cat}', '${course}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left">
                 <div class="text-2xl font-medium">${course}</div>
@@ -530,7 +561,7 @@
     function showCourseYears(cat, course) {
         const content = document.getElementById('programsContent');
         const availableYears = Object.keys(courseStructure[course] || {}).sort();
-       
+      
         let html = `<div class="flex items-center justify-between mb-8">
             <div>
                 <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
@@ -575,7 +606,7 @@
     function showCoursesList(cat, course, year) {
         const content = document.getElementById('programsContent');
         const list = courseStructure[course] && courseStructure[course][year] ? courseStructure[course][year] : [];
-       
+      
         let html = `
             <div class="flex items-center justify-between mb-8">
                 <div>
@@ -606,17 +637,15 @@
         const content = document.getElementById('programsContent');
         const yearCourses = (courseStructure[course] && courseStructure[course][year]) || [];
         const courseCodes = yearCourses.map(c => c.code.toLowerCase().trim());
-
         // Filter main timetable data to only show classes for this program's year courses
         const filtered = timetableData.filter(item => {
             const itemCourse = (item.course || '').toLowerCase().trim();
-            return courseCodes.some(code => 
-                itemCourse === code || 
-                itemCourse.startsWith(code) || 
+            return courseCodes.some(code =>
+                itemCourse === code ||
+                itemCourse.startsWith(code) ||
                 code.startsWith(itemCourse)
             );
         });
-
         let html = `
             <div class="flex items-center justify-between mb-8">
                 <div>
@@ -625,7 +654,6 @@
                 </div>
                 <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Options</button>
             </div>`;
-
         if (filtered.length === 0) {
             html += `
                 <div class="bg-white rounded-3xl shadow-xl p-10 text-center">
@@ -641,7 +669,6 @@
                 if (dayOrder !== 0) return dayOrder;
                 return (a.time || '').localeCompare(b.time || '');
             });
-
             html += `
                 <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
                     <table class="w-full">
@@ -654,7 +681,7 @@
                             </tr>
                         </thead>
                         <tbody>`;
-            
+           
             html += sorted.map(item => {
                 const lecturerParts = (item.lecturer || '').split('\n');
                 const name = lecturerParts[0] || 'Not Assigned';
@@ -675,18 +702,34 @@
                         </td>
                     </tr>`;
             }).join('');
-
             html += `</tbody></table></div>`;
         }
         content.innerHTML = html;
     }
 
-    function showFeedbackForm() { 
-        alert("Feedback form coming soon!"); 
+    // NEW: Feedback form modal functions
+    function showFeedbackForm() {
+        document.getElementById('feedbackModal').classList.remove('hidden');
     }
 
-    function openSubmitForm() { 
-        alert("Submit timetable form would open here"); 
+    function closeFeedbackModal() {
+        document.getElementById('feedbackModal').classList.add('hidden');
+    }
+
+    // NEW: Submit Timetable modal functions
+    function showSubmitTimetable() {
+        document.getElementById('submitModal').classList.remove('hidden');
+    }
+
+    function closeSubmitModal() {
+        document.getElementById('submitModal').classList.add('hidden');
+    }
+
+    // Updated: Now opens the real Submit Timetable Google Form
+    function openSubmitForm() {
+        // Optional: close programs modal so the submit form is clearly visible
+        closeProgramsModal();
+        showSubmitTimetable();
     }
 
     // Start the application
