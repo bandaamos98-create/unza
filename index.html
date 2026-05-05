@@ -7,857 +7,693 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Grotesk:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
+        
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        input, textarea {
+            -webkit-user-select: auto;
+            -khtml-user-select: auto;
+            -moz-user-select: auto;
+            -ms-user-select: auto;
+            user-select: auto;
+        }
+        
         html, body {
             width: 100%;
             min-width: 320px;
-            margin: 0 auto;
-            overflow-x: auto;
-            background: #f9fafb;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: #f8fafc;
+            font-family: 'Inter', sans-serif;
         }
-        body { font-size: 16px; line-height: 1.6; }
-        .header-font { font-family: 'Space Grotesk', sans-serif; }
-        th { font-size: 16px; padding: 12px 8px; }
-        td {
-            font-size: 14px;
-            padding: 12px 8px;
-            vertical-align: top;
-        }
-        input, button { font-size: 16px; }
-        .table-row:hover { background-color: #f0f7ff; }
-      
-        .course-code {
-            font-weight: 700;
+        
+        body {
             font-size: 16px;
-            color: #1f2937;
+            line-height: 1.5;
+            color: #1e293b;
         }
+        
+        .header-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .mobile-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .card:active {
+            transform: scale(0.98);
+        }
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            min-height: 52px;
+        }
+        
+        .btn:active {
+            transform: scale(0.95);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #003087 0%, #0048a8 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #003087;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 16px 48px 16px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #003087;
+            box-shadow: 0 0 0 3px rgba(0, 48, 135, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+        }
+        
+        .day-filter {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        
+        .day-filter.active {
+            background: #003087;
+            color: white;
+        }
+        
+        .day-filter:not(.active) {
+            background: #f1f5f9;
+            color: #64748b;
+            border-color: #e2e8f0;
+        }
+        
+        .class-card {
+            margin-bottom: 16px;
+            padding: 20px;
+            border-left: 4px solid #003087;
+        }
+        
+        .class-time {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .course-code {
+            font-size: 18px;
+            font-weight: 700;
+            color: #003087;
+            margin-bottom: 8px;
+        }
+        
         .course-name {
             font-size: 14px;
-            color: #4b5563;
-            margin-top: 4px;
+            color: #475569;
+            margin-bottom: 12px;
             line-height: 1.4;
         }
-
-        /* Mobile Responsive Styles */
-        @media (max-width: 768px) {
-            html, body {
-                overflow-x: auto;
+        
+        .lecturer-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        
+        .call-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: #10b981;
+            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .call-btn:active {
+            transform: scale(0.95);
+            background: #059669;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #64748b;
+        }
+        
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+        
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #64748b;
+            cursor: pointer;
+            padding: 4px;
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #003087 0%, #0048a8 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 48, 135, 0.3);
+            z-index: 999;
+        }
+        
+        .program-list {
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        
+        .program-item {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        
+        .program-item:active {
+            background: #f8fafc;
+        }
+        
+        @media (max-width: 480px) {
+            .mobile-container {
+                padding: 0 12px;
             }
             
             body {
                 font-size: 14px;
             }
             
-            .header {
-                padding: 1rem;
-            }
-            
-            .header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .header p {
-                font-size: 0.875rem;
-            }
-            
-            .logo {
-                width: 3rem;
-                height: 3rem;
-            }
-            
-            main {
-                padding: 1rem;
-            }
-            
-            h1 {
-                font-size: 1.875rem;
-            }
-            
-            .button-group {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
             .btn {
-                padding: 0.75rem 1rem;
-                font-size: 1rem;
+                padding: 14px 20px;
+                font-size: 14px;
+                min-height: 48px;
             }
             
             .search-input {
-                padding: 0.75rem;
-                font-size: 1rem;
+                padding: 14px 44px 14px 16px;
+                font-size: 14px;
             }
             
-            .day-filters {
-                gap: 0.25rem;
-            }
-            
-            .day-btn {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.875rem;
-            }
-            
-            .table-container {
-                overflow-x: auto;
-            }
-            
-            th, td {
-                padding: 0.5rem;
-                font-size: 0.75rem;
+            .class-card {
+                padding: 16px;
             }
             
             .course-code {
-                font-size: 0.875rem;
+                font-size: 16px;
             }
             
             .course-name {
-                font-size: 0.75rem;
+                font-size: 13px;
             }
             
-            .modal-content {
-                padding: 1rem;
-                margin: 1rem;
-            }
-            
-            .modal-title {
-                font-size: 1.5rem;
-            }
-            
-            .footer {
-                font-size: 0.875rem;
-                padding: 1rem;
+            .lecturer-name {
+                font-size: 14px;
             }
         }
         
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.25rem;
+        @media (min-width: 768px) {
+            .desktop-only {
+                display: block;
             }
             
-            h1 {
-                font-size: 1.5rem;
+            .mobile-only {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .desktop-only {
+                display: none;
             }
             
-            .btn {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.875rem;
-            }
-            
-            th, td {
-                padding: 0.25rem;
-                font-size: 0.625rem;
-            }
-            
-            .day-btn {
-                padding: 0.375rem 0.5rem;
-                font-size: 0.75rem;
+            .mobile-only {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
-<header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white py-4 md:py-10 shadow-lg">
-    <div class="px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-4 md:gap-6">
-            <img id="logoImg" src="images/logo.png" class="w-16 h-16 md:w-24 md:h-24 bg-white p-2 rounded-2xl">
-            <div class="text-center md:text-left">
-                <h1 class="header-font text-2xl md:text-6xl">University of Zambia</h1>
-                <p class="text-blue-200 text-sm md:text-xl">Student Timetable Portal • 2026</p>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-[#003087] to-[#0048a8] text-white">
+        <div class="mobile-container py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="images/logo.png" alt="UNZA Logo" class="w-12 h-12 bg-white p-2 rounded-lg">
+                    <div>
+                        <h1 class="header-font text-lg font-bold">UNZA</h1>
+                        <p class="text-xs text-blue-200">Timetable 2026</p>
+                    </div>
+                </div>
+                <button onclick="showPrograms()" class="bg-white/20 backdrop-blur text-white px-4 py-2 rounded-lg text-sm font-medium">
+                    <i class="fas fa-th-large mr-2"></i>Programs
+                </button>
             </div>
         </div>
-        <button onclick="showFeedbackForm()" class="bg-white text-[#003087] px-4 py-2 md:px-8 md:py-5 rounded-xl md:rounded-3xl font-semibold hover:shadow-xl transition text-sm md:text-base">Help Us Improve</button>
-    </div>
-</header>
-<main class="px-4 md:px-10 py-8 md:py-14">
-    <h1 class="header-font text-3xl md:text-7xl text-center text-[#003087]">UNZA Academic Timetable 2026</h1>
-  
-    <div class="flex flex-col md:flex-row justify-center mt-4 gap-4 md:gap-8">
-        <button onclick="showPrograms()" class="bg-[#003087] hover:bg-[#002266] text-white px-6 py-3 md:px-12 md:py-6 rounded-xl md:rounded-3xl text-lg md:text-3xl font-semibold shadow-lg flex items-center justify-center gap-3">
-            <i class="fas fa-graduation-cap"></i> PROGRAMS
-        </button>
-        <button onclick="showSubmitTimetable()" class="bg-[#003087] hover:bg-[#002266] text-white px-6 py-3 md:px-12 md:py-6 rounded-xl md:rounded-3xl text-lg md:text-3xl font-semibold shadow-lg flex items-center justify-center gap-3">
-            <i class="fas fa-plus"></i> SUBMIT TIMETABLE
-        </button>
-    </div>
-    <div class="mt-8 md:mt-14">
-        <input id="searchInput" type="text" placeholder="Search course, lecturer, or day..."
-               class="w-full px-4 py-3 md:px-8 md:py-7 rounded-xl md:rounded-3xl border border-gray-300 focus:border-[#003087] focus:outline-none text-base md:text-lg"
-               onkeyup="liveSearch()">
-    </div>
-    <div class="my-8 md:my-12 flex gap-2 md:gap-5 flex-wrap" id="dayFilters"></div>
-    <div class="bg-white rounded-xl md:rounded-3xl shadow-xl overflow-hidden">
-        <div class="table-container overflow-x-auto">
-            <table class="w-full min-w-[600px]">
-                <thead class="bg-[#003087] text-white">
-                    <tr>
-                        <th class="text-left">Day</th>
-                        <th class="text-left">Time</th>
-                        <th class="text-left">Course</th>
-                        <th class="text-left">Lecturer</th>
-                    </tr>
-                </thead>
-                <tbody id="timetableBody"></tbody>
-            </table>
+    </header>
+
+    <!-- Main Content -->
+    <main class="mobile-container py-6">
+        <!-- Page Title -->
+        <div class="text-center mb-6">
+            <h2 class="header-font text-2xl font-bold text-[#003087] mb-2">Academic Timetable</h2>
+            <p class="text-gray-600">Find your classes quickly</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="grid grid-cols-2 gap-3 mb-6">
+            <button onclick="showSubmitTimetable()" class="btn btn-primary">
+                <i class="fas fa-plus"></i>
+                <span>Add Class</span>
+            </button>
+            <button onclick="showFeedbackForm()" class="btn btn-secondary">
+                <i class="fas fa-comment-dots"></i>
+                <span>Help</span>
+            </button>
+        </div>
+
+        <!-- Search -->
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search courses, lecturers..."
+                class="search-input"
+                onkeyup="liveSearch()"
+            >
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <!-- Day Filters -->
+        <div class="flex gap-2 mb-6 overflow-x-auto pb-2" id="dayFilters">
+            <!-- Day filters will be inserted here -->
+        </div>
+
+        <!-- Classes List -->
+        <div id="classesList" class="space-y-4">
+            <!-- Classes will be inserted here -->
+        </div>
+    </main>
+
+    <!-- Programs Modal -->
+    <div id="programsModal" class="modal hidden">
+        <div class="modal-content">
+            <button onclick="closeProgramsModal()" class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="p-6">
+                <h3 class="header-font text-xl font-bold text-[#003087] mb-4">Academic Programs</h3>
+                <div class="program-list" id="programsList">
+                    <!-- Programs will be inserted here -->
+                </div>
+            </div>
         </div>
     </div>
-</main>
 
-<!-- PROGRAMS MODAL -->
-<div id="programsModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-2 md:p-4">
-    <div class="bg-white rounded-2xl md:rounded-3xl w-full max-w-4xl relative max-h-[90vh] overflow-y-auto m-2 md:m-0">
-        <button onclick="closeProgramsModal()" class="absolute top-3 right-4 md:top-5 md:right-6 text-2xl md:text-4xl font-bold text-gray-500 hover:text-black z-10">×</button>
-        <div id="programsContent" class="p-4 md:p-10"></div>
-    </div>
-</div>
-
-<!-- HELP US IMPROVE FEEDBACK MODAL -->
-<div id="feedbackModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-2 md:p-4 z-50">
-    <div class="bg-white rounded-2xl md:rounded-3xl w-full max-w-[680px] relative max-h-[90vh] overflow-y-auto shadow-2xl m-2 md:m-0">
-        <button onclick="closeFeedbackModal()" class="absolute top-3 right-4 md:top-5 md:right-6 text-3xl md:text-5xl font-bold text-gray-500 hover:text-black z-10">×</button>
-        <div class="p-4 md:p-10 flex justify-center">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true" 
+    <!-- Submit Timetable Modal -->
+    <div id="submitModal" class="modal hidden">
+        <div class="modal-content">
+            <button onclick="closeSubmitModal()" class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="p-6">
+                <h3 class="header-font text-xl font-bold text-[#003087] mb-4">Submit Timetable</h3>
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfpyilXKH-4ZOhuAillwXChXtG3O_wnNAfItsW3WUEju7jvmQ/viewform?embedded=true" 
                     width="100%" 
-                    height="600" 
+                    height="500" 
                     frameborder="0" 
                     marginheight="0" 
-                    marginwidth="0">Loading…</iframe>
+                    marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- SUBMIT TIMETABLE MODAL -->
-<div id="submitModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-2 md:p-4 z-50">
-    <div class="bg-white rounded-2xl md:rounded-3xl w-full max-w-[680px] relative max-h-[90vh] overflow-y-auto shadow-2xl m-2 md:m-0">
-        <button onclick="closeSubmitModal()" class="absolute top-3 right-4 md:top-5 md:right-6 text-3xl md:text-5xl font-bold text-gray-500 hover:text-black z-10">×</button>
-        <div class="p-4 md:p-10 flex justify-center">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpyilXKH-4ZOhuAillwXChXtG3O_wnNAfItsW3WUEju7jvmQ/viewform?embedded=true" 
+    <!-- Feedback Modal -->
+    <div id="feedbackModal" class="modal hidden">
+        <div class="modal-content">
+            <button onclick="closeFeedbackModal()" class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="p-6">
+                <h3 class="header-font text-xl font-bold text-[#003087] mb-4">Help Us Improve</h3>
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfvxXjelmBCdbdXixV1cGSpVfdhcqbtdeeLFSxshzDX31hlxQ/viewform?embedded=true" 
                     width="100%" 
-                    height="600" 
+                    height="500" 
                     frameborder="0" 
                     marginheight="0" 
-                    marginwidth="0">Loading…</iframe>
+                    marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
         </div>
     </div>
-</div>
 
-<footer class="text-center py-6 md:py-12 text-gray-600 text-sm md:text-lg">
-    <p class="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
-        <span>Created by <strong class="text-[#003087]">Amos Banda</strong></span>
-        <span>•</span>
-        <span>with ❤️ for UNZA students</span>
-        <span>•</span>
-    </p>
-    <p class="mt-2 flex flex-col md:flex-row items-center justify-center gap-2">
-        <a href="tel:+260979077079" class="hover:text-blue-600">+260 979 077079</a>
-        <span>•</span>
-        <a href="mailto:bandaamos98@gmail.com" class="hover:text-blue-600">bandaamos98@gmail.com</a>
-    </p>
-</footer>
+    <!-- Floating Action Button -->
+    <button onclick="scrollToTop()" class="floating-btn mobile-only">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-<script>
-    let timetableData = [];
-    let activeDay = null;
-    const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-    const programsData = {
-        "DIPLOMA PROGRAMS": [
-            "Early Childhood Education", "Business Administration", "Sales and Marketing", "Finance and Accounting",
-            "Purchasing and Supply Management", "Social Work", "Human Resource Management", "Project Planning and Management",
-            "Public Administration", "Computer Science", "Records Management", "Guidance and Counselling",
-            "Public Health", "Bridging Public Health"
-        ]
-    };
-    // Full courseStructure from your original code (complete and unchanged)
-    const courseStructure = {
-        "Early Childhood Education": {
-            "1st Year": [
-                { code: "ECE 1110", title: "Introduction to Early Childhood Development and Education" },
-                { code: "ECE 1011", title: "Sociology of Education" },
-                { code: "ECE 1012", title: "Education Psychology" },
-                { code: "AED 1350", title: "Language and Communication Skills" },
-                { code: "ECE 1120", title: "Special Needs Education in Early Childhood Education" },
-                { code: "DSC 10111", title: "Computer Application and Concepts" }
-            ]
-        },
-        "Business Administration": {
-            "1st Year": [
-                { code: "BDA 1011", title: "Business Communication" },
-                { code: "DBA 1040", title: "Business Mathematics and Statistics" },
-                { code: "DAF 1030", title: "Financial Accounting" },
-                { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
-                { code: "DBA 10542", title: "Principles of Management" },
-                { code: "DSM 1012", title: "Principle of Marketing" }
-            ],
-            "2nd Year": [
-                { code: "DBA 2052", title: "Business Environment" },
-                { code: "DBA 2021", title: "Business Economics" },
-                { code: "DAF 2060", title: "Business and Company Law" },
-                { code: "DAE 2011", title: "Research Methods" },
-                { code: "DAF 2041", title: "Cost Accounting" },
-                { code: "DAF 2050", title: "Financial Management" }
-            ],
-            "3rd Year": [
-                { code: "DBA 3012", title: "International Business" },
-                { code: "DBA 3015", title: "Entrepreneurship" },
-                { code: "DAF 3011", title: "Investment Analysis and Portfolio Management" },
-                { code: "DBA 3021", title: "Strategic Management" },
-                { code: "DBA 3022", title: "Decision Making Techniques" },
-                { code: "DBS 3035", title: "Corporate Governance and Business Ethics" },
-                { code: "DHR 3015", title: "Organisation Behaviour" },
-                { code: "DAE 3015", title: "Research Methods" }
-            ]
-        },
-        "Sales and Marketing": {
-            "1st Year": [
-                { code: "BDA 1011", title: "Business Communication" },
-                { code: "DBA 1040", title: "Business Mathematics and Statistics" },
-                { code: "DAF 1030", title: "Financial Accounting" },
-                { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
-                { code: "DBA 10542", title: "Principles of Management" },
-                { code: "DSM 1012", title: "Principle of Marketing" }
-            ],
-            "2nd Year": [
-                { code: "DSM 2052", title: "Care and Service" },
-                { code: "DBA 2021", title: "Business Economics" },
-                { code: "DSM 2021", title: "Advertising" },
-                { code: "DAF 2060", title: "Business and Company Law" },
-                { code: "DAE 2011", title: "Research Methods" },
-                { code: "DAF 2050", title: "Financial Management" }
-            ]
-        },
-        "Finance and Accounting": {
-            "1st Year": [
-                { code: "BDA 1011", title: "Business Communication" },
-                { code: "DBA 1040", title: "Business Mathematics and Statistics" },
-                { code: "DAF 1030", title: "Financial Accounting" },
-                { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
-                { code: "DBA 10542", title: "Principles of Management" },
-                { code: "DSM 1012", title: "Principle of Marketing" }
-            ],
-            "2nd Year": [
-                { code: "DBA 2021", title: "Business Economics" },
-                { code: "DAF 2060", title: "Business and Company Law" },
-                { code: "DAE 2011", title: "Research Methods" },
-                { code: "DAF 2041", title: "Cost Accounting" },
-                { code: "DAF 2050", title: "Financial Management" },
-                { code: "DAF 2021", title: "Taxation" }
-            ],
-            "3rd Year": [
-                { code: "DAE 3015", title: "Research Report" },
-                { code: "DBA 3015", title: "Entrepreneurship" },
-                { code: "DAF 3012", title: "Financial Reporting" },
-                { code: "DBA 3035", title: "Corporate Governance and Business Ethics" },
-                { code: "DAF 3011", title: "Investment Analysis and Portfolio Management" },
-                { code: "DAF 3062", title: "Financial Risk Management" },
-                { code: "DHR 3015", title: "Organisation Behaviour" },
-                { code: "DAF 3022", title: "Auditing and Assurance" }
-            ]
-        },
-        "Purchasing and Supply Management": {
-            "1st Year": [
-                { code: "BDA 1011", title: "Business Communication" },
-                { code: "DBA 1040", title: "Business Mathematics and Statistics" },
-                { code: "DAF 1030", title: "Financial Accounting" },
-                { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
-                { code: "DBA 10542", title: "Principles of Management" },
-                { code: "DPS 1011", title: "Principle of Procurement and Process" }
-            ],
-            "2nd Year": [
-                { code: "DPS 2032", title: "Public Procurement" },
-                { code: "DBA 2052", title: "Business Environment" },
-                { code: "DAF 2041", title: "Cost Accounting" },
-                { code: "DAE 2011", title: "Research Methods" },
-                { code: "DPS 2021", title: "Inventory Management" },
-                { code: "DPS 2031", title: "Negotiations and Sourcing in Practice" },
-                { code: "DPS 2030", title: "Logistics and Supply Management" }
-            ],
-            "3rd Year": [
-                { code: "DPS 3041", title: "Strategic Procurement and Supply Management" },
-                { code: "DAE 3015", title: "Research Methods and Project" },
-                { code: "DBA 3015", title: "Entrepreneurship" },
-                { code: "DBA 3035", title: "Corporate Governance Ethics" },
-                { code: "DPS 3011", title: "Law of Procurement and Supply" },
-                { code: "DPS 3011", title: "Contract and Project Management" },
-                { code: "DPS 3321", title: "Quality Assurance Purchasing and Supply" },
-                { code: "DPS 3065", title: "Risk Management Procurement and Supply" }
-            ]
-        },
-        "Social Work": {
-            "1st Year": [
-                { code: "DAE 1015", title: "Language and Communication Skills" },
-                { code: "DSW 1110", title: "Introduction to Social Welfare" },
-                { code: "DSW 1120", title: "Introduction to Sociology" },
-                { code: "DSW 1010", title: "Introduction to Psychology" },
-                { code: "DCS 1011", title: "Computer Application Skills and Concepts" }
-            ],
-            "2nd Year": [
-                { code: "DSW 2110", title: "Contemporary Issues in Social Policy" },
-                { code: "DSW 2320", title: "Social Work Practice Methods" },
-                { code: "DSW 2430", title: "Social Work and Law" },
-                { code: "DAE 2011", title: "Research Methods and Project" }
-            ],
-            "3rd Year": [
-                { code: "DSW 3613", title: "Block Fieldwork" },
-                { code: "DSW 3110", title: "Social Welfare Theories and Social Policy Analysis" },
-                { code: "DSW 3330", title: "Research Project" },
-                { code: "DSW 3314", title: "Social Work, Disability and Mental Health" },
-                { code: "DBA 3315", title: "Entrepreneurship and Small Business Management" },
-                { code: "DSW 9315", title: "Analysis of Social Work Intervention" }
-            ]
-        },
-        "Human Resource Management": {
-            "1st Year": [
-                { code: "DAE 1015", title: "Language and Communication Skills" },
-                { code: "DCS 1011", title: "Computer Application and Concepts" },
-                { code: "DHR 1020", title: "Foundation of Human Resource Management" },
-                { code: "DBA 1040", title: "Business Mathematics and Statistics" },
-                { code: "DAF 1030", title: "Financial Accounting" }
-            ]
-        },
-        "Project Planning and Management": {
-            "1st Year": [
-                { code: "DCS 1011", title: "Computer Application and Concepts" },
-                { code: "DAE 1015", title: "Language and Communication Skills" },
-                { code: "DPA 1025", title: "Introduction to Public Administration" },
-                { code: "DIR 1015", title: "Introduction to Political Science" },
-                { code: "DPM 1015", title: "Introduction to Project Management" },
-                { code: "DHR 1020", title: "Foundation of Human Resource Management" },
-                { code: "DAF 1030", title: "Financial Accounting" }
-            ]
-        },
-        "Public Administration": {
-            "1st Year": [
-                { code: "DAE 1015", title: "Language and Business Communication Skills" },
-                { code: "DCS 1011", title: "Computer Application and Concepts" },
-                { code: "DPA 1025", title: "Introduction to Public Administration" },
-                { code: "DIR 1015", title: "Introduction to Political Science" },
-                { code: "DHR 1020", title: "Foundation of Human Resource" },
-                { code: "DPR 1130", title: "Principles of Public Relations" }
-            ],
-            "2nd Year": [
-                { code: "DPA 2011", title: "Government and Administration in Zambia" },
-                { code: "DPA 2012", title: "Comparative Public Administration" },
-                { code: "DPA 2031", title: "Resourcing: Recruitment, Placement and Talent MGT" },
-                { code: "DPA 2022", title: "Labour Laws" },
-                { code: "DPA 2021", title: "Local Government Administration in Zambia" },
-                { code: "DAE 2011", title: "Research Methods" },
-                { code: "DHR 2030", title: "Labour Relations" }
-            ],
-            "3rd Year": [
-                { code: "DPA 3011", title: "Organisational Theory, Design and Management" },
-                { code: "DPA 3031", title: "Human Resource Management" },
-                { code: "DPA 9025", title: "Public Financial Management" },
-                { code: "DPA 9045", title: "Public Administrative Ethics and Law" },
-                { code: "DPA 9035", title: "Public Procurement" },
-                { code: "DBA 3015", title: "Entrepreneurship" },
-                { code: "DAE 3015", title: "Research Report" },
-                { code: "DHR 3015", title: "Organisation Behaviour" }
-            ]
-        },
-        "Computer Science": {
-            "1st Year": [
-                { code: "DAE 1015", title: "Language and Communication Skills" },
-                { code: "DCS 1010", title: "Computer Application and Concepts" },
-                { code: "DCS 1020", title: "Computer Programming" },
-                { code: "DCS 1030", title: "Computer System" },
-                { code: "DCS 1025", title: "Computer Number Representation and Data Encoding" }
-            ],
-            "2nd Year": [
-                { code: "DCS 2000", title: "Computer Organisation and Architecture" },
-                { code: "DCS 2010", title: "Database Design and Management" },
-                { code: "DCS 2020", title: "Mathematics for Computing" },
-                { code: "DCS 2030", title: "Network Design and Management" }
-            ],
-            "3rd Year": [
-                { code: "DCS 3000", title: "Operating Systems" },
-                { code: "DCS 3010", title: "Software Analysis and Design Concepts" },
-                { code: "DCS 3020", title: "Web Development and Management" },
-                { code: "DCS 3004", title: "Computing Project" }
-            ]
-        },
-        "Records Management": {
-            "1st Year": [
-                { code: "DAE 1350", title: "Language and Communication Skills" },
-                { code: "DRM 1010", title: "Foundation of Records and Archives Management" },
-                { code: "DRM 1020", title: "Foundation of Knowledge Management" },
-                { code: "DCS 1011", title: "Computer Application and Concepts" }
-            ],
-            "2nd Year": [
-                { code: "DAE 2410", title: "Research Methods" },
-                { code: "DRM 2010", title: "Electronic Records Management" },
-                { code: "DRM 2020", title: "Management of Current and Semi-Current Records" },
-                { code: "DLS 2010", title: "Organisation of Information Resources" }
-            ],
-            "3rd Year": [
-                { code: "DRM 3010", title: "Financial and Human Resource Records Management" },
-                { code: "DLS 3010", title: "Management of Information System" },
-                { code: "DRM 3020", title: "Archives Administration" },
-                { code: "DRM 3414", title: "Research in Records Management" },
-                { code: "DLS 3043", title: "Information Management Practicum" }
-            ]
-        },
-        "Guidance and Counselling": {
-            "1st Year": [
-                { code: "DAE 1015", title: "Language and Communication Skills" },
-                { code: "DCS 1011", title: "Computer Application and Concepts" },
-                { code: "DGC 1020", title: "Introduction to Guidance" },
-                { code: "DGC 1020", title: "Introduction to Counselling" },
-                { code: "DGC 1030", title: "Child Counselling" }
-            ],
-            "2nd Year": [
-                { code: "DGC 2010", title: "Personality Development and Disorders" },
-                { code: "DGC 2012", title: "Psychometrics in Guidance" },
-                { code: "DGC 2030", title: "Ethics in Guidance and Counselling" },
-                { code: "DAE 2011", title: "Research Methods" },
-                { code: "EDU 2011", title: "Sociology of Education" },
-                { code: "EDU 2012", title: "Educational Psychology" }
-            ],
-            "3rd Year": [
-                { code: "DGC 3020", title: "Guidance and Counselling Skills" },
-                { code: "DGC 3010", title: "Emerging Issues in Counselling" },
-                { code: "DGC 3040", title: "Placement" },
-                { code: "DGC 3414", title: "Research Project in Guidance and Counseling" },
-                { code: "DGC 3003", title: "Practicum" }
-            ]
-        },
-        "Public Health": {
-            "1st Year": [
-                { code: "DPH 1210", title: "Medical and Health Instrumentation" },
-                { code: "DPH 1110", title: "Principles of Public Health" },
-                { code: "DPH 1310", title: "Information, Communication and Technology" },
-                { code: "DPH 1410", title: "Introduction to Basic Science and Mathematics" },
-                { code: "DPH 1420", title: "Communicable and Non-Communicable Disease" }
-            ],
-            "2nd Year": [
-                { code: "DPH 2135", title: "Introduction to Epidemiology and Biostatistics" },
-                { code: "DPH 2220", title: "Occupational Health and Safety" },
-                { code: "DPH 2235", title: "Pestology" },
-                { code: "DPH 2120", title: "Principle of Public and Environment Health" },
-                { code: "DPH 2320", title: "Introduction to Community Health" },
-                { code: "DPH 2335", title: "Industrial Attachment and Reporting" },
-                { code: "DPH 2434", title: "Research Methods and Proposal Development" }
-            ],
-            "3rd Year": [
-                { code: "DPH 3360", title: "Introduction to Food Chemistry and Nutrition" },
-                { code: "DPH 3370", title: "Food Safety and Hygiene" },
-                { code: "DPH 3240", title: "Waste Management" },
-                { code: "DPH 3440", title: "Integrated Disease Surveillance and Response" },
-                { code: "DPH 3455", title: "Introduction to Health Services Management" },
-                { code: "DPH 3464", title: "Research Methods and Project Report" }
-            ]
-        },
-        "Bridging Public Health": {
-            "1st Year": [
-                { code: "DPH 2135", title: "Introduction to Epidemiology and Biostatistics" },
-                { code: "DPH 2220", title: "Occupational and Health Safety" },
-                { code: "DPH 2235", title: "Pestology" },
-                { code: "DPH 2120", title: "Principles of Public and Environmental Health" },
-                { code: "DPH 1420", title: "Communicable and Non-Communicable Diseases" },
-                { code: "DPH 3360", title: "Introduction to Food Chemistry and Nutrition" },
-                { code: "DPH 3370", title: "Food Safety and Hygiene" }
-            ]
-        }
-    };
-
-    async function loadData() {
-        try {
-            const res = await fetch('lecture.json');
-            const data = await res.json();
-            timetableData = data.timetable || [];
-        } catch (e) {
-            console.error("Failed to load lecture.json", e);
-            timetableData = [];
-        }
-        const todayIndex = new Date().getDay();
-        const dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-        activeDay = dayNames[todayIndex] || "Monday";
-        renderDayFilters();
-        renderTable(timetableData.filter(x => x.day === activeDay));
-    }
-
-    function renderDayFilters() {
-        const container = document.getElementById('dayFilters');
-        container.innerHTML = '';
-        allDays.forEach(day => {
-            const isActive = activeDay === day;
-            const btnClass = isActive
-                ? "px-3 py-2 md:px-8 md:py-4 bg-[#003087] text-white rounded-xl md:rounded-2xl shadow-md font-semibold text-sm md:text-base"
-                : "px-3 py-2 md:px-8 md:py-4 border border-gray-300 hover:border-[#003087] text-gray-700 rounded-xl md:rounded-2xl text-sm md:text-base";
-            container.innerHTML += `<button onclick="filterByDay('${day}')" class="${btnClass}">${day}</button>`;
-        });
-    }
-
-    function renderTable(data) {
-        const tbody = document.getElementById('timetableBody');
-        tbody.innerHTML = data.map(item => {
-            const lecturerParts = (item.lecturer || '').split('\n');
-            const name = lecturerParts[0] || 'Not Assigned';
-            const phone = lecturerParts[1] || '';
-            return `
-                <tr class="table-row border-b">
-                    <td class="font-medium text-xs md:text-sm">${item.day || ''}</td>
-                    <td class="text-xs md:text-sm">${item.time || ''}</td>
-                    <td class="text-xs md:text-sm">
-                        <div class="course-code">${item.course || ''}</div>
-                        ${item.fullName ? `<div class="course-name">${item.fullName}</div>` : ''}
-                    </td>
-                    <td class="text-xs md:text-sm">
-                        <div class="mb-2 md:mb-3">${name}</div>
-                        ${phone ? `<button onclick="prepareCall('${name.replace(/'/g, "\\'")}','${phone}')"
-                            class="text-blue-600 flex items-center gap-1 md:gap-2 text-xs md:text-sm hover:underline">
-                            <i class="fas fa-phone"></i> <span class="hidden md:inline">Call Lecturer</span><span class="md:hidden">Call</span>
-                        </button>` : ''}
-                    </td>
-                </tr>`;
-        }).join('');
-        if (data.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="4" class="text-center py-8 md:py-16 text-gray-500 text-lg md:text-3xl">No classes scheduled for this day</td></tr>`;
-        }
-    }
-
-    function prepareCall(name, phone) {
-        if (phone) window.location.href = `tel:${phone}`;
-    }
-
-    function liveSearch() {
-        const term = document.getElementById('searchInput').value.toLowerCase().trim();
-        if (!term) {
-            renderTable(timetableData.filter(x => x.day === activeDay));
-            return;
-        }
-        const filtered = timetableData.filter(x =>
-            (x.course || '').toLowerCase().includes(term) ||
-            (x.fullName || '').toLowerCase().includes(term) ||
-            (x.lecturer || '').toLowerCase().includes(term) ||
-            (x.day || '').toLowerCase().includes(term)
-        );
-        renderTable(filtered);
-    }
-
-    function filterByDay(day) {
-        activeDay = (activeDay === day) ? null : day;
-        renderDayFilters();
-        const filtered = activeDay
-            ? timetableData.filter(x => x.day === activeDay)
-            : timetableData;
-        renderTable(filtered);
-    }
-
-    // ==================== FULL PROGRAMS MODAL FEATURES (from original) ====================
-    function showPrograms() {
-        document.getElementById('programsModal').classList.remove('hidden');
-        renderCategories();
-    }
-
-    function closeProgramsModal() {
-        document.getElementById('programsModal').classList.add('hidden');
-    }
-
-    function renderCategories() {
-        const content = document.getElementById('programsContent');
-        content.innerHTML = `
-            <h2 class="text-4xl font-bold text-center mb-10 text-[#003087]">Our Academic Programs</h2>
-            <div class="flex justify-center">
-                <button onclick="showCategory('DIPLOMA PROGRAMS')"
-                        class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-16 py-8 rounded-3xl text-4xl font-semibold shadow-lg hover:scale-105 transition flex items-center gap-4">
-                    <i class="fas fa-graduation-cap"></i> CLICK ME TO VIEW COURSES
-                </button>
-            </div>`;
-    }
-
-    function showCategory(cat) {
-        const content = document.getElementById('programsContent');
-        const courses = programsData[cat] || [];
-        let html = `<div class="flex items-center justify-between mb-8">
-            <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
-            <button onclick="renderCategories()" class="text-[#003087] hover:underline text-xl">← Back</button>
-        </div><div class="space-y-6">`;
-      
-        courses.forEach(course => {
-            html += `<button onclick="showCourseYears('${cat}', '${course}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left">
-                <div class="text-2xl font-medium">${course}</div>
-                <i class="fas fa-chevron-right text-2xl text-gray-400"></i>
-            </button>`;
-        });
-        html += `</div>`;
-        content.innerHTML = html;
-    }
-
-    function showCourseYears(cat, course) {
-        const content = document.getElementById('programsContent');
-        const availableYears = Object.keys(courseStructure[course] || {}).sort();
-      
-        let html = `<div class="flex items-center justify-between mb-8">
-            <div>
-                <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
-                <h3 class="text-2xl text-gray-600">${course}</h3>
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-center py-6 mt-12">
+        <div class="mobile-container">
+            <p class="text-sm text-gray-600 mb-2">
+                Created by <strong class="text-[#003087]">Amos Banda</strong> with ❤️
+            </p>
+            <div class="flex justify-center gap-4 text-sm">
+                <a href="tel:+260979077079" class="text-[#003087] hover:underline">
+                    <i class="fas fa-phone mr-1"></i>+260 979 077079
+                </a>
+                <a href="mailto:bandaamos98@gmail.com" class="text-[#003087] hover:underline">
+                    <i class="fas fa-envelope mr-1"></i>Email
+                </a>
             </div>
-            <button onclick="showCategory('${cat}')" class="text-[#003087] hover:underline text-xl">← Back</button>
-        </div><div class="space-y-6">`;
-        availableYears.forEach(year => {
-            html += `<button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="w-full flex justify-between items-center bg-gray-50 p-6 rounded-3xl border hover:border-[#003087] text-left">
-                <div class="text-2xl font-medium">${year}</div>
-                <i class="fas fa-chevron-right text-2xl text-gray-400"></i>
-            </button>`;
-        });
-        html += `</div>`;
-        content.innerHTML = html;
-    }
+        </div>
+    </footer>
 
-    function showYearOptions(cat, course, year) {
-        const content = document.getElementById('programsContent');
-        content.innerHTML = `
-            <div class="flex items-center justify-between mb-8">
-                <div>
-                    <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
-                    <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
-                </div>
-                <button onclick="showCourseYears('${cat}', '${course}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Years</button>
-            </div>
-            <div class="grid grid-cols-2 gap-8">
-                <button onclick="showCoursesList('${cat}', '${course}', '${year}')" class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-10 rounded-3xl text-left hover:scale-105 transition shadow-lg">
-                    <i class="fas fa-book text-5xl mb-4"></i>
-                    <div class="text-4xl font-semibold mb-2">Courses</div>
-                    <div class="text-xl opacity-90">View all courses for ${year}</div>
-                </button>
-                <button onclick="showYearTimetable('${cat}', '${course}', '${year}')" class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-10 rounded-3xl text-left hover:scale-105 transition shadow-lg">
-                    <i class="fas fa-calendar-alt text-5xl mb-4"></i>
-                    <div class="text-4xl font-semibold mb-2">Timetable</div>
-                    <div class="text-xl opacity-90">View class schedule for ${year}</div>
-                </button>
-            </div>`;
-    }
+    <script>
+        let timetableData = [];
+        let activeDay = null;
+        const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        
+        const programsData = {
+            "DIPLOMA PROGRAMS": [
+                "Early Childhood Education", "Business Administration", "Sales and Marketing", 
+                "Finance and Accounting", "Purchasing and Supply Management", "Social Work", 
+                "Human Resource Management", "Project Planning and Management", "Public Administration", 
+                "Computer Science", "Records Management", "Guidance and Counselling", "Public Health"
+            ]
+        };
 
-    function showCoursesList(cat, course, year) {
-        const content = document.getElementById('programsContent');
-        const list = courseStructure[course] && courseStructure[course][year] ? courseStructure[course][year] : [];
-      
-        let html = `
-            <div class="flex items-center justify-between mb-8">
-                <div>
-                    <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
-                    <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
-                </div>
-                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back</button>
-            </div>`;
-        if (list.length === 0) {
-            html += `<div class="bg-white rounded-3xl shadow-xl p-10 text-center text-3xl text-gray-500">No courses added yet.</div>`;
-        } else {
-            html += `<div class="bg-white rounded-3xl shadow-xl p-8">
-                <div class="flex justify-between items-center mb-6">
-                    <h4 class="text-3xl font-semibold">Course List</h4>
-                    <span class="bg-[#003087] text-white px-6 py-2 rounded-2xl text-2xl">${list.length} Courses</span>
-                </div>
-                <ol class="space-y-5 text-2xl">`;
-            list.forEach((c, i) => {
-                html += `<li class="flex gap-4"><span class="font-bold text-[#003087]">${i+1}.</span> <strong>${c.code}</strong> - ${c.title}</li>`;
-            });
-            html += `</ol></div>`;
+        async function loadData() {
+            try {
+                const res = await fetch('lecture.json');
+                const data = await res.json();
+                timetableData = data.timetable || [];
+            } catch (e) {
+                console.error("Failed to load lecture.json", e);
+                timetableData = [];
+            }
+            
+            // Set today as active day
+            const todayIndex = new Date().getDay();
+            const dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            activeDay = dayNames[todayIndex] || "Monday";
+            
+            renderDayFilters();
+            renderClasses();
         }
-        content.innerHTML = html;
-    }
 
-    // FULL TIMETABLE VIEW FOR SELECTED COURSE + YEAR (enhanced from original placeholder)
-    function showYearTimetable(cat, course, year) {
-        const content = document.getElementById('programsContent');
-        const yearCourses = (courseStructure[course] && courseStructure[course][year]) || [];
-        const courseCodes = yearCourses.map(c => c.code.toLowerCase().trim());
-        // Filter main timetable data to only show classes for this program's year courses
-        const filtered = timetableData.filter(item => {
-            const itemCourse = (item.course || '').toLowerCase().trim();
-            return courseCodes.some(code =>
-                itemCourse === code ||
-                itemCourse.startsWith(code) ||
-                code.startsWith(itemCourse)
-            );
-        });
-        let html = `
-            <div class="flex items-center justify-between mb-8">
-                <div>
-                    <h2 class="text-4xl font-bold text-[#003087]">${cat}</h2>
-                    <h3 class="text-2xl text-gray-600">${course} – ${year}</h3>
-                </div>
-                <button onclick="showYearOptions('${cat}', '${course}', '${year}')" class="text-[#003087] hover:underline flex items-center gap-2 text-xl">← Back to Options</button>
-            </div>`;
-        if (filtered.length === 0) {
-            html += `
-                <div class="bg-white rounded-3xl shadow-xl p-10 text-center">
-                    <p class="text-3xl text-gray-500 mb-8">No timetable entries have been added yet for ${course} – ${year}.</p>
-                    <button onclick="openSubmitForm()" class="bg-[#003087] hover:bg-[#002266] text-white px-12 py-6 rounded-3xl text-3xl font-semibold shadow-lg flex items-center gap-3 mx-auto">
-                        <i class="fas fa-plus"></i> Click to add timetable
-                    </button>
-                </div>`;
-        } else {
-            // Sort by day then time for a clean full-week view
-            const sorted = [...filtered].sort((a, b) => {
-                const dayOrder = allDays.indexOf(a.day || '') - allDays.indexOf(b.day || '');
-                if (dayOrder !== 0) return dayOrder;
-                return (a.time || '').localeCompare(b.time || '');
+        function renderDayFilters() {
+            const container = document.getElementById('dayFilters');
+            container.innerHTML = '';
+            
+            // Add "All" button
+            const allBtn = document.createElement('button');
+            allBtn.className = `day-filter ${!activeDay ? 'active' : ''}`;
+            allBtn.textContent = 'All';
+            allBtn.onclick = () => filterByDay(null);
+            container.appendChild(allBtn);
+            
+            // Add day buttons
+            allDays.forEach(day => {
+                const btn = document.createElement('button');
+                btn.className = `day-filter ${activeDay === day ? 'active' : ''}`;
+                btn.textContent = day.substring(0, 3); // Show first 3 letters on mobile
+                btn.onclick = () => filterByDay(day);
+                container.appendChild(btn);
             });
-            html += `
-                <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
-                    <table class="w-full">
-                        <thead class="bg-[#003087] text-white">
-                            <tr>
-                                <th class="text-left">Day</th>
-                                <th class="text-left">Time</th>
-                                <th class="text-left">Course</th>
-                                <th class="text-left">Lecturer</th>
-                            </tr>
-                        </thead>
-                        <tbody>`;
-           
-            html += sorted.map(item => {
+        }
+
+        function renderClasses() {
+            const container = document.getElementById('classesList');
+            const filtered = activeDay 
+                ? timetableData.filter(item => item.day === activeDay)
+                : timetableData;
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="card empty-state">
+                        <i class="fas fa-calendar-times"></i>
+                        <h3 class="text-lg font-semibold mb-2">No Classes Found</h3>
+                        <p>No classes scheduled for ${activeDay || 'this filter'}</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = filtered.map(item => {
                 const lecturerParts = (item.lecturer || '').split('\n');
                 const name = lecturerParts[0] || 'Not Assigned';
                 const phone = lecturerParts[1] || '';
+                
                 return `
-                    <tr class="table-row border-b">
-                        <td class="font-medium">${item.day || ''}</td>
-                        <td>${item.time || ''}</td>
-                        <td>
-                            <div class="course-code">${item.course || ''}</div>
-                            ${item.fullName ? `<div class="course-name">${item.fullName}</div>` : ''}
-                        </td>
-                        <td>
-                            <div class="mb-3">${name}</div>
-                            ${phone ? `<button onclick="prepareCall('${name.replace(/'/g, "\\'")}','${phone}')" class="text-blue-600 flex items-center gap-2 text-lg hover:underline">
-                                <i class="fas fa-phone"></i> Call Lecturer
-                            </button>` : ''}
-                        </td>
-                    </tr>`;
+                    <div class="card class-card">
+                        <div class="class-time">
+                            <i class="fas fa-clock mr-2"></i>${item.day || ''} • ${item.time || ''}
+                        </div>
+                        <div class="course-code">${item.course || ''}</div>
+                        ${item.fullName ? `<div class="course-name">${item.fullName}</div>` : ''}
+                        <div class="lecturer-name">${name}</div>
+                        ${phone ? `
+                            <a href="tel:${phone}" class="call-btn">
+                                <i class="fas fa-phone"></i>
+                                Call Lecturer
+                            </a>
+                        ` : ''}
+                    </div>
+                `;
             }).join('');
-            html += `</tbody></table></div>`;
         }
-        content.innerHTML = html;
-    }
 
-    // NEW: Feedback form modal functions
-    function showFeedbackForm() {
-        document.getElementById('feedbackModal').classList.remove('hidden');
-    }
+        function liveSearch() {
+            const term = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!term) {
+                renderClasses();
+                return;
+            }
+            
+            const filtered = timetableData.filter(item => 
+                (item.course || '').toLowerCase().includes(term) ||
+                (item.fullName || '').toLowerCase().includes(term) ||
+                (item.lecturer || '').toLowerCase().includes(term) ||
+                (item.day || '').toLowerCase().includes(term)
+            );
+            
+            renderFilteredClasses(filtered);
+        }
 
-    function closeFeedbackModal() {
-        document.getElementById('feedbackModal').classList.add('hidden');
-    }
+        function renderFilteredClasses(filtered) {
+            const container = document.getElementById('classesList');
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="card empty-state">
+                        <i class="fas fa-search"></i>
+                        <h3 class="text-lg font-semibold mb-2">No Results Found</h3>
+                        <p>Try searching with different keywords</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = filtered.map(item => {
+                const lecturerParts = (item.lecturer || '').split('\n');
+                const name = lecturerParts[0] || 'Not Assigned';
+                const phone = lecturerParts[1] || '';
+                
+                return `
+                    <div class="card class-card">
+                        <div class="class-time">
+                            <i class="fas fa-clock mr-2"></i>${item.day || ''} • ${item.time || ''}
+                        </div>
+                        <div class="course-code">${item.course || ''}</div>
+                        ${item.fullName ? `<div class="course-name">${item.fullName}</div>` : ''}
+                        <div class="lecturer-name">${name}</div>
+                        ${phone ? `
+                            <a href="tel:${phone}" class="call-btn">
+                                <i class="fas fa-phone"></i>
+                                Call Lecturer
+                            </a>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
 
-    // NEW: Submit Timetable modal functions
-    function showSubmitTimetable() {
-        document.getElementById('submitModal').classList.remove('hidden');
-    }
+        function filterByDay(day) {
+            activeDay = (activeDay === day) ? null : day;
+            renderDayFilters();
+            renderClasses();
+        }
 
-    function closeSubmitModal() {
-        document.getElementById('submitModal').classList.add('hidden');
-    }
+        function showPrograms() {
+            document.getElementById('programsModal').classList.remove('hidden');
+            renderProgramsList();
+        }
 
-    // Updated: Now opens the real Submit Timetable Google Form
-    function openSubmitForm() {
-        // Optional: close programs modal so the submit form is clearly visible
-        closeProgramsModal();
-        showSubmitTimetable();
-    }
+        function closeProgramsModal() {
+            document.getElementById('programsModal').classList.add('hidden');
+        }
 
-    // Start the application
-    loadData();
-</script>
+        function renderProgramsList() {
+            const container = document.getElementById('programsList');
+            const programs = programsData["DIPLOMA PROGRAMS"] || [];
+            
+            container.innerHTML = programs.map(program => `
+                <div class="program-item" onclick="selectProgram('${program}')">
+                    <div class="font-medium">${program}</div>
+                </div>
+            `).join('');
+        }
+
+        function selectProgram(program) {
+            closeProgramsModal();
+            // Filter timetable by program (simplified for mobile)
+            const filtered = timetableData.filter(item => 
+                (item.fullName || '').toLowerCase().includes(program.toLowerCase().split(' ')[0]) ||
+                (item.course || '').substring(0, 3) === program.substring(0, 3).toUpperCase()
+            );
+            renderFilteredClasses(filtered);
+        }
+
+        function showSubmitTimetable() {
+            document.getElementById('submitModal').classList.remove('hidden');
+        }
+
+        function closeSubmitModal() {
+            document.getElementById('submitModal').classList.add('hidden');
+        }
+
+        function showFeedbackForm() {
+            document.getElementById('feedbackModal').classList.remove('hidden');
+        }
+
+        function closeFeedbackModal() {
+            document.getElementById('feedbackModal').classList.add('hidden');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeProgramsModal();
+                closeSubmitModal();
+                closeFeedbackModal();
+            }
+        });
+
+        // Initialize app
+        loadData();
+    </script>
 </body>
 </html>
