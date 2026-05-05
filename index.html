@@ -19,6 +19,14 @@
             user-select: none;
         }
         
+        .modal-close, button, .btn {
+            -webkit-user-select: auto;
+            -khtml-user-select: auto;
+            -moz-user-select: auto;
+            -ms-user-select: auto;
+            user-select: auto;
+        }
+        
         input, textarea {
             -webkit-user-select: auto;
             -khtml-user-select: auto;
@@ -246,7 +254,25 @@
             font-size: 24px;
             color: #64748b;
             cursor: pointer;
-            padding: 4px;
+            padding: 8px;
+            min-width: 44px;
+            min-height: 44px;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+        
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: #1e293b;
+        }
+        
+        .modal-close:active {
+            background: rgba(0, 0, 0, 0.2);
+            transform: scale(0.95);
         }
         
         .floating-btn {
