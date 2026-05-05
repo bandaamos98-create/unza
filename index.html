@@ -168,10 +168,11 @@
         }
         
         .course-name {
-            font-size: 14px;
-            color: #475569;
+            font-size: 18px;
+            color: #10b981;
             margin-bottom: 12px;
             line-height: 1.4;
+            font-weight: 600;
         }
         
         .lecturer-name {
@@ -307,7 +308,8 @@
             }
             
             .course-name {
-                font-size: 13px;
+                font-size: 16px;
+                color: #10b981;
             }
             
             .lecturer-name {
@@ -925,24 +927,7 @@
 
         function showPrograms() {
             document.getElementById('programsModal').classList.remove('hidden');
-            renderProgramCategories();
-        }
-
-        function closeProgramsModal() {
-            document.getElementById('programsModal').classList.add('hidden');
-        }
-
-        function renderProgramCategories() {
-            const content = document.getElementById('programsContent');
-            content.innerHTML = `
-                <h3 class="header-font text-xl font-bold text-[#003087] mb-4">Academic Programs</h3>
-                <div class="program-list">
-                    <div class="program-item" onclick="showProgramList('DIPLOMA PROGRAMS')">
-                        <div class="font-medium">DIPLOMA PROGRAMS</div>
-                        <div class="text-sm text-gray-500">Click to view all diploma programs</div>
-                    </div>
-                </div>
-            `;
+            showProgramList('DIPLOMA PROGRAMS');
         }
 
         function showProgramList(category) {
@@ -951,7 +936,7 @@
             
             content.innerHTML = `
                 <div class="flex items-center mb-4">
-                    <button onclick="renderProgramCategories()" class="text-[#003087] mr-3">
+                    <button onclick="closeProgramsModal()" class="text-[#003087] mr-3">
                         <i class="fas fa-arrow-left"></i>
                     </button>
                     <h3 class="header-font text-xl font-bold text-[#003087]">${category}</h3>
@@ -1090,16 +1075,64 @@
                     </div>
                 `;
             } else {
-                // Sort by day then time
-                const sorted = [...filtered].sort((a, b) => {
-                    const dayOrder = allDays.indexOf(a.day || '') - allDays.indexOf(b.day || '');
-                    if (dayOrder !== 0) return dayOrder;
-                    return (a.time || '').localeCompare(b.time || '');
-                });
-                
+                // Add day selection buttons
+                const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
                 content.innerHTML += `
+                    <div class="flex gap-2 mb-4 overflow-x-auto pb-2">
+                        ${weekdays.map(day => `
+                            <button onclick="showProgramTimetableByDay('${program}', '${year}', '${day}')" 
+                                    class="day-filter" id="day-${day}">
+                                ${day.substring(0, 3)}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="programTimetableContent">
+                        <!-- Timetable content will be inserted here -->
+                    </div>
+                `;
+                
+                // Show Monday by default
+                showProgramTimetableByDay(program, year, 'Monday');
+            }
+        }
+
+        function showProgramTimetableByDay(program, year, selectedDay) {
+            const yearCourses = (courseStructure[program] && courseStructure[program][year]) || [];
+            const courseCodes = yearCourses.map(c => c.code.toLowerCase().trim());
+            
+            // Filter main timetable data to only show classes for this program's year courses
+            const filtered = timetableData.filter(item => {
+                const itemCourse = (item.course || '').toLowerCase().trim();
+                return courseCodes.some(code =>
+                    itemCourse === code ||
+                    itemCourse.startsWith(code) ||
+                    code.startsWith(itemCourse)
+                ) && (item.day || '') === selectedDay;
+            });
+            
+            // Update active day button
+            document.querySelectorAll('.day-filter').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = document.getElementById(`day-${selectedDay}`);
+            if (activeBtn) activeBtn.classList.add('active');
+            
+            const contentDiv = document.getElementById('programTimetableContent');
+            
+            if (filtered.length === 0) {
+                contentDiv.innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fas fa-calendar-times text-2xl text-gray-300 mb-3"></i>
+                        <p class="text-gray-500">No classes on ${selectedDay}</p>
+                    </div>
+                `;
+            } else {
+                // Sort by time
+                const sorted = [...filtered].sort((a, b) => (a.time || '').localeCompare(b.time || ''));
+                
+                contentDiv.innerHTML = `
                     <div class="bg-gray-50 rounded-lg p-3 mb-3">
-                        <div class="text-sm font-medium text-gray-700">${sorted.length} Classes</div>
+                        <div class="text-sm font-medium text-gray-700">${sorted.length} Classes on ${selectedDay}</div>
                     </div>
                     <div class="program-list">
                         ${sorted.map(item => {
@@ -1114,7 +1147,9 @@
                                             <div class="flex-1">
                                                 <div class="font-medium text-sm">${item.course || ''}</div>
                                                 <div class="text-xs text-gray-600">${item.fullName || ''}</div>
-                                                <div class="text-xs text-gray-500 mt-1">${item.day || ''} • ${item.time || ''}</div>
+                                                <div class="text-xs text-gray-500 mt-1">
+                                                    <i class="fas fa-clock mr-1"></i>${item.time || ''}
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="flex justify-between items-center">
