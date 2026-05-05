@@ -405,9 +405,8 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="p-6">
-                <h3 class="header-font text-xl font-bold text-[#003087] mb-4">Academic Programs</h3>
-                <div class="program-list" id="programsList">
-                    <!-- Programs will be inserted here -->
+                <div id="programsContent">
+                    <!-- Dynamic content will be inserted here -->
                 </div>
             </div>
         </div>
@@ -489,6 +488,297 @@
                 "Human Resource Management", "Project Planning and Management", "Public Administration", 
                 "Computer Science", "Records Management", "Guidance and Counselling", "Public Health"
             ]
+        };
+
+        const courseStructure = {
+            "Early Childhood Education": {
+                "1st Year": [
+                    { code: "ECE 1110", title: "Introduction to Early Childhood Development and Education" },
+                    { code: "ECE 1011", title: "Sociology of Education" },
+                    { code: "ECE 1012", title: "Education Psychology" },
+                    { code: "AED 1350", title: "Language and Communication Skills" },
+                    { code: "ECE 1120", title: "Special Needs Education in Early Childhood Education" },
+                    { code: "DSC 10111", title: "Computer Application and Concepts" }
+                ]
+            },
+            "Business Administration": {
+                "1st Year": [
+                    { code: "BDA 1011", title: "Business Communication" },
+                    { code: "DBA 1040", title: "Business Mathematics and Statistics" },
+                    { code: "DAF 1030", title: "Financial Accounting" },
+                    { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
+                    { code: "DBA 10542", title: "Principles of Management" },
+                    { code: "DSM 1012", title: "Principle of Marketing" }
+                ],
+                "2nd Year": [
+                    { code: "DBA 2052", title: "Business Environment" },
+                    { code: "DBA 2021", title: "Business Economics" },
+                    { code: "DAF 2060", title: "Business and Company Law" },
+                    { code: "DAE 2011", title: "Research Methods" },
+                    { code: "DAF 2041", title: "Cost Accounting" },
+                    { code: "DAF 2050", title: "Financial Management" }
+                ],
+                "3rd Year": [
+                    { code: "DBA 3012", title: "International Business" },
+                    { code: "DBA 3015", title: "Entrepreneurship" },
+                    { code: "DAF 3011", title: "Investment Analysis and Portfolio Management" },
+                    { code: "DBA 3021", title: "Strategic Management" },
+                    { code: "DBA 3022", title: "Decision Making Techniques" },
+                    { code: "DBS 3035", title: "Corporate Governance and Business Ethics" },
+                    { code: "DHR 3015", title: "Organisation Behaviour" },
+                    { code: "DAE 3015", title: "Research Methods" }
+                ]
+            },
+            "Sales and Marketing": {
+                "1st Year": [
+                    { code: "BDA 1011", title: "Business Communication" },
+                    { code: "DBA 1040", title: "Business Mathematics and Statistics" },
+                    { code: "DAF 1030", title: "Financial Accounting" },
+                    { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
+                    { code: "DBA 10542", title: "Principles of Management" },
+                    { code: "DSM 1012", title: "Principle of Marketing" }
+                ],
+                "2nd Year": [
+                    { code: "DSM 2052", title: "Care and Service" },
+                    { code: "DBA 2021", title: "Business Economics" },
+                    { code: "DSM 2021", title: "Advertising" },
+                    { code: "DAF 2060", title: "Business and Company Law" },
+                    { code: "DAE 2011", title: "Research Methods" },
+                    { code: "DAF 2050", title: "Financial Management" }
+                ]
+            },
+            "Finance and Accounting": {
+                "1st Year": [
+                    { code: "BDA 1011", title: "Business Communication" },
+                    { code: "DBA 1040", title: "Business Mathematics and Statistics" },
+                    { code: "DAF 1030", title: "Financial Accounting" },
+                    { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
+                    { code: "DBA 10542", title: "Principles of Management" },
+                    { code: "DSM 1012", title: "Principle of Marketing" }
+                ],
+                "2nd Year": [
+                    { code: "DBA 2021", title: "Business Economics" },
+                    { code: "DAF 2060", title: "Business and Company Law" },
+                    { code: "DAE 2011", title: "Research Methods" },
+                    { code: "DAF 2041", title: "Cost Accounting" },
+                    { code: "DAF 2050", title: "Financial Management" },
+                    { code: "DAF 2021", title: "Taxation" }
+                ],
+                "3rd Year": [
+                    { code: "DAE 3015", title: "Research Report" },
+                    { code: "DBA 3015", title: "Entrepreneurship" },
+                    { code: "DAF 3012", title: "Financial Reporting" },
+                    { code: "DBA 3035", title: "Corporate Governance and Business Ethics" },
+                    { code: "DAF 3011", title: "Investment Analysis and Portfolio Management" },
+                    { code: "DAF 3062", title: "Financial Risk Management" },
+                    { code: "DHR 3015", title: "Organisation Behaviour" },
+                    { code: "DAF 3022", title: "Auditing and Assurance" }
+                ]
+            },
+            "Purchasing and Supply Management": {
+                "1st Year": [
+                    { code: "BDA 1011", title: "Business Communication" },
+                    { code: "DBA 1040", title: "Business Mathematics and Statistics" },
+                    { code: "DAF 1030", title: "Financial Accounting" },
+                    { code: "DBA 1021", title: "Introduction to Information Management and Technology" },
+                    { code: "DBA 10542", title: "Principles of Management" },
+                    { code: "DPS 1011", title: "Principle of Procurement and Process" }
+                ],
+                "2nd Year": [
+                    { code: "DPS 2032", title: "Public Procurement" },
+                    { code: "DBA 2052", title: "Business Environment" },
+                    { code: "DAF 2041", title: "Cost Accounting" },
+                    { code: "DAE 2011", title: "Research Methods" },
+                    { code: "DPS 2021", title: "Inventory Management" },
+                    { code: "DPS 2031", title: "Negotiations and Sourcing in Practice" },
+                    { code: "DPS 2030", title: "Logistics and Supply Management" }
+                ],
+                "3rd Year": [
+                    { code: "DPS 3041", title: "Strategic Procurement and Supply Management" },
+                    { code: "DAE 3015", title: "Research Methods and Project" },
+                    { code: "DBA 3015", title: "Entrepreneurship" },
+                    { code: "DBA 3035", title: "Corporate Governance Ethics" },
+                    { code: "DPS 3011", title: "Law of Procurement and Supply" },
+                    { code: "DPS 3011", title: "Contract and Project Management" },
+                    { code: "DPS 3321", title: "Quality Assurance Purchasing and Supply" },
+                    { code: "DPS 3065", title: "Risk Management Procurement and Supply" }
+                ]
+            },
+            "Social Work": {
+                "1st Year": [
+                    { code: "DAE 1015", title: "Language and Communication Skills" },
+                    { code: "DSW 1110", title: "Introduction to Social Welfare" },
+                    { code: "DSW 1120", title: "Introduction to Sociology" },
+                    { code: "DSW 1010", title: "Introduction to Psychology" },
+                    { code: "DCS 1011", title: "Computer Application Skills and Concepts" }
+                ],
+                "2nd Year": [
+                    { code: "DSW 2110", title: "Contemporary Issues in Social Policy" },
+                    { code: "DSW 2320", title: "Social Work Practice Methods" },
+                    { code: "DSW 2430", title: "Social Work and Law" },
+                    { code: "DAE 2011", title: "Research Methods and Project" }
+                ],
+                "3rd Year": [
+                    { code: "DSW 3613", title: "Block Fieldwork" },
+                    { code: "DSW 3110", title: "Social Welfare Theories and Social Policy Analysis" },
+                    { code: "DSW 3330", title: "Research Project" },
+                    { code: "DSW 3314", title: "Social Work, Disability and Mental Health" },
+                    { code: "DBA 3315", title: "Entrepreneurship and Small Business Management" },
+                    { code: "DSW 9315", title: "Analysis of Social Work Intervention" }
+                ]
+            },
+            "Human Resource Management": {
+                "1st Year": [
+                    { code: "DAE 1015", title: "Language and Communication Skills" },
+                    { code: "DCS 1011", title: "Computer Application and Concepts" },
+                    { code: "DHR 1020", title: "Foundation of Human Resource Management" },
+                    { code: "DBA 1040", title: "Business Mathematics and Statistics" },
+                    { code: "DAF 1030", title: "Financial Accounting" }
+                ]
+            },
+            "Project Planning and Management": {
+                "1st Year": [
+                    { code: "DCS 1011", title: "Computer Application and Concepts" },
+                    { code: "DAE 1015", title: "Language and Communication Skills" },
+                    { code: "DPA 1025", title: "Introduction to Public Administration" },
+                    { code: "DIR 1015", title: "Introduction to Political Science" },
+                    { code: "DPM 1015", title: "Introduction to Project Management" },
+                    { code: "DHR 1020", title: "Foundation of Human Resource Management" },
+                    { code: "DAF 1030", title: "Financial Accounting" }
+                ]
+            },
+            "Public Administration": {
+                "1st Year": [
+                    { code: "DAE 1015", title: "Language and Business Communication Skills" },
+                    { code: "DCS 1011", title: "Computer Application and Concepts" },
+                    { code: "DPA 1025", title: "Introduction to Public Administration" },
+                    { code: "DIR 1015", title: "Introduction to Political Science" },
+                    { code: "DHR 1020", title: "Foundation of Human Resource" },
+                    { code: "DPR 1130", title: "Principles of Public Relations" }
+                ],
+                "2nd Year": [
+                    { code: "DPA 2011", title: "Government and Administration in Zambia" },
+                    { code: "DPA 2012", title: "Comparative Public Administration" },
+                    { code: "DPA 2031", title: "Resourcing: Recruitment, Placement and Talent MGT" },
+                    { code: "DPA 2022", title: "Labour Laws" },
+                    { code: "DPA 2021", title: "Local Government Administration in Zambia" },
+                    { code: "DAE 2011", title: "Research Methods" },
+                    { code: "DHR 2030", title: "Labour Relations" }
+                ],
+                "3rd Year": [
+                    { code: "DPA 3011", title: "Organisational Theory, Design and Management" },
+                    { code: "DPA 3031", title: "Human Resource Management" },
+                    { code: "DPA 9025", title: "Public Financial Management" },
+                    { code: "DPA 9045", title: "Public Administrative Ethics and Law" },
+                    { code: "DPA 9035", title: "Public Procurement" },
+                    { code: "DBA 3015", title: "Entrepreneurship" },
+                    { code: "DAE 3015", title: "Research Report" },
+                    { code: "DHR 3015", title: "Organisation Behaviour" }
+                ]
+            },
+            "Computer Science": {
+                "1st Year": [
+                    { code: "DAE 1015", title: "Language and Communication Skills" },
+                    { code: "DCS 1010", title: "Computer Application and Concepts" },
+                    { code: "DCS 1020", title: "Computer Programming" },
+                    { code: "DCS 1030", title: "Computer System" },
+                    { code: "DCS 1025", title: "Computer Number Representation and Data Encoding" }
+                ],
+                "2nd Year": [
+                    { code: "DCS 2000", title: "Computer Organisation and Architecture" },
+                    { code: "DCS 2010", title: "Database Design and Management" },
+                    { code: "DCS 2020", title: "Mathematics for Computing" },
+                    { code: "DCS 2030", title: "Network Design and Management" }
+                ],
+                "3rd Year": [
+                    { code: "DCS 3000", title: "Operating Systems" },
+                    { code: "DCS 3010", title: "Software Analysis and Design Concepts" },
+                    { code: "DCS 3020", title: "Web Development and Management" },
+                    { code: "DCS 3004", title: "Computing Project" }
+                ]
+            },
+            "Records Management": {
+                "1st Year": [
+                    { code: "DAE 1350", title: "Language and Communication Skills" },
+                    { code: "DRM 1010", title: "Foundation of Records and Archives Management" },
+                    { code: "DRM 1020", title: "Foundation of Knowledge Management" },
+                    { code: "DCS 1011", title: "Computer Application and Concepts" }
+                ],
+                "2nd Year": [
+                    { code: "DAE 2410", title: "Research Methods" },
+                    { code: "DRM 2010", title: "Electronic Records Management" },
+                    { code: "DRM 2020", title: "Management of Current and Semi-Current Records" },
+                    { code: "DLS 2010", title: "Organisation of Information Resources" }
+                ],
+                "3rd Year": [
+                    { code: "DRM 3010", title: "Financial and Human Resource Records Management" },
+                    { code: "DLS 3010", title: "Management of Information System" },
+                    { code: "DRM 3020", title: "Archives Administration" },
+                    { code: "DRM 3414", title: "Research in Records Management" },
+                    { code: "DLS 3043", title: "Information Management Practicum" }
+                ]
+            },
+            "Guidance and Counselling": {
+                "1st Year": [
+                    { code: "DAE 1015", title: "Language and Communication Skills" },
+                    { code: "DCS 1011", title: "Computer Application and Concepts" },
+                    { code: "DGC 1020", title: "Introduction to Guidance" },
+                    { code: "DGC 1020", title: "Introduction to Counselling" },
+                    { code: "DGC 1030", title: "Child Counselling" }
+                ],
+                "2nd Year": [
+                    { code: "DGC 2010", title: "Personality Development and Disorders" },
+                    { code: "DGC 2012", title: "Psychometrics in Guidance" },
+                    { code: "DGC 2030", title: "Ethics in Guidance and Counselling" },
+                    { code: "DAE 2011", title: "Research Methods" },
+                    { code: "EDU 2011", title: "Sociology of Education" },
+                    { code: "EDU 2012", title: "Educational Psychology" }
+                ],
+                "3rd Year": [
+                    { code: "DGC 3020", title: "Guidance and Counselling Skills" },
+                    { code: "DGC 3010", title: "Emerging Issues in Counselling" },
+                    { code: "DGC 3040", title: "Placement" },
+                    { code: "DGC 3414", title: "Research Project in Guidance and Counseling" },
+                    { code: "DGC 3003", title: "Practicum" }
+                ]
+            },
+            "Public Health": {
+                "1st Year": [
+                    { code: "DPH 1210", title: "Medical and Health Instrumentation" },
+                    { code: "DPH 1110", title: "Principles of Public Health" },
+                    { code: "DPH 1310", title: "Information, Communication and Technology" },
+                    { code: "DPH 1410", title: "Introduction to Basic Science and Mathematics" },
+                    { code: "DPH 1420", title: "Communicable and Non-Communicable Disease" }
+                ],
+                "2nd Year": [
+                    { code: "DPH 2135", title: "Introduction to Epidemiology and Biostatistics" },
+                    { code: "DPH 2220", title: "Occupational Health and Safety" },
+                    { code: "DPH 2235", title: "Pestology" },
+                    { code: "DPH 2120", title: "Principle of Public and Environment Health" },
+                    { code: "DPH 2320", title: "Introduction to Community Health" },
+                    { code: "DPH 2335", title: "Industrial Attachment and Reporting" },
+                    { code: "DPH 2434", title: "Research Methods and Proposal Development" }
+                ],
+                "3rd Year": [
+                    { code: "DPH 3360", title: "Introduction to Food Chemistry and Nutrition" },
+                    { code: "DPH 3370", title: "Food Safety and Hygiene" },
+                    { code: "DPH 3240", title: "Waste Management" },
+                    { code: "DPH 3440", title: "Integrated Disease Surveillance and Response" },
+                    { code: "DPH 3455", title: "Introduction to Health Services Management" },
+                    { code: "DPH 3464", title: "Research Methods and Project Report" }
+                ]
+            },
+            "Bridging Public Health": {
+                "1st Year": [
+                    { code: "DPH 2135", title: "Introduction to Epidemiology and Biostatistics" },
+                    { code: "DPH 2220", title: "Occupational and Health Safety" },
+                    { code: "DPH 2235", title: "Pestology" },
+                    { code: "DPH 2120", title: "Principles of Public and Environmental Health" },
+                    { code: "DPH 1420", title: "Communicable and Non-Communicable Diseases" },
+                    { code: "DPH 3360", title: "Introduction to Food Chemistry and Nutrition" },
+                    { code: "DPH 3370", title: "Food Safety and Hygiene" }
+                ]
+            }
         };
 
         async function loadData() {
@@ -635,32 +925,214 @@
 
         function showPrograms() {
             document.getElementById('programsModal').classList.remove('hidden');
-            renderProgramsList();
+            renderProgramCategories();
         }
 
         function closeProgramsModal() {
             document.getElementById('programsModal').classList.add('hidden');
         }
 
-        function renderProgramsList() {
-            const container = document.getElementById('programsList');
-            const programs = programsData["DIPLOMA PROGRAMS"] || [];
-            
-            container.innerHTML = programs.map(program => `
-                <div class="program-item" onclick="selectProgram('${program}')">
-                    <div class="font-medium">${program}</div>
+        function renderProgramCategories() {
+            const content = document.getElementById('programsContent');
+            content.innerHTML = `
+                <h3 class="header-font text-xl font-bold text-[#003087] mb-4">Academic Programs</h3>
+                <div class="program-list">
+                    <div class="program-item" onclick="showProgramList('DIPLOMA PROGRAMS')">
+                        <div class="font-medium">DIPLOMA PROGRAMS</div>
+                        <div class="text-sm text-gray-500">Click to view all diploma programs</div>
+                    </div>
                 </div>
-            `).join('');
+            `;
         }
 
-        function selectProgram(program) {
-            closeProgramsModal();
-            // Filter timetable by program (simplified for mobile)
-            const filtered = timetableData.filter(item => 
-                (item.fullName || '').toLowerCase().includes(program.toLowerCase().split(' ')[0]) ||
-                (item.course || '').substring(0, 3) === program.substring(0, 3).toUpperCase()
-            );
-            renderFilteredClasses(filtered);
+        function showProgramList(category) {
+            const content = document.getElementById('programsContent');
+            const programs = programsData[category] || [];
+            
+            content.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <button onclick="renderProgramCategories()" class="text-[#003087] mr-3">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h3 class="header-font text-xl font-bold text-[#003087]">${category}</h3>
+                </div>
+                <div class="program-list">
+                    ${programs.map(program => `
+                        <div class="program-item" onclick="showProgramYears('${program}')">
+                            <div class="font-medium">${program}</div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function showProgramYears(program) {
+            const content = document.getElementById('programsContent');
+            const availableYears = Object.keys(courseStructure[program] || {}).sort();
+            
+            content.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <button onclick="showProgramList('DIPLOMA PROGRAMS')" class="text-[#003087] mr-3">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h3 class="header-font text-lg font-bold text-[#003087]">${program}</h3>
+                        <p class="text-sm text-gray-500">Select year level</p>
+                    </div>
+                </div>
+                <div class="program-list">
+                    ${availableYears.map(year => `
+                        <div class="program-item" onclick="showYearOptions('${program}', '${year}')">
+                            <div class="font-medium">${year}</div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function showYearOptions(program, year) {
+            const content = document.getElementById('programsContent');
+            
+            content.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <button onclick="showProgramYears('${program}')" class="text-[#003087] mr-3">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h3 class="header-font text-lg font-bold text-[#003087]">${program}</h3>
+                        <p class="text-sm text-gray-500">${year}</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <button onclick="showCoursesList('${program}', '${year}')" class="w-full btn btn-primary">
+                        <i class="fas fa-book"></i>
+                        <span>View Courses</span>
+                    </button>
+                    <button onclick="showYearTimetable('${program}', '${year}')" class="w-full btn btn-primary">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>View Timetable</span>
+                    </button>
+                </div>
+            `;
+        }
+
+        function showCoursesList(program, year) {
+            const content = document.getElementById('programsContent');
+            const courses = courseStructure[program] && courseStructure[program][year] ? courseStructure[program][year] : [];
+            
+            content.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <button onclick="showYearOptions('${program}', '${year}')" class="text-[#003087] mr-3">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h3 class="header-font text-lg font-bold text-[#003087]">${program}</h3>
+                        <p class="text-sm text-gray-500">${year} - Courses</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-3 mb-3">
+                    <div class="text-sm font-medium text-gray-700">${courses.length} Courses</div>
+                </div>
+                <div class="program-list">
+                    ${courses.map((course, index) => `
+                        <div class="program-item">
+                            <div class="flex justify-between items-start">
+                                <div class="flex-1">
+                                    <div class="font-medium text-sm">${course.code}</div>
+                                    <div class="text-xs text-gray-600 mt-1">${course.title}</div>
+                                </div>
+                                <div class="text-xs text-gray-400 ml-3">#${index + 1}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function showYearTimetable(program, year) {
+            const content = document.getElementById('programsContent');
+            const yearCourses = (courseStructure[program] && courseStructure[program][year]) || [];
+            const courseCodes = yearCourses.map(c => c.code.toLowerCase().trim());
+            
+            // Filter main timetable data to only show classes for this program's year courses
+            const filtered = timetableData.filter(item => {
+                const itemCourse = (item.course || '').toLowerCase().trim();
+                return courseCodes.some(code =>
+                    itemCourse === code ||
+                    itemCourse.startsWith(code) ||
+                    code.startsWith(itemCourse)
+                );
+            });
+            
+            content.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <button onclick="showYearOptions('${program}', '${year}')" class="text-[#003087] mr-3">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h3 class="header-font text-lg font-bold text-[#003087]">${program}</h3>
+                        <p class="text-sm text-gray-500">${year} - Timetable</p>
+                    </div>
+                </div>
+            `;
+            
+            if (filtered.length === 0) {
+                content.innerHTML += `
+                    <div class="text-center py-8">
+                        <i class="fas fa-calendar-times text-3xl text-gray-300 mb-3"></i>
+                        <p class="text-gray-500">No timetable entries found</p>
+                        <button onclick="showSubmitTimetable()" class="btn btn-primary mt-3">
+                            <i class="fas fa-plus"></i>
+                            <span>Add Timetable</span>
+                        </button>
+                    </div>
+                `;
+            } else {
+                // Sort by day then time
+                const sorted = [...filtered].sort((a, b) => {
+                    const dayOrder = allDays.indexOf(a.day || '') - allDays.indexOf(b.day || '');
+                    if (dayOrder !== 0) return dayOrder;
+                    return (a.time || '').localeCompare(b.time || '');
+                });
+                
+                content.innerHTML += `
+                    <div class="bg-gray-50 rounded-lg p-3 mb-3">
+                        <div class="text-sm font-medium text-gray-700">${sorted.length} Classes</div>
+                    </div>
+                    <div class="program-list">
+                        ${sorted.map(item => {
+                            const lecturerParts = (item.lecturer || '').split('\n');
+                            const name = lecturerParts[0] || 'Not Assigned';
+                            const phone = lecturerParts[1] || '';
+                            
+                            return `
+                                <div class="program-item">
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between items-start">
+                                            <div class="flex-1">
+                                                <div class="font-medium text-sm">${item.course || ''}</div>
+                                                <div class="text-xs text-gray-600">${item.fullName || ''}</div>
+                                                <div class="text-xs text-gray-500 mt-1">${item.day || ''} • ${item.time || ''}</div>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <div class="text-sm">${name}</div>
+                                            ${phone ? `
+                                                <a href="tel:${phone}" class="call-btn text-xs">
+                                                    <i class="fas fa-phone"></i>
+                                                    Call
+                                                </a>
+                                            ` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+            }
         }
 
         function showSubmitTimetable() {
