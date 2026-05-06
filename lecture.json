@@ -11,9 +11,23 @@
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
-      "course": "DBA 1052",
-      "fullName": "Principles of Management",
-      "lecturer": "Mr. G. Mwiinga\n0977458483"
+      "course": "DPH 3360",
+      "fullName": "Introduction to Food Chemistry and Nutrition",
+      "lecturer": "Mr. S. Kunda\n0972140871"
+    },
+    {
+      "day": "Monday",
+      "time": "17:30 - 18:30",
+      "course": "DRM 1010",
+      "fullName": "Foundation of Records and Archives Management",
+      "lecturer": "Ms. M. Banda\n0978851302"
+    },
+    {
+      "day": "Monday",
+      "time": "17:30 - 18:30",
+      "course": "DCS 3000",
+      "fullName": "Operating Systems",
+      "lecturer": "Mr. O. Pule\n097769029"
     },
     {
       "day": "Monday",
@@ -25,16 +39,16 @@
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
-      "course": "DCS 1030",
-      "fullName": "Computer Systems",
-      "lecturer": "Mr. I. Mumba\n0972730841"
+      "course": "DPH 1210",
+      "fullName": "Medical and Health Instrumentation",
+      "lecturer": "Mr. Zimba Jonas\n0977222351"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
-      "course": "DPH 1210",
-      "fullName": "Medical and Health Instrumentation",
-      "lecturer": "Mr. Zimba Jonas\n0977222351"
+      "course": "DBA 1210",
+      "fullName": "Business Communication",
+      "lecturer": "Mr. I. Sitali\n0977295287"
     },
     {
       "day": "Monday",
@@ -60,9 +74,23 @@
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
+      "course": "DPA 3011",
+      "fullName": "Organisational Theory, Design and Management",
+      "lecturer": "Mr. I. Sitali\n0977295287"
+    },
+    {
+      "day": "Monday",
+      "time": "17:30 - 18:30",
       "course": "DPS 2032",
-      "fullName": "Business Procurement",
+      "fullName": "Public Procurement",
       "lecturer": "Mr. D. Phiri\n0977747991"
+    },
+    {
+      "day": "Monday",
+      "time": "17:30 - 18:30",
+      "course": "DRM 2010",
+      "fullName": "Electronic Records Management",
+      "lecturer": "Ms. M. Banda\n0978851302"
     },
     {
       "day": "Monday",
@@ -123,6 +151,20 @@
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
+      "course": "DRM 1010",
+      "fullName": "Foundation of Records and Archives Management",
+      "lecturer": "Ms. M. Banda\n0978851302"
+    },
+    {
+      "day": "Monday",
+      "time": "18:30 - 19:30",
+      "course": "DCS 3010",
+      "fullName": "Software Analysis and Design Concepts",
+      "lecturer": "Mr. Kennedy Kunda\n0971144906"
+    },
+    {
+      "day": "Monday",
+      "time": "18:30 - 19:30",
       "course": "DCS 1030",
       "fullName": "Computer Systems",
       "lecturer": "Mr. I. Mumba\n0972730841"
@@ -137,16 +179,9 @@
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
-      "course": "DAF 2050",
-      "fullName": "Financial Management",
-      "lecturer": "Mr. P. Linyama\n0973324908"
-    },
-    {
-      "day": "Monday",
-      "time": "18:30 - 19:30",
-      "course": "DPH 2120",
-      "fullName": "Principles of Public and Environmental Health",
-      "lecturer": "Mr. S. Moyo\n0977323944"
+      "course": "DAF 2120",
+      "fullName": "Business and Company Law",
+      "lecturer": "Mr. H. Shanduba\n0773567315"
     },
     {
       "day": "Monday",
@@ -154,6 +189,20 @@
       "course": "DPS 2030",
       "fullName": "Logistics and Supply Management",
       "lecturer": "Mr. B. Njobvu\n0977747991"
+    },
+    {
+      "day": "Monday",
+      "time": "18:30 - 19:30",
+      "course": "DLS 2010",
+      "fullName": "Organisation of Information Resources",
+      "lecturer": "Mr. K. Ngoma\n0964036200"
+    },
+    {
+      "day": "Monday",
+      "time": "18:30 - 19:30",
+      "course": "DRM 3010",
+      "fullName": "Financial and Human Resource Records Management",
+      "lecturer": "Ms. Mushimba Gloria\n0977975723"
     },
     {
       "day": "Monday",
@@ -186,13 +235,6 @@
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
-      "course": "DBA 3031",
-      "fullName": "Public Relations",
-      "lecturer": "Mr. Clement Chishimba\n0977477943"
-    },
-    {
-      "day": "Monday",
-      "time": "18:30 - 19:30",
       "course": "DPS 3065",
       "fullName": "Risk Management Procurement and Supply",
       "lecturer": "Ms. N. Mataka\n0974270789"
@@ -203,13 +245,6 @@
       "course": "DBA 1011",
       "fullName": "Business Communication",
       "lecturer": "Mr. I. Sitali\n0977295287"
-    },
-    {
-      "day": "Tuesday",
-      "time": "17:30 - 18:30",
-      "course": "DAE 1011",
-      "fullName": "Language & Communication Skills",
-      "lecturer": "Ms. L. Simusonkwe\n0975433199"
     },
     {
       "day": "Tuesday",
@@ -228,9 +263,9 @@
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
-      "course": "DAE 2410",
-      "fullName": "Research Methods",
-      "lecturer": "Mrs. S. Chipalo & B Kombe\n0976261152 / 0977767100"
+      "course": "DPH 1310",
+      "fullName": "Information, Communication and Technology",
+      "lecturer": "Mr. Shamunsale A.\n0977828349"
     },
     {
       "day": "Tuesday",
@@ -249,16 +284,16 @@
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
-      "course": "DBA 3015",
-      "fullName": "Entrepreneurship",
-      "lecturer": "Mr. H. Shanduba\n0773567315"
+      "course": "DAE 2410",
+      "fullName": "Research Methods",
+      "lecturer": "Mrs. S. Chipalo & B Kombe\n0976261152 / 0977767100"
     },
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
-      "course": "DBA 3021",
-      "fullName": "Strategic Management",
-      "lecturer": "Mr. Godfrey Banda\n0973863311"
+      "course": "DBA 3015",
+      "fullName": "Entrepreneurship",
+      "lecturer": "Mr. H. Shanduba\n0773567315"
     },
     {
       "day": "Tuesday",
@@ -277,9 +312,9 @@
     {
       "day": "Tuesday",
       "time": "17:30 - 18:30",
-      "course": "DCS 3020",
-      "fullName": "Web Development and Management",
-      "lecturer": "Mr. Kennedy Kunda\n0971144906"
+      "course": "DLS 3020",
+      "fullName": "Management of Information System",
+      "lecturer": "Ms. M. Banda\n0978851302"
     },
     {
       "day": "Tuesday",
@@ -298,8 +333,36 @@
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
+      "course": "DAE 1015",
+      "fullName": "Language & Communication Skills",
+      "lecturer": "Ms. L. Simusonkwe\n0975433199"
+    },
+    {
+      "day": "Tuesday",
+      "time": "18:30 - 19:30",
+      "course": "DAE 1350",
+      "fullName": "Language & Communication Skills",
+      "lecturer": "Ms. L. Simusonkwe\n0975433199"
+    },
+    {
+      "day": "Tuesday",
+      "time": "18:30 - 19:30",
+      "course": "DPH 1310",
+      "fullName": "Information, Communication and Technology",
+      "lecturer": "Mr. Shamunsale A.\n0977828349"
+    },
+    {
+      "day": "Tuesday",
+      "time": "18:30 - 19:30",
       "course": "DAE 2011",
       "fullName": "Research Methods",
+      "lecturer": "Mrs. S. Chipalo & B Kombe\n0976261152 / 0977767100"
+    },
+    {
+      "day": "Tuesday",
+      "time": "18:30 - 19:30",
+      "course": "DPH 2434",
+      "fullName": "Research Methods and Proposal Development",
       "lecturer": "Mrs. S. Chipalo & B Kombe\n0976261152 / 0977767100"
     },
     {
@@ -319,7 +382,7 @@
     {
       "day": "Tuesday",
       "time": "18:30 - 19:30",
-      "course": "DAF 3062",
+      "course": "DAF3062",
       "fullName": "Financial Risk Management",
       "lecturer": "Mr. Mulenga Mporokoso\n0978887345"
     },
@@ -361,9 +424,51 @@
     {
       "day": "Wednesday",
       "time": "17:30 - 18:30",
+      "course": "DRM 3114",
+      "fullName": "Research in Records Management",
+      "lecturer": "Ms. M. Banda\n0978851302"
+    },
+    {
+      "day": "Wednesday",
+      "time": "17:30 - 18:30",
+      "course": "DPH 3464",
+      "fullName": "Research Methods and Project Report",
+      "lecturer": "Mrs. S. Chipalo & B Kombe\n0976261152 / 0977767100"
+    },
+    {
+      "day": "Wednesday",
+      "time": "17:30 - 18:30",
       "course": "DBA 1021",
       "fullName": "Introduction to Information Management & Technology",
       "lecturer": "Mr. Namunji J Mundia\n0977754607"
+    },
+    {
+      "day": "Wednesday",
+      "time": "17:30 - 18:30",
+      "course": "DCS 1021",
+      "fullName": "Computer Programming",
+      "lecturer": "Mr. Kennedy Kunda\n0971144906"
+    },
+    {
+      "day": "Wednesday",
+      "time": "17:30 - 18:30",
+      "course": "DCS 1011",
+      "fullName": "Computer Application and Concepts",
+      "lecturer": "Mr. D. Phiri\n0977747991"
+    },
+    {
+      "day": "Wednesday",
+      "time": "17:30 - 18:30",
+      "course": "DCS 1010",
+      "fullName": "Computer Application and Concepts",
+      "lecturer": "Mr. D. Phiri\n0977747991"
+    },
+    {
+      "day": "Wednesday",
+      "time": "17:30 - 18:30",
+      "course": "DPH 1310",
+      "fullName": "Information, Communication and Technology",
+      "lecturer": "Mr. Shamunsale A.\n0977828349"
     },
     {
       "day": "Wednesday",
@@ -431,6 +536,48 @@
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
+      "course": "DSM 3021",
+      "fullName": "Decision Making Techniques",
+      "lecturer": "Mr. G. Mwiinga\n0977458483"
+    },
+    {
+      "day": "Wednesday",
+      "time": "18:30 - 19:30",
+      "course": "DBA 1021",
+      "fullName": "Introduction to Information Management & Technology",
+      "lecturer": "Mr. Namunji J Mundia\n0977754607"
+    },
+    {
+      "day": "Wednesday",
+      "time": "18:30 - 19:30",
+      "course": "DCS 1021",
+      "fullName": "Computer Programming",
+      "lecturer": "Mr. Kennedy Kunda\n0971144906"
+    },
+    {
+      "day": "Wednesday",
+      "time": "18:30 - 19:30",
+      "course": "DCS 1011",
+      "fullName": "Computer Application and Concepts",
+      "lecturer": "Mr. D. Phiri\n0977747991"
+    },
+    {
+      "day": "Wednesday",
+      "time": "18:30 - 19:30",
+      "course": "DCS 1010",
+      "fullName": "Computer Application and Concepts",
+      "lecturer": "Mr. D. Phiri\n0977747991"
+    },
+    {
+      "day": "Wednesday",
+      "time": "18:30 - 19:30",
+      "course": "DPH 1310",
+      "fullName": "Information, Communication and Technology",
+      "lecturer": "Mr. Shamunsale A.\n0977828349"
+    },
+    {
+      "day": "Wednesday",
+      "time": "18:30 - 19:30",
       "course": "DBA 2021",
       "fullName": "Business and Company Law",
       "lecturer": "Mr. H. Shanduba\n0773567315"
@@ -438,7 +585,7 @@
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
-      "course": "DPH 3455",
+      "course": "DPH 3045",
       "fullName": "Introduction to Health Services Management",
       "lecturer": "Mr. Isaac Musonda\n0976160105"
     },
@@ -448,6 +595,13 @@
       "course": "DCS 2000",
       "fullName": "Computer Organisation and Architecture",
       "lecturer": "Mr. J. Chongo\n0977558282"
+    },
+    {
+      "day": "Wednesday",
+      "time": "18:30 - 19:30",
+      "course": "DPH 3360",
+      "fullName": "Introduction to Food Chemistry and Nutrition",
+      "lecturer": "Mr. S. Kunda\n0972140871"
     },
     {
       "day": "Wednesday",
@@ -487,9 +641,9 @@
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
-      "course": "DBA 3010",
-      "fullName": "Corporate Governance & Ethics",
-      "lecturer": "Mr. P. Linyama\n0973324908"
+      "course": "DBA 3012",
+      "fullName": "International Business",
+      "lecturer": "Mr. G. Mwiinga\n0977458483"
     },
     {
       "day": "Wednesday",
@@ -515,9 +669,23 @@
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
+      "course": "DPH 2320",
+      "fullName": "Occupational Health and Safety",
+      "lecturer": "Mr. Isaac Musonda\n0976160105"
+    },
+    {
+      "day": "Thursday",
+      "time": "17:30 - 18:30",
       "course": "DRM 1030",
       "fullName": "Methods and Techniques used in Records Management",
       "lecturer": "Ms. M. Banda\n0978851302"
+    },
+    {
+      "day": "Thursday",
+      "time": "17:30 - 18:30",
+      "course": "DCS 3010",
+      "fullName": "Software Analysis and Design Concepts",
+      "lecturer": "Mr. Kennedy Kunda\n0971144906"
     },
     {
       "day": "Thursday",
@@ -546,6 +714,13 @@
       "course": "DPH 2235",
       "fullName": "Pestology",
       "lecturer": "Mr. Shamunsale A.\n0977828349"
+    },
+    {
+      "day": "Thursday",
+      "time": "17:30 - 18:30",
+      "course": "DLS 2010",
+      "fullName": "Organisation of Information Resources",
+      "lecturer": "Mr. K. Ngoma\n0964036200"
     },
     {
       "day": "Thursday",
@@ -613,6 +788,13 @@
     {
       "day": "Thursday",
       "time": "18:30 - 19:30",
+      "course": "DCS 3004",
+      "fullName": "Computing Project",
+      "lecturer": "Mr. D. Phiri\n0977747991"
+    },
+    {
+      "day": "Thursday",
+      "time": "18:30 - 19:30",
       "course": "DCS 1020",
       "fullName": "Computer Programming",
       "lecturer": "Mr. Kennedy Kunda\n0971144906"
@@ -637,6 +819,13 @@
       "course": "DPH 2120",
       "fullName": "Principles of Public and Environmental Health",
       "lecturer": "Mr. S. Moyo\n0977323944"
+    },
+    {
+      "day": "Thursday",
+      "time": "18:30 - 19:30",
+      "course": "DRM 2010",
+      "fullName": "Electronic Records Management",
+      "lecturer": "Ms. M. Banda\n0978851302"
     },
     {
       "day": "Thursday",
@@ -698,7 +887,7 @@
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DRM 1020",
-      "fullName": "Foundation of Records and Archives Management",
+      "fullName": "Foundation of Knowledge Management",
       "lecturer": "Ms. M. Banda\n0978851302"
     },
     {
@@ -747,8 +936,15 @@
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DPS 2032",
-      "fullName": "Logistics and Supply Management",
-      "lecturer": "Mr. B. Njobvu\n0977747991"
+      "fullName": "Public Procurement",
+      "lecturer": "Mr. D. Phiri\n0977747991"
+    },
+    {
+      "day": "Friday",
+      "time": "17:30 - 18:30",
+      "course": "DCS 2030",
+      "fullName": "Network Design and Management",
+      "lecturer": "Mr. J. Chongo\n0977558282"
     },
     {
       "day": "Friday",
@@ -761,8 +957,8 @@
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DBA 3021",
-      "fullName": "Business and Company Law",
-      "lecturer": "Mr. H. Shanduba\n0773567315"
+      "fullName": "Strategic Management",
+      "lecturer": "Mr. Godfrey Banda\n0973863311"
     },
     {
       "day": "Friday",
@@ -782,8 +978,85 @@
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DPA 3011",
-      "fullName": "Human Resource Management",
+      "fullName": "Organisational Theory, Design and Management",
       "lecturer": "Mr. I. Sitali\n0977295287"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DSM 1012",
+      "fullName": "Principle of Marketing",
+      "lecturer": "Mr. G. Mwiinga\n0977458483"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DPS 1011",
+      "fullName": "Principle of Procurement and Process",
+      "lecturer": "Mr. D. Phiri\n0977747991"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DRM 1020",
+      "fullName": "Foundation of Knowledge Management",
+      "lecturer": "Ms. M. Banda\n0978851302"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DPA 9045",
+      "fullName": "Public Administrative Ethics and Law",
+      "lecturer": "Mr. S. Kunda\n0972140871"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DCS 1025",
+      "fullName": "Computer Number Representation and Data Encoding",
+      "lecturer": "Mr. K. Ngoma\n0964036200"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DPH 1110",
+      "fullName": "Principles of Public Health",
+      "lecturer": "Mr. Shamunsale A.\n0977828349"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DBA 2021",
+      "fullName": "Business and Company Law",
+      "lecturer": "Mr. H. Shanduba\n0773567315"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DPH 2335",
+      "fullName": "Industrial Attachment and Reporting",
+      "lecturer": "Mr. Isaac Musonda\n0976160105"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DRM 2020",
+      "fullName": "Management of Current and Semi-Current Records",
+      "lecturer": "Ms. M. Banda\n0978851302"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DPS 2031",
+      "fullName": "Negotiations and Sourcing in Practice",
+      "lecturer": "Mr. B. Njobvu\n0977747991"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DPA 3240",
+      "fullName": "Labour Relations",
+      "lecturer": "Mr. Christopher Lombe\n0976739865"
     },
     {
       "day": "Saturday",
@@ -865,13 +1138,6 @@
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
-      "course": "DPA 9035",
-      "fullName": "Public Administrative Ethics and Law",
-      "lecturer": "Mr. S. Kunda\n0972140871"
-    },
-    {
-      "day": "Saturday",
-      "time": "15:00 - 16:00",
       "course": "DPH 2135",
       "fullName": "Introduction to Epidemiology and Biostatistics",
       "lecturer": "Mr. Zimba Jonas\n0977222351"
@@ -889,13 +1155,6 @@
       "course": "DBA 3022",
       "fullName": "Business and Company Law",
       "lecturer": "Mr. H. Shanduba\n0773567315"
-    },
-    {
-      "day": "Saturday",
-      "time": "15:00 - 16:00",
-      "course": "DSM 3042",
-      "fullName": "Corporate Governance and Business Ethics",
-      "lecturer": "Mr. Godfrey Banda\n0973863311"
     },
     {
       "day": "Saturday",
@@ -943,7 +1202,7 @@
       "day": "Saturday",
       "time": "16:00 - 17:00",
       "course": "DBS 3035",
-      "fullName": "Corporate Governance and Business Ethics",
+      "fullName": "Corporate Governance & Business Ethics",
       "lecturer": "Mr. P. Linyama\n0973324908"
     },
     {
@@ -1006,8 +1265,8 @@
       "day": "Sunday",
       "time": "15:00 - 16:00",
       "course": "DAF 3022",
-      "fullName": "Financial Reporting",
-      "lecturer": "Mr. Alex Musonda\n0979613168"
+      "fullName": "Auditing & Assurance",
+      "lecturer": "Mr. Geoffrey Mwiinga\n0977458483"
     },
     {
       "day": "Sunday",
@@ -1019,7 +1278,7 @@
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
-      "course": "DPH 2220",
+      "course": "DPH2220",
       "fullName": "Occupational Health and Safety",
       "lecturer": "Mr. Isaac Musonda\n0976160105"
     },
