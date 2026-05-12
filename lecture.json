@@ -46,13 +46,6 @@
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
-      "course": "DBA 1210",
-      "fullName": "Business Communication",
-      "lecturer": "Mr. I. Sitali\n0977295287"
-    },
-    {
-      "day": "Monday",
-      "time": "17:30 - 18:30",
       "course": "DBA 2052",
       "fullName": "Business Environment",
       "lecturer": "Mr. Mulenga Mporokoso\n0978887345"
@@ -70,27 +63,6 @@
       "course": "DPH 2135",
       "fullName": "Introduction to Epidemiology and Biostatistics",
       "lecturer": "Mr. Zimba Jonas\n0977222351"
-    },
-    {
-      "day": "Monday",
-      "time": "17:30 - 18:30",
-      "course": "DPA 3011",
-      "fullName": "Organisational Theory, Design and Management",
-      "lecturer": "Mr. I. Sitali\n0977295287"
-    },
-    {
-      "day": "Monday",
-      "time": "17:30 - 18:30",
-      "course": "DPS 2032",
-      "fullName": "Public Procurement",
-      "lecturer": "Mr. D. Phiri\n0977747991"
-    },
-    {
-      "day": "Monday",
-      "time": "17:30 - 18:30",
-      "course": "DRM 2010",
-      "fullName": "Electronic Records Management",
-      "lecturer": "Ms. M. Banda\n0978851302"
     },
     {
       "day": "Monday",
@@ -123,16 +95,16 @@
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
-      "course": "DBA 3031",
-      "fullName": "Public Relations",
-      "lecturer": "Mr. Clement Chishimba\n0977477943"
+      "course": "DPS 3041",
+      "fullName": "Strategic Procurement and Supply Management",
+      "lecturer": "Mrs. Martha Chilekwa\n0977747991"
     },
     {
       "day": "Monday",
       "time": "17:30 - 18:30",
-      "course": "DPS 3041",
-      "fullName": "Strategic Procurement and Supply Management",
-      "lecturer": "Mrs. Martha Chilekwa\n0977747991"
+      "course": "ECE 2122",
+      "fullName": "Digital Systems Design",
+      "lecturer": "Mr. J. Chongo\n0977558282"
     },
     {
       "day": "Monday",
@@ -179,9 +151,16 @@
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
-      "course": "DAF 2120",
-      "fullName": "Business and Company Law",
-      "lecturer": "Mr. H. Shanduba\n0773567315"
+      "course": "DAF 2050",
+      "fullName": "Financial Management",
+      "lecturer": "Mr. P. Linyama\n0973324908"
+    },
+    {
+      "day": "Monday",
+      "time": "18:30 - 19:30",
+      "course": "DPH 2120",
+      "fullName": "Principles of Public and Environmental Health",
+      "lecturer": "Mr. S. Moyo\n0977323944"
     },
     {
       "day": "Monday",
@@ -221,9 +200,9 @@
     {
       "day": "Monday",
       "time": "18:30 - 19:30",
-      "course": "DAF 3011",
-      "fullName": "Investment Analysis and Portfolio Management",
-      "lecturer": "Mr. Alex Musonda\n0979613168"
+      "course": "DHR 3015",
+      "fullName": "Organisational Behaviour",
+      "lecturer": "Mr. Christopher Lombe\n0976739865"
     },
     {
       "day": "Monday",
@@ -238,6 +217,13 @@
       "course": "DPS 3065",
       "fullName": "Risk Management Procurement and Supply",
       "lecturer": "Ms. N. Mataka\n0974270789"
+    },
+    {
+      "day": "Monday",
+      "time": "18:30 - 19:30",
+      "course": "ECE 2111",
+      "fullName": "Circuit Theory",
+      "lecturer": "Mr. J. Chongo\n0977558282"
     },
     {
       "day": "Tuesday",
@@ -521,6 +507,13 @@
     },
     {
       "day": "Wednesday",
+      "time": "17:30 - 18:30",
+      "course": "ECE 2122",
+      "fullName": "Digital Systems Design",
+      "lecturer": "Mr. J. Chongo\n0977558282"
+    },
+    {
+      "day": "Wednesday",
       "time": "18:30 - 19:30",
       "course": "DPS 3041",
       "fullName": "Strategic Procurement and Supply Management",
@@ -620,9 +613,9 @@
     {
       "day": "Wednesday",
       "time": "18:30 - 19:30",
-      "course": "DHR 3015",
-      "fullName": "Organisational Behaviour",
-      "lecturer": "Mr. Christopher Lombe\n0976739865"
+      "course": "ECE 2120",
+      "fullName": "Electronics",
+      "lecturer": "Mr. J. Chongo\n0977558282"
     },
     {
       "day": "Wednesday",
@@ -697,7 +690,14 @@
     {
       "day": "Thursday",
       "time": "17:30 - 18:30",
-      "course": "DPH 1420",
+      "course": "ECE 2111",
+      "fullName": "Circuit Theory",
+      "lecturer": "Mr. J. Chongo\n0977558282"
+    },
+    {
+      "day": "Thursday",
+      "time": "17:30 - 18:30",
+      "course": "DPH 1410",
       "fullName": "Communicable and Non-Communicable Diseases",
       "lecturer": "Mr. Shamunsale A.\n0977828349"
     },
@@ -863,6 +863,13 @@
       "lecturer": "Mr. Z. Chisanga\n0977747991"
     },
     {
+      "day": "Thursday",
+      "time": "18:30 - 19:30",
+      "course": "ECE 2130",
+      "fullName": "Signal Processing",
+      "lecturer": "Mr. J. Chongo\n0977558282"
+    },
+    {
       "day": "Friday",
       "time": "17:30 - 18:30",
       "course": "DBA 1052",
@@ -875,13 +882,6 @@
       "course": "DCS 3004",
       "fullName": "Computing Project",
       "lecturer": "Mr. D. Phiri\n0977747991"
-    },
-    {
-      "day": "Friday",
-      "time": "17:30 - 18:30",
-      "course": "DPH 3440",
-      "fullName": "Integrated Disease Surveillance and Response",
-      "lecturer": "Mr. S. Kunda\n0972140871"
     },
     {
       "day": "Friday",
@@ -942,8 +942,8 @@
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
-      "course": "DCS 2030",
-      "fullName": "Network Design and Management",
+      "course": "ECE 2301",
+      "fullName": "Control Systems",
       "lecturer": "Mr. J. Chongo\n0977558282"
     },
     {
@@ -963,9 +963,23 @@
     {
       "day": "Friday",
       "time": "17:30 - 18:30",
-      "course": "DAF 3062",
-      "fullName": "Financial Risk Management",
-      "lecturer": "Mr. Mulenga Mporokoso\n0978887345"
+      "course": "DCS 2030",
+      "fullName": "Network Design and Management",
+      "lecturer": "Mr. J. Chongo\n0977558282"
+    },
+    {
+      "day": "Friday",
+      "time": "17:30 - 18:30",
+      "course": "DBA 3012",
+      "fullName": "International Business",
+      "lecturer": "Mr. G. Mwiinga\n0977458483"
+    },
+    {
+      "day": "Friday",
+      "time": "17:30 - 18:30",
+      "course": "DAF 3012",
+      "fullName": "Financial Reporting",
+      "lecturer": "Mr. Alex Musonda\n0979613168"
     },
     {
       "day": "Friday",
@@ -1054,9 +1068,37 @@
     {
       "day": "Friday",
       "time": "18:30 - 19:30",
-      "course": "DPA 3240",
-      "fullName": "Labour Relations",
-      "lecturer": "Mr. Christopher Lombe\n0976739865"
+      "course": "ECE 2301",
+      "fullName": "Control Systems",
+      "lecturer": "Mr. J. Chongo\n0977558282"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DPA 2012",
+      "fullName": "Comparative Public Administration",
+      "lecturer": "Mr. Samuel Kunda\n0972140871"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DPH 3240",
+      "fullName": "Waste Management",
+      "lecturer": "Mr. S. Moyo\n0977323944"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DBA 3021",
+      "fullName": "Strategic Management",
+      "lecturer": "Mr. Godfrey Banda\n0973863311"
+    },
+    {
+      "day": "Friday",
+      "time": "18:30 - 19:30",
+      "course": "DAF 3022",
+      "fullName": "Auditing & Assurance",
+      "lecturer": "Mr. Geoffrey Mwiinga\n0977458483"
     },
     {
       "day": "Saturday",
@@ -1123,6 +1165,13 @@
     },
     {
       "day": "Saturday",
+      "time": "14:00 - 15:00",
+      "course": "ECE 2222",
+      "fullName": "Microprocessors",
+      "lecturer": "Mr. J. Chongo\n0977558282"
+    },
+    {
+      "day": "Saturday",
       "time": "15:00 - 16:00",
       "course": "DPH 1410",
       "fullName": "Introduction to Basic Science and Mathematics",
@@ -1134,6 +1183,13 @@
       "course": "DAF 2060",
       "fullName": "Business and Company Law",
       "lecturer": "Mr. H. Shanduba\n0773567315"
+    },
+    {
+      "day": "Saturday",
+      "time": "15:00 - 16:00",
+      "course": "DPA 9035",
+      "fullName": "Public Administrative Ethics and Law",
+      "lecturer": "Mr. S. Kunda\n0972140871"
     },
     {
       "day": "Saturday",
@@ -1152,13 +1208,6 @@
     {
       "day": "Saturday",
       "time": "15:00 - 16:00",
-      "course": "DBA 3022",
-      "fullName": "Business and Company Law",
-      "lecturer": "Mr. H. Shanduba\n0773567315"
-    },
-    {
-      "day": "Saturday",
-      "time": "15:00 - 16:00",
       "course": "DPS 3321",
       "fullName": "Quality Assurance Purchasing and Supply",
       "lecturer": "Ms. N. Mataka\n0974270789"
@@ -1169,6 +1218,13 @@
       "course": "DRM 3020",
       "fullName": "Archives Administration",
       "lecturer": "Ms. M. Banda\n0978851302"
+    },
+    {
+      "day": "Saturday",
+      "time": "15:00 - 16:00",
+      "course": "ECE 2222",
+      "fullName": "Microprocessors",
+      "lecturer": "Mr. J. Chongo\n0977558282"
     },
     {
       "day": "Saturday",
@@ -1263,10 +1319,10 @@
     },
     {
       "day": "Sunday",
-      "time": "15:00 - 16:00",
-      "course": "DAF 3022",
-      "fullName": "Auditing & Assurance",
-      "lecturer": "Mr. Geoffrey Mwiinga\n0977458483"
+      "time": "14:00 - 15:00",
+      "course": "ECE 2121",
+      "fullName": "Electromagnetics",
+      "lecturer": "Mr. J. Chongo\n0977558282"
     },
     {
       "day": "Sunday",
@@ -1278,9 +1334,23 @@
     {
       "day": "Sunday",
       "time": "15:00 - 16:00",
-      "course": "DPH2220",
+      "course": "DPH 2220",
       "fullName": "Occupational Health and Safety",
       "lecturer": "Mr. Isaac Musonda\n0976160105"
+    },
+    {
+      "day": "Sunday",
+      "time": "15:00 - 16:00",
+      "course": "DAF 3011",
+      "fullName": "Investment Analysis and Portfolio Management",
+      "lecturer": "Mr. Alex Musonda\n0979613168"
+    },
+    {
+      "day": "Sunday",
+      "time": "15:00 - 16:00",
+      "course": "ECE 2121",
+      "fullName": "Electromagnetics",
+      "lecturer": "Mr. J. Chongo\n0977558282"
     },
     {
       "day": "Sunday",
